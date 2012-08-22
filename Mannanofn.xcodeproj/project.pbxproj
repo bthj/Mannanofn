@@ -21,6 +21,13 @@
 		FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */; };
 		FB313E0F1546008A0077438C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E0E1546008A0077438C /* second.png */; };
 		FB313E111546008A0077438C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E101546008A0077438C /* second@2x.png */; };
+		FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */; };
+		FBE174C315E30C0300EDC6A4 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C215E30C0300EDC6A4 /* Favorite.m */; };
+		FBE174C515E3105C00EDC6A4 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBE174C415E3105C00EDC6A4 /* names.json */; };
+		FBE174C815E3121600EDC6A4 /* NamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */; };
+		FBE174CA15E3193E00EDC6A4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE174C915E3193E00EDC6A4 /* CoreData.framework */; };
+		FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D415E452D100EDC6A4 /* Name+Create.m */; };
+		FBE174D815E456A200EDC6A4 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D715E456A200EDC6A4 /* Name.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +51,19 @@
 		FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MannanofnSecondViewController.m; sourceTree = "<group>"; };
 		FB313E0E1546008A0077438C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		FB313E101546008A0077438C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		FBE174A015E3069600EDC6A4 /* Mannanofn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mannanofn.xcdatamodel; sourceTree = "<group>"; };
+		FBE174C115E30C0300EDC6A4 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
+		FBE174C215E30C0300EDC6A4 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
+		FBE174C415E3105C00EDC6A4 /* names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names.json; sourceTree = "<group>"; };
+		FBE174C615E3121600EDC6A4 /* NamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesTableViewController.h; sourceTree = "<group>"; };
+		FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewController.m; sourceTree = "<group>"; };
+		FBE174C915E3193E00EDC6A4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FBE174CB15E3199800EDC6A4 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		FBE174CC15E3199800EDC6A4 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		FBE174D315E452D100EDC6A4 /* Name+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Name+Create.h"; sourceTree = "<group>"; };
+		FBE174D415E452D100EDC6A4 /* Name+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Name+Create.m"; sourceTree = "<group>"; };
+		FBE174D615E456A200EDC6A4 /* Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Name.h; sourceTree = "<group>"; };
+		FBE174D715E456A200EDC6A4 /* Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Name.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE174CA15E3193E00EDC6A4 /* CoreData.framework in Frameworks */,
 				FB313DED1546008A0077438C /* UIKit.framework in Frameworks */,
 				FB313DEF1546008A0077438C /* Foundation.framework in Frameworks */,
 				FB313DF11546008A0077438C /* CoreGraphics.framework in Frameworks */,
@@ -63,6 +84,7 @@
 		FB313DDD1546008A0077438C = {
 			isa = PBXGroup;
 			children = (
+				FBE174C915E3193E00EDC6A4 /* CoreData.framework */,
 				FB313DF21546008A0077438C /* Mannanofn */,
 				FB313DEB1546008A0077438C /* Frameworks */,
 				FB313DE91546008A0077438C /* Products */,
@@ -90,10 +112,13 @@
 		FB313DF21546008A0077438C /* Mannanofn */ = {
 			isa = PBXGroup;
 			children = (
+				FBE174A315E309D400EDC6A4 /* data */,
 				FB313DFB1546008A0077438C /* MannanofnAppDelegate.h */,
 				FB313DFC1546008A0077438C /* MannanofnAppDelegate.m */,
 				FB313DFE1546008A0077438C /* MainStoryboard_iPhone.storyboard */,
 				FB313E011546008A0077438C /* MainStoryboard_iPad.storyboard */,
+				FBE174C615E3121600EDC6A4 /* NamesTableViewController.h */,
+				FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */,
 				FB313E041546008A0077438C /* MannanofnFirstViewController.h */,
 				FB313E051546008A0077438C /* MannanofnFirstViewController.m */,
 				FB313E071546008A0077438C /* first.png */,
@@ -110,12 +135,29 @@
 		FB313DF31546008A0077438C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FBE174C415E3105C00EDC6A4 /* names.json */,
 				FB313DF41546008A0077438C /* Mannanofn-Info.plist */,
 				FB313DF51546008A0077438C /* InfoPlist.strings */,
 				FB313DF81546008A0077438C /* main.m */,
 				FB313DFA1546008A0077438C /* Mannanofn-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBE174A315E309D400EDC6A4 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */,
+				FBE174C115E30C0300EDC6A4 /* Favorite.h */,
+				FBE174C215E30C0300EDC6A4 /* Favorite.m */,
+				FBE174D615E456A200EDC6A4 /* Name.h */,
+				FBE174D715E456A200EDC6A4 /* Name.m */,
+				FBE174D315E452D100EDC6A4 /* Name+Create.h */,
+				FBE174D415E452D100EDC6A4 /* Name+Create.m */,
+				FBE174CB15E3199800EDC6A4 /* CoreDataTableViewController.h */,
+				FBE174CC15E3199800EDC6A4 /* CoreDataTableViewController.m */,
+			);
+			name = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +219,7 @@
 				FB313E0A1546008A0077438C /* first@2x.png in Resources */,
 				FB313E0F1546008A0077438C /* second.png in Resources */,
 				FB313E111546008A0077438C /* second@2x.png in Resources */,
+				FBE174C515E3105C00EDC6A4 /* names.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +234,11 @@
 				FB313DFD1546008A0077438C /* MannanofnAppDelegate.m in Sources */,
 				FB313E061546008A0077438C /* MannanofnFirstViewController.m in Sources */,
 				FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */,
+				FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */,
+				FBE174C315E30C0300EDC6A4 /* Favorite.m in Sources */,
+				FBE174C815E3121600EDC6A4 /* NamesTableViewController.m in Sources */,
+				FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */,
+				FBE174D815E456A200EDC6A4 /* Name.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,8 +360,22 @@
 				FB313E161546008A0077438C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FBE174A015E3069600EDC6A4 /* Mannanofn.xcdatamodel */,
+			);
+			currentVersion = FBE174A015E3069600EDC6A4 /* Mannanofn.xcdatamodel */;
+			path = Mannanofn.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FB313DDF1546008A0077438C /* Project object */;
 }

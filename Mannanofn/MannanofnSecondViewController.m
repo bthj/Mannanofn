@@ -3,7 +3,7 @@
 //  Mannanofn
 //
 //  Created by Bjorn Thor Jonsson on 4/23/12.
-//  Copyright (c) 2012 Síminn. All rights reserved.
+//  Copyright (c) 2012 nemur.net. All rights reserved.
 //
 
 #import "MannanofnSecondViewController.h"
