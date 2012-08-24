@@ -15,6 +15,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+
+    // set locale for sorting of Core Data
+    NSArray *languages = [NSArray arrayWithObject:@"is-IS"];
+    [[NSUserDefaults standardUserDefaults] setObject:languages forKey:@"AppleLanguages"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     return YES;
 }
 							

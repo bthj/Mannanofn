@@ -39,7 +39,7 @@
     return request;
 }
 
-- (void)fetchNamesIntoDocument:(UIManagedDocument *)document:(BOOL *)reset
+- (void)fetchNamesIntoDocument:(UIManagedDocument *)document:(BOOL)reset
 {
     dispatch_queue_t seedQ = dispatch_queue_create("Names database seeding", NULL);
     dispatch_async(seedQ, ^{
@@ -102,7 +102,7 @@
 
     NSString *namesReadFromSeedAtVersion = [[NSUserDefaults standardUserDefaults] objectForKey:NAMES_READ_FROM_SEED_AT_VERSION];
     NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-    if( ![currentBuildVersion isEqualToString:namesReadFromSeedAtVersion] ) {
+    if( namesReadFromSeedAtVersion && ![currentBuildVersion isEqualToString:namesReadFromSeedAtVersion] ) {
         // current app version doesn't match the one in NSUserDefault's NAMES_READ_FROM_SEED_AT_VERSION
         // let's delete everything from the Name table and read in again from the seed
         [self fetchNamesIntoDocument:self.namesDatabase:YES];
@@ -168,10 +168,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"NameCell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     // Configure the cell...
+    Name *name = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = name.name;
     
     return cell;
 }
@@ -190,5 +196,13 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
+#pragma mark - i18n hack
+// To show Icelandic characters correctly in the section index - via http://stackoverflow.com/a/3538943/169858
+- (NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName {
+    return sectionName;
+}
+
 
 @end

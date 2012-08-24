@@ -21,13 +21,14 @@
 		FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */; };
 		FB313E0F1546008A0077438C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E0E1546008A0077438C /* second.png */; };
 		FB313E111546008A0077438C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E101546008A0077438C /* second@2x.png */; };
+		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
 		FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */; };
 		FBE174C315E30C0300EDC6A4 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C215E30C0300EDC6A4 /* Favorite.m */; };
-		FBE174C515E3105C00EDC6A4 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBE174C415E3105C00EDC6A4 /* names.json */; };
 		FBE174C815E3121600EDC6A4 /* NamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */; };
 		FBE174CA15E3193E00EDC6A4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE174C915E3193E00EDC6A4 /* CoreData.framework */; };
 		FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D415E452D100EDC6A4 /* Name+Create.m */; };
 		FBE174D815E456A200EDC6A4 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D715E456A200EDC6A4 /* Name.m */; };
+		FBE174D915E59E6000EDC6A4 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174CC15E3199800EDC6A4 /* CoreDataTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,10 +52,10 @@
 		FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MannanofnSecondViewController.m; sourceTree = "<group>"; };
 		FB313E0E1546008A0077438C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		FB313E101546008A0077438C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		FBD1828315E6BC5300F22A63 /* names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names.json; sourceTree = "<group>"; };
 		FBE174A015E3069600EDC6A4 /* Mannanofn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mannanofn.xcdatamodel; sourceTree = "<group>"; };
 		FBE174C115E30C0300EDC6A4 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
 		FBE174C215E30C0300EDC6A4 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
-		FBE174C415E3105C00EDC6A4 /* names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names.json; sourceTree = "<group>"; };
 		FBE174C615E3121600EDC6A4 /* NamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesTableViewController.h; sourceTree = "<group>"; };
 		FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewController.m; sourceTree = "<group>"; };
 		FBE174C915E3193E00EDC6A4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -135,7 +136,7 @@
 		FB313DF31546008A0077438C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FBE174C415E3105C00EDC6A4 /* names.json */,
+				FBD1828315E6BC5300F22A63 /* names.json */,
 				FB313DF41546008A0077438C /* Mannanofn-Info.plist */,
 				FB313DF51546008A0077438C /* InfoPlist.strings */,
 				FB313DF81546008A0077438C /* main.m */,
@@ -219,7 +220,7 @@
 				FB313E0A1546008A0077438C /* first@2x.png in Resources */,
 				FB313E0F1546008A0077438C /* second.png in Resources */,
 				FB313E111546008A0077438C /* second@2x.png in Resources */,
-				FBE174C515E3105C00EDC6A4 /* names.json in Resources */,
+				FBD1828415E6BC5300F22A63 /* names.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE174D915E59E6000EDC6A4 /* CoreDataTableViewController.m in Sources */,
 				FB313DF91546008A0077438C /* main.m in Sources */,
 				FB313DFD1546008A0077438C /* MannanofnAppDelegate.m in Sources */,
 				FB313E061546008A0077438C /* MannanofnFirstViewController.m in Sources */,
