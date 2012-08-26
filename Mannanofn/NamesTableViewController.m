@@ -10,6 +10,7 @@
 #import "Name+Create.h"
 
 #define NAMES_READ_FROM_SEED_AT_VERSION @"namesReadFromSeedAtVersion"
+#define NUMER_OF_ROWS_IN_POPULARITY_SECTION 10
 
 @interface NamesTableViewController ()
 
@@ -18,6 +19,9 @@
 @implementation NamesTableViewController
 
 @synthesize namesDatabase = _namesDatabase;
+
+@synthesize genderSelection = _genderSelection;
+@synthesize namesOrder = _namesOrder;
 
 - (NSArray *)getNamesFromJSONSeed
 {
@@ -73,12 +77,31 @@
 - (void)setupFetchedResultsController //attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+    if( self.genderSelection ) {
+        request.predicate = [NSPredicate predicateWithFormat:@"gender == %@", self.genderSelection];
+//        request.predicate = [NSPredicate predicateWithFormat:@"gender == %@ AND countAsFirstName != 0 AND countAsFirstName != 1", self.genderSelection];
+    }
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        
+        request.sortDescriptors = [NSArray arrayWithObjects:
+                                   [NSSortDescriptor sortDescriptorWithKey:@"countAsFirstName" ascending:NO],
+                                   [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)],
+                                   nil];
+        
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                            managedObjectContext:self.namesDatabase.managedObjectContext
+                                                                              sectionNameKeyPath:nil
+                                                                                       cacheName:nil];
+    } else {
+        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+        
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                            managedObjectContext:self.namesDatabase.managedObjectContext
+                                                                              sectionNameKeyPath:@"alphabeticalKeyForName"
+                                                                                       cacheName:nil];
+    }
+    
 
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[self getRequestForAllNames]
-                                                                        managedObjectContext:self.namesDatabase.managedObjectContext
-                                                                          sectionNameKeyPath:@"alphabeticalKeyForName"
-                                                                                   cacheName:nil];
 }
 
 - (void)useDocument
@@ -137,6 +160,8 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
+
     }
     return self;
 }
@@ -144,12 +169,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // TODO: temporary gender selection
+    self.genderSelection = @"X";
+    self.namesOrder = ORDER_BY_FIRST_NAME_POPULARITY;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -166,6 +195,8 @@
 
 
 
+#pragma mark - Table view delegate
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"NameCell";
@@ -176,15 +207,21 @@
     }
     
     // Configure the cell...
-    Name *name = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Name *name;
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        // let's trick fetchedResultsController as we didn't pass any sectionNameKeyPath in this case
+        // and we're handling numberOfSectionsInTableView and numberOfRowsInSection here locally (yes, hackish!)
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row+(indexPath.section*NUMER_OF_ROWS_IN_POPULARITY_SECTION) inSection:0];
+        name = [self.fetchedResultsController objectAtIndexPath:newIndexPath];
+    } else {
+        name = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
     cell.textLabel.text = name.name;
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", name.countAsFirstName, name.countAsSecondName];
     
     return cell;
 }
 
-
-
-#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -196,6 +233,85 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        int numberOfSectionsInTableView = floor( [self.fetchedResultsController.fetchedObjects count] / NUMER_OF_ROWS_IN_POPULARITY_SECTION );
+        return numberOfSectionsInTableView;
+    } else {
+        return [[self.fetchedResultsController sections] count];
+    }
+
+}
+
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        if( (section+1)  ==  [self numberOfSectionsInTableView:table] ) {
+            int numberOfRowsInLastSection = [self.fetchedResultsController.fetchedObjects count] - ((section+1) * 10);
+            return numberOfRowsInLastSection;
+        } else {
+            return 10;
+        }
+        
+    } else {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        return [sectionInfo numberOfObjects];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *headerTitle;
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        if( 0 == section ) {
+            if( [self.genderSelection isEqualToString:GENDER_FEMALE] ) {
+                headerTitle = @"Stúlknanöfn í vinsældaröð";
+            } else if( [self.genderSelection isEqualToString:GENDER_MALE] ) {
+                headerTitle = @"Drengjanöfn í vinsældaröð";
+            } else {
+                headerTitle = @"Vinsælustu nöfnin";
+            }
+        } else {
+            headerTitle = [NSString stringWithFormat:@"%d", (section * NUMER_OF_ROWS_IN_POPULARITY_SECTION)];
+        }
+    } else {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        headerTitle = [sectionInfo name];
+    }
+    return headerTitle;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        NSMutableArray *sectionIndexTitles = [[NSMutableArray alloc] init];
+        for( int i=0; i < [tableView numberOfSections]; i++ ) {
+            if( i == 0 ) {
+                [sectionIndexTitles addObject:@"1"];
+            } else if( i < 10 || 0 == (i % 10) ) {
+                [sectionIndexTitles addObject:[NSString stringWithFormat:@"%d", (i * 10)]];
+            }
+        }
+        return sectionIndexTitles;
+    } else {
+        return [self.fetchedResultsController sectionIndexTitles];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    NSInteger sectionIndex;
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        if( index <= 10 ) {
+            sectionIndex = index;
+        } else {
+            sectionIndex = (index-9) * 10;
+        }
+    } else {
+        sectionIndex = [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
+    }
+    return sectionIndex;
+}
+
+
+
 
 
 #pragma mark - i18n hack
