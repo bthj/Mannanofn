@@ -8,6 +8,7 @@
 
 #import "NamesTableViewController.h"
 #import "Name+Create.h"
+#import "MBProgressHUD.h"
 
 #define NAMES_READ_FROM_SEED_AT_VERSION @"namesReadFromSeedAtVersion"
 #define NUMER_OF_ROWS_IN_POPULARITY_SECTION 10
@@ -47,6 +48,21 @@
 
 - (void)fetchNamesIntoDocument:(UIManagedDocument *)document:(BOOL)reset
 {
+/*
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Hleð inn nöfnum...";
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        
+        [self fetchNamesIntoDocument:self.namesDatabase:NO];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        });
+    });
+*/  
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Hleð inn nöfnum...";
     dispatch_queue_t seedQ = dispatch_queue_create("Names database seeding", NULL);
     dispatch_async(seedQ, ^{
         NSArray *names = [self getNamesFromJSONSeed];
@@ -61,17 +77,27 @@
                 }
                 [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
             }
+            
+            // !!! TODO: DELETE THIS!
+            // sleep a while to show the activity indicator
+            //   [NSThread sleepForTimeInterval:arc4random() % 5];
+            // !!! TODO: DELETE THIS - end
+            
             // Create entity in database for each name from JSON seed
             for( NSDictionary *oneName in names ) {
                 [Name nameWithSeedData:oneName inManagedObjectContext:document.managedObjectContext];
             }
+            
             // UIManagedDocument autosaves, but let's save as soon as possible
             [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+
             [self setupFetchedResultsController];
             
             // Write app's version number at the time of this fetch to NSUserDefaults, for reference later.
             NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
             [[NSUserDefaults standardUserDefaults] setObject:currentBuildVersion forKey:NAMES_READ_FROM_SEED_AT_VERSION];
+            
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }];
     });
 //    dispatch_release(seedQ);
@@ -125,8 +151,7 @@
         [self.namesDatabase saveToURL:self.namesDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
             
             [self fetchNamesIntoDocument:self.namesDatabase:NO];
-            
-// moved to fetchNamesIntoDocument:  [self setupFetchedResultsController];
+
         }];
     } else if( self.namesDatabase.documentState == UIDocumentStateClosed ) {
         // exists on disk, but we need to open it
@@ -155,50 +180,15 @@
     }
 }
 
-/*
-- (void)copyPreloadedDatabaseToStoreLocation:(NSString *)storePath
-{
-    NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"MannanofnDatabase" ofType:nil];
-    if( defaultStorePath ) {
-        [[NSFileManager defaultManager] copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
-    }
-    
-    // Write app's version number at the time of this fetch to NSUserDefaults, for reference later.
-    NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-    [[NSUserDefaults standardUserDefaults] setObject:currentBuildVersion forKey:NAMES_READ_FROM_SEED_AT_VERSION];
-}
-*/
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
     if( !self.namesDatabase ) {
-        
-        
-/*
-        NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"AppName.sqlite"];
-        
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        // If the expected store doesn't exist, copy the default store.
-        if (![fileManager fileExistsAtPath:storePath]) {
-            NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"AppName" ofType:@"sqlite"];
-            if (defaultStorePath) {
-                [fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
-            }
-        }
-        NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
- */
-        
-        
-        
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
-/*
-        if( ![[NSFileManager defaultManager] fileExistsAtPath:[url path]] ) {
-            [self copyPreloadedDatabaseToStoreLocation:[url path]];
-        }
-*/        
+
         self.namesDatabase = [[UIManagedDocument alloc] initWithFileURL:url]; // setter will create this for us on disk
     }
 }
