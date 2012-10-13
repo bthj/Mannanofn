@@ -21,7 +21,22 @@
 		FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */; };
 		FB313E0F1546008A0077438C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E0E1546008A0077438C /* second.png */; };
 		FB313E111546008A0077438C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E101546008A0077438C /* second@2x.png */; };
+		FB83C65E1629D21D00C92803 /* persistentStore in Resources */ = {isa = PBXBuildFile; fileRef = FB83C65D1629D21D00C92803 /* persistentStore */; };
 		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
+		FBD34E261626231600BDC541 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEC1546008A0077438C /* UIKit.framework */; };
+		FBD34E271626231600BDC541 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEE1546008A0077438C /* Foundation.framework */; };
+		FBD34E281626231600BDC541 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DF01546008A0077438C /* CoreGraphics.framework */; };
+		FBD34E2E1626231600BDC541 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBD34E2C1626231600BDC541 /* InfoPlist.strings */; };
+		FBD34E301626231600BDC541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD34E2F1626231600BDC541 /* main.m */; };
+		FBD34E341626231600BDC541 /* MannanofnAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD34E331626231600BDC541 /* MannanofnAppDelegate.m */; };
+		FBD34E361626231600BDC541 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD34E351626231600BDC541 /* Default.png */; };
+		FBD34E381626231600BDC541 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD34E371626231600BDC541 /* Default@2x.png */; };
+		FBD34E3A1626231600BDC541 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD34E391626231600BDC541 /* Default-568h@2x.png */; };
+		FBD34E43162632EC00BDC541 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE174C915E3193E00EDC6A4 /* CoreData.framework */; };
+		FBD34E461626333800BDC541 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D715E456A200EDC6A4 /* Name.m */; };
+		FBD34E471626333800BDC541 /* Name+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D415E452D100EDC6A4 /* Name+Create.m */; };
+		FBD34E4A1626352D00BDC541 /* Mannanofn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */; };
+		FBD34E4B162636C600BDC541 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
 		FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */; };
 		FBE174C315E30C0300EDC6A4 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C215E30C0300EDC6A4 /* Favorite.m */; };
 		FBE174C815E3121600EDC6A4 /* NamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */; };
@@ -30,6 +45,18 @@
 		FBE174D815E456A200EDC6A4 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D715E456A200EDC6A4 /* Name.m */; };
 		FBE174D915E59E6000EDC6A4 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174CC15E3199800EDC6A4 /* CoreDataTableViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FBD34E4C16263A1300BDC541 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FB313DE81546008A0077438C /* Mannanofn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mannanofn.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,7 +79,18 @@
 		FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MannanofnSecondViewController.m; sourceTree = "<group>"; };
 		FB313E0E1546008A0077438C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		FB313E101546008A0077438C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		FB83C65D1629D21D00C92803 /* persistentStore */ = {isa = PBXFileReference; lastKnownFileType = file; path = persistentStore; sourceTree = "<group>"; };
 		FBD1828315E6BC5300F22A63 /* names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names.json; sourceTree = "<group>"; };
+		FBD34E241626231600BDC541 /* Seed Mannanofn Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seed Mannanofn Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBD34E2B1626231600BDC541 /* Seed Mannanofn Database-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Seed Mannanofn Database-Info.plist"; sourceTree = "<group>"; };
+		FBD34E2D1626231600BDC541 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBD34E2F1626231600BDC541 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FBD34E311626231600BDC541 /* Seed Mannanofn Database-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Seed Mannanofn Database-Prefix.pch"; sourceTree = "<group>"; };
+		FBD34E321626231600BDC541 /* MannanofnAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MannanofnAppDelegate.h; sourceTree = "<group>"; };
+		FBD34E331626231600BDC541 /* MannanofnAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MannanofnAppDelegate.m; sourceTree = "<group>"; };
+		FBD34E351626231600BDC541 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FBD34E371626231600BDC541 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FBD34E391626231600BDC541 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FBE174A015E3069600EDC6A4 /* Mannanofn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mannanofn.xcdatamodel; sourceTree = "<group>"; };
 		FBE174C115E30C0300EDC6A4 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
 		FBE174C215E30C0300EDC6A4 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
@@ -79,14 +117,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBD34E211626231600BDC541 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBD34E43162632EC00BDC541 /* CoreData.framework in Frameworks */,
+				FBD34E261626231600BDC541 /* UIKit.framework in Frameworks */,
+				FBD34E271626231600BDC541 /* Foundation.framework in Frameworks */,
+				FBD34E281626231600BDC541 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		FB313DDD1546008A0077438C = {
 			isa = PBXGroup;
 			children = (
-				FBE174C915E3193E00EDC6A4 /* CoreData.framework */,
 				FB313DF21546008A0077438C /* Mannanofn */,
+				FBD34E291626231600BDC541 /* Seed Mannanofn Database */,
 				FB313DEB1546008A0077438C /* Frameworks */,
 				FB313DE91546008A0077438C /* Products */,
 			);
@@ -96,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				FB313DE81546008A0077438C /* Mannanofn.app */,
+				FBD34E241626231600BDC541 /* Seed Mannanofn Database.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +153,7 @@
 		FB313DEB1546008A0077438C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBE174C915E3193E00EDC6A4 /* CoreData.framework */,
 				FB313DEC1546008A0077438C /* UIKit.framework */,
 				FB313DEE1546008A0077438C /* Foundation.framework */,
 				FB313DF01546008A0077438C /* CoreGraphics.framework */,
@@ -136,11 +187,52 @@
 		FB313DF31546008A0077438C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FB83C65B1629D21D00C92803 /* MannanofnDatabase */,
 				FBD1828315E6BC5300F22A63 /* names.json */,
 				FB313DF41546008A0077438C /* Mannanofn-Info.plist */,
 				FB313DF51546008A0077438C /* InfoPlist.strings */,
 				FB313DF81546008A0077438C /* main.m */,
 				FB313DFA1546008A0077438C /* Mannanofn-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB83C65B1629D21D00C92803 /* MannanofnDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				FB83C65C1629D21D00C92803 /* StoreContent */,
+			);
+			path = MannanofnDatabase;
+			sourceTree = "<group>";
+		};
+		FB83C65C1629D21D00C92803 /* StoreContent */ = {
+			isa = PBXGroup;
+			children = (
+				FB83C65D1629D21D00C92803 /* persistentStore */,
+			);
+			path = StoreContent;
+			sourceTree = "<group>";
+		};
+		FBD34E291626231600BDC541 /* Seed Mannanofn Database */ = {
+			isa = PBXGroup;
+			children = (
+				FBD34E321626231600BDC541 /* MannanofnAppDelegate.h */,
+				FBD34E331626231600BDC541 /* MannanofnAppDelegate.m */,
+				FBD34E2A1626231600BDC541 /* Supporting Files */,
+			);
+			path = "Seed Mannanofn Database";
+			sourceTree = "<group>";
+		};
+		FBD34E2A1626231600BDC541 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBD34E2B1626231600BDC541 /* Seed Mannanofn Database-Info.plist */,
+				FBD34E2C1626231600BDC541 /* InfoPlist.strings */,
+				FBD34E2F1626231600BDC541 /* main.m */,
+				FBD34E311626231600BDC541 /* Seed Mannanofn Database-Prefix.pch */,
+				FBD34E351626231600BDC541 /* Default.png */,
+				FBD34E371626231600BDC541 /* Default@2x.png */,
+				FBD34E391626231600BDC541 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -181,6 +273,24 @@
 			productReference = FB313DE81546008A0077438C /* Mannanofn.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FBD34E231626231600BDC541 /* Seed Mannanofn Database */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBD34E3D1626231600BDC541 /* Build configuration list for PBXNativeTarget "Seed Mannanofn Database" */;
+			buildPhases = (
+				FBD34E201626231600BDC541 /* Sources */,
+				FBD34E211626231600BDC541 /* Frameworks */,
+				FBD34E221626231600BDC541 /* Resources */,
+				FBD34E4C16263A1300BDC541 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Seed Mannanofn Database";
+			productName = "Seed Mannanofn Database";
+			productReference = FBD34E241626231600BDC541 /* Seed Mannanofn Database.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,6 +314,7 @@
 			projectRoot = "";
 			targets = (
 				FB313DE71546008A0077438C /* Mannanofn */,
+				FBD34E231626231600BDC541 /* Seed Mannanofn Database */,
 			);
 		};
 /* End PBXProject section */
@@ -221,6 +332,19 @@
 				FB313E0F1546008A0077438C /* second.png in Resources */,
 				FB313E111546008A0077438C /* second@2x.png in Resources */,
 				FBD1828415E6BC5300F22A63 /* names.json in Resources */,
+				FB83C65E1629D21D00C92803 /* persistentStore in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBD34E221626231600BDC541 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBD34E4B162636C600BDC541 /* names.json in Resources */,
+				FBD34E2E1626231600BDC541 /* InfoPlist.strings in Resources */,
+				FBD34E361626231600BDC541 /* Default.png in Resources */,
+				FBD34E381626231600BDC541 /* Default@2x.png in Resources */,
+				FBD34E3A1626231600BDC541 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +365,18 @@
 				FBE174C815E3121600EDC6A4 /* NamesTableViewController.m in Sources */,
 				FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */,
 				FBE174D815E456A200EDC6A4 /* Name.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBD34E201626231600BDC541 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBD34E4A1626352D00BDC541 /* Mannanofn.xcdatamodeld in Sources */,
+				FBD34E461626333800BDC541 /* Name.m in Sources */,
+				FBD34E471626333800BDC541 /* Name+Create.m in Sources */,
+				FBD34E301626231600BDC541 /* main.m in Sources */,
+				FBD34E341626231600BDC541 /* MannanofnAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +407,14 @@
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
+		FBD34E2C1626231600BDC541 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBD34E2D1626231600BDC541 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -294,7 +438,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -313,7 +457,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -327,6 +471,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -338,6 +483,42 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FBD34E3B1626231600BDC541 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Seed Mannanofn Database/Seed Mannanofn Database-Prefix.pch";
+				INFOPLIST_FILE = "Seed Mannanofn Database/Seed Mannanofn Database-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FBD34E3C1626231600BDC541 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Seed Mannanofn Database/Seed Mannanofn Database-Prefix.pch";
+				INFOPLIST_FILE = "Seed Mannanofn Database/Seed Mannanofn Database-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -360,6 +541,15 @@
 			buildConfigurations = (
 				FB313E151546008A0077438C /* Debug */,
 				FB313E161546008A0077438C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBD34E3D1626231600BDC541 /* Build configuration list for PBXNativeTarget "Seed Mannanofn Database" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBD34E3B1626231600BDC541 /* Debug */,
+				FBD34E3C1626231600BDC541 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

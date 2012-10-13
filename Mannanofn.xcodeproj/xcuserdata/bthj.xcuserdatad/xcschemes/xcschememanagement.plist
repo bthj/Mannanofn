@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Seed Mannanofn Database.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>FB313DE71546008A0077438C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBD34E231626231600BDC541</key>
 		<dict>
 			<key>primary</key>
 			<true/>

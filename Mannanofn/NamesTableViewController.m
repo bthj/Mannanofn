@@ -21,6 +21,8 @@
 @synthesize namesDatabase = _namesDatabase;
 
 @synthesize genderSelection = _genderSelection;
+@synthesize categorySelection = _categorySelection;
+
 @synthesize namesOrder = _namesOrder;
 
 - (NSArray *)getNamesFromJSONSeed
@@ -65,22 +67,34 @@
             }
             // UIManagedDocument autosaves, but let's save as soon as possible
             [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+            [self setupFetchedResultsController];
             
             // Write app's version number at the time of this fetch to NSUserDefaults, for reference later.
             NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
             [[NSUserDefaults standardUserDefaults] setObject:currentBuildVersion forKey:NAMES_READ_FROM_SEED_AT_VERSION];
         }];
     });
-    dispatch_release(seedQ);
+//    dispatch_release(seedQ);
 }
 
 - (void)setupFetchedResultsController //attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
+    NSMutableArray *predicateFormats = [NSMutableArray array];
+    NSMutableArray *predicateArguments = [NSMutableArray array];
     if( self.genderSelection ) {
-        request.predicate = [NSPredicate predicateWithFormat:@"gender == %@", self.genderSelection];
-//        request.predicate = [NSPredicate predicateWithFormat:@"gender == %@ AND countAsFirstName != 0 AND countAsFirstName != 1", self.genderSelection];
+            request.predicate = [NSPredicate predicateWithFormat:@"gender == %@", self.genderSelection];
+        [predicateFormats addObject:@"gender == %@"];
+        [predicateArguments addObject:self.genderSelection];
     }
+    if( self.categorySelection ) {
+        [predicateFormats addObject:@"category == %@"];
+        [predicateArguments addObject:self.categorySelection];
+    }
+    if( [predicateArguments count] ) {
+        request.predicate = [NSPredicate predicateWithFormat:[predicateFormats componentsJoinedByString:@" AND "] argumentArray:predicateArguments];
+    }
+ 
     if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
         
         request.sortDescriptors = [NSArray arrayWithObjects:
@@ -109,8 +123,10 @@
     if( ![[NSFileManager defaultManager] fileExistsAtPath:[self.namesDatabase.fileURL path]] ) {
         // does not exist on disk, so create it
         [self.namesDatabase saveToURL:self.namesDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
-            [self setupFetchedResultsController];
+            
             [self fetchNamesIntoDocument:self.namesDatabase:NO];
+            
+// moved to fetchNamesIntoDocument:  [self setupFetchedResultsController];
         }];
     } else if( self.namesDatabase.documentState == UIDocumentStateClosed ) {
         // exists on disk, but we need to open it
@@ -121,7 +137,6 @@
         // already open and ready to use
         [self setupFetchedResultsController];
     }
-    
 
     NSString *namesReadFromSeedAtVersion = [[NSUserDefaults standardUserDefaults] objectForKey:NAMES_READ_FROM_SEED_AT_VERSION];
     NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
@@ -140,13 +155,50 @@
     }
 }
 
+/*
+- (void)copyPreloadedDatabaseToStoreLocation:(NSString *)storePath
+{
+    NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"MannanofnDatabase" ofType:nil];
+    if( defaultStorePath ) {
+        [[NSFileManager defaultManager] copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
+    }
+    
+    // Write app's version number at the time of this fetch to NSUserDefaults, for reference later.
+    NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    [[NSUserDefaults standardUserDefaults] setObject:currentBuildVersion forKey:NAMES_READ_FROM_SEED_AT_VERSION];
+}
+*/
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
     if( !self.namesDatabase ) {
+        
+        
+/*
+        NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"AppName.sqlite"];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        // If the expected store doesn't exist, copy the default store.
+        if (![fileManager fileExistsAtPath:storePath]) {
+            NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"AppName" ofType:@"sqlite"];
+            if (defaultStorePath) {
+                [fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
+            }
+        }
+        NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
+ */
+        
+        
+        
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
+/*
+        if( ![[NSFileManager defaultManager] fileExistsAtPath:[url path]] ) {
+            [self copyPreloadedDatabaseToStoreLocation:[url path]];
+        }
+*/        
         self.namesDatabase = [[UIManagedDocument alloc] initWithFileURL:url]; // setter will create this for us on disk
     }
 }
@@ -171,7 +223,9 @@
     [super viewDidLoad];
     
     // TODO: temporary gender selection
-    self.genderSelection = @"X";
+    self.genderSelection = @"Y";
+//    self.categorySelection = @"Frumlegast";
+//    self.namesOrder = ORDER_BY_NAME;
     self.namesOrder = ORDER_BY_FIRST_NAME_POPULARITY;
 
     // Uncomment the following line to preserve selection between presentations.

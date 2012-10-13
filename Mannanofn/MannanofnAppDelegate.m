@@ -8,13 +8,59 @@
 
 #import "MannanofnAppDelegate.h"
 
+#define NAMES_READ_FROM_SEED_AT_VERSION @"namesReadFromSeedAtVersion"
+
 @implementation MannanofnAppDelegate
 
 @synthesize window = _window;
 
+
+
+- (void)copyPreloadedDatabaseToStoreLocation:(NSURL *)storeUrl
+{
+//    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"MannanofnDatabase"];
+//    NSString *documentsFolderPath = [documentsDirectory stringByAppendingPathComponent:@"yourUIManagedDocument"];
+    
+    
+//    NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"MannanofnDatabase" ofType:@"sqlite"];
+//    if( defaultStorePath ) {
+    if( bundlePath ) {
+        
+        [[NSFileManager defaultManager] copyItemAtPath:bundlePath toPath:[storeUrl path] error:NULL];
+        
+        // let's open the newly copied document
+        UIManagedDocument *mannanofn = [[UIManagedDocument alloc] initWithFileURL:storeUrl];
+        [mannanofn openWithCompletionHandler:^(BOOL success) {
+
+            // Write app's version number at the time of this fetch to NSUserDefaults, for reference later.
+            NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+            [[NSUserDefaults standardUserDefaults] setObject:currentBuildVersion forKey:NAMES_READ_FROM_SEED_AT_VERSION];
+        }];
+    }
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+/*
+    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
+    NSString *namesReadFromSeedAtVersion = [[NSUserDefaults standardUserDefaults] objectForKey:NAMES_READ_FROM_SEED_AT_VERSION];
+    NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    
+    bool databaseNotExists = ![[NSFileManager defaultManager] fileExistsAtPath:[url path]];
+    bool isDBSeedAndCurrentVersionInequal = namesReadFromSeedAtVersion && ![currentBuildVersion isEqualToString:namesReadFromSeedAtVersion];
+    if( databaseNotExists || isDBSeedAndCurrentVersionInequal ) {
+        // db doesn't exist
+        // OR
+        // current app version doesn't match the one in NSUserDefault's NAMES_READ_FROM_SEED_AT_VERSION
+        // let's copy in the pre-populated database
+        
+        [self copyPreloadedDatabaseToStoreLocation:url];
+    }
+*/
     
 
     // set locale for sorting of Core Data
@@ -24,7 +70,9 @@
     
     return YES;
 }
-							
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
