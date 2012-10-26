@@ -9,6 +9,7 @@
 #import "NamesTableViewController.h"
 #import "Name+Create.h"
 #import "MBProgressHUD.h"
+#import "MannanofnGlobalStringConstants.h"
 
 #define NAMES_READ_FROM_SEED_AT_VERSION @"namesReadFromSeedAtVersion"
 #define NUMER_OF_ROWS_IN_POPULARITY_SECTION 10
@@ -47,20 +48,7 @@
 }
 
 - (void)fetchNamesIntoDocument:(UIManagedDocument *)document:(BOOL)reset
-{
-/*
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Hleð inn nöfnum...";
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        
-        [self fetchNamesIntoDocument:self.namesDatabase:NO];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        });
-    });
-*/  
-    
+{    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Hleð inn nöfnum...";
     dispatch_queue_t seedQ = dispatch_queue_create("Names database seeding", NULL);
@@ -212,11 +200,10 @@
 {
     [super viewDidLoad];
     
+    
     // TODO: temporary gender selection
-    self.genderSelection = @"Y";
 //    self.categorySelection = @"Frumlegast";
 //    self.namesOrder = ORDER_BY_NAME;
-    self.namesOrder = ORDER_BY_FIRST_NAME_POPULARITY;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

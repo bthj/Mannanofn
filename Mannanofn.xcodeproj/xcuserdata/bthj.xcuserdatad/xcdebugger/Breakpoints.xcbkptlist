@@ -8,12 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesTableViewController.m"
-         timestampString = "371844798.358802"
+         timestampString = "372978410.926413"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "189"
-         endingLineNumber = "189"
-         landmarkName = "-setNamesDatabase:"
+         startingLineNumber = "190"
+         endingLineNumber = "190"
+         landmarkName = "-initWithStyle:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesTableViewController.m"
-         timestampString = "371843734.617471"
+         timestampString = "372978410.926413"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "35"
-         endingLineNumber = "35"
+         startingLineNumber = "36"
+         endingLineNumber = "36"
          landmarkName = "-getNamesFromJSONSeed"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,12 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesTableViewController.m"
-         timestampString = "371844798.358802"
+         timestampString = "372978410.926413"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "191"
-         endingLineNumber = "191"
-         landmarkName = "-setNamesDatabase:"
+         startingLineNumber = "192"
+         endingLineNumber = "192"
+         landmarkName = "-initWithStyle:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesTableViewController.m"
-         timestampString = "371844798.358802"
+         timestampString = "372978410.926413"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "111"
-         endingLineNumber = "111"
+         startingLineNumber = "112"
+         endingLineNumber = "112"
          landmarkName = "-setupFetchedResultsController"
          landmarkType = "5">
       </FileBreakpoint>
@@ -65,8 +65,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "228"
          endingLineNumber = "228"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         landmarkName = "@implementation NamesTableViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -78,7 +78,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "336"
          endingLineNumber = "336"
-         landmarkName = "-tableView:titleForHeaderInSection:"
+         landmarkName = "-tableView:sectionForSectionIndexTitle:atIndex:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -91,7 +91,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "266"
          endingLineNumber = "266"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -104,8 +104,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "346"
          endingLineNumber = "346"
-         landmarkName = "-sectionIndexTitlesForTableView:"
-         landmarkType = "5">
+         landmarkName = "@implementation NamesTableViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -116,9 +116,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "357"
-         endingLineNumber = "357"
-         landmarkName = "-tableView:sectionForSectionIndexTitle:atIndex:"
-         landmarkType = "5">
+         endingLineNumber = "357">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -129,9 +127,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "361"
-         endingLineNumber = "361"
-         landmarkName = "-tableView:sectionForSectionIndexTitle:atIndex:"
-         landmarkType = "5">
+         endingLineNumber = "361">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -177,12 +173,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesTableViewController.m"
-         timestampString = "371844798.358802"
+         timestampString = "372978410.926413"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "204"
-         endingLineNumber = "204"
-         landmarkName = "-viewWillAppear:"
+         startingLineNumber = "205"
+         endingLineNumber = "205"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -229,11 +225,37 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesTableViewController.m"
-         timestampString = "371844798.358802"
+         timestampString = "372978410.926413"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "171"
-         endingLineNumber = "171"
+         startingLineNumber = "172"
+         endingLineNumber = "172"
+         landmarkName = "-viewWillAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/NamesTableViewController.m"
+         timestampString = "372978410.926413"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "176"
+         endingLineNumber = "176"
+         landmarkName = "-viewWillAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/NamesTableViewController.m"
+         timestampString = "372978410.926413"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "150"
+         endingLineNumber = "150"
          landmarkName = "-useDocument"
          landmarkType = "5">
       </FileBreakpoint>
@@ -242,37 +264,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesTableViewController.m"
-         timestampString = "371844798.358802"
+         timestampString = "372978410.926413"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
-         landmarkName = "-useDocument"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Mannanofn/NamesTableViewController.m"
-         timestampString = "371844798.358802"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "149"
-         endingLineNumber = "149"
-         landmarkName = "-useDocument"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Mannanofn/NamesTableViewController.m"
-         timestampString = "371844680.813406"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
          landmarkName = "-fetchNamesIntoDocument::"
          landmarkType = "5">
       </FileBreakpoint>
@@ -287,6 +283,32 @@
          startingLineNumber = "57"
          endingLineNumber = "57"
          landmarkName = "-fetchNamesIntoDocument::"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/NamesContainerViewController.m"
+         timestampString = "372979053.31371"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "25"
+         endingLineNumber = "25"
+         landmarkName = "-prepareForSegue:sender:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/NamesOrderViewController.m"
+         timestampString = "372979597.717675"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "23"
+         endingLineNumber = "23"
+         landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

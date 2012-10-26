@@ -23,6 +23,8 @@
 		FB313E111546008A0077438C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E101546008A0077438C /* second@2x.png */; };
 		FB83C65E1629D21D00C92803 /* persistentStore in Resources */ = {isa = PBXBuildFile; fileRef = FB83C65D1629D21D00C92803 /* persistentStore */; };
 		FB83C6631629E28A00C92803 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83C6621629DEFD00C92803 /* MBProgressHUD.m */; };
+		FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AB8163748D50039F096 /* NamesOrderViewController.m */; };
+		FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AC116374AC20039F096 /* NamesContainerViewController.m */; };
 		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
 		FBD34E261626231600BDC541 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEC1546008A0077438C /* UIKit.framework */; };
 		FBD34E271626231600BDC541 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEE1546008A0077438C /* Foundation.framework */; };
@@ -83,6 +85,11 @@
 		FB83C65D1629D21D00C92803 /* persistentStore */ = {isa = PBXFileReference; lastKnownFileType = file; path = persistentStore; sourceTree = "<group>"; };
 		FB83C6611629DEFD00C92803 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FB83C6621629DEFD00C92803 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		FB955AB7163748D40039F096 /* NamesOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesOrderViewController.h; sourceTree = "<group>"; };
+		FB955AB8163748D50039F096 /* NamesOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesOrderViewController.m; sourceTree = "<group>"; };
+		FB955AC016374AC20039F096 /* NamesContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesContainerViewController.h; sourceTree = "<group>"; };
+		FB955AC116374AC20039F096 /* NamesContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesContainerViewController.m; sourceTree = "<group>"; };
+		FB955AD2163B2BD70039F096 /* MannanofnGlobalStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MannanofnGlobalStringConstants.h; sourceTree = "<group>"; };
 		FBD1828315E6BC5300F22A63 /* names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names.json; sourceTree = "<group>"; };
 		FBD34E241626231600BDC541 /* Seed Mannanofn Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seed Mannanofn Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD34E2B1626231600BDC541 /* Seed Mannanofn Database-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Seed Mannanofn Database-Info.plist"; sourceTree = "<group>"; };
@@ -174,16 +181,19 @@
 				FB313E011546008A0077438C /* MainStoryboard_iPad.storyboard */,
 				FBE174C615E3121600EDC6A4 /* NamesTableViewController.h */,
 				FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */,
-				FB313E041546008A0077438C /* MannanofnFirstViewController.h */,
-				FB313E051546008A0077438C /* MannanofnFirstViewController.m */,
+				FB955AC016374AC20039F096 /* NamesContainerViewController.h */,
+				FB955AC116374AC20039F096 /* NamesContainerViewController.m */,
+				FB955AB7163748D40039F096 /* NamesOrderViewController.h */,
+				FB955AB8163748D50039F096 /* NamesOrderViewController.m */,
 				FB313E071546008A0077438C /* first.png */,
 				FB313E091546008A0077438C /* first@2x.png */,
-				FB313E0B1546008A0077438C /* MannanofnSecondViewController.h */,
-				FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */,
 				FB313E0E1546008A0077438C /* second.png */,
 				FB313E101546008A0077438C /* second@2x.png */,
+				FB955AB4163747200039F096 /* delmes */,
+				FB955AB6163748160039F096 /* graphics */,
 				FB313DF31546008A0077438C /* Supporting Files */,
 				FB83C65F1629DE9600C92803 /* Vendor */,
+				FB955AD2163B2BD70039F096 /* MannanofnGlobalStringConstants.h */,
 			);
 			path = Mannanofn;
 			sourceTree = "<group>";
@@ -232,6 +242,24 @@
 				FB83C6621629DEFD00C92803 /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		FB955AB4163747200039F096 /* delmes */ = {
+			isa = PBXGroup;
+			children = (
+				FB313E041546008A0077438C /* MannanofnFirstViewController.h */,
+				FB313E051546008A0077438C /* MannanofnFirstViewController.m */,
+				FB313E0B1546008A0077438C /* MannanofnSecondViewController.h */,
+				FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */,
+			);
+			name = delmes;
+			sourceTree = "<group>";
+		};
+		FB955AB6163748160039F096 /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = graphics;
 			sourceTree = "<group>";
 		};
 		FBD34E291626231600BDC541 /* Seed Mannanofn Database */ = {
@@ -387,6 +415,8 @@
 				FBE174C815E3121600EDC6A4 /* NamesTableViewController.m in Sources */,
 				FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */,
 				FBE174D815E456A200EDC6A4 /* Name.m in Sources */,
+				FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */,
+				FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

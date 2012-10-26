@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 
-#define ORDER_BY_NAME @"orderByName"
-#define ORDER_BY_FIRST_NAME_POPULARITY @"orderByFirstNamePopularity"
-
-#define GENDER_FEMALE @"X"
-#define GENDER_MALE @"Y"
 
 @interface NamesTableViewController : CoreDataTableViewController <NSFetchedResultsControllerDelegate>
 
