@@ -23,9 +23,9 @@
 @synthesize namesDatabase = _namesDatabase;
 
 @synthesize genderSelection = _genderSelection;
-@synthesize categorySelection = _categorySelection;
-
 @synthesize namesOrder = _namesOrder;
+@synthesize showCategories = _showCategories;
+@synthesize categorySelection = _categorySelection;
 
 - (NSArray *)getNamesFromJSONSeed
 {
@@ -76,10 +76,13 @@
                 [Name nameWithSeedData:oneName inManagedObjectContext:document.managedObjectContext];
             }
             
+//            [document updateChangeCount:UIDocumentChangeDone];
+            
             // UIManagedDocument autosaves, but let's save as soon as possible
-            [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+            [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
 
-            [self setupFetchedResultsController];
+//                [self setupFetchedResultsController];
+            }];
             
             // Write app's version number at the time of this fetch to NSUserDefaults, for reference later.
             NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
@@ -91,11 +94,19 @@
 //    dispatch_release(seedQ);
 }
 
+
+
 - (void)setupFetchedResultsController //attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
+    if( self.showCategories ) {
+        request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
+    } else {
+        request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
+    }
     NSMutableArray *predicateFormats = [NSMutableArray array];
     NSMutableArray *predicateArguments = [NSMutableArray array];
+
     if( self.genderSelection ) {
             request.predicate = [NSPredicate predicateWithFormat:@"gender == %@", self.genderSelection];
         [predicateFormats addObject:@"gender == %@"];
@@ -128,8 +139,6 @@
                                                                               sectionNameKeyPath:@"alphabeticalKeyForName"
                                                                                        cacheName:nil];
     }
-    
-
 }
 
 - (void)useDocument
@@ -137,8 +146,9 @@
     if( ![[NSFileManager defaultManager] fileExistsAtPath:[self.namesDatabase.fileURL path]] ) {
         // does not exist on disk, so create it
         [self.namesDatabase saveToURL:self.namesDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
-            
+            [self setupFetchedResultsController];
             [self fetchNamesIntoDocument:self.namesDatabase:NO];
+//            [self setupFetchedResultsController];
 
         }];
     } else if( self.namesDatabase.documentState == UIDocumentStateClosed ) {
@@ -164,8 +174,27 @@
 {
     if( _namesDatabase != namesDatabase ) {
         _namesDatabase = namesDatabase;
-        [self useDocument];
+        if( namesDatabase ) {
+            [self useDocument];
+        }
     }
+}
+
+- (void)setGenderSelection:(NSString *)genderSelection
+{
+    _genderSelection = genderSelection;
+    
+    if( self.namesDatabase ) {
+        [self setupFetchedResultsController];
+    }
+}
+
+- (void)initializeNamesDatabase
+{
+    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
+    
+    self.namesDatabase = [[UIManagedDocument alloc] initWithFileURL:url]; // setter will create this for us on disk
 }
 
 
@@ -173,11 +202,9 @@
 {
     [super viewWillAppear:animated];
     
-    if( !self.namesDatabase ) {
-        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
-
-        self.namesDatabase = [[UIManagedDocument alloc] initWithFileURL:url]; // setter will create this for us on disk
+    if( ! self.namesDatabase ) {
+        
+        [self initializeNamesDatabase];
     }
 }
 
@@ -303,6 +330,19 @@
             }
         } else {
             headerTitle = [NSString stringWithFormat:@"%d", (section * NUMER_OF_ROWS_IN_POPULARITY_SECTION)];
+        }
+    } else if( [self.namesOrder isEqualToString:ORDER_BY_NAME] ) {
+        if( 0 == section ) {
+            if( [self.genderSelection isEqualToString:GENDER_FEMALE] ) {
+                headerTitle = @"Stúlknanöfn í stafrófsröð";
+            } else if( [self.genderSelection isEqualToString:GENDER_MALE] ) {
+                headerTitle = @"Drengjanöfn í stafrófsröð";
+            } else {
+                headerTitle = @"Nöfn í stafrófsröð";
+            }
+        } else {
+            id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+            headerTitle = [sectionInfo name];
         }
     } else {
         id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];

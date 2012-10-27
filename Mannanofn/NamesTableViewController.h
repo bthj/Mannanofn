@@ -15,8 +15,9 @@
 @property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
 @property (nonatomic, strong) NSString *genderSelection;
-@property (nonatomic, strong) NSString *categorySelection;
-
 @property (nonatomic, strong) NSString *namesOrder;
+
+@property (assign, nonatomic) BOOL showCategories;
+@property (nonatomic, strong) NSString *categorySelection;
 
 @end

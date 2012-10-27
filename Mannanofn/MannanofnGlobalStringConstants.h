@@ -12,6 +12,7 @@
 #define ORDER_BY_NAME @"orderByName"
 #define ORDER_BY_FIRST_NAME_POPULARITY @"orderByFirstNamePopularity"
 
+#define GENDER_SELECTION_STORAGE_KEY @"selectedGender"
 #define GENDER_FEMALE @"X"
 #define GENDER_MALE @"Y"
 

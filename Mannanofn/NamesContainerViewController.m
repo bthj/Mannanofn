@@ -13,34 +13,80 @@
 
 @interface NamesContainerViewController ()
 
+@property (nonatomic, strong) NamesTableViewController *namesTable;
+
 @end
+
+
 
 @implementation NamesContainerViewController
 
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self setGenderToLastCurrent];
+    
+    [self passGenderToNamesTable];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if( [[segue identifier] isEqualToString:@"NamesTableEmbedSegue"] ) {
-        NamesTableViewController *namesTable = (NamesTableViewController *)[segue destinationViewController];
         
-        namesTable.namesOrder = self.namesOrder;
+        self.namesTable = (NamesTableViewController *)[segue destinationViewController];
+        self.namesTable.namesOrder = self.namesOrder;
         
-        switch (self.genderSelection.selectedSegmentIndex) {
-            case 0:
-                namesTable.genderSelection = GENDER_MALE;
-                break;
-            case 1:
-                namesTable.genderSelection = GENDER_FEMALE;
-                break;
-            default:
-                break;
+        [self setGenderToLastCurrent];
+        
+        [self passGenderToNamesTable];
+    }
+}
+
+- (IBAction)selectGender:(id)sender {
+    if( self.namesTable ) {
+        
+        NSString *selectedGender = [self passGenderToNamesTable];
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:selectedGender forKey:GENDER_SELECTION_STORAGE_KEY];
+        [userDefaults synchronize];
+    }
+}
+
+- (void)setGenderToLastCurrent
+{
+    NSString *currentGenderSelection = [[NSUserDefaults standardUserDefaults] stringForKey:GENDER_SELECTION_STORAGE_KEY];
+    if( currentGenderSelection ) {
+        if( [currentGenderSelection isEqualToString:GENDER_MALE] ) {
+            self.genderSelection.selectedSegmentIndex = 0;
+        } else if( [currentGenderSelection isEqualToString:GENDER_FEMALE] ) {
+            self.genderSelection.selectedSegmentIndex = 1;
         }
     }
 }
 
+- (NSString *)passGenderToNamesTable
+{
+    NSString *selectedGender = nil;
+    switch (self.genderSelection.selectedSegmentIndex) {
+        case 0:
+            self.namesTable.genderSelection = selectedGender = GENDER_MALE;
+            break;
+        case 1:
+            self.namesTable.genderSelection = selectedGender = GENDER_FEMALE;
+            break;
+        default:
+            break;
+    }
+    return selectedGender;
+}
 
 
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,16 +97,11 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

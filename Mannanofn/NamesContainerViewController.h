@@ -15,6 +15,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *genderSelection;
+- (IBAction)selectGender:(id)sender;
 
 
 @end
