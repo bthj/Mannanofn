@@ -8,7 +8,6 @@
 
 #import "NamesContainerViewController.h"
 
-#import "NamesTableViewController.h"
 #import "MannanofnGlobalStringConstants.h"
 
 @interface NamesContainerViewController ()
@@ -20,6 +19,14 @@
 
 
 @implementation NamesContainerViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
+    [self clearNameCard];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -34,6 +41,7 @@
         
         self.namesTable = (NamesTableViewController *)[segue destinationViewController];
         self.namesTable.namesOrder = self.namesOrder;
+        self.namesTable.nameCardDelegate = self;
         
         [self setGenderToLastCurrent];
         
@@ -49,6 +57,8 @@
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:selectedGender forKey:GENDER_SELECTION_STORAGE_KEY];
         [userDefaults synchronize];
+        
+        [self clearNameCard];
     }
 }
 
@@ -82,11 +92,39 @@
 
 
 
-- (void)viewDidLoad
+#pragma mark - update name card delegate
+
+- (void)updateNameCard:(NSString *)name
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    NSArray *nameParts = [self.nameOnCard.text componentsSeparatedByString:@" "];
+    switch (self.namePosition.selectedSegmentIndex) {
+        case 0:
+            if( [nameParts count] > 1 ) {
+                self.nameOnCard.text = [name stringByAppendingFormat:@" %@", [nameParts objectAtIndex:1]];
+            } else {
+                self.nameOnCard.text = name;
+            }
+            break;
+            
+        case 1:
+            if( [nameParts count] > 0 ) {
+                self.nameOnCard.text = [[nameParts objectAtIndex:0] stringByAppendingFormat:@" %@", name];
+            } else {
+                self.nameOnCard.text = name;
+            }
+            break;
+            
+        default:
+            break;
+    }
 }
+
+- (void)clearNameCard
+{
+    self.nameOnCard.text = @"";
+}
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -102,6 +140,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end

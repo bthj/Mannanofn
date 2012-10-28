@@ -10,6 +10,9 @@
 #import "CoreDataTableViewController.h"
 
 
+@protocol NameCardUpdateDelegate;
+
+
 @interface NamesTableViewController : CoreDataTableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) UIManagedDocument *namesDatabase;
@@ -19,5 +22,15 @@
 
 @property (assign, nonatomic) BOOL showCategories;
 @property (nonatomic, strong) NSString *categorySelection;
+
+@property (weak, nonatomic) id <NameCardUpdateDelegate> nameCardDelegate;
+
+@end
+
+
+
+@protocol NameCardUpdateDelegate <NSObject>
+
+- (void)updateNameCard:(NSString *)name;
 
 @end

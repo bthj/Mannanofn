@@ -139,6 +139,8 @@
                                                                               sectionNameKeyPath:@"alphabeticalKeyForName"
                                                                                        cacheName:nil];
     }
+    
+    [self updateNameCardFromVisibleCells];
 }
 
 - (void)useDocument
@@ -198,6 +200,18 @@
 }
 
 
+- (void)updateNameCardFromVisibleCells
+{
+    int visibleCount = 0;
+    for( UITableViewCell *oneVisibleCell in self.tableView.visibleCells ) {
+        visibleCount++;
+        if( visibleCount == 5 ) {
+            [self.nameCardDelegate updateNameCard:oneVisibleCell.textLabel.text];
+        }
+    }
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -207,8 +221,6 @@
         [self initializeNamesDatabase];
     }
 }
-
-
 
 
 
@@ -255,6 +267,7 @@
 
 #pragma mark - Table view delegate
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"NameCell";
@@ -280,6 +293,10 @@
     return cell;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self updateNameCardFromVisibleCells];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

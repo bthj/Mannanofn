@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NamesTableViewController.h"
 
-@interface NamesContainerViewController : UIViewController
+@interface NamesContainerViewController : UIViewController <NameCardUpdateDelegate>
 
 @property (assign, nonatomic) BOOL showCategories;
 @property (nonatomic, strong) NSString *namesOrder;
@@ -16,6 +17,12 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *genderSelection;
 - (IBAction)selectGender:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *namePosition;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *nameOnCard;
 
 
 @end
