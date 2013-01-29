@@ -203,9 +203,29 @@
 - (void)updateNameCardFromVisibleCells
 {
     int visibleCount = 0;
+//    NSLog(@"count visibleCells:  %u", [self.tableView.visibleCells count]);
+    int visibleCellReference;
+    if( IS_WIDESCREEN ) { // iPhone 5 and such...
+        visibleCellReference = 9;
+    } else {
+        visibleCellReference = 7;
+    }
+    int matchIndex = [self.tableView.visibleCells count] <= visibleCellReference ? 4 : 5;
+
+/*
+    int visibleCellsCount = [self.tableView.visibleCells count];
+    int matchIndex;
+    if( visibleCellsCount < 7 ) {
+        matchIndex =
+    } else if( visibleCellsCount == 7 ) {
+        
+    } else {
+        
+    }
+ */
     for( UITableViewCell *oneVisibleCell in self.tableView.visibleCells ) {
         visibleCount++;
-        if( visibleCount == 5 ) {
+        if( visibleCount == matchIndex ) {
             [self.nameCardDelegate updateNameCard:oneVisibleCell.textLabel.text];
         }
     }
@@ -265,7 +285,15 @@
 
 
 
+
+
 #pragma mark - Table view delegate
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self updateNameCardFromVisibleCells];
+}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -277,25 +305,30 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
-    Name *name;
-    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
-        // let's trick fetchedResultsController as we didn't pass any sectionNameKeyPath in this case
-        // and we're handling numberOfSectionsInTableView and numberOfRowsInSection here locally (yes, hackish!)
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row+(indexPath.section*NUMER_OF_ROWS_IN_POPULARITY_SECTION) inSection:0];
-        name = [self.fetchedResultsController objectAtIndexPath:newIndexPath];
+    if( indexPath.section == 0 || (indexPath.section+1) == [self numberOfSectionsInTableView:tableView] ) {  // first or last padding sections
+        cell.textLabel.text = @"";
+        cell.accessoryType = UITableViewCellAccessoryNone;
     } else {
-        name = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    }
-    cell.textLabel.text = name.name;
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", name.countAsFirstName, name.countAsSecondName];
-    
-    return cell;
-}
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [self updateNameCardFromVisibleCells];
+        // as we're padding with an empty section on top (and at bottom) we need to adjust for the section index here
+        NSIndexPath *adjustedIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section-1];
+        
+        // Configure the cell...
+        Name *name;
+        if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+            // let's trick fetchedResultsController as we didn't pass any sectionNameKeyPath in this case
+            // and we're handling numberOfSectionsInTableView and numberOfRowsInSection here locally (yes, hackish!)
+            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:adjustedIndexPath.row+(adjustedIndexPath.section*NUMER_OF_ROWS_IN_POPULARITY_SECTION) inSection:0];
+            name = [self.fetchedResultsController objectAtIndexPath:newIndexPath];
+        } else {
+            name = [self.fetchedResultsController objectAtIndexPath:adjustedIndexPath];
+        }
+        cell.textLabel.text = name.name;
+        //    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", name.countAsFirstName, name.countAsSecondName];
+    }
+
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -310,60 +343,74 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    int numberOfSectionsInTableView;
     if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
-        int numberOfSectionsInTableView = floor( [self.fetchedResultsController.fetchedObjects count] / NUMER_OF_ROWS_IN_POPULARITY_SECTION );
+        numberOfSectionsInTableView = floor( [self.fetchedResultsController.fetchedObjects count] / NUMER_OF_ROWS_IN_POPULARITY_SECTION );
         return numberOfSectionsInTableView;
     } else {
-        return [[self.fetchedResultsController sections] count];
+        numberOfSectionsInTableView = [[self.fetchedResultsController sections] count];
     }
-
+    // two extra sections for padding at top and bottom
+    // so all content rows can be moved to the middle of the table view where a virtual scan is performed
+    return numberOfSectionsInTableView + 2;
 }
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
-    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
-        if( (section+1)  ==  [self numberOfSectionsInTableView:table] ) {
-            int numberOfRowsInLastSection = [self.fetchedResultsController.fetchedObjects count] - ((section+1) * 10);
-            return numberOfRowsInLastSection;
-        } else {
-            return 10;
-        }
-        
+
+    if( section == 0 || (section+1) == [self numberOfSectionsInTableView:table] ) {  // first or last padding sections
+        return 3;
     } else {
-        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-        return [sectionInfo numberOfObjects];
+
+        if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+            if( (section+1)  ==  [self numberOfSectionsInTableView:table] ) {
+                int numberOfRowsInLastSection = [self.fetchedResultsController.fetchedObjects count] - ((section+1) * 10);
+                return numberOfRowsInLastSection;
+            } else {
+                return 10;
+            }
+        } else {
+            id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:(section - 1)]; // -1 because one padding section at top
+            return [sectionInfo numberOfObjects];
+        }
     }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString *headerTitle;
-    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
-        if( 0 == section ) {
-            if( [self.genderSelection isEqualToString:GENDER_FEMALE] ) {
-                headerTitle = @"Stúlknanöfn í vinsældaröð";
-            } else if( [self.genderSelection isEqualToString:GENDER_MALE] ) {
-                headerTitle = @"Drengjanöfn í vinsældaröð";
+    if( section == 0 || (section+1) == [self numberOfSectionsInTableView:self.tableView] ) {  // first or last padding sections
+        headerTitle = @"";
+    } else {
+        if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+            if( 1 == section ) {
+                if( [self.genderSelection isEqualToString:GENDER_FEMALE] ) {
+                    headerTitle = @"Stúlknanöfn í vinsældaröð";
+                } else if( [self.genderSelection isEqualToString:GENDER_MALE] ) {
+                    headerTitle = @"Drengjanöfn í vinsældaröð";
+                } else {
+                    headerTitle = @"Vinsælustu nöfnin";
+                }
             } else {
-                headerTitle = @"Vinsælustu nöfnin";
+                headerTitle = [NSString stringWithFormat:@"%d", ((section-1) * NUMER_OF_ROWS_IN_POPULARITY_SECTION)];
+            }
+        } else if( [self.namesOrder isEqualToString:ORDER_BY_NAME] ) {
+            if( 1 == section ) {
+                if( [self.genderSelection isEqualToString:GENDER_FEMALE] ) {
+                    headerTitle = @"Stúlknanöfn í stafrófsröð";
+                } else if( [self.genderSelection isEqualToString:GENDER_MALE] ) {
+                    headerTitle = @"Drengjanöfn í stafrófsröð";
+                } else {
+                    headerTitle = @"Nöfn í stafrófsröð";
+                }
+            } else {
+                
+                id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section-1];
+                headerTitle = [sectionInfo name];
             }
         } else {
-            headerTitle = [NSString stringWithFormat:@"%d", (section * NUMER_OF_ROWS_IN_POPULARITY_SECTION)];
-        }
-    } else if( [self.namesOrder isEqualToString:ORDER_BY_NAME] ) {
-        if( 0 == section ) {
-            if( [self.genderSelection isEqualToString:GENDER_FEMALE] ) {
-                headerTitle = @"Stúlknanöfn í stafrófsröð";
-            } else if( [self.genderSelection isEqualToString:GENDER_MALE] ) {
-                headerTitle = @"Drengjanöfn í stafrófsröð";
-            } else {
-                headerTitle = @"Nöfn í stafrófsröð";
-            }
-        } else {
+            
             id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
             headerTitle = [sectionInfo name];
         }
-    } else {
-        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-        headerTitle = [sectionInfo name];
     }
     return headerTitle;
 }

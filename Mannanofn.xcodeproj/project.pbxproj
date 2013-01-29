@@ -21,6 +21,9 @@
 		FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */; };
 		FB313E0F1546008A0077438C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E0E1546008A0077438C /* second.png */; };
 		FB313E111546008A0077438C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E101546008A0077438C /* second@2x.png */; };
+		FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1116B7413A00D8F9CE /* Default.png */; };
+		FB6F8A1516B7413A00D8F9CE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1216B7413A00D8F9CE /* Default@2x.png */; };
+		FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */; };
 		FB83C65E1629D21D00C92803 /* persistentStore in Resources */ = {isa = PBXBuildFile; fileRef = FB83C65D1629D21D00C92803 /* persistentStore */; };
 		FB83C6631629E28A00C92803 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83C6621629DEFD00C92803 /* MBProgressHUD.m */; };
 		FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AB8163748D50039F096 /* NamesOrderViewController.m */; };
@@ -82,6 +85,9 @@
 		FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MannanofnSecondViewController.m; sourceTree = "<group>"; };
 		FB313E0E1546008A0077438C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		FB313E101546008A0077438C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		FB6F8A1116B7413A00D8F9CE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FB6F8A1216B7413A00D8F9CE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FB83C65D1629D21D00C92803 /* persistentStore */ = {isa = PBXFileReference; lastKnownFileType = file; path = persistentStore; sourceTree = "<group>"; };
 		FB83C6611629DEFD00C92803 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FB83C6621629DEFD00C92803 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -201,6 +207,9 @@
 		FB313DF31546008A0077438C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FB6F8A1116B7413A00D8F9CE /* Default.png */,
+				FB6F8A1216B7413A00D8F9CE /* Default@2x.png */,
+				FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */,
 				FB83C65B1629D21D00C92803 /* MannanofnDatabase */,
 				FBD1828315E6BC5300F22A63 /* names.json */,
 				FB313DF41546008A0077438C /* Mannanofn-Info.plist */,
@@ -382,6 +391,9 @@
 				FB313E111546008A0077438C /* second@2x.png in Resources */,
 				FBD1828415E6BC5300F22A63 /* names.json in Resources */,
 				FB83C65E1629D21D00C92803 /* persistentStore in Resources */,
+				FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */,
+				FB6F8A1516B7413A00D8F9CE /* Default@2x.png in Resources */,
+				FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
