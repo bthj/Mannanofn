@@ -63,6 +63,9 @@
 */
     
 
+//    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:40.0f/255.0f alpha:1.0f]];
+    
+
     // set locale for sorting of Core Data
     NSArray *languages = [NSArray arrayWithObject:@"is-IS"];
     [[NSUserDefaults standardUserDefaults] setObject:languages forKey:@"AppleLanguages"];

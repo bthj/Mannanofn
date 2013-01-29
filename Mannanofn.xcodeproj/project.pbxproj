@@ -24,6 +24,8 @@
 		FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1116B7413A00D8F9CE /* Default.png */; };
 		FB6F8A1516B7413A00D8F9CE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1216B7413A00D8F9CE /* Default@2x.png */; };
 		FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */; };
+		FB6F8A1D16B76F2600D8F9CE /* tableViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1B16B76F2600D8F9CE /* tableViewBackground.png */; };
+		FB6F8A1E16B76F2600D8F9CE /* tableViewBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1C16B76F2600D8F9CE /* tableViewBackground@2x.png */; };
 		FB83C65E1629D21D00C92803 /* persistentStore in Resources */ = {isa = PBXBuildFile; fileRef = FB83C65D1629D21D00C92803 /* persistentStore */; };
 		FB83C6631629E28A00C92803 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83C6621629DEFD00C92803 /* MBProgressHUD.m */; };
 		FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AB8163748D50039F096 /* NamesOrderViewController.m */; };
@@ -88,6 +90,8 @@
 		FB6F8A1116B7413A00D8F9CE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FB6F8A1216B7413A00D8F9CE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FB6F8A1B16B76F2600D8F9CE /* tableViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableViewBackground.png; sourceTree = "<group>"; };
+		FB6F8A1C16B76F2600D8F9CE /* tableViewBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewBackground@2x.png"; sourceTree = "<group>"; };
 		FB83C65D1629D21D00C92803 /* persistentStore */ = {isa = PBXFileReference; lastKnownFileType = file; path = persistentStore; sourceTree = "<group>"; };
 		FB83C6611629DEFD00C92803 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FB83C6621629DEFD00C92803 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 		FB955AB6163748160039F096 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				FB6F8A1B16B76F2600D8F9CE /* tableViewBackground.png */,
+				FB6F8A1C16B76F2600D8F9CE /* tableViewBackground@2x.png */,
 			);
 			name = graphics;
 			sourceTree = "<group>";
@@ -394,6 +400,8 @@
 				FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */,
 				FB6F8A1516B7413A00D8F9CE /* Default@2x.png in Resources */,
 				FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */,
+				FB6F8A1D16B76F2600D8F9CE /* tableViewBackground.png in Resources */,
+				FB6F8A1E16B76F2600D8F9CE /* tableViewBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

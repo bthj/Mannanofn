@@ -26,6 +26,10 @@
 	// Do any additional setup after loading the view.
     
     [self clearNameCard];
+    
+    //self.tableContainer.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableViewBackground"]];
+    
+    self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackground"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated

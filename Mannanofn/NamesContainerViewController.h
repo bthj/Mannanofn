@@ -25,4 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameOnCard;
 
 
+@property (weak, nonatomic) IBOutlet UIView *tableContainer;
+
+
+
 @end

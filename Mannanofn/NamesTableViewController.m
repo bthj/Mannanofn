@@ -211,18 +211,6 @@
         visibleCellReference = 7;
     }
     int matchIndex = [self.tableView.visibleCells count] <= visibleCellReference ? 4 : 5;
-
-/*
-    int visibleCellsCount = [self.tableView.visibleCells count];
-    int matchIndex;
-    if( visibleCellsCount < 7 ) {
-        matchIndex =
-    } else if( visibleCellsCount == 7 ) {
-        
-    } else {
-        
-    }
- */
     for( UITableViewCell *oneVisibleCell in self.tableView.visibleCells ) {
         visibleCount++;
         if( visibleCount == matchIndex ) {
@@ -269,6 +257,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.opaque = NO;
 }
 
 - (void)viewDidUnload
@@ -326,6 +318,13 @@
         }
         cell.textLabel.text = name.name;
         //    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", name.countAsFirstName, name.countAsSecondName];
+    }
+    
+    // from http://stackoverflow.com/a/10412958/169858
+    for(UIView *view in [tableView subviews]) {
+        if([view respondsToSelector:@selector(setIndexColor:)]) {
+            [view performSelector:@selector(setIndexColor:) withObject:[UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:0.66f]];
+        }
     }
 
     return cell;
@@ -443,6 +442,33 @@
         sectionIndex = [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
     }
     return sectionIndex;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if( section == 0 || (section+1) == [self numberOfSectionsInTableView:self.tableView] ) {  // first or last padding sections
+        return 0;
+    } else {
+        return 22;
+    }
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = CGRectMake(10, 0, 320, 22);
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor grayColor];  //[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:40.0f/255.0f alpha:1.0f];
+//    label.shadowColor = [UIColor grayColor];
+//    label.shadowOffset = CGSizeMake(-1.0, 1.0);
+    label.font = [UIFont boldSystemFontOfSize:16];
+    label.text = sectionTitle;
+    
+    UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 22)];
+    [sectionView setBackgroundColor:[UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:1.0f]];
+    
+    [sectionView addSubview:label];
+    
+    return sectionView;
 }
 
 
