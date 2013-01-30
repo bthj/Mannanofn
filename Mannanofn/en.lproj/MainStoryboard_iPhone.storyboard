@@ -586,6 +586,7 @@
         <!--Navigation Controller-->
         <scene sceneID="FUM-TF-j42">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NdD-Ma-3oc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="tJD-nR-3DR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hdk-WA-W12"/>
@@ -599,20 +600,19 @@
                         <segue destination="bC3-En-uAz" kind="relationship" relationship="rootViewController" id="nuM-Lj-lQo"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NdD-Ma-3oc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717" y="-455"/>
+            <point key="canvasLocation" x="1331" y="-715"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Names Table View Category Controller-->
         <scene sceneID="a6r-f1-iki">
             <objects>
-                <tableViewController id="FhW-PK-Z0W" sceneMemberID="viewController">
+                <tableViewController id="FhW-PK-Z0W" customClass="NamesTableViewCategoryController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bo0-AQ-3k9">
                         <rect key="frame" x="0.0" y="64" width="320" height="435"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zbs-0L-KNh">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" id="zbs-0L-KNh">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -620,9 +620,6 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="tJD-nR-3DR" kind="push" id="23A-6L-QFZ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -631,10 +628,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Qbp-Fr-OID"/>
+                    <connections>
+                        <segue destination="bC3-En-uAz" kind="push" id="PDF-LP-C4E"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tun-Pj-KX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231" y="53"/>
+            <point key="canvasLocation" x="1331" y="49"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9ET-jF-r0d">
@@ -667,6 +667,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="23A-6L-QFZ"/>
+        <segue reference="UcW-rl-3MV"/>
+        <segue reference="PDF-LP-C4E"/>
     </inferredMetricsTieBreakers>
 </document>

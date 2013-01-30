@@ -55,6 +55,7 @@
 		FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D415E452D100EDC6A4 /* Name+Create.m */; };
 		FBE174D815E456A200EDC6A4 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D715E456A200EDC6A4 /* Name.m */; };
 		FBE174D915E59E6000EDC6A4 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174CC15E3199800EDC6A4 /* CoreDataTableViewController.m */; };
+		FBE2678216B974BF00661375 /* NamesTableViewCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE2678116B974BF00661375 /* NamesTableViewCategoryController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -130,6 +131,8 @@
 		FBE174D415E452D100EDC6A4 /* Name+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Name+Create.m"; sourceTree = "<group>"; };
 		FBE174D615E456A200EDC6A4 /* Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Name.h; sourceTree = "<group>"; };
 		FBE174D715E456A200EDC6A4 /* Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Name.m; sourceTree = "<group>"; };
+		FBE2678016B974BF00661375 /* NamesTableViewCategoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesTableViewCategoryController.h; sourceTree = "<group>"; };
+		FBE2678116B974BF00661375 /* NamesTableViewCategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewCategoryController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,10 +203,12 @@
 				FB955AB8163748D50039F096 /* NamesOrderViewController.m */,
 				FB955AC016374AC20039F096 /* NamesContainerViewController.h */,
 				FB955AC116374AC20039F096 /* NamesContainerViewController.m */,
-				FBE174C615E3121600EDC6A4 /* NamesTableViewListController.h */,
-				FBE174C715E3121600EDC6A4 /* NamesTableViewListController.m */,
 				FB6F8A1F16B8C04000D8F9CE /* NamesTableViewBaseController.h */,
 				FB6F8A2016B8C04100D8F9CE /* NamesTableViewBaseController.m */,
+				FBE174C615E3121600EDC6A4 /* NamesTableViewListController.h */,
+				FBE174C715E3121600EDC6A4 /* NamesTableViewListController.m */,
+				FBE2678016B974BF00661375 /* NamesTableViewCategoryController.h */,
+				FBE2678116B974BF00661375 /* NamesTableViewCategoryController.m */,
 				FB313E071546008A0077438C /* first.png */,
 				FB313E091546008A0077438C /* first@2x.png */,
 				FB313E0E1546008A0077438C /* second.png */,
@@ -451,6 +456,7 @@
 				FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */,
 				FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */,
 				FB6F8A2116B8C04100D8F9CE /* NamesTableViewBaseController.m in Sources */,
+				FBE2678216B974BF00661375 /* NamesTableViewCategoryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

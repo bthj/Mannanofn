@@ -33,11 +33,13 @@
 - (void)setupFetchedResultsController //attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
+/*
     if( self.showCategories ) {
         request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
     } else {
         request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
     }
+*/
     NSMutableArray *predicateFormats = [NSMutableArray array];
     NSMutableArray *predicateArguments = [NSMutableArray array];
 
@@ -116,13 +118,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+/*
     if( ! self.namesDatabase ) {
         
         super.fetchedResultsSetupDelegate = self;
         
         [self initializeNamesDatabase];
     }
+*/
 }
 
 
@@ -156,6 +159,15 @@
 
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;
+    
+    
+    
+    if( ! self.namesDatabase ) {
+        
+        super.fetchedResultsSetupDelegate = self;
+        
+        [self initializeNamesDatabase];
+    }
 }
 
 - (void)viewDidUnload
