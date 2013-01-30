@@ -9,6 +9,10 @@
 #ifndef Mannanofn_MannanofnGlobalStringConstants_h
 #define Mannanofn_MannanofnGlobalStringConstants_h
 
+
+#define NAMES_READ_FROM_SEED_AT_VERSION @"namesReadFromSeedAtVersion"
+#define NUMER_OF_ROWS_IN_POPULARITY_SECTION 10
+
 #define ORDER_BY_NAME @"orderByName"
 #define ORDER_BY_FIRST_NAME_POPULARITY @"orderByFirstNamePopularity"
 

@@ -24,8 +24,11 @@
 		FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1116B7413A00D8F9CE /* Default.png */; };
 		FB6F8A1516B7413A00D8F9CE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1216B7413A00D8F9CE /* Default@2x.png */; };
 		FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */; };
-		FB6F8A1D16B76F2600D8F9CE /* tableViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1B16B76F2600D8F9CE /* tableViewBackground.png */; };
-		FB6F8A1E16B76F2600D8F9CE /* tableViewBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1C16B76F2600D8F9CE /* tableViewBackground@2x.png */; };
+		FB6F8A1D16B76F2600D8F9CE /* tableViewBackgroundBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1B16B76F2600D8F9CE /* tableViewBackgroundBlue.png */; };
+		FB6F8A1E16B76F2600D8F9CE /* tableViewBackgroundBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1C16B76F2600D8F9CE /* tableViewBackgroundBlue@2x.png */; };
+		FB6F8A2116B8C04100D8F9CE /* NamesTableViewBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6F8A2016B8C04100D8F9CE /* NamesTableViewBaseController.m */; };
+		FB6F8A2416B8CC0000D8F9CE /* tableViewBackgroundPink.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A2216B8CC0000D8F9CE /* tableViewBackgroundPink.png */; };
+		FB6F8A2516B8CC0000D8F9CE /* tableViewBackgroundPink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A2316B8CC0000D8F9CE /* tableViewBackgroundPink@2x.png */; };
 		FB83C65E1629D21D00C92803 /* persistentStore in Resources */ = {isa = PBXBuildFile; fileRef = FB83C65D1629D21D00C92803 /* persistentStore */; };
 		FB83C6631629E28A00C92803 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83C6621629DEFD00C92803 /* MBProgressHUD.m */; };
 		FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AB8163748D50039F096 /* NamesOrderViewController.m */; };
@@ -47,7 +50,7 @@
 		FBD34E4B162636C600BDC541 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
 		FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */; };
 		FBE174C315E30C0300EDC6A4 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C215E30C0300EDC6A4 /* Favorite.m */; };
-		FBE174C815E3121600EDC6A4 /* NamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */; };
+		FBE174C815E3121600EDC6A4 /* NamesTableViewListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C715E3121600EDC6A4 /* NamesTableViewListController.m */; };
 		FBE174CA15E3193E00EDC6A4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE174C915E3193E00EDC6A4 /* CoreData.framework */; };
 		FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D415E452D100EDC6A4 /* Name+Create.m */; };
 		FBE174D815E456A200EDC6A4 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D715E456A200EDC6A4 /* Name.m */; };
@@ -90,8 +93,12 @@
 		FB6F8A1116B7413A00D8F9CE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FB6F8A1216B7413A00D8F9CE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		FB6F8A1B16B76F2600D8F9CE /* tableViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableViewBackground.png; sourceTree = "<group>"; };
-		FB6F8A1C16B76F2600D8F9CE /* tableViewBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewBackground@2x.png"; sourceTree = "<group>"; };
+		FB6F8A1B16B76F2600D8F9CE /* tableViewBackgroundBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableViewBackgroundBlue.png; sourceTree = "<group>"; };
+		FB6F8A1C16B76F2600D8F9CE /* tableViewBackgroundBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewBackgroundBlue@2x.png"; sourceTree = "<group>"; };
+		FB6F8A1F16B8C04000D8F9CE /* NamesTableViewBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesTableViewBaseController.h; sourceTree = "<group>"; };
+		FB6F8A2016B8C04100D8F9CE /* NamesTableViewBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewBaseController.m; sourceTree = "<group>"; };
+		FB6F8A2216B8CC0000D8F9CE /* tableViewBackgroundPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableViewBackgroundPink.png; sourceTree = "<group>"; };
+		FB6F8A2316B8CC0000D8F9CE /* tableViewBackgroundPink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableViewBackgroundPink@2x.png"; sourceTree = "<group>"; };
 		FB83C65D1629D21D00C92803 /* persistentStore */ = {isa = PBXFileReference; lastKnownFileType = file; path = persistentStore; sourceTree = "<group>"; };
 		FB83C6611629DEFD00C92803 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FB83C6621629DEFD00C92803 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -114,8 +121,8 @@
 		FBE174A015E3069600EDC6A4 /* Mannanofn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mannanofn.xcdatamodel; sourceTree = "<group>"; };
 		FBE174C115E30C0300EDC6A4 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
 		FBE174C215E30C0300EDC6A4 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
-		FBE174C615E3121600EDC6A4 /* NamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesTableViewController.h; sourceTree = "<group>"; };
-		FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewController.m; sourceTree = "<group>"; };
+		FBE174C615E3121600EDC6A4 /* NamesTableViewListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesTableViewListController.h; sourceTree = "<group>"; };
+		FBE174C715E3121600EDC6A4 /* NamesTableViewListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewListController.m; sourceTree = "<group>"; };
 		FBE174C915E3193E00EDC6A4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FBE174CB15E3199800EDC6A4 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		FBE174CC15E3199800EDC6A4 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
@@ -193,8 +200,10 @@
 				FB955AB8163748D50039F096 /* NamesOrderViewController.m */,
 				FB955AC016374AC20039F096 /* NamesContainerViewController.h */,
 				FB955AC116374AC20039F096 /* NamesContainerViewController.m */,
-				FBE174C615E3121600EDC6A4 /* NamesTableViewController.h */,
-				FBE174C715E3121600EDC6A4 /* NamesTableViewController.m */,
+				FBE174C615E3121600EDC6A4 /* NamesTableViewListController.h */,
+				FBE174C715E3121600EDC6A4 /* NamesTableViewListController.m */,
+				FB6F8A1F16B8C04000D8F9CE /* NamesTableViewBaseController.h */,
+				FB6F8A2016B8C04100D8F9CE /* NamesTableViewBaseController.m */,
 				FB313E071546008A0077438C /* first.png */,
 				FB313E091546008A0077438C /* first@2x.png */,
 				FB313E0E1546008A0077438C /* second.png */,
@@ -271,8 +280,10 @@
 		FB955AB6163748160039F096 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
-				FB6F8A1B16B76F2600D8F9CE /* tableViewBackground.png */,
-				FB6F8A1C16B76F2600D8F9CE /* tableViewBackground@2x.png */,
+				FB6F8A2216B8CC0000D8F9CE /* tableViewBackgroundPink.png */,
+				FB6F8A2316B8CC0000D8F9CE /* tableViewBackgroundPink@2x.png */,
+				FB6F8A1B16B76F2600D8F9CE /* tableViewBackgroundBlue.png */,
+				FB6F8A1C16B76F2600D8F9CE /* tableViewBackgroundBlue@2x.png */,
 			);
 			name = graphics;
 			sourceTree = "<group>";
@@ -400,8 +411,10 @@
 				FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */,
 				FB6F8A1516B7413A00D8F9CE /* Default@2x.png in Resources */,
 				FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */,
-				FB6F8A1D16B76F2600D8F9CE /* tableViewBackground.png in Resources */,
-				FB6F8A1E16B76F2600D8F9CE /* tableViewBackground@2x.png in Resources */,
+				FB6F8A1D16B76F2600D8F9CE /* tableViewBackgroundBlue.png in Resources */,
+				FB6F8A1E16B76F2600D8F9CE /* tableViewBackgroundBlue@2x.png in Resources */,
+				FB6F8A2416B8CC0000D8F9CE /* tableViewBackgroundPink.png in Resources */,
+				FB6F8A2516B8CC0000D8F9CE /* tableViewBackgroundPink@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,11 +445,12 @@
 				FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */,
 				FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */,
 				FBE174C315E30C0300EDC6A4 /* Favorite.m in Sources */,
-				FBE174C815E3121600EDC6A4 /* NamesTableViewController.m in Sources */,
+				FBE174C815E3121600EDC6A4 /* NamesTableViewListController.m in Sources */,
 				FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */,
 				FBE174D815E456A200EDC6A4 /* Name.m in Sources */,
 				FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */,
 				FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */,
+				FB6F8A2116B8C04100D8F9CE /* NamesTableViewBaseController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

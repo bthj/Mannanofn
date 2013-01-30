@@ -12,7 +12,7 @@
 
 @interface NamesContainerViewController ()
 
-@property (nonatomic, strong) NamesTableViewController *namesTable;
+@property (nonatomic, strong) NamesTableViewListController *namesTable;
 
 @end
 
@@ -29,7 +29,7 @@
     
     //self.tableContainer.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableViewBackground"]];
     
-    self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackground"]];
+//    self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackground"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -43,7 +43,7 @@
 {
     if( [[segue identifier] isEqualToString:@"NamesTableEmbedSegue"] ) {
         
-        self.namesTable = (NamesTableViewController *)[segue destinationViewController];
+        self.namesTable = (NamesTableViewListController *)[segue destinationViewController];
         self.namesTable.namesOrder = self.namesOrder;
         self.namesTable.nameCardDelegate = self;
         
@@ -84,9 +84,13 @@
     switch (self.genderSelection.selectedSegmentIndex) {
         case 0:
             self.namesTable.genderSelection = selectedGender = GENDER_MALE;
+            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
+            self.nameCard.backgroundColor = [UIColor colorWithRed:58.0f/255.0f green:30.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
             break;
         case 1:
             self.namesTable.genderSelection = selectedGender = GENDER_FEMALE;
+            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundPink"]];
+            self.nameCard.backgroundColor = [UIColor colorWithRed:126.0f/255.0f green:15.0f/255.0f blue:35.0f/255.0f alpha:1.0f];
             break;
         default:
             break;

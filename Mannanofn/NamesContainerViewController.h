@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NamesTableViewController.h"
+#import "NamesTableViewListController.h"
 
 @interface NamesContainerViewController : UIViewController <NameCardUpdateDelegate>
 
@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *namePosition;
 
 
+@property (weak, nonatomic) IBOutlet UIView *nameCard;
 @property (weak, nonatomic) IBOutlet UILabel *nameOnCard;
 
 
