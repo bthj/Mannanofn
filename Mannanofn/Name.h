@@ -3,7 +3,7 @@
 //  Mannanofn
 //
 //  Created by Björn Þór Jónsson on 8/21/12.
-//  Copyright (c) 2012 Síminn. All rights reserved.
+//  Copyright (c) 2012 nemur.net. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

@@ -211,8 +211,8 @@
 				FBE2678116B974BF00661375 /* NamesTableViewCategoryController.m */,
 				FB313E071546008A0077438C /* first.png */,
 				FB313E091546008A0077438C /* first@2x.png */,
-				FB313E0E1546008A0077438C /* second.png */,
 				FB313E101546008A0077438C /* second@2x.png */,
+				FB313E0E1546008A0077438C /* second.png */,
 				FB955AB4163747200039F096 /* delmes */,
 				FB955AB6163748160039F096 /* graphics */,
 				FB313DF31546008A0077438C /* Supporting Files */,
@@ -378,7 +378,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Mannanofn;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Síminn";
 			};
 			buildConfigurationList = FB313DE21546008A0077438C /* Build configuration list for PBXProject "Mannanofn" */;
@@ -516,6 +516,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -542,6 +546,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

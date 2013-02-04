@@ -38,7 +38,7 @@
     return request;
 }
 
-- (void)fetchNamesIntoDocument:(UIManagedDocument *)document:(BOOL)reset
+- (void)fetchNamesIntoDocument:(UIManagedDocument *)document shouldReset:(BOOL)reset
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Hleð inn nöfnum...";
@@ -94,7 +94,7 @@
         [self.namesDatabase saveToURL:self.namesDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
 /*            [self setupFetchedResultsController];  */
             [self.fetchedResultsSetupDelegate setupFetchedResultsController];
-            [self fetchNamesIntoDocument:self.namesDatabase:NO];
+            [self fetchNamesIntoDocument:self.namesDatabase shouldReset:NO];
             //            [self setupFetchedResultsController];
             
         }];
@@ -115,7 +115,7 @@
     if( namesReadFromSeedAtVersion && ![currentBuildVersion isEqualToString:namesReadFromSeedAtVersion] ) {
         // current app version doesn't match the one in NSUserDefault's NAMES_READ_FROM_SEED_AT_VERSION
         // let's delete everything from the Name table and read in again from the seed
-        [self fetchNamesIntoDocument:self.namesDatabase:YES];
+        [self fetchNamesIntoDocument:self.namesDatabase shouldReset:YES];
     }
 }
 

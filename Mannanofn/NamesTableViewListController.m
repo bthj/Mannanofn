@@ -371,7 +371,7 @@
     label.text = sectionTitle;
     
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 22)];
-    [sectionView setBackgroundColor:[UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:0.9f]];
+    [sectionView setBackgroundColor:[UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:0.66f]];
     
     [sectionView addSubview:label];
     

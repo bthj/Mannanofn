@@ -29,7 +29,21 @@
     
     //self.tableContainer.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableViewBackground"]];
     
-//    self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackground"]];
+    self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
+}
+
+- (void)addTitleToNavigationItem:(NSString *)titleText
+{
+    UILabel *navTitle = [[UILabel alloc] init];
+    navTitle.backgroundColor = [UIColor clearColor];
+    navTitle.textColor = [UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:1.0f];
+    navTitle.textAlignment = NSTextAlignmentCenter;
+    navTitle.font = [UIFont boldSystemFontOfSize:20];
+//    navTitle.shadowColor = [UIColor grayColor];
+//    navTitle.shadowOffset = CGSizeMake(0, -1.0);
+    navTitle.text = titleText;
+    self.navigationItem.titleView = navTitle;
+    [navTitle sizeToFit];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -37,6 +51,13 @@
     [self setGenderToLastCurrent];
     
     [self passGenderToNamesTable];
+    
+    if( self.categorySelection != nil ) {
+        self.genderSelection.hidden = YES;
+        self.namePosition.hidden = YES;
+
+        [self addTitleToNavigationItem:self.categorySelection];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -45,6 +66,7 @@
         
         self.namesTable = (NamesTableViewListController *)[segue destinationViewController];
         self.namesTable.namesOrder = self.namesOrder;
+        self.namesTable.categorySelection = self.categorySelection;
         self.namesTable.nameCardDelegate = self;
         
         [self setGenderToLastCurrent];
@@ -84,13 +106,13 @@
     switch (self.genderSelection.selectedSegmentIndex) {
         case 0:
             self.namesTable.genderSelection = selectedGender = GENDER_MALE;
-            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
-            self.nameCard.backgroundColor = [UIColor colorWithRed:58.0f/255.0f green:30.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
+//            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
+//            self.nameCard.backgroundColor = [UIColor colorWithRed:58.0f/255.0f green:30.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
             break;
         case 1:
             self.namesTable.genderSelection = selectedGender = GENDER_FEMALE;
-            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundPink"]];
-            self.nameCard.backgroundColor = [UIColor colorWithRed:126.0f/255.0f green:15.0f/255.0f blue:35.0f/255.0f alpha:1.0f];
+//            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundPink"]];
+//            self.nameCard.backgroundColor = [UIColor colorWithRed:126.0f/255.0f green:15.0f/255.0f blue:35.0f/255.0f alpha:1.0f];
             break;
         default:
             break;

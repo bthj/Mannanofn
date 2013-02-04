@@ -3,14 +3,17 @@
 //  Mannanofn
 //
 //  Created by Björn Þór Jónsson on 1/30/13.
-//  Copyright (c) 2013 Síminn. All rights reserved.
+//  Copyright (c) 2013 nemur.net. All rights reserved.
 //
 
 #import "NamesTableViewCategoryController.h"
+#import "NamesContainerViewController.h"
+#import "MannanofnGlobalStringConstants.h"
 
 @interface NamesTableViewCategoryController ()
 
 @property (nonatomic, strong) NSMutableArray *categories;
+@property (nonatomic, strong) NamesContainerViewController *namesContainer;
 
 @end
 
@@ -27,6 +30,7 @@
     request.resultType = NSDictionaryResultType;
     request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"category"]];
     request.returnsDistinctResults = YES;
+    request.predicate = [NSPredicate predicateWithFormat:@"gender = %@", [[NSUserDefaults standardUserDefaults] stringForKey:GENDER_SELECTION_STORAGE_KEY]];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"category" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
 
@@ -79,13 +83,23 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
+/*
     if( ! self.namesDatabase ) {
         
         super.fetchedResultsSetupDelegate = self;
         
         [self initializeNamesDatabase];
     }
+*/
+    super.fetchedResultsSetupDelegate = self;
+    
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:105.0f/255.0f blue:133.0f/255.0f alpha:1.0f];
+    
+    self.navigationItem.title = @"Flokkar";
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self initializeNamesDatabase];
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,6 +129,7 @@
     
     // Configure the cell...
     cell.textLabel.text = [[self.categories objectAtIndex:indexPath.row] valueForKey:@"category"];
+    cell.textLabel.textColor = [UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:1.0f];
     
     return cell;
 }
@@ -169,6 +184,14 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    self.namesContainer = (NamesContainerViewController *)[segue destinationViewController];
+    self.namesContainer.namesOrder = ORDER_BY_NAME;
+    NSString *category = [[self.categories objectAtIndex:[self.tableView indexPathForSelectedRow].row] valueForKey:@"category"];;
+    self.namesContainer.categorySelection = category;
 }
 
 @end

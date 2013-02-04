@@ -13,8 +13,10 @@
 
 @property (assign, nonatomic) BOOL showCategories;
 @property (nonatomic, strong) NSString *namesOrder;
+@property (nonatomic, strong) NSString *categorySelection;
 
 
+@property (weak, nonatomic) IBOutlet UIView *navigationView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *genderSelection;
 - (IBAction)selectGender:(id)sender;
 
