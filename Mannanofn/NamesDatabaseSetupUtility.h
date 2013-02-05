@@ -19,7 +19,7 @@
 
 @property (weak, nonatomic) id <SetupFetchedResultsControllerDelegate> fetchedResultsSetupDelegate;
 
-- (void)initializeNamesDatabase:(UIManagedDocument *)namesDatabase forView:(UIView *)view;
+- (void)initializeNamesDatabase: (UIView *)view;
 
 @end
 

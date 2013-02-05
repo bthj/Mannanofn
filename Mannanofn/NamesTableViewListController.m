@@ -9,7 +9,6 @@
 #import "NamesTableViewListController.h"
 #import "Name.h"
 #import "MannanofnGlobalStringConstants.h"
-#import "NamesDatabaseSetupUtility.h"
 #import "NameInfoViewController.h"
 
 
@@ -31,16 +30,6 @@
 @synthesize showCategories = _showCategories;
 @synthesize categorySelection = _categorySelection;
 
-
-- (void)setNamesDatabase:(UIManagedDocument *)namesDatabase
-{
-    if( _namesDatabase != namesDatabase ) {
-        _namesDatabase = namesDatabase;
-        if( namesDatabase ) {
-            [self setupFetchedResultsController];
-        }
-    }
-}
 
 
 - (void)setupFetchedResultsController //attaches an NSFetchRequest to this UITableViewController
@@ -86,8 +75,15 @@
     [self updateNameCardFromVisibleCells];
 }
 
-
-
+- (void)setNamesDatabase:(UIManagedDocument *)namesDatabase
+{
+    if( _namesDatabase != namesDatabase ) {
+        _namesDatabase = namesDatabase;
+        if( namesDatabase ) {
+            [self setupFetchedResultsController];
+        }
+    }
+}
 
 
 - (void)setGenderSelection:(NSString *)genderSelection
@@ -99,13 +95,9 @@
     }
 }
 
-
-
-
 - (void)updateNameCardFromVisibleCells
 {
     int visibleCount = 0;
-//    NSLog(@"count visibleCells:  %u", [self.tableView.visibleCells count]);
     int visibleCellReference;
     if( IS_WIDESCREEN ) { // iPhone 5 and such...
         visibleCellReference = 9;
@@ -122,64 +114,16 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-/*
-    if( ! self.namesDatabase ) {
-        
-        super.fetchedResultsSetupDelegate = self;
-        
-        [self initializeNamesDatabase];
-    }
-*/
-}
-
-
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-        
-
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    
-    // TODO: temporary gender selection
-//    self.categorySelection = @"Frumlegast";
-//    self.namesOrder = ORDER_BY_NAME;
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;
 
-    
-    
-/*
-    if( ! self.namesDatabase ) {
-        
-        super.fetchedResultsSetupDelegate = self;
-        
-        [self initializeNamesDatabase];
-    }
-*/
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] init];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
-    [self.namesDatabaseSetup initializeNamesDatabase:self.namesDatabase forView:self.view];
+    [self.namesDatabaseSetup initializeNamesDatabase: self.view];
 }
 
 - (void)viewDidUnload
@@ -193,6 +137,8 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
 
 
 
@@ -255,16 +201,6 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     int numberOfSectionsInTableView;

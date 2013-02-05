@@ -33,10 +33,12 @@
     self.descriptionLabel.text = self.description;
     if( [self.description length] > 0 ) {
         self.descriptionLegend.hidden = NO;
-        [self.mailDescriptionButton setTitle:@"Veistu betur?" forState:UIControlStateNormal];
+        self.addDescriptionButton.hidden = YES;
+        self.changeDescriptionButton.hidden = NO;
     } else {
         self.descriptionLegend.hidden = YES;
-        [self.mailDescriptionButton setTitle: @"Veistu merkinguna?" forState:UIControlStateNormal];
+        self.addDescriptionButton.hidden = NO;
+        self.changeDescriptionButton.hidden = YES;
     }
     
     self.originLabel.text = self.origin;

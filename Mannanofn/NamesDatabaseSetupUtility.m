@@ -100,21 +100,18 @@
     if( ![[NSFileManager defaultManager] fileExistsAtPath:[self.namesDatabase.fileURL path]] ) {
         // does not exist on disk, so create it
         [self.namesDatabase saveToURL:self.namesDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
-/*            [self setupFetchedResultsController];  */
+
             [self.fetchedResultsSetupDelegate setNamesDatabase: self.namesDatabase];
             [self fetchNamesIntoDocument:self.namesDatabase shouldReset:NO];
-            //            [self setupFetchedResultsController];
-            
         }];
     } else if( self.namesDatabase.documentState == UIDocumentStateClosed ) {
         // exists on disk, but we need to open it
         [self.namesDatabase openWithCompletionHandler:^(BOOL success) {
-/*            [self setupFetchedResultsController];  */
+
             [self.fetchedResultsSetupDelegate setNamesDatabase: self.namesDatabase];
         }];
     } else if( self.namesDatabase.documentState == UIDocumentStateNormal ) {
         // already open and ready to use
-/*        [self setupFetchedResultsController];  */
         [self.fetchedResultsSetupDelegate setNamesDatabase: self.namesDatabase];
     }
     
@@ -137,9 +134,8 @@
     }
 }
 
-- (void)initializeNamesDatabase:(UIManagedDocument *)namesDatabase forView:(UIView *)view;
+- (void)initializeNamesDatabase: (UIView *)view;
 {
-    self.namesDatabase = namesDatabase;
     self.view = view;
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];

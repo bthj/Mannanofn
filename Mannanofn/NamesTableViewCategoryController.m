@@ -45,7 +45,11 @@
     request.resultType = NSDictionaryResultType;
     request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"category"]];
     request.returnsDistinctResults = YES;
-    request.predicate = [NSPredicate predicateWithFormat:@"gender = %@", [[NSUserDefaults standardUserDefaults] stringForKey:GENDER_SELECTION_STORAGE_KEY]];
+    NSString *gender = [[NSUserDefaults standardUserDefaults] stringForKey:GENDER_SELECTION_STORAGE_KEY];
+    if( ! gender ) {
+        gender = GENDER_MALE;
+    }
+    request.predicate = [NSPredicate predicateWithFormat:@"gender = %@", gender];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"category" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
 
@@ -111,7 +115,6 @@
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] init];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
     
-    
     self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:105.0f/255.0f blue:133.0f/255.0f alpha:1.0f];
     
     self.navigationItem.title = @"Flokkar";
@@ -119,7 +122,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 //    [self initializeNamesDatabase];
-    [self.namesDatabaseSetup initializeNamesDatabase:self.namesDatabase forView:self.view];
+    [self.namesDatabaseSetup initializeNamesDatabase: self.view];
 }
 
 - (void)didReceiveMemoryWarning

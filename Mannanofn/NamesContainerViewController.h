@@ -28,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIView *nameCard;
 @property (weak, nonatomic) IBOutlet UILabel *nameOnCard;
 
+@property (weak, nonatomic) IBOutlet UIButton *addToFavoritesButton;
+- (IBAction)addToFavorites:(id)sender;
+
 
 @property (weak, nonatomic) IBOutlet UIView *tableContainer;
 

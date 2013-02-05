@@ -27,8 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *countAsFirstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countAsSecondNameLabel;
 
-
-@property (weak, nonatomic) IBOutlet UIButton *mailDescriptionButton;
+@property (weak, nonatomic) IBOutlet UIButton *addDescriptionButton;
+@property (weak, nonatomic) IBOutlet UIButton *changeDescriptionButton;
 - (IBAction)mailDescription:(id)sender;
 
 

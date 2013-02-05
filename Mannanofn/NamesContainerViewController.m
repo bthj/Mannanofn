@@ -13,6 +13,7 @@
 @interface NamesContainerViewController ()
 
 @property (nonatomic, strong) NamesTableViewListController *namesTable;
+@property (nonatomic, strong) UIManagedDocument *favoritesDatabase;
 
 @end
 
@@ -106,20 +107,29 @@
 - (NSString *)passGenderToNamesTable
 {
     NSString *selectedGender = nil;
-    switch (self.genderSelection.selectedSegmentIndex) {
-        case 0:
-            self.namesTable.genderSelection = selectedGender = GENDER_MALE;
-//            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
-//            self.nameCard.backgroundColor = [UIColor colorWithRed:58.0f/255.0f green:30.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
-            break;
-        case 1:
-            self.namesTable.genderSelection = selectedGender = GENDER_FEMALE;
-//            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundPink"]];
-//            self.nameCard.backgroundColor = [UIColor colorWithRed:126.0f/255.0f green:15.0f/255.0f blue:35.0f/255.0f alpha:1.0f];
-            break;
-        default:
-            break;
+    if( self.genderSelection ) {
+        switch (self.genderSelection.selectedSegmentIndex) {
+            case 0:
+                self.namesTable.genderSelection = selectedGender = GENDER_MALE;
+                //            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
+                //            self.nameCard.backgroundColor = [UIColor colorWithRed:58.0f/255.0f green:30.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
+                break;
+            case 1:
+                self.namesTable.genderSelection = selectedGender = GENDER_FEMALE;
+                //            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundPink"]];
+                //            self.nameCard.backgroundColor = [UIColor colorWithRed:126.0f/255.0f green:15.0f/255.0f blue:35.0f/255.0f alpha:1.0f];
+                break;
+            default:
+                break;
+        }
+    } else { // we don't have the gender selection control, let's grab the value from defaults
+        NSString *gender = [[NSUserDefaults standardUserDefaults] stringForKey:GENDER_SELECTION_STORAGE_KEY];
+        if( ! gender ) {
+            gender = GENDER_MALE;
+        }
+        self.namesTable.genderSelection = selectedGender = gender;
     }
+
     return selectedGender;
 }
 
@@ -176,4 +186,6 @@
 
 
 
+- (IBAction)addToFavorites:(id)sender {
+}
 @end

@@ -8,6 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+
+@protocol SetFavoritesDatabaseDelegate;
+
+
+
 @interface FavoritesDatabaseSetupUtility : NSObject
+
+@property (weak, nonatomic) id <SetFavoritesDatabaseDelegate> setFavoritesDatabaseDelegate;
+
+- (void)initializeFavoritesDatabase: (UIView *)view;
+
+@end
+
+
+
+@protocol SetFavoritesDatabaseDelegate <NSObject>
+
+- (void)setFavoritesDatabase:(UIManagedDocument *)favoritesDatabase;
 
 @end

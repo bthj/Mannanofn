@@ -7,33 +7,59 @@
 //
 
 #import "FavoritesTableViewController.h"
+#import "Favorite.h"
+
 
 @interface FavoritesTableViewController ()
 
+@property (strong, nonatomic) FavoritesDatabaseSetupUtility *favoritesDatabaseSetup;
+@property (strong, nonatomic) UIManagedDocument *favoritesDatabase;
+
 @end
+
+
 
 @implementation FavoritesTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+@synthesize favoritesDatabase = _favoritesDatabase;
+
+
+- (void)setupFetchedResultsController
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Favorite"];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.favoritesDatabase.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    
+}
+
+- (void)setFavoritesDatabase:(UIManagedDocument *)favoritesDatabase
+{
+    if( _favoritesDatabase != favoritesDatabase ) {
+        _favoritesDatabase = favoritesDatabase;
+        if( favoritesDatabase ) {
+            [self setupFetchedResultsController];
+        }
     }
-    return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title = @"Uppáhalds";
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.editButtonItem.title = @"Breyta";
+    
+    self.favoritesDatabaseSetup = [[FavoritesDatabaseSetupUtility alloc] init];
+    self.favoritesDatabaseSetup.setFavoritesDatabaseDelegate = self;
+    [self.favoritesDatabaseSetup initializeFavoritesDatabase: self.view];
 }
-
+/*
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -55,13 +81,15 @@
     // Return the number of rows in the section.
     return 0;
 }
-
+*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"FavoriteCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    Favorite *favorite = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = favorite.name;
     
     return cell;
 }
@@ -107,15 +135,32 @@
 
 #pragma mark - Table view delegate
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    
+    // ath. localization  http://stackoverflow.com/a/9917968/169858
+    if( editing ) {
+        self.editButtonItem.title = @"Ljúka";
+    } else {
+        self.editButtonItem.title = @"Breyta";
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     ; *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
 }
 
 @end
