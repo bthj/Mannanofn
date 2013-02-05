@@ -9,17 +9,22 @@
 #import "NamesTableViewListController.h"
 #import "Name.h"
 #import "MannanofnGlobalStringConstants.h"
-
+#import "NamesDatabaseSetupUtility.h"
+#import "NameInfoViewController.h"
 
 
 
 @interface NamesTableViewListController ()
 
+@property (strong, nonatomic) NamesDatabaseSetupUtility *namesDatabaseSetup;
+
 @end
+
+
 
 @implementation NamesTableViewListController
 
-
+@synthesize namesDatabase = _namesDatabase;
 
 @synthesize genderSelection = _genderSelection;
 @synthesize namesOrder = _namesOrder;
@@ -27,19 +32,21 @@
 @synthesize categorySelection = _categorySelection;
 
 
-
+- (void)setNamesDatabase:(UIManagedDocument *)namesDatabase
+{
+    if( _namesDatabase != namesDatabase ) {
+        _namesDatabase = namesDatabase;
+        if( namesDatabase ) {
+            [self setupFetchedResultsController];
+        }
+    }
+}
 
 
 - (void)setupFetchedResultsController //attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
-/*
-    if( self.showCategories ) {
-        request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
-    } else {
-        request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
-    }
-*/
+
     NSMutableArray *predicateFormats = [NSMutableArray array];
     NSMutableArray *predicateArguments = [NSMutableArray array];
 
@@ -159,15 +166,20 @@
 
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;
+
     
     
-    
+/*
     if( ! self.namesDatabase ) {
         
         super.fetchedResultsSetupDelegate = self;
         
         [self initializeNamesDatabase];
     }
+*/
+    self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] init];
+    self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
+    [self.namesDatabaseSetup initializeNamesDatabase:self.namesDatabase forView:self.view];
 }
 
 - (void)viewDidUnload
@@ -184,8 +196,6 @@
 
 
 
-
-
 #pragma mark - Table view delegate
 
 
@@ -194,6 +204,24 @@
     [self updateNameCardFromVisibleCells];
 }
 
+
+- (Name *)getNameAtIndexPath:(NSIndexPath *)indexPath
+{
+    Name *name;
+    
+    // as we're padding with an empty section on top (and at bottom) we need to adjust for the section index here
+    NSIndexPath *adjustedIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section-1];
+    
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        // let's trick fetchedResultsController as we didn't pass any sectionNameKeyPath in this case
+        // and we're handling numberOfSectionsInTableView and numberOfRowsInSection here locally (yes, hackish!)
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:adjustedIndexPath.row+(adjustedIndexPath.section*NUMER_OF_ROWS_IN_POPULARITY_SECTION) inSection:0];
+        name = [self.fetchedResultsController objectAtIndexPath:newIndexPath];
+    } else {
+        name = [self.fetchedResultsController objectAtIndexPath:adjustedIndexPath];
+    }
+    return name;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -210,19 +238,9 @@
     } else {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
-        // as we're padding with an empty section on top (and at bottom) we need to adjust for the section index here
-        NSIndexPath *adjustedIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section-1];
-        
+
         // Configure the cell...
-        Name *name;
-        if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
-            // let's trick fetchedResultsController as we didn't pass any sectionNameKeyPath in this case
-            // and we're handling numberOfSectionsInTableView and numberOfRowsInSection here locally (yes, hackish!)
-            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:adjustedIndexPath.row+(adjustedIndexPath.section*NUMER_OF_ROWS_IN_POPULARITY_SECTION) inSection:0];
-            name = [self.fetchedResultsController objectAtIndexPath:newIndexPath];
-        } else {
-            name = [self.fetchedResultsController objectAtIndexPath:adjustedIndexPath];
-        }
+        Name *name = [self getNameAtIndexPath:indexPath];
         cell.textLabel.text = name.name;
         //    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", name.countAsFirstName, name.countAsSecondName];
     }
@@ -376,6 +394,17 @@
     [sectionView addSubview:label];
     
     return sectionView;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NameInfoViewController *nameInfo = (NameInfoViewController *)[segue destinationViewController];
+ 
+    Name *name = [self getNameAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    NSString *tempName = name.name;
+    nameInfo.name = tempName;
+    nameInfo.description = name.descriptionIcelandic;
+    nameInfo.origin = name.origin;
 }
 
 

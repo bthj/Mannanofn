@@ -25,14 +25,12 @@
     if( [[segue identifier] isEqualToString:@"AlphabeticalEmbedSegue"] ) {
         
         namesContainer.namesOrder = ORDER_BY_NAME;
+        namesContainer.navigationItemTitle = @"A-Ö";
         
     } else if( [[segue identifier] isEqualToString:@"PopularityEmbedSegue"] ) {
         
         namesContainer.namesOrder = ORDER_BY_FIRST_NAME_POPULARITY;
-        
-    } else if( [[segue identifier] isEqualToString:@"CategoryEmbedSegue"] ) {
-        
-        
+        namesContainer.navigationItemTitle = @"Vinsældalisti";
     }
 }
 

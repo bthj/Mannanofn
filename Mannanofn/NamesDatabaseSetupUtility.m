@@ -6,16 +6,24 @@
 //  Copyright (c) 2013 nemur.net. All rights reserved.
 //
 
-#import "NamesTableViewBaseController.h"
+#import "NamesDatabaseSetupUtility.h"
 #import "Name+Create.h"
 #import "MBProgressHUD.h"
 #import "MannanofnGlobalStringConstants.h"
 
 
 
-@implementation NamesTableViewBaseController
+@interface NamesDatabaseSetupUtility ()
+@property (nonatomic, strong) UIManagedDocument *namesDatabase;
+@property (nonatomic, strong) UIView *view;
+@end
+
+
+
+@implementation NamesDatabaseSetupUtility
 
 @synthesize namesDatabase = _namesDatabase;
+
 
 
 - (NSArray *)getNamesFromJSONSeed
@@ -93,7 +101,7 @@
         // does not exist on disk, so create it
         [self.namesDatabase saveToURL:self.namesDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
 /*            [self setupFetchedResultsController];  */
-            [self.fetchedResultsSetupDelegate setupFetchedResultsController];
+            [self.fetchedResultsSetupDelegate setNamesDatabase: self.namesDatabase];
             [self fetchNamesIntoDocument:self.namesDatabase shouldReset:NO];
             //            [self setupFetchedResultsController];
             
@@ -102,12 +110,12 @@
         // exists on disk, but we need to open it
         [self.namesDatabase openWithCompletionHandler:^(BOOL success) {
 /*            [self setupFetchedResultsController];  */
-            [self.fetchedResultsSetupDelegate setupFetchedResultsController];
+            [self.fetchedResultsSetupDelegate setNamesDatabase: self.namesDatabase];
         }];
     } else if( self.namesDatabase.documentState == UIDocumentStateNormal ) {
         // already open and ready to use
 /*        [self setupFetchedResultsController];  */
-        [self.fetchedResultsSetupDelegate setupFetchedResultsController];
+        [self.fetchedResultsSetupDelegate setNamesDatabase: self.namesDatabase];
     }
     
     NSString *namesReadFromSeedAtVersion = [[NSUserDefaults standardUserDefaults] objectForKey:NAMES_READ_FROM_SEED_AT_VERSION];
@@ -129,8 +137,10 @@
     }
 }
 
-- (void)initializeNamesDatabase
+- (void)initializeNamesDatabase:(UIManagedDocument *)namesDatabase forView:(UIView *)view;
 {
+    self.namesDatabase = namesDatabase;
+    self.view = view;
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
     

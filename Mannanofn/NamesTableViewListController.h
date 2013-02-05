@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NamesTableViewBaseController.h"
+#import "NamesDatabaseSetupUtility.h"
 
 
 @protocol NameCardUpdateDelegate;
 
 
-@interface NamesTableViewListController : NamesTableViewBaseController <SetupFetchedResultsControllerDelegate>
+@interface NamesTableViewListController : CoreDataTableViewController <SetupFetchedResultsControllerDelegate, NSFetchedResultsControllerDelegate>
 
 
+@property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
 @property (nonatomic, strong) NSString *genderSelection;
 @property (nonatomic, strong) NSString *namesOrder;

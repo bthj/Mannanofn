@@ -9,16 +9,31 @@
 #import "NamesTableViewCategoryController.h"
 #import "NamesContainerViewController.h"
 #import "MannanofnGlobalStringConstants.h"
+#import "NamesDatabaseSetupUtility.h"
 
 @interface NamesTableViewCategoryController ()
 
 @property (nonatomic, strong) NSMutableArray *categories;
 @property (nonatomic, strong) NamesContainerViewController *namesContainer;
+@property (nonatomic, strong) NamesDatabaseSetupUtility *namesDatabaseSetup;
 
 @end
 
+
+
 @implementation NamesTableViewCategoryController
 
+@synthesize namesDatabase = _namesDatabase;
+
+- (void)setNamesDatabase:(UIManagedDocument *)namesDatabase
+{
+    if( _namesDatabase != namesDatabase ) {
+        _namesDatabase = namesDatabase;
+        if( namesDatabase ) {
+            [self setupFetchedResultsController];
+        }
+    }
+}
 
 - (void)setupFetchedResultsController
 {
@@ -91,7 +106,11 @@
         [self initializeNamesDatabase];
     }
 */
-    super.fetchedResultsSetupDelegate = self;
+//    super.fetchedResultsSetupDelegate = self;
+    
+    self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] init];
+    self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
+    
     
     self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:105.0f/255.0f blue:133.0f/255.0f alpha:1.0f];
     
@@ -99,7 +118,8 @@
 }
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self initializeNamesDatabase];
+//    [self initializeNamesDatabase];
+    [self.namesDatabaseSetup initializeNamesDatabase:self.namesDatabase forView:self.view];
 }
 
 - (void)didReceiveMemoryWarning
@@ -192,6 +212,7 @@
     self.namesContainer.namesOrder = ORDER_BY_NAME;
     NSString *category = [[self.categories objectAtIndex:[self.tableView indexPathForSelectedRow].row] valueForKey:@"category"];;
     self.namesContainer.categorySelection = category;
+    self.namesContainer.navigationItemTitle = @"Flokkar";
 }
 
 @end

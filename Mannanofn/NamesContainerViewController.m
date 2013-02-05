@@ -58,11 +58,14 @@
 
         [self addTitleToNavigationItem:self.categorySelection];
     }
+    self.title = self.navigationItemTitle;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if( [[segue identifier] isEqualToString:@"NamesTableEmbedSegue"] ) {
+        
+        
         
         self.namesTable = (NamesTableViewListController *)[segue destinationViewController];
         self.namesTable.namesOrder = self.namesOrder;

@@ -14,13 +14,12 @@
 
 
 
-@interface NamesTableViewBaseController : CoreDataTableViewController <NSFetchedResultsControllerDelegate>
+@interface NamesDatabaseSetupUtility : NSObject
 
-@property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
 @property (weak, nonatomic) id <SetupFetchedResultsControllerDelegate> fetchedResultsSetupDelegate;
 
-- (void)initializeNamesDatabase;
+- (void)initializeNamesDatabase:(UIManagedDocument *)namesDatabase forView:(UIView *)view;
 
 @end
 
@@ -28,6 +27,6 @@
 
 @protocol SetupFetchedResultsControllerDelegate <NSObject>
 
-- (void)setupFetchedResultsController;
+- (void)setNamesDatabase:(UIManagedDocument *)namesDatabase;
 
 @end

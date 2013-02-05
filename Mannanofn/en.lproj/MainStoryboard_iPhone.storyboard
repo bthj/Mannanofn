@@ -231,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3027" y="2508"/>
+            <point key="canvasLocation" x="3435" y="3492"/>
         </scene>
         <!--Names Table View List Controller - nöfn-->
         <scene sceneID="3pS-ji-ZfG">
@@ -260,6 +260,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="pRC-zP-j6d" kind="push" id="w3j-Ol-6Sp"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -272,6 +275,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fw9-ok-VQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2707" y="-403"/>
+        </scene>
+        <!--Name Info View Controller-->
+        <scene sceneID="KYW-OK-7Su">
+            <objects>
+                <viewController id="pRC-zP-j6d" customClass="NameInfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F9C-ND-Pwp">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" id="n2k-PC-28r">
+                                <rect key="frame" x="118" y="148" width="160" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Merking:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yyz-Sb-MZj">
+                                <rect key="frame" x="118" y="174" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Uppruni:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dzo-16-NzU">
+                                <rect key="frame" x="118" y="221" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- merking" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="6" id="51O-E2-1zB">
+                                <rect key="frame" x="118" y="191" width="182" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- merking" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" id="i98-zP-PFg">
+                                <rect key="frame" x="118" y="240" width="182" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="UI3-LZ-Vgd">
+                                <rect key="frame" x="0.0" y="317" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="first@2x.png" id="fsT-7U-bvF">
+                                <rect key="frame" x="255" y="264" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="4LR-uI-Luf">
+                                <rect key="frame" x="118" y="275" width="115" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.70588235290000001" green="0.70196078429999997" blue="0.67450980390000004" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                <state key="normal" title="Veistu merkinguna?">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mailDescription:" destination="pRC-zP-j6d" eventType="touchUpInside" id="h17-SS-1cS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9137254901960784" green="0.8784313725490196" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="s3t-ga-4SF"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="51O-E2-1zB" id="SVC-dL-4Pu"/>
+                        <outlet property="descriptionLegend" destination="yyz-Sb-MZj" id="pub-j3-hOT"/>
+                        <outlet property="mailDescriptionButton" destination="4LR-uI-Luf" id="Hlg-aP-xZi"/>
+                        <outlet property="nameLabel" destination="n2k-PC-28r" id="wOE-wl-yff"/>
+                        <outlet property="originLabel" destination="i98-zP-PFg" id="IVR-Uj-Zau"/>
+                        <outlet property="originLegend" destination="dzo-16-NzU" id="thN-gF-Fo9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iT1-2D-spG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3389" y="645"/>
         </scene>
         <!--Mannanofn Second View Controller - Second-->
         <scene sceneID="13">
@@ -292,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3626" y="2508"/>
+            <point key="canvasLocation" x="4034" y="3492"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -309,6 +394,7 @@
                         <segue destination="vEb-UK-YXs" kind="relationship" relationship="viewControllers" id="oNf-We-Fek"/>
                         <segue destination="SsE-e6-BC0" kind="relationship" relationship="viewControllers" id="Okn-V7-tO6"/>
                         <segue destination="7DB-0Z-k8g" kind="relationship" relationship="viewControllers" id="gma-K0-Kj3"/>
+                        <segue destination="z6o-t1-AfQ" kind="relationship" relationship="viewControllers" id="AXA-7B-ln2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -486,7 +572,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGJ-Mi-i2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3621" y="1897"/>
+            <point key="canvasLocation" x="4029" y="2881"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="cI5-hO-sJ2">
@@ -506,7 +592,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9he-Ui-3eo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3027" y="1897"/>
+            <point key="canvasLocation" x="3435" y="2881"/>
         </scene>
         <!--Names Order View Controller - A-Ö-->
         <scene sceneID="sE7-B4-2ge">
@@ -583,6 +669,39 @@
             </objects>
             <point key="canvasLocation" x="154" y="244"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="F64-GX-tI5">
+            <objects>
+                <tableViewController id="cuw-LT-jrF" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PcG-Y3-xkN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteCell" id="GSK-BY-PzE">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="pRC-zP-j6d" kind="push" trigger="accessoryAction" id="pUz-i0-vt2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cuw-LT-jrF" id="4wC-qR-R3r"/>
+                            <outlet property="delegate" destination="cuw-LT-jrF" id="SPd-Ia-NA5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="kNf-bB-uXU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fTW-vE-UQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1481" y="1446"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="FUM-TF-j42">
             <objects>
@@ -656,10 +775,30 @@
             </objects>
             <point key="canvasLocation" x="725" y="278"/>
         </scene>
+        <!--Navigation Controller - Uppáhalds-->
+        <scene sceneID="UmV-y8-cA7">
+            <objects>
+                <navigationController id="z6o-t1-AfQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Uppáhalds" image="second.png" id="FgW-Tq-bUD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zPL-4N-ipS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cuw-LT-jrF" kind="relationship" relationship="rootViewController" id="4cU-aO-lGg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pt-jV-pII" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955" y="1446"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="16" height="16"/>
         <image name="first.png" width="30" height="30"/>
+        <image name="first@2x.png" width="60" height="60"/>
         <image name="second" width="16" height="16"/>
         <image name="second.png" width="30" height="30"/>
     </resources>
@@ -672,6 +811,18 @@
         </class>
         <class className="MannanofnSecondViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MannanofnSecondViewController.h"/>
+        </class>
+        <class className="NameInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NameInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="mailDescription:"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLegend" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mailDescriptionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="originLegend" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="NamesContainerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesContainerViewController.h"/>
@@ -688,13 +839,10 @@
         <class className="NamesOrderViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesOrderViewController.h"/>
         </class>
-        <class className="NamesTableViewBaseController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewBaseController.h"/>
-        </class>
-        <class className="NamesTableViewCategoryController" superclassName="NamesTableViewBaseController">
+        <class className="NamesTableViewCategoryController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewCategoryController.h"/>
         </class>
-        <class className="NamesTableViewListController" superclassName="NamesTableViewBaseController">
+        <class className="NamesTableViewListController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewListController.h"/>
         </class>
     </classes>
@@ -704,7 +852,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UcW-rl-3MV"/>
         <segue reference="Xjy-jI-TAD"/>
+        <segue reference="UcW-rl-3MV"/>
+        <segue reference="pUz-i0-vt2"/>
     </inferredMetricsTieBreakers>
 </document>

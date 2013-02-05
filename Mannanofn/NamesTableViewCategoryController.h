@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NamesTableViewBaseController.h"
+#import "NamesDatabaseSetupUtility.h"
 
-@interface NamesTableViewCategoryController : NamesTableViewBaseController <SetupFetchedResultsControllerDelegate>
+@interface NamesTableViewCategoryController : CoreDataTableViewController <SetupFetchedResultsControllerDelegate, NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
 @end

@@ -14,6 +14,7 @@
 @property (assign, nonatomic) BOOL showCategories;
 @property (nonatomic, strong) NSString *namesOrder;
 @property (nonatomic, strong) NSString *categorySelection;
+@property (nonatomic, strong) NSString *navigationItemTitle;
 
 
 @property (weak, nonatomic) IBOutlet UIView *navigationView;
