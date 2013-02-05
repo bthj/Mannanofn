@@ -45,6 +45,9 @@
     } else {
         self.originLegend.hidden = YES;
     }
+    
+    self.countAsFirstNameLabel.text = [self.countAsFirstName stringValue];
+    self.countAsSecondNameLabel.text = [self.countAsSecondName stringValue];
 }
 
 - (void)didReceiveMemoryWarning

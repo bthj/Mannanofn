@@ -405,6 +405,8 @@
     nameInfo.name = tempName;
     nameInfo.description = name.descriptionIcelandic;
     nameInfo.origin = name.origin;
+    nameInfo.countAsFirstName = name.countAsFirstName;
+    nameInfo.countAsSecondName = name.countAsSecondName;
 }
 
 

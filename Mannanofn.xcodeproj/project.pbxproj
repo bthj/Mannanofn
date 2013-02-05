@@ -21,6 +21,11 @@
 		FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */; };
 		FB313E0F1546008A0077438C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E0E1546008A0077438C /* second.png */; };
 		FB313E111546008A0077438C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E101546008A0077438C /* second@2x.png */; };
+		FB497F1E16C08EC200894353 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F1D16C08EC200894353 /* FavoritesTableViewController.m */; };
+		FB497F2116C09A6D00894353 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2016C09A6D00894353 /* Favorite.m */; };
+		FB497F2416C09A6E00894353 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2316C09A6D00894353 /* Name.m */; };
+		FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2616C09B6100894353 /* Favorite+Create.m */; };
+		FB497F2A16C0A35C00894353 /* FavoritesDatabaseSetupUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2916C0A35C00894353 /* FavoritesDatabaseSetupUtility.m */; };
 		FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1116B7413A00D8F9CE /* Default.png */; };
 		FB6F8A1516B7413A00D8F9CE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1216B7413A00D8F9CE /* Default@2x.png */; };
 		FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */; };
@@ -45,16 +50,13 @@
 		FBD34E381626231600BDC541 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD34E371626231600BDC541 /* Default@2x.png */; };
 		FBD34E3A1626231600BDC541 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD34E391626231600BDC541 /* Default-568h@2x.png */; };
 		FBD34E43162632EC00BDC541 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE174C915E3193E00EDC6A4 /* CoreData.framework */; };
-		FBD34E461626333800BDC541 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D715E456A200EDC6A4 /* Name.m */; };
 		FBD34E471626333800BDC541 /* Name+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D415E452D100EDC6A4 /* Name+Create.m */; };
 		FBD34E4A1626352D00BDC541 /* Mannanofn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */; };
 		FBD34E4B162636C600BDC541 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
 		FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */; };
-		FBE174C315E30C0300EDC6A4 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C215E30C0300EDC6A4 /* Favorite.m */; };
 		FBE174C815E3121600EDC6A4 /* NamesTableViewListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174C715E3121600EDC6A4 /* NamesTableViewListController.m */; };
 		FBE174CA15E3193E00EDC6A4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE174C915E3193E00EDC6A4 /* CoreData.framework */; };
 		FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D415E452D100EDC6A4 /* Name+Create.m */; };
-		FBE174D815E456A200EDC6A4 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174D715E456A200EDC6A4 /* Name.m */; };
 		FBE174D915E59E6000EDC6A4 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE174CC15E3199800EDC6A4 /* CoreDataTableViewController.m */; };
 		FBE2678216B974BF00661375 /* NamesTableViewCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE2678116B974BF00661375 /* NamesTableViewCategoryController.m */; };
 /* End PBXBuildFile section */
@@ -92,6 +94,16 @@
 		FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MannanofnSecondViewController.m; sourceTree = "<group>"; };
 		FB313E0E1546008A0077438C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		FB313E101546008A0077438C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		FB497F1C16C08EC200894353 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
+		FB497F1D16C08EC200894353 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
+		FB497F1F16C09A6D00894353 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
+		FB497F2016C09A6D00894353 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
+		FB497F2216C09A6D00894353 /* Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Name.h; sourceTree = "<group>"; };
+		FB497F2316C09A6D00894353 /* Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Name.m; sourceTree = "<group>"; };
+		FB497F2516C09B6100894353 /* Favorite+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Favorite+Create.h"; sourceTree = "<group>"; };
+		FB497F2616C09B6100894353 /* Favorite+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Favorite+Create.m"; sourceTree = "<group>"; };
+		FB497F2816C0A35C00894353 /* FavoritesDatabaseSetupUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDatabaseSetupUtility.h; sourceTree = "<group>"; };
+		FB497F2916C0A35C00894353 /* FavoritesDatabaseSetupUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDatabaseSetupUtility.m; sourceTree = "<group>"; };
 		FB6F8A1116B7413A00D8F9CE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FB6F8A1216B7413A00D8F9CE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -123,8 +135,6 @@
 		FBD34E371626231600BDC541 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FBD34E391626231600BDC541 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FBE174A015E3069600EDC6A4 /* Mannanofn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mannanofn.xcdatamodel; sourceTree = "<group>"; };
-		FBE174C115E30C0300EDC6A4 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
-		FBE174C215E30C0300EDC6A4 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		FBE174C615E3121600EDC6A4 /* NamesTableViewListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesTableViewListController.h; sourceTree = "<group>"; };
 		FBE174C715E3121600EDC6A4 /* NamesTableViewListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewListController.m; sourceTree = "<group>"; };
 		FBE174C915E3193E00EDC6A4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -132,8 +142,6 @@
 		FBE174CC15E3199800EDC6A4 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		FBE174D315E452D100EDC6A4 /* Name+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Name+Create.h"; sourceTree = "<group>"; };
 		FBE174D415E452D100EDC6A4 /* Name+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Name+Create.m"; sourceTree = "<group>"; };
-		FBE174D615E456A200EDC6A4 /* Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Name.h; sourceTree = "<group>"; };
-		FBE174D715E456A200EDC6A4 /* Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Name.m; sourceTree = "<group>"; };
 		FBE2678016B974BF00661375 /* NamesTableViewCategoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesTableViewCategoryController.h; sourceTree = "<group>"; };
 		FBE2678116B974BF00661375 /* NamesTableViewCategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesTableViewCategoryController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +222,10 @@
 				FBE2678116B974BF00661375 /* NamesTableViewCategoryController.m */,
 				FBBB35FF16C0202300861504 /* NameInfoViewController.h */,
 				FBBB360016C0202400861504 /* NameInfoViewController.m */,
+				FB497F1C16C08EC200894353 /* FavoritesTableViewController.h */,
+				FB497F1D16C08EC200894353 /* FavoritesTableViewController.m */,
+				FB497F2816C0A35C00894353 /* FavoritesDatabaseSetupUtility.h */,
+				FB497F2916C0A35C00894353 /* FavoritesDatabaseSetupUtility.m */,
 				FB313E071546008A0077438C /* first.png */,
 				FB313E091546008A0077438C /* first@2x.png */,
 				FB313E101546008A0077438C /* second@2x.png */,
@@ -326,12 +338,14 @@
 			isa = PBXGroup;
 			children = (
 				FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */,
-				FBE174C115E30C0300EDC6A4 /* Favorite.h */,
-				FBE174C215E30C0300EDC6A4 /* Favorite.m */,
-				FBE174D615E456A200EDC6A4 /* Name.h */,
-				FBE174D715E456A200EDC6A4 /* Name.m */,
+				FB497F2216C09A6D00894353 /* Name.h */,
+				FB497F2316C09A6D00894353 /* Name.m */,
 				FBE174D315E452D100EDC6A4 /* Name+Create.h */,
 				FBE174D415E452D100EDC6A4 /* Name+Create.m */,
+				FB497F1F16C09A6D00894353 /* Favorite.h */,
+				FB497F2016C09A6D00894353 /* Favorite.m */,
+				FB497F2516C09B6100894353 /* Favorite+Create.h */,
+				FB497F2616C09B6100894353 /* Favorite+Create.m */,
 				FBE174CB15E3199800EDC6A4 /* CoreDataTableViewController.h */,
 				FBE174CC15E3199800EDC6A4 /* CoreDataTableViewController.m */,
 			);
@@ -454,15 +468,18 @@
 				FB313E061546008A0077438C /* MannanofnFirstViewController.m in Sources */,
 				FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */,
 				FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */,
-				FBE174C315E30C0300EDC6A4 /* Favorite.m in Sources */,
 				FBE174C815E3121600EDC6A4 /* NamesTableViewListController.m in Sources */,
 				FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */,
-				FBE174D815E456A200EDC6A4 /* Name.m in Sources */,
 				FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */,
 				FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */,
 				FB6F8A2116B8C04100D8F9CE /* NamesDatabaseSetupUtility.m in Sources */,
 				FBE2678216B974BF00661375 /* NamesTableViewCategoryController.m in Sources */,
 				FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */,
+				FB497F1E16C08EC200894353 /* FavoritesTableViewController.m in Sources */,
+				FB497F2116C09A6D00894353 /* Favorite.m in Sources */,
+				FB497F2416C09A6E00894353 /* Name.m in Sources */,
+				FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */,
+				FB497F2A16C0A35C00894353 /* FavoritesDatabaseSetupUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +488,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBD34E4A1626352D00BDC541 /* Mannanofn.xcdatamodeld in Sources */,
-				FBD34E461626333800BDC541 /* Name.m in Sources */,
 				FBD34E471626333800BDC541 /* Name+Create.m in Sources */,
 				FBD34E301626231600BDC541 /* main.m in Sources */,
 				FBD34E341626231600BDC541 /* MannanofnAppDelegate.m in Sources */,

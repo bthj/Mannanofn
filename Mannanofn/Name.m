@@ -2,8 +2,8 @@
 //  Name.m
 //  Mannanofn
 //
-//  Created by Björn Þór Jónsson on 8/21/12.
-//  Copyright (c) 2012 nemur.net. All rights reserved.
+//  Created by Björn Þór Jónsson on 2/5/13.
+//  Copyright (c) 2013 nemur.net. All rights reserved.
 //
 
 #import "Name.h"

@@ -1,18 +1,13 @@
 //
-//  Favorite.m
+//  FavoritesTableViewController.h
 //  Mannanofn
 //
 //  Created by Björn Þór Jónsson on 2/5/13.
 //  Copyright (c) 2013 nemur.net. All rights reserved.
 //
 
-#import "Favorite.h"
+#import <UIKit/UIKit.h>
 
-
-@implementation Favorite
-
-@dynamic name;
-@dynamic order;
-@dynamic dateModified;
+@interface FavoritesTableViewController : UITableViewController
 
 @end
