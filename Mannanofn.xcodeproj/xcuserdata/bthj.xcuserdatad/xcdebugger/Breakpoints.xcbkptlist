@@ -293,19 +293,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Mannanofn/NamesContainerViewController.m"
-         timestampString = "381710719.887796"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "70"
-         endingLineNumber = "70"
-         landmarkName = "-prepareForSegue:sender:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesOrderViewController.m"
          timestampString = "372979597.717675"
          startingColumnNumber = "9223372036854775807"
@@ -313,19 +300,6 @@
          startingLineNumber = "23"
          endingLineNumber = "23"
          landmarkName = "-prepareForSegue:sender:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Mannanofn/NamesContainerViewController.m"
-         timestampString = "381710650.908047"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
-         landmarkName = "-setGenderToLastCurrent"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -352,19 +326,6 @@
          startingLineNumber = "110"
          endingLineNumber = "110"
          landmarkName = "-setupFetchedResultsController"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Mannanofn/NamesContainerViewController.m"
-         timestampString = "381710650.908047"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
-         landmarkName = "-selectGender:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

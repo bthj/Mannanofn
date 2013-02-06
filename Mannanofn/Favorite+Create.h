@@ -10,6 +10,10 @@
 
 @interface Favorite (Create)
 
-+ (Favorite *)favoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Favorite *)addFavoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
+
++ (void)removeFavoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
+
++ (NSArray *)getFavoritesForName:(NSString *)name inContext:(NSManagedObjectContext *)context;
 
 @end

@@ -12,17 +12,39 @@
 
 
 
-+ (Favorite *)favoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context
++ (Favorite *)addFavoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context
 {
-    Favorite *favorite = [NSEntityDescription insertNewObjectForEntityForName:@"Favorite" inManagedObjectContext:context];
-    
-    favorite.name = name;
-    favorite.order = [self getNextAvailableOrderIndex:context];
-    favorite.dateModified = [NSDate date];
+    Favorite *favorite = nil;
+    NSArray *existingFavoritesForName = [self getFavoritesForName:name inContext:context];
+    if( [existingFavoritesForName count] ) {
+        favorite = [existingFavoritesForName lastObject];
+    } else {
+        
+        favorite = [NSEntityDescription insertNewObjectForEntityForName:@"Favorite" inManagedObjectContext:context];
+        favorite.name = name;
+        favorite.order = [self getNextAvailableOrderIndex:context];
+        favorite.dateModified = [NSDate date];
+    }
     
     return favorite;
 }
 
++ (void)removeFavoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context
+{
+    for( Favorite *oneFavorite in [self getFavoritesForName:name inContext:context] ) {
+        [context deleteObject:oneFavorite];
+    }
+}
+
+
++ (NSArray *)getFavoritesForName:(NSString *)name inContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Favorite"];
+    request.predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+    NSError *error = nil;
+    NSArray *favorites = [context executeFetchRequest:request error:&error];
+    return favorites;
+}
 
 
 + (NSNumber *)getNextAvailableOrderIndex:(NSManagedObjectContext *)context

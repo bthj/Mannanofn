@@ -25,7 +25,7 @@
 		FB497F2116C09A6D00894353 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2016C09A6D00894353 /* Favorite.m */; };
 		FB497F2416C09A6E00894353 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2316C09A6D00894353 /* Name.m */; };
 		FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2616C09B6100894353 /* Favorite+Create.m */; };
-		FB497F2A16C0A35C00894353 /* FavoritesDatabaseSetupUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2916C0A35C00894353 /* FavoritesDatabaseSetupUtility.m */; };
+		FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2916C0A35C00894353 /* FavoritesDatabaseUtility.m */; };
 		FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1116B7413A00D8F9CE /* Default.png */; };
 		FB6F8A1516B7413A00D8F9CE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1216B7413A00D8F9CE /* Default@2x.png */; };
 		FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */; };
@@ -102,8 +102,8 @@
 		FB497F2316C09A6D00894353 /* Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Name.m; sourceTree = "<group>"; };
 		FB497F2516C09B6100894353 /* Favorite+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Favorite+Create.h"; sourceTree = "<group>"; };
 		FB497F2616C09B6100894353 /* Favorite+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Favorite+Create.m"; sourceTree = "<group>"; };
-		FB497F2816C0A35C00894353 /* FavoritesDatabaseSetupUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDatabaseSetupUtility.h; sourceTree = "<group>"; };
-		FB497F2916C0A35C00894353 /* FavoritesDatabaseSetupUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDatabaseSetupUtility.m; sourceTree = "<group>"; };
+		FB497F2816C0A35C00894353 /* FavoritesDatabaseUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDatabaseUtility.h; sourceTree = "<group>"; };
+		FB497F2916C0A35C00894353 /* FavoritesDatabaseUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDatabaseUtility.m; sourceTree = "<group>"; };
 		FB6F8A1116B7413A00D8F9CE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FB6F8A1216B7413A00D8F9CE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -224,8 +224,8 @@
 				FBBB360016C0202400861504 /* NameInfoViewController.m */,
 				FB497F1C16C08EC200894353 /* FavoritesTableViewController.h */,
 				FB497F1D16C08EC200894353 /* FavoritesTableViewController.m */,
-				FB497F2816C0A35C00894353 /* FavoritesDatabaseSetupUtility.h */,
-				FB497F2916C0A35C00894353 /* FavoritesDatabaseSetupUtility.m */,
+				FB497F2816C0A35C00894353 /* FavoritesDatabaseUtility.h */,
+				FB497F2916C0A35C00894353 /* FavoritesDatabaseUtility.m */,
 				FB313E071546008A0077438C /* first.png */,
 				FB313E091546008A0077438C /* first@2x.png */,
 				FB313E101546008A0077438C /* second@2x.png */,
@@ -479,7 +479,7 @@
 				FB497F2116C09A6D00894353 /* Favorite.m in Sources */,
 				FB497F2416C09A6E00894353 /* Name.m in Sources */,
 				FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */,
-				FB497F2A16C0A35C00894353 /* FavoritesDatabaseSetupUtility.m in Sources */,
+				FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,11 +13,14 @@
 
 
 
-@interface FavoritesDatabaseSetupUtility : NSObject
+@interface FavoritesDatabaseUtility : NSObject
 
 @property (weak, nonatomic) id <SetFavoritesDatabaseDelegate> setFavoritesDatabaseDelegate;
 
-- (void)initializeFavoritesDatabase: (UIView *)view;
+- (id)initFavoritesDatabaseForView: (UIView *)view;
+
+- (BOOL)isInFavorites:(NSString *)name;
+- (BOOL)toggleFavoriteForName:(NSString *)name;
 
 @end
 

@@ -7,8 +7,11 @@
 //
 
 #import "NameInfoViewController.h"
+#import "FavoritesDatabaseUtility.h"
 
 @interface NameInfoViewController ()
+
+@property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
 
 @end
 
@@ -22,6 +25,7 @@
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -50,12 +54,32 @@
     
     self.countAsFirstNameLabel.text = [self.countAsFirstName stringValue];
     self.countAsSecondNameLabel.text = [self.countAsSecondName stringValue];
+    
+    [self.toggleFavoriteButton setEnabled:NO];  // to be disabled until favorites db is ready
+    self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView: self.view];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)updateFavoritesButtonImageToActive
+{
+    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"first"] forState:UIControlStateNormal];
+}
+- (void)updateFavoritesButtonImageToInctive
+{
+    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"second"] forState:UIControlStateNormal];
+}
+- (IBAction)toggleFavorite:(id)sender {
+    
+    if( [self.favoritesDatabaseUtility toggleFavoriteForName:self.name] ) {
+        [self updateFavoritesButtonImageToActive];
+    } else {
+        [self updateFavoritesButtonImageToInctive];
+    }
 }
 
 - (IBAction)mailDescription:(id)sender {

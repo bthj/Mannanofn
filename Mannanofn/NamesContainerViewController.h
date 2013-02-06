@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NamesTableViewListController.h"
+#import "FavoritesDatabaseUtility.h"
 
-@interface NamesContainerViewController : UIViewController <NameCardUpdateDelegate>
+@interface NamesContainerViewController : UIViewController <NameCardUpdateDelegate, SetFavoritesDatabaseDelegate>
 
 @property (assign, nonatomic) BOOL showCategories;
 @property (nonatomic, strong) NSString *namesOrder;
@@ -28,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIView *nameCard;
 @property (weak, nonatomic) IBOutlet UILabel *nameOnCard;
 
-@property (weak, nonatomic) IBOutlet UIButton *addToFavoritesButton;
+@property (weak, nonatomic) IBOutlet UIButton *toggleFavoriteButton;
 - (IBAction)addToFavorites:(id)sender;
 
 

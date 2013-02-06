@@ -9,17 +9,34 @@
 #import "NamesContainerViewController.h"
 
 #import "MannanofnGlobalStringConstants.h"
+#import "Favorite+Create.h"
+
+
 
 @interface NamesContainerViewController ()
 
-@property (nonatomic, strong) NamesTableViewListController *namesTable;
+@property (nonatomic, strong) NamesTableViewListController *namesTableView;
+@property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
 @property (nonatomic, strong) UIManagedDocument *favoritesDatabase;
+@property (nonatomic, strong) NSString *currentNameLookedUpInFavorites;
 
 @end
 
 
 
 @implementation NamesContainerViewController
+
+@synthesize favoritesDatabase = _favoritesDatabase;
+
+- (void)setFavoritesDatabase:(UIManagedDocument *)favoritesDatabase
+{
+    if( _favoritesDatabase != favoritesDatabase ) {
+        _favoritesDatabase = favoritesDatabase;
+    }
+    if( favoritesDatabase ) {
+        [self.toggleFavoriteButton setEnabled:YES];
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -31,6 +48,10 @@
     //self.tableContainer.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableViewBackground"]];
     
     self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
+    
+    [self.toggleFavoriteButton setEnabled:NO];  // to be disabled until favorites db is ready
+    self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView:self.view];
+    self.favoritesDatabaseUtility.setFavoritesDatabaseDelegate = self;
 }
 
 - (void)addTitleToNavigationItem:(NSString *)titleText
@@ -65,13 +86,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if( [[segue identifier] isEqualToString:@"NamesTableEmbedSegue"] ) {
-        
-        
-        
-        self.namesTable = (NamesTableViewListController *)[segue destinationViewController];
-        self.namesTable.namesOrder = self.namesOrder;
-        self.namesTable.categorySelection = self.categorySelection;
-        self.namesTable.nameCardDelegate = self;
+
+        self.namesTableView = (NamesTableViewListController *)[segue destinationViewController];
+        self.namesTableView.namesOrder = self.namesOrder;
+        self.namesTableView.categorySelection = self.categorySelection;
+        self.namesTableView.nameCardDelegate = self;
         
         [self setGenderToLastCurrent];
         
@@ -80,7 +99,7 @@
 }
 
 - (IBAction)selectGender:(id)sender {
-    if( self.namesTable ) {
+    if( self.namesTableView ) {
         
         NSString *selectedGender = [self passGenderToNamesTable];
         
@@ -110,12 +129,12 @@
     if( self.genderSelection ) {
         switch (self.genderSelection.selectedSegmentIndex) {
             case 0:
-                self.namesTable.genderSelection = selectedGender = GENDER_MALE;
+                self.namesTableView.genderSelection = selectedGender = GENDER_MALE;
                 //            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
                 //            self.nameCard.backgroundColor = [UIColor colorWithRed:58.0f/255.0f green:30.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
                 break;
             case 1:
-                self.namesTable.genderSelection = selectedGender = GENDER_FEMALE;
+                self.namesTableView.genderSelection = selectedGender = GENDER_FEMALE;
                 //            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundPink"]];
                 //            self.nameCard.backgroundColor = [UIColor colorWithRed:126.0f/255.0f green:15.0f/255.0f blue:35.0f/255.0f alpha:1.0f];
                 break;
@@ -127,7 +146,7 @@
         if( ! gender ) {
             gender = GENDER_MALE;
         }
-        self.namesTable.genderSelection = selectedGender = gender;
+        self.namesTableView.genderSelection = selectedGender = gender;
     }
 
     return selectedGender;
@@ -136,6 +155,15 @@
 
 
 #pragma mark - update name card delegate
+
+- (void)updateFavoritesButtonImageToActive
+{
+    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"first"] forState:UIControlStateNormal];
+}
+- (void)updateFavoritesButtonImageToInctive
+{
+    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"second"] forState:UIControlStateNormal];
+}
 
 - (void)updateNameCard:(NSString *)name
 {
@@ -160,6 +188,22 @@
         default:
             break;
     }
+    
+    // let's check if the name is marked as a favorite after 1 second delay
+    // so we won't be doing excessive db lookups when names change rapidly (scrolling fast)
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        
+        if( ! [self.currentNameLookedUpInFavorites isEqualToString:name] && [name isEqualToString:self.nameOnCard.text] ) {
+            
+            NSArray *existingFavoritesForName = [Favorite getFavoritesForName:name inContext:self.favoritesDatabase.managedObjectContext];
+            if( [existingFavoritesForName count] ) {
+                [self updateFavoritesButtonImageToActive];
+            } else {
+                [self updateFavoritesButtonImageToInctive];
+            }
+        }
+        self.currentNameLookedUpInFavorites = name;
+    });
 }
 
 - (void)clearNameCard
@@ -186,6 +230,14 @@
 
 
 
+
 - (IBAction)addToFavorites:(id)sender {
+    
+    if( [self.favoritesDatabaseUtility toggleFavoriteForName:self.nameOnCard.text] ) {
+        [self updateFavoritesButtonImageToActive];
+    } else {
+        [self updateFavoritesButtonImageToInctive];
+    }
 }
+
 @end

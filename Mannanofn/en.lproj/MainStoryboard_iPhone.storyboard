@@ -324,10 +324,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="first@2x.png" id="fsT-7U-bvF">
-                                <rect key="frame" x="255" y="264" width="45" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="4LR-uI-Luf">
                                 <rect key="frame" x="118" y="275" width="84" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -382,6 +378,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k3h-b2-cHD">
+                                <rect key="frame" x="256" y="264" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="second@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleFavorite:" destination="pRC-zP-j6d" eventType="touchUpInside" id="zn1-7Z-lEH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9137254901960784" green="0.8784313725490196" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -396,6 +407,7 @@
                         <outlet property="nameLabel" destination="n2k-PC-28r" id="wOE-wl-yff"/>
                         <outlet property="originLabel" destination="i98-zP-PFg" id="IVR-Uj-Zau"/>
                         <outlet property="originLegend" destination="dzo-16-NzU" id="thN-gF-Fo9"/>
+                        <outlet property="toggleFavoriteButton" destination="k3h-b2-cHD" id="LUo-Rv-kJQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iT1-2D-spG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -463,11 +475,11 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="gnG-uS-gig">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gnG-uS-gig">
                                         <rect key="frame" x="276" y="6" width="29" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" image="first@2x.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -527,13 +539,13 @@
                         </view>
                     </navigationItem>
                     <connections>
-                        <outlet property="addToFavoritesButton" destination="gnG-uS-gig" id="W3A-nO-AK1"/>
                         <outlet property="genderSelection" destination="Jn2-1Y-4yd" id="uhc-Cn-fNg"/>
                         <outlet property="nameCard" destination="k1E-L5-3EW" id="Wf5-ow-B3N"/>
                         <outlet property="nameOnCard" destination="cMk-qF-M79" id="OZO-Sl-Cdo"/>
                         <outlet property="namePosition" destination="Ugx-Pr-K75" id="Btp-wa-NV1"/>
                         <outlet property="navigationView" destination="RbD-0m-4Qv" id="OcF-Rk-U1E"/>
                         <outlet property="tableContainer" destination="ZRM-Y0-s5X" id="ReN-aw-UIT"/>
+                        <outlet property="toggleFavoriteButton" destination="gnG-uS-gig" id="Upx-Dw-Wkv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAb-ja-OGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -849,6 +861,7 @@
         <image name="first@2x.png" width="60" height="60"/>
         <image name="second" width="16" height="16"/>
         <image name="second.png" width="30" height="30"/>
+        <image name="second@2x.png" width="60" height="60"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

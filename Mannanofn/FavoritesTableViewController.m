@@ -12,7 +12,7 @@
 
 @interface FavoritesTableViewController ()
 
-@property (strong, nonatomic) FavoritesDatabaseSetupUtility *favoritesDatabaseSetup;
+@property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
 @property (strong, nonatomic) UIManagedDocument *favoritesDatabase;
 
 @end
@@ -54,11 +54,17 @@
     self.navigationItem.title = @"Uppáhalds";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.editButtonItem.title = @"Breyta";
-    
-    self.favoritesDatabaseSetup = [[FavoritesDatabaseSetupUtility alloc] init];
-    self.favoritesDatabaseSetup.setFavoritesDatabaseDelegate = self;
-    [self.favoritesDatabaseSetup initializeFavoritesDatabase: self.view];
 }
+- (void)viewDidAppear:(BOOL)animated
+{
+    if( self.favoritesDatabase ) {
+        [self setupFetchedResultsController];
+    } else {
+        self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView:self.view];
+        self.favoritesDatabaseUtility.setFavoritesDatabaseDelegate = self;
+    }
+}
+
 /*
 - (void)didReceiveMemoryWarning
 {
