@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FavoritesDatabaseUtility.h"
 
-@interface NameInfoViewController : UIViewController
+@interface NameInfoViewController : UIViewController <SetFavoritesDatabaseDelegate>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *descriptionLegend;
 @property (nonatomic, strong) NSString *origin;
+@property (nonatomic, strong) NSString *originLegend;
 @property (nonatomic, strong) NSNumber *countAsFirstName;
 @property (nonatomic, strong) NSNumber *countAsSecondName;
 
@@ -21,8 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *originLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLegend;
-@property (weak, nonatomic) IBOutlet UILabel *originLegend;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLegendLabel;
+@property (weak, nonatomic) IBOutlet UILabel *originLegendLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *countAsFirstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countAsSecondNameLabel;

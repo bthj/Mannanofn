@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameOnCard;
 
 @property (weak, nonatomic) IBOutlet UIButton *toggleFavoriteButton;
-- (IBAction)addToFavorites:(id)sender;
+- (IBAction)toggleFavorite:(id)sender;
 
 
 @property (weak, nonatomic) IBOutlet UIView *tableContainer;

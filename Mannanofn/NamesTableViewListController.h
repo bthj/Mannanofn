@@ -14,10 +14,8 @@
 @protocol NameCardUpdateDelegate;
 
 
-@interface NamesTableViewListController : CoreDataTableViewController <SetupFetchedResultsControllerDelegate, NSFetchedResultsControllerDelegate>
+@interface NamesTableViewListController : CoreDataTableViewController <SetNamesDatabaseDelegate, NSFetchedResultsControllerDelegate>
 
-
-@property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
 @property (nonatomic, strong) NSString *genderSelection;
 @property (nonatomic, strong) NSString *namesOrder;

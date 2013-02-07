@@ -81,6 +81,8 @@
         [self addTitleToNavigationItem:self.categorySelection];
     }
     self.title = self.navigationItemTitle;
+    
+    [self lookupAndUpdateFavoriteButtonImage];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -193,16 +195,16 @@
     // so we won't be doing excessive db lookups when names change rapidly (scrolling fast)
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         
-        if( ! [self.currentNameLookedUpInFavorites isEqualToString:name] && [name isEqualToString:self.nameOnCard.text] ) {
+        if( ! [self.currentNameLookedUpInFavorites isEqualToString:self.nameOnCard.text] ) {
             
-            NSArray *existingFavoritesForName = [Favorite getFavoritesForName:name inContext:self.favoritesDatabase.managedObjectContext];
+            NSArray *existingFavoritesForName = [Favorite getFavoritesForName:self.nameOnCard.text inContext:self.favoritesDatabase.managedObjectContext];
             if( [existingFavoritesForName count] ) {
                 [self updateFavoritesButtonImageToActive];
             } else {
                 [self updateFavoritesButtonImageToInctive];
             }
         }
-        self.currentNameLookedUpInFavorites = name;
+        self.currentNameLookedUpInFavorites = self.nameOnCard.text;
     });
 }
 
@@ -229,15 +231,24 @@
 }
 
 
-
-
-- (IBAction)addToFavorites:(id)sender {
-    
-    if( [self.favoritesDatabaseUtility toggleFavoriteForName:self.nameOnCard.text] ) {
+- (void)updateFavoriteButtonImageToState:(BOOL)active
+{
+    if( active ) {
         [self updateFavoritesButtonImageToActive];
     } else {
         [self updateFavoritesButtonImageToInctive];
     }
+}
+
+- (void)lookupAndUpdateFavoriteButtonImage{
+    
+    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility isInFavorites:self.nameOnCard.text]];
+}
+
+
+- (IBAction)toggleFavorite:(id)sender {
+    
+    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility toggleFavoriteForName:self.nameOnCard.text]];
 }
 
 @end

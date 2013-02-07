@@ -13,4 +13,6 @@
 + (Name *)nameWithSeedData:(NSDictionary *)nameSeed
      inManagedObjectContext:(NSManagedObjectContext *)context;
 
++ (Name *)getNameForName:(NSString *)name inContext:(NSManagedObjectContext *)context;
+
 @end

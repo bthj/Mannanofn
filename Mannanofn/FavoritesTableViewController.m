@@ -8,12 +8,17 @@
 
 #import "FavoritesTableViewController.h"
 #import "Favorite.h"
+#import "Name+Create.h"
+#import "NameInfoViewController.h"
 
 
 @interface FavoritesTableViewController ()
 
 @property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
 @property (strong, nonatomic) UIManagedDocument *favoritesDatabase;
+
+@property (strong, nonatomic) NamesDatabaseSetupUtility *namesDatabaseSetup;
+@property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
 @end
 
@@ -47,6 +52,13 @@
     }
 }
 
+- (void)setNamesDatabase:(UIManagedDocument *)namesDatabase
+{
+    if( _namesDatabase != namesDatabase ) {
+        _namesDatabase = namesDatabase;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -54,7 +66,11 @@
     self.navigationItem.title = @"Uppáhalds";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.editButtonItem.title = @"Breyta";
+    
+    self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
+    self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
 }
+
 - (void)viewDidAppear:(BOOL)animated
 {
     if( self.favoritesDatabase ) {
@@ -65,29 +81,6 @@
     }
 }
 
-/*
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"FavoriteCell";
@@ -109,26 +102,42 @@
 }
 
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self.favoritesDatabase.managedObjectContext deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
+
+
 // Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (void)tableView:(UITableView *)tableView
+moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
+      toIndexPath:(NSIndexPath *)toIndexPath
 {
+    NSMutableArray *favorites = [[self.fetchedResultsController fetchedObjects] mutableCopy];
+    
+    Favorite *movingFavorite = [self.fetchedResultsController objectAtIndexPath:fromIndexPath];
+    
+    [favorites removeObject:movingFavorite];
+    [favorites insertObject:movingFavorite atIndex:toIndexPath.row];
+    
+    int i=0;
+    for( Favorite *oneFavorite in favorites ) {
+        [oneFavorite setValue:[NSNumber numberWithInt:i++] forKey:@"order"];
+    }
 }
-*/
+
 
 
 // Override to support conditional rearranging of the table view.
@@ -137,6 +146,7 @@
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
+
 
 
 #pragma mark - Table view delegate
@@ -150,23 +160,48 @@
         self.editButtonItem.title = @"Ljúka";
     } else {
         self.editButtonItem.title = @"Breyta";
+        
+        [self.favoritesDatabase saveToURL:self.favoritesDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     ; *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    return @"Fjarlægja";
 }
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
+    NameInfoViewController *nameInfo = (NameInfoViewController *)[segue destinationViewController];
+    
+    Favorite *favorite = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    NSArray *nameParts = [favorite.name componentsSeparatedByString:@" "];
+    if( [nameParts count] == 2 ) {
+        
+        Name *name1 = [Name getNameForName:[nameParts objectAtIndex:0] inContext:self.namesDatabase.managedObjectContext];
+        Name *name2 = [Name getNameForName:[nameParts objectAtIndex:1] inContext:self.namesDatabase.managedObjectContext];
+        
+        nameInfo.name = favorite.name;
+        
+        nameInfo.descriptionLegend = name1.name;
+        nameInfo.description = name1.descriptionIcelandic;
+        
+        nameInfo.originLegend = name2.name;
+        nameInfo.origin = name2.descriptionIcelandic;
+        
+        nameInfo.countAsFirstName = name1.countAsFirstName;
+        nameInfo.countAsSecondName = name2.countAsSecondName;
+        
+    } else if( [nameParts count] == 1 ) {
+        
+        Name *name = [Name getNameForName:favorite.name inContext:self.namesDatabase.managedObjectContext];
+        nameInfo.name = name.name;
+        nameInfo.description = name.descriptionIcelandic;
+        nameInfo.origin = name.origin;
+        nameInfo.countAsFirstName = name.countAsFirstName;
+        nameInfo.countAsSecondName = name.countAsSecondName;
+    }
 }
 
 @end

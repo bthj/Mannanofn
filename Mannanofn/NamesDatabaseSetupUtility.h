@@ -10,22 +10,22 @@
 #import "CoreDataTableViewController.h"
 
 
-@protocol SetupFetchedResultsControllerDelegate;
+@protocol SetNamesDatabaseDelegate;
 
 
 
 @interface NamesDatabaseSetupUtility : NSObject
 
 
-@property (weak, nonatomic) id <SetupFetchedResultsControllerDelegate> fetchedResultsSetupDelegate;
+@property (weak, nonatomic) id <SetNamesDatabaseDelegate> fetchedResultsSetupDelegate;
 
-- (void)initializeNamesDatabase: (UIView *)view;
+- (id)initNamesDatabaseForView: (UIView *)view;
 
 @end
 
 
 
-@protocol SetupFetchedResultsControllerDelegate <NSObject>
+@protocol SetNamesDatabaseDelegate <NSObject>
 
 - (void)setNamesDatabase:(UIManagedDocument *)namesDatabase;
 

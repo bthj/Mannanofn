@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 #import "FavoritesDatabaseUtility.h"
+#import "NamesDatabaseSetupUtility.h"
 
 
-@interface FavoritesTableViewController : CoreDataTableViewController <SetFavoritesDatabaseDelegate, NSFetchedResultsControllerDelegate>
+@interface FavoritesTableViewController : CoreDataTableViewController <SetFavoritesDatabaseDelegate, SetNamesDatabaseDelegate, NSFetchedResultsControllerDelegate>
 
 @end

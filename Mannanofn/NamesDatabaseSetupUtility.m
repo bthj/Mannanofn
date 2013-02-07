@@ -134,13 +134,16 @@
     }
 }
 
-- (void)initializeNamesDatabase: (UIView *)view;
+- (id)initNamesDatabaseForView: (UIView *)view;
 {
-    self.view = view;
-    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
-    
-    self.namesDatabase = [[UIManagedDocument alloc] initWithFileURL:url]; // setter will create this for us on disk
+    if( self = [super init] ) {
+        self.view = view;
+        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
+        
+        self.namesDatabase = [[UIManagedDocument alloc] initWithFileURL:url]; // setter will create this for us on disk
+    }
+    return self;
 }
 
 @end

@@ -36,40 +36,17 @@
     return name;
 }
 
-
-/*
-- (void)setName:(NSString *)name
++ (Name *)getNameForName:(NSString *)name inContext:(NSManagedObjectContext *)context
 {
-    self.name = [name isEqual:[NSNull null]] ? nil : name;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
+    request.predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+    NSError *error = nil;
+    NSArray *names = [context executeFetchRequest:request error:&error];
+    Name *nameManagedObject = nil;
+    if( [names count] ) {
+        nameManagedObject = [names lastObject];
+    }
+    return nameManagedObject;
 }
-- (void)setGender:(NSString *)gender
-{
-    self.gender = [gender isEqual:[NSNull null]] ? nil : gender;
-}
-- (void)setDescriptionIcelandic:(NSString *)descriptionIcelandic
-{
-    self.descriptionIcelandic = [descriptionIcelandic isEqual:[NSNull null]] ? nil : descriptionIcelandic;
-}
-- (void)setOrigin:(NSString *)origin
-{
-    self.origin = [origin isEqual:[NSNull null]] ? nil : origin;
-}
-- (void)setCountAsFirstName:(NSNumber *)countAsFirstName
-{
-    self.countAsFirstName = [countAsFirstName isEqual:[NSNull null]] ? nil : countAsFirstName;
-}
-- (void)setCountAsSecondName:(NSNumber *)countAsSecondName
-{
-    self.countAsSecondName = [countAsSecondName isEqual:[NSNull null]] ? nil : countAsSecondName;
-}
-- (void)setComment:(NSString *)comment
-{
-    self.comment = [comment isEqual:[NSNull null]] ? nil : comment;
-}
-- (void)setCategory:(NSString *)category
-{
-    self.category = [category isEqual:[NSNull null]] ? nil : category;
-}
- */
 
 @end

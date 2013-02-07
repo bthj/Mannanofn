@@ -16,6 +16,7 @@
 @interface NamesTableViewListController ()
 
 @property (strong, nonatomic) NamesDatabaseSetupUtility *namesDatabaseSetup;
+@property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
 @end
 
@@ -121,9 +122,8 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;
 
-    self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] init];
+    self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
-    [self.namesDatabaseSetup initializeNamesDatabase: self.view];
 }
 
 - (void)viewDidUnload
@@ -337,8 +337,7 @@
     NameInfoViewController *nameInfo = (NameInfoViewController *)[segue destinationViewController];
  
     Name *name = [self getNameAtIndexPath:[self.tableView indexPathForSelectedRow]];
-    NSString *tempName = name.name;
-    nameInfo.name = tempName;
+    nameInfo.name = name.name;
     nameInfo.description = name.descriptionIcelandic;
     nameInfo.origin = name.origin;
     nameInfo.countAsFirstName = name.countAsFirstName;

@@ -7,7 +7,6 @@
 //
 
 #import "NameInfoViewController.h"
-#import "FavoritesDatabaseUtility.h"
 
 @interface NameInfoViewController ()
 
@@ -17,15 +16,12 @@
 
 @implementation NameInfoViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)setFavoritesDatabase:(UIManagedDocument *)favoritesDatabase
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    // we won't be setting favoritesDatabase here locally as property as we rely solely on FavoritesDatabaseUtility,
+    // look up in the db when we know via this delegate method that it's been set up
+    [self lookupAndUpdateFavoriteButtonImage];
 }
-
 
 - (void)viewDidLoad
 {
@@ -33,30 +29,41 @@
 	// Do any additional setup after loading the view.
     
     self.nameLabel.text = self.name;
-    
     self.descriptionLabel.text = self.description;
+    
     if( [self.description length] > 0 ) {
-        self.descriptionLegend.hidden = NO;
+        self.descriptionLegendLabel.hidden = NO;
         self.addDescriptionButton.hidden = YES;
         self.changeDescriptionButton.hidden = NO;
     } else {
-        self.descriptionLegend.hidden = YES;
+        self.descriptionLegendLabel.hidden = YES;
         self.addDescriptionButton.hidden = NO;
         self.changeDescriptionButton.hidden = YES;
     }
     
     self.originLabel.text = self.origin;
     if( [self.origin length] > 0 ) {
-        self.originLegend.hidden = NO;
+        self.originLegendLabel.hidden = NO;
     } else {
-        self.originLegend.hidden = YES;
+        self.originLegendLabel.hidden = YES;
+    }
+    
+    if( [self.descriptionLegend length] > 0 ) {
+        [self.descriptionLegendLabel setText:self.descriptionLegend];
+    }
+    if( [self.originLegend length] > 0 ) {
+        [self.originLegendLabel setText:self.originLegend];
     }
     
     self.countAsFirstNameLabel.text = [self.countAsFirstName stringValue];
     self.countAsSecondNameLabel.text = [self.countAsSecondName stringValue];
     
-    [self.toggleFavoriteButton setEnabled:NO];  // to be disabled until favorites db is ready
     self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView: self.view];
+    self.favoritesDatabaseUtility.setFavoritesDatabaseDelegate = self;
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,13 +80,21 @@
 {
     [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"second"] forState:UIControlStateNormal];
 }
-- (IBAction)toggleFavorite:(id)sender {
-    
-    if( [self.favoritesDatabaseUtility toggleFavoriteForName:self.name] ) {
+- (void)updateFavoriteButtonImageToState:(BOOL)active
+{
+    if( active ) {
         [self updateFavoritesButtonImageToActive];
     } else {
         [self updateFavoritesButtonImageToInctive];
     }
+}
+- (void)lookupAndUpdateFavoriteButtonImage{
+    
+    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility isInFavorites:self.name]];
+}
+- (IBAction)toggleFavorite:(id)sender {
+    
+    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility toggleFavoriteForName:self.name]];
 }
 
 - (IBAction)mailDescription:(id)sender {

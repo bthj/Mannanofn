@@ -292,14 +292,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Merking:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yyz-Sb-MZj">
-                                <rect key="frame" x="118" y="150" width="49" height="21"/>
+                                <rect key="frame" x="118" y="150" width="182" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Uppruni:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dzo-16-NzU">
-                                <rect key="frame" x="118" y="197" width="49" height="21"/>
+                                <rect key="frame" x="118" y="197" width="182" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -358,7 +358,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2xo-HU-EYr">
-                                <rect key="frame" x="156" y="246" width="28" height="16"/>
+                                <rect key="frame" x="157" y="246" width="28" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -403,10 +403,10 @@
                         <outlet property="countAsFirstNameLabel" destination="2xo-HU-EYr" id="9wc-ag-cRP"/>
                         <outlet property="countAsSecondNameLabel" destination="FZh-ID-J3X" id="ftU-l7-GYU"/>
                         <outlet property="descriptionLabel" destination="51O-E2-1zB" id="SVC-dL-4Pu"/>
-                        <outlet property="descriptionLegend" destination="yyz-Sb-MZj" id="pub-j3-hOT"/>
+                        <outlet property="descriptionLegendLabel" destination="yyz-Sb-MZj" id="8lD-5G-Goj"/>
                         <outlet property="nameLabel" destination="n2k-PC-28r" id="wOE-wl-yff"/>
                         <outlet property="originLabel" destination="i98-zP-PFg" id="IVR-Uj-Zau"/>
-                        <outlet property="originLegend" destination="dzo-16-NzU" id="thN-gF-Fo9"/>
+                        <outlet property="originLegendLabel" destination="dzo-16-NzU" id="v3o-4q-RZD"/>
                         <outlet property="toggleFavoriteButton" destination="k3h-b2-cHD" id="LUo-Rv-kJQ"/>
                     </connections>
                 </viewController>
@@ -487,7 +487,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="addToFavorites:" destination="bC3-En-uAz" eventType="touchUpInside" id="Pk1-H0-fou"/>
+                                            <action selector="toggleFavorite:" destination="bC3-En-uAz" eventType="touchUpInside" id="H4U-Bt-6sB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -747,7 +747,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="pRC-zP-j6d" kind="push" trigger="accessoryAction" id="pUz-i0-vt2"/>
+                                    <segue destination="pRC-zP-j6d" kind="push" id="pBE-E2-seW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -869,8 +869,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Xjy-jI-TAD"/>
         <segue reference="UcW-rl-3MV"/>
-        <segue reference="pUz-i0-vt2"/>
+        <segue reference="pBE-E2-seW"/>
+        <segue reference="Xjy-jI-TAD"/>
     </inferredMetricsTieBreakers>
 </document>
