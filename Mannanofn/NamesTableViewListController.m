@@ -28,9 +28,9 @@
 
 @synthesize genderSelection = _genderSelection;
 @synthesize namesOrder = _namesOrder;
-@synthesize showCategories = _showCategories;
-@synthesize categorySelection = _categorySelection;
 
+@synthesize categorySelection = _categorySelection;
+@synthesize originSelection = _originSelection;
 
 
 - (void)setupFetchedResultsController //attaches an NSFetchRequest to this UITableViewController
@@ -48,6 +48,10 @@
     if( self.categorySelection ) {
         [predicateFormats addObject:@"category == %@"];
         [predicateArguments addObject:self.categorySelection];
+    }
+    if( self.originSelection ) {
+        [predicateFormats addObject:@"origin == %@"];
+        [predicateArguments addObject:self.originSelection];
     }
     if( [predicateArguments count] ) {
         request.predicate = [NSPredicate predicateWithFormat:[predicateFormats componentsJoinedByString:@" AND "] argumentArray:predicateArguments];

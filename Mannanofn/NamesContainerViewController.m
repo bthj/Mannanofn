@@ -74,11 +74,15 @@
     
     [self passGenderToNamesTable];
     
-    if( self.categorySelection != nil ) {
+    if( self.categorySelection != nil || self.originSelection != nil ) {
         self.genderSelection.hidden = YES;
         self.namePosition.hidden = YES;
 
-        [self addTitleToNavigationItem:self.categorySelection];
+        if( self.originSelection != nil ) {
+            [self addTitleToNavigationItem:self.originSelection];
+        } else {
+            [self addTitleToNavigationItem:self.categorySelection];
+        }
     }
     self.title = self.navigationItemTitle;
     
@@ -92,6 +96,7 @@
         self.namesTableView = (NamesTableViewListController *)[segue destinationViewController];
         self.namesTableView.namesOrder = self.namesOrder;
         self.namesTableView.categorySelection = self.categorySelection;
+        self.namesTableView.originSelection = self.originSelection;
         self.namesTableView.nameCardDelegate = self;
         
         [self setGenderToLastCurrent];

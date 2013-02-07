@@ -14,6 +14,7 @@
 @interface NamesTableViewCategoryController ()
 
 @property (nonatomic, strong) NSMutableArray *categories;
+@property (nonatomic, strong) NSMutableArray *origins;
 @property (nonatomic, strong) NamesContainerViewController *namesContainer;
 @property (nonatomic, strong) NamesDatabaseSetupUtility *namesDatabaseSetup;
 
@@ -62,6 +63,20 @@
             [self.categories removeObjectAtIndex:i];
         }
     }
+    
+    
+    request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"origin"]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"origin" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+    
+    self.origins = [[self.namesDatabase.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
+    
+    // let's remove empty origin
+    for( int i=0; i < [self.origins count]; i++ ) {
+        if( [[[self.origins objectAtIndex:i] valueForKey:@"origin"] length] == 0 ) {
+            [self.origins removeObjectAtIndex:i];
+        }
+    }
+    
     
     [self.tableView reloadData];
     
@@ -118,13 +133,30 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.categories count];
+    if( section == 0 ) {
+        return [self.categories count];
+    } else if( section == 1 ) {
+        return [self.origins count];
+    } else {
+        return 0;
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if( section == 0 ) {
+        return @"Sum nöfn flokkuð";
+    } else if( section == 1 ) {
+        return @"Öll nöfn eftir uppruna";
+    } else {
+        return @"";
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,7 +165,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [[self.categories objectAtIndex:indexPath.row] valueForKey:@"category"];
+    if( indexPath.section == 0 ) {
+        
+        cell.textLabel.text = [[self.categories objectAtIndex:indexPath.row] valueForKey:@"category"];
+        
+    } else if( indexPath.section == 1 ) {
+        
+        cell.textLabel.text = [[self.origins objectAtIndex:indexPath.row] valueForKey:@"origin"];
+    }
     cell.textLabel.textColor = [UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:1.0f];
     
     return cell;
@@ -143,24 +182,22 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     self.namesContainer = (NamesContainerViewController *)[segue destinationViewController];
     self.namesContainer.namesOrder = ORDER_BY_NAME;
-    NSString *category = [[self.categories objectAtIndex:[self.tableView indexPathForSelectedRow].row] valueForKey:@"category"];;
-    self.namesContainer.categorySelection = category;
     self.namesContainer.navigationItemTitle = @"Flokkar";
+    
+    if( [self.tableView indexPathForSelectedRow].section == 0 ) {
+        
+        NSString *category = [[self.categories objectAtIndex:[self.tableView indexPathForSelectedRow].row] valueForKey:@"category"];;
+        self.namesContainer.categorySelection = category;
+        
+    } else if( [self.tableView indexPathForSelectedRow].section == 1 ) {
+        
+        NSString *origin = [[self.origins objectAtIndex:[self.tableView indexPathForSelectedRow].row] valueForKey:@"origin"];;
+        self.namesContainer.originSelection = origin;
+    }
 }
 
 @end
