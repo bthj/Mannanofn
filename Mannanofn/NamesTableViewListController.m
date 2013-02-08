@@ -195,12 +195,18 @@
         //    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", name.countAsFirstName, name.countAsSecondName];
     }
     
-    // from http://stackoverflow.com/a/10412958/169858
+    // index text color - from http://stackoverflow.com/a/10412958/169858
     for(UIView *view in [tableView subviews]) {
         if([view respondsToSelector:@selector(setIndexColor:)]) {
-            [view performSelector:@selector(setIndexColor:) withObject:[UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:0.66f]];
+            // light yellow with transparency
+            // [view performSelector:@selector(setIndexColor:) withObject:[UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:0.66f]];
+            // white with transparency
+            [view performSelector:@selector(setIndexColor:) withObject:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.55f]];
         }
     }
+    
+    // white text with some transparency
+    cell.textLabel.textColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.87f];
 
     return cell;
 }

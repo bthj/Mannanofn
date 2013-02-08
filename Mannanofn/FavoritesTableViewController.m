@@ -66,6 +66,10 @@
     self.navigationItem.title = @"Uppáhalds";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.editButtonItem.title = @"Breyta";
+//    self.tableView.backgroundColor = [UIColor colorWithRed:112.0f/255.0f green:158.0f/255.0f blue:11.0f/255.0f alpha:1.0f];
+//    self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:174.0f/255.0f blue:243.0f/255.0f alpha:1.0f];
+    // dökkblái
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:105.0f/255.0f blue:133.0f/255.0f alpha:1.0f];
     
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
@@ -89,6 +93,9 @@
     // Configure the cell...
     Favorite *favorite = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = favorite.name;
+    
+//    cell.textLabel.textColor = [UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:1.0f];
+    cell.textLabel.textColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.87f];
     
     return cell;
 }
@@ -184,10 +191,10 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
         
         nameInfo.name = favorite.name;
         
-        nameInfo.descriptionLegend = name1.name;
+        nameInfo.descriptionLegend = [name1.name stringByAppendingString:@":"];
         nameInfo.description = name1.descriptionIcelandic;
         
-        nameInfo.originLegend = name2.name;
+        nameInfo.originLegend = [name2.name stringByAppendingString:@":"];
         nameInfo.origin = name2.descriptionIcelandic;
         
         nameInfo.countAsFirstName = name1.countAsFirstName;

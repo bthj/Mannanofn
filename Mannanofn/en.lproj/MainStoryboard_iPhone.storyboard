@@ -737,6 +737,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.99215686274509807" green="0.59607843137254901" blue="0.070588235294117646" alpha="0.5" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteCell" id="GSK-BY-PzE">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -760,7 +761,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTW-vE-UQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1481" y="1446"/>
+            <point key="canvasLocation" x="1473" y="1932"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FUM-TF-j42">
@@ -810,7 +811,24 @@
                             <outlet property="delegate" destination="FhW-PK-Z0W" id="OGg-aH-dli"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Qbp-Fr-OID"/>
+                    <navigationItem key="navigationItem" id="Qbp-Fr-OID">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="2Vc-VW-kDw">
+                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Flokkar"/>
+                                <segment title="Uppruni"/>
+                            </segments>
+                            <color key="tintColor" red="1" green="0.39215686274509803" blue="0.15686274509803921" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeCategoryType:" destination="FhW-PK-Z0W" eventType="valueChanged" id="lNL-vd-bhV"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categoryTypeSelector" destination="2Vc-VW-kDw" id="hD6-7i-yLf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tun-Pj-KX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -835,6 +853,21 @@
             </objects>
             <point key="canvasLocation" x="725" y="278"/>
         </scene>
+        <!--View Controller - Lukkuhjól-->
+        <scene sceneID="Sdr-Mp-raX">
+            <objects>
+                <viewController storyboardIdentifier="RandomViewController" id="lPu-6H-4Zp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3my-aE-9PM">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Lukkuhjól" image="first.png" id="DWQ-FN-FQ6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CXh-jn-89L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="777" y="1037"/>
+        </scene>
         <!--Navigation Controller - Uppáhalds-->
         <scene sceneID="UmV-y8-cA7">
             <objects>
@@ -844,6 +877,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zPL-4N-ipS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.39215686274509803" blue="0.15686274509803921" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -852,7 +886,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pt-jV-pII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="1446"/>
+            <point key="canvasLocation" x="947" y="1932"/>
         </scene>
     </scenes>
     <resources>
@@ -863,14 +897,72 @@
         <image name="second.png" width="30" height="30"/>
         <image name="second@2x.png" width="60" height="60"/>
     </resources>
+    <classes>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="FavoritesTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesTableViewController.h"/>
+        </class>
+        <class className="MannanofnFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MannanofnFirstViewController.h"/>
+        </class>
+        <class className="MannanofnSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MannanofnSecondViewController.h"/>
+        </class>
+        <class className="NameInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NameInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="mailDescription:"/>
+                <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="addDescriptionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="changeDescriptionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="countAsFirstNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countAsSecondNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLegendLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="originLegendLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="toggleFavoriteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NamesContainerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesContainerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectGender:"/>
+                <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="genderSelection" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="nameCard" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nameOnCard" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="namePosition" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="navigationView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="toggleFavoriteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NamesOrderViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesOrderViewController.h"/>
+        </class>
+        <class className="NamesTableViewCategoryController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewCategoryController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeCategoryType:"/>
+                <relationship kind="outlet" name="categoryTypeSelector" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="NamesTableViewListController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewListController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UcW-rl-3MV"/>
-        <segue reference="pBE-E2-seW"/>
         <segue reference="Xjy-jI-TAD"/>
+        <segue reference="pBE-E2-seW"/>
+        <segue reference="UcW-rl-3MV"/>
     </inferredMetricsTieBreakers>
 </document>

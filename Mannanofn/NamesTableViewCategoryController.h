@@ -13,4 +13,8 @@
 
 @property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *categoryTypeSelector;
+- (IBAction)changeCategoryType:(id)sender;
+
+
 @end
