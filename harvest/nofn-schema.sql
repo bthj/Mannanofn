@@ -5,5 +5,7 @@ CREATE TABLE names(
 	descriptionEnglish TEXT,
 	countAsFirstName INTEGER,
 	countAsSecondName INTEGER,
-	comment TEXT
+	comment TEXT,
+	dateAdded TEXT,
+	dateModified TEXT
 );
