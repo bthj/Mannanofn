@@ -1,0 +1,26 @@
+Til að uppfæra lista yfir mannanöfn fyrir Nefnuna:
+
+- Keyra skriftuna mannanofn.js sem sækir samþykkt mannanöfn af island.is og vistar í SQLite grunn.
+
+- Keyra skriftuna mannanofnFrequency.js sem sækir fjöldaupplýsingar fyrir hvert nafn frá Hagstofunni og vistar í sama grunn.
+
+- Exporta úr SQLite grunninum í CSV skrá (t.d. með http://sqlitebrowser.sourceforge.net/).
+
+- Hlaða CSV skránni inn í Google Drive þar sem spreadsheet skjal er fyrir.
+
+- Keyra skriftuna ,,Uppfæra úr CSV skrá" (updateNamesFromCSV__GoogleDriveSpreadsheetScript.js) á Google Spreadsheet vinnuskjal og gefa upp nafn á CSV skrá.
+
+- Exporta Google Spreadsheet vinnuskjali í CSV.
+
+- Breyta CSV export skjali í JSON skjal sem er að lokum vistað í iOS app bundle (með http://www.cparker15.com/code/utilities/csv-to-json/).
+
+- Target "Seed Mannanofn Database" keyrt þar sem það les inn úr JSON skrá í grunn.
+
+- Sama target keyrt aftur þar sem það hringar yfir allar færslur í grunni í stafrófsröð og setur heiltölugildi úr teljara í reitinn order - hækja til að fá rétta röðun við fyrstu keyrslu apps (locale sett í kóða skilar sér ekki fyrr en í næstu keyrslu eftir að grunnur hefur verið afritaður úr bundle í document store).
+
+- Gagnagrunnur afritaður úr document store í emulator fyrir "Seed Mannanofn Database" yfir í app bundle, t.d. úr
+~/Library/Application Support/iPhone Simulator/6.1/Applications/1A8A925B-3BB0-47B3-AD4B-A2B1D008E515/Documents/MannanofnDatabase
+í 
+./Mannanofn/Mannanofn/MannanofnDatabase
+
+- Fjúff.
