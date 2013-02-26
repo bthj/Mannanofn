@@ -71,6 +71,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    // TODO: Keyra aðeins ef þarf, t.d. ef kyn hefur breyst, en ekki við hverja birtingu.
+    
     [self setGenderToLastCurrent];
     
     [self passGenderToNamesTable];

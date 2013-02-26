@@ -15,8 +15,11 @@
     [self willAccessValueForKey:@"alphabeticalKeyForName"];
     NSString *alphaChar = [[self name] substringToIndex:1 ];
     [self didAccessValueForKey:@"alphabeticalKeyForName"];
-//    return NSLocalizedString(alphaChar, nil);
-    return alphaChar;
+    return NSLocalizedString(alphaChar, nil);
+    
+//    NSLog( @"%@: \"%@\"", self.name, alphaChar );
+    
+//    return alphaChar;
 }
 
 + (Name *)nameWithSeedData:(NSDictionary *)nameSeed
@@ -31,7 +34,9 @@
     name.countAsFirstName = [NSNumber numberWithInteger:[[nameSeed objectForKey:@"countAsFirstName"] integerValue]];
     name.countAsSecondName = [NSNumber numberWithInteger:[[nameSeed objectForKey:@"countAsSecondName"] integerValue]];
     name.comment = [[nameSeed objectForKey:@"comment"] isEqual:[NSNull null]] ? nil : [nameSeed objectForKey:@"comment"];
-    name.category = [[nameSeed objectForKey:@"category"] isEqual:[NSNull null]] ? nil : [nameSeed objectForKey:@"category"];
+    name.category = [[nameSeed objectForKey:@"category1"] isEqual:[NSNull null]] ? nil : [nameSeed objectForKey:@"category1"];
+    name.dateAdded = [self getDateFromISOString:[nameSeed objectForKey:@"dateAdded"]];
+    name.dateModified = [self getDateFromISOString:[nameSeed objectForKey:@"dateModified"]];
     
     return name;
 }
@@ -47,6 +52,17 @@
         nameManagedObject = [names lastObject];
     }
     return nameManagedObject;
+}
+
+
++ (NSDate *)getDateFromISOString: (NSString *)dateString {
+    NSDate *date = nil;
+    if( ! [dateString isEqual:[NSNull null]] ) {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss.SSS'Z'"];
+        date = [dateFormat dateFromString:dateString];
+    }
+    return date;
 }
 
 @end

@@ -7,7 +7,7 @@ var /*request = require('request'),*/
 
 var db = new sqlite3.Database('nofn.sqlite');
 
-var alphabet = ['a', 'á', 'b', 'c', 'd', 'e', 'é', 'f', 'g', 'h', 'i', 'í', 'j', 'k', 'l', 'm', 'n', 'o', 'ó', 'p', 'q', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'x', 'y', 'z', 'þ', 'æ', 'ö'];
+var alphabet = ['a', 'á', 'b', 'c', 'd', 'e', 'é', 'f', 'g', 'h', 'i', 'í', 'j', 'k', 'l', 'm', 'n', 'o', 'ó', 'p', 'q', 'r', 's', 't', 'u', 'ú', 'v', 'w', 'x', 'y', 'ý', 'z', 'þ', 'æ', 'ö'];
 var httpAgentOptions = new Array();
 var baseQueryString = "?Nafn=&Stulkur=on&Drengir=on&Millinofn=off&Samthykkt=yes&Stafrof=";
 

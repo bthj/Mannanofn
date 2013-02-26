@@ -34,7 +34,26 @@
     return request;
 }
 
-- (void)fetchNamesIntoDocument:(UIManagedDocument *)document:(BOOL)reset
+- (void)setOrderToNames:(UIManagedDocument *)document
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+/*
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                                               managedObjectContext:document.managedObjectContext
+                                                                                                 sectionNameKeyPath:@"alphabeticalKeyForName"
+                                                                                                          cacheName:nil];
+*/
+    NSError *error = nil;
+    NSInteger orderCount = 0;
+    for( Name *oneNameToSetOrderFor in [document.managedObjectContext executeFetchRequest:request error:&error] ) {
+        oneNameToSetOrderFor.order = [NSNumber numberWithInt:orderCount++];
+    }
+    [document.managedObjectContext save:&error];
+    [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+}
+
+- (void)fetchNamesIntoDocument:(UIManagedDocument *)document reset:(BOOL)reset
 {
     NSLog(@"Start fetching names into document");
     
@@ -54,9 +73,14 @@
         [Name nameWithSeedData:oneName inManagedObjectContext:document.managedObjectContext];
     }
     // UIManagedDocument autosaves, but let's save as soon as possible
-    [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+    [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success){
+        [document openWithCompletionHandler:^(BOOL success) {
+            NSLog(@"Opened the newly created database");
+
+        }];
+    }];
     
-    NSLog(@"Finished fetching names into document.");
+    NSLog(@"Finished fetching names into document, saved to %@", document.fileURL);
 }
 
 
@@ -65,21 +89,29 @@
     if( ![[NSFileManager defaultManager] fileExistsAtPath:[database.fileURL path]] ) {
         // does not exist on disk, so create it
         [database saveToURL:database.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
-            [self fetchNamesIntoDocument:database:NO];
+            [self fetchNamesIntoDocument:database reset:NO];
         }];
     } else if( database.documentState == UIDocumentStateClosed ) {
         // exists on disk, but we need to open it
         [database openWithCompletionHandler:^(BOOL success) {
-            [self fetchNamesIntoDocument:database:YES];
+//            [self fetchNamesIntoDocument:database reset:YES];
+            
+            [self setOrderToNames:database];
         }];
     } else if( database.documentState == UIDocumentStateNormal ) {
         // already open and ready to use
-        [self fetchNamesIntoDocument:database:YES];
+        [self fetchNamesIntoDocument:database reset:YES];
     }
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // set locale for sorting of Core Data
+    NSArray *languages = [NSArray arrayWithObject:@"is-IS"];
+    [[NSUserDefaults standardUserDefaults] setObject:languages forKey:@"AppleLanguages"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
     

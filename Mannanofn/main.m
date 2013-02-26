@@ -12,7 +12,23 @@
 
 int main(int argc, char *argv[])
 {
+/*
+    // use whatever language/locale id you want to override
+    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"is_IS", nil]
+                                              forKey:@"AppleLanguages"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+*/
+/*
+    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"is", nil] forKey:@"AppleLanguages"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+*/
+//        [[NSUserDefaults standardUserDefaults] setObject: [NSArray arrayWithObjects:@"is", nil] forKey:@"AppleLanguages"];
+    
     @autoreleasepool {
+
+    
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([MannanofnAppDelegate class]));
     }
+    
+
 }

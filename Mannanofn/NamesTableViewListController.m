@@ -33,8 +33,11 @@
 @synthesize originSelection = _originSelection;
 
 
+
 - (void)setupFetchedResultsController //attaches an NSFetchRequest to this UITableViewController
-{
+{    
+    [NSFetchedResultsController deleteCacheWithName:@"mannanofnAlphabetCache"];
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
 
     NSMutableArray *predicateFormats = [NSMutableArray array];
@@ -69,12 +72,12 @@
                                                                               sectionNameKeyPath:nil
                                                                                        cacheName:nil];
     } else {
-        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
-        
+        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]];
+
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                             managedObjectContext:self.namesDatabase.managedObjectContext
                                                                               sectionNameKeyPath:@"alphabeticalKeyForName"
-                                                                                       cacheName:nil];
+                                                                                       cacheName:@"mannanofnAlphabetCache"];
     }
     
     [self updateNameCardFromVisibleCells];

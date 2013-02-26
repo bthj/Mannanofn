@@ -11,13 +11,16 @@
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="countAsFirstName" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="countAsSecondName" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="descriptionIcelandic" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="origin" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Favorite" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="Name" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="Name" positionX="0" positionY="0" width="128" height="225"/>
     </elements>
 </model>

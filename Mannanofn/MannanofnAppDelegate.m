@@ -18,20 +18,19 @@
 
 - (void)copyPreloadedDatabaseToStoreLocation:(NSURL *)storeUrl
 {
-//    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"MannanofnDatabase"];
-//    NSString *documentsFolderPath = [documentsDirectory stringByAppendingPathComponent:@"yourUIManagedDocument"];
-    
-    
-//    NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"MannanofnDatabase" ofType:@"sqlite"];
-//    if( defaultStorePath ) {
+    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"MannanofnDatabase/"];
+
     if( bundlePath ) {
         
         [[NSFileManager defaultManager] copyItemAtPath:bundlePath toPath:[storeUrl path] error:NULL];
         
+        NSLog(@"copying db from url\n%@\nto url\n%@", bundlePath, storeUrl);
+        
         // let's open the newly copied document
         UIManagedDocument *mannanofn = [[UIManagedDocument alloc] initWithFileURL:storeUrl];
         [mannanofn openWithCompletionHandler:^(BOOL success) {
+            
+            NSLog(@"Opened newly copied database at url: %@", mannanofn.fileURL);
 
             // Write app's version number at the time of this fetch to NSUserDefaults, for reference later.
             NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
@@ -44,9 +43,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // set locale for sorting of Core Data
 /*
+    NSArray *languages = [NSArray arrayWithObject:@"is"];
+    [[NSUserDefaults standardUserDefaults] setObject:languages forKey:@"AppleLanguages"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+*/
+
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    url = [url URLByAppendingPathComponent:@"MannanofnDatabase"];
+    url = [url URLByAppendingPathComponent:@"MannanofnDatabase/"];
     NSString *namesReadFromSeedAtVersion = [[NSUserDefaults standardUserDefaults] objectForKey:NAMES_READ_FROM_SEED_AT_VERSION];
     NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     
@@ -60,20 +66,13 @@
         
         [self copyPreloadedDatabaseToStoreLocation:url];
     }
-*/
-    
 
-//    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:40.0f/255.0f alpha:1.0f]];
     
+//    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:40.0f/255.0f alpha:1.0f]];
     
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     
 
-    // set locale for sorting of Core Data
-    NSArray *languages = [NSArray arrayWithObject:@"is-IS"];
-    [[NSUserDefaults standardUserDefaults] setObject:languages forKey:@"AppleLanguages"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
     return YES;
 }
 

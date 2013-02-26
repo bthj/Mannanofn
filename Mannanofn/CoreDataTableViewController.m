@@ -47,7 +47,7 @@
 - (void)setFetchedResultsController:(NSFetchedResultsController *)newfrc
 {
     NSFetchedResultsController *oldfrc = _fetchedResultsController;
-    if (newfrc != oldfrc) {
+//    if (newfrc != oldfrc) {
         _fetchedResultsController = newfrc;
         newfrc.delegate = self;
         if ((!self.title || [self.title isEqualToString:oldfrc.fetchRequest.entity.name]) && (!self.navigationController || !self.navigationItem.title)) {
@@ -60,7 +60,7 @@
             if (self.debug) NSLog(@"[%@ %@] reset to nil", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
             [self.tableView reloadData];
         }
-    }
+//    }
 }
 
 #pragma mark - UITableViewDataSource

@@ -1,0 +1,126 @@
+
+/* Class = "IBUIViewController"; title = "First"; ObjectID = "2"; */
+"2.title" = "First";
+
+/* Class = "IBUIViewController"; title = "Second"; ObjectID = "3"; */
+"3.title" = "Second";
+
+/* Class = "IBUITabBarItem"; title = "Einnefni"; ObjectID = "6"; */
+"6.title" = "Einnefni";
+
+/* Class = "IBUITabBarItem"; title = "Tvínefni"; ObjectID = "7"; */
+"7.title" = "Tvínefni";
+
+/* Class = "IBUITabBarItem"; title = "Flokkar"; ObjectID = "15Z-az-DQD"; */
+"15Z-az-DQD.title" = "Flokkar";
+
+/* Class = "IBUISegmentedControl"; 2Vc-VW-kDw.segmentTitles[0] = "Flokkar"; ObjectID = "2Vc-VW-kDw"; */
+"2Vc-VW-kDw.segmentTitles[0]" = "Flokkar";
+
+/* Class = "IBUISegmentedControl"; 2Vc-VW-kDw.segmentTitles[1] = "Uppruni"; ObjectID = "2Vc-VW-kDw"; */
+"2Vc-VW-kDw.segmentTitles[1]" = "Uppruni";
+
+/* Class = "IBUILabel"; text = "1234"; ObjectID = "2xo-HU-EYr"; */
+"2xo-HU-EYr.text" = "1234";
+
+/* Class = "IBUIButton"; normalTitle = "Veistu betur?"; ObjectID = "4LR-uI-Luf"; */
+"4LR-uI-Luf.normalTitle" = "Veistu betur?";
+
+/* Class = "IBUILabel"; text = "- merking"; ObjectID = "51O-E2-1zB"; */
+"51O-E2-1zB.text" = "- merking";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "B2f-2j-OV6"; */
+"B2f-2j-OV6.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Annað:"; ObjectID = "BjS-yo-Avh"; */
+"BjS-yo-Avh.text" = "Annað:";
+
+/* Class = "IBUITabBarItem"; title = "Lukkuhjól"; ObjectID = "DWQ-FN-FQ6"; */
+"DWQ-FN-FQ6.title" = "Lukkuhjól";
+
+/* Class = "IBUILabel"; text = "Arnór"; ObjectID = "DpO-Fw-Idg"; */
+"DpO-Fw-Idg.text" = "Arnór";
+
+/* Class = "IBUILabel"; text = "4321"; ObjectID = "FZh-ID-J3X"; */
+"FZh-ID-J3X.text" = "4321";
+
+/* Class = "IBUITabBarItem"; title = "Uppáhalds"; ObjectID = "FgW-Tq-bUD"; */
+"FgW-Tq-bUD.title" = "Uppáhalds";
+
+/* Class = "IBUISegmentedControl"; Jn2-1Y-4yd.segmentTitles[0] = "Drengur"; ObjectID = "Jn2-1Y-4yd"; */
+"Jn2-1Y-4yd.segmentTitles[0]" = "Drengur";
+
+/* Class = "IBUISegmentedControl"; Jn2-1Y-4yd.segmentTitles[1] = "Stúlka"; ObjectID = "Jn2-1Y-4yd"; */
+"Jn2-1Y-4yd.segmentTitles[1]" = "Stúlka";
+
+/* Class = "IBUITabBarItem"; title = "A-Ö"; ObjectID = "T2N-je-uxk"; */
+"T2N-je-uxk.title" = "A-Ö";
+
+/* Class = "IBUISegmentedControl"; Ugx-Pr-K75.segmentTitles[0] = "Fyrsta"; ObjectID = "Ugx-Pr-K75"; */
+"Ugx-Pr-K75.segmentTitles[0]" = "Fyrsta";
+
+/* Class = "IBUISegmentedControl"; Ugx-Pr-K75.segmentTitles[1] = "Annað"; ObjectID = "Ugx-Pr-K75"; */
+"Ugx-Pr-K75.segmentTitles[1]" = "Annað";
+
+/* Class = "IBUILabel"; text = "Fyrsta:"; ObjectID = "VP4-vT-JZk"; */
+"VP4-vT-JZk.text" = "Fyrsta:";
+
+/* Class = "IBUILabel"; text = "Björn"; ObjectID = "XTC-7n-XXQ"; */
+"XTC-7n-XXQ.text" = "Björn";
+
+/* Class = "IBUILabel"; text = "Elín"; ObjectID = "ZHZ-Hs-SUw"; */
+"ZHZ-Hs-SUw.text" = "Elín";
+
+/* Class = "IBUILabel"; text = "Edda Lára"; ObjectID = "acr-ws-Od2"; */
+"acr-ws-Od2.text" = "Edda Lára";
+
+/* Class = "IBUITabBarItem"; title = "Vinsældalisti"; ObjectID = "ave-Ak-tWq"; */
+"ave-Ak-tWq.title" = "Vinsældalisti";
+
+/* Class = "IBUIButton"; normalTitle = "Vinsælt"; ObjectID = "c8k-Ak-x1J"; */
+"c8k-Ak-x1J.normalTitle" = "Vinsælt";
+
+/* Class = "IBUILabel"; text = "Edda Lára"; ObjectID = "cMk-qF-M79"; */
+"cMk-qF-M79.text" = "Edda Lára";
+
+/* Class = "IBUILabel"; text = "Uppruni:"; ObjectID = "dzo-16-NzU"; */
+"dzo-16-NzU.text" = "Uppruni:";
+
+/* Class = "IBUILabel"; text = "Signý"; ObjectID = "hKq-BW-Tj6"; */
+"hKq-BW-Tj6.text" = "Signý";
+
+/* Class = "IBUITabBarItem"; title = "Item"; ObjectID = "hUB-ob-miH"; */
+"hUB-ob-miH.title" = "Item";
+
+/* Class = "IBUILabel"; text = "- merking"; ObjectID = "i98-zP-PFg"; */
+"i98-zP-PFg.text" = "- merking";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "k3h-b2-cHD"; */
+"k3h-b2-cHD.normalTitle" = "Button";
+
+/* Class = "IBUITabBarItem"; title = "nöfn"; ObjectID = "llg-yw-8RI"; */
+"llg-yw-8RI.title" = "nöfn";
+
+/* Class = "IBUIButton"; normalTitle = "Strákar"; ObjectID = "mag-X4-RUu"; */
+"mag-X4-RUu.normalTitle" = "Strákar";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "n2k-PC-28r"; */
+"n2k-PC-28r.text" = "Label";
+
+/* Class = "IBUIButton"; normalTitle = "Stelpur"; ObjectID = "nOs-XB-Sj8"; */
+"nOs-XB-Sj8.normalTitle" = "Stelpur";
+
+/* Class = "IBUILabel"; text = "Edda"; ObjectID = "ugF-U4-PNC"; */
+"ugF-U4-PNC.text" = "Edda";
+
+/* Class = "IBUIButton"; normalTitle = "Veistu merkinguna?"; ObjectID = "wyD-tx-EYe"; */
+"wyD-tx-EYe.normalTitle" = "Veistu merkinguna?";
+
+/* Class = "IBUILabel"; text = "Lára"; ObjectID = "xZE-TT-Ca7"; */
+"xZE-TT-Ca7.text" = "Lára";
+
+/* Class = "IBUILabel"; text = "Merking:"; ObjectID = "yyz-Sb-MZj"; */
+"yyz-Sb-MZj.text" = "Merking:";
+
+/* Class = "IBUILabel"; text = "Edda Lára"; ObjectID = "zCA-4N-4bg"; */
+"zCA-4N-4bg.text" = "Edda Lára";
