@@ -38,12 +38,7 @@
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
-/*
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                                               managedObjectContext:document.managedObjectContext
-                                                                                                 sectionNameKeyPath:@"alphabeticalKeyForName"
-                                                                                                          cacheName:nil];
-*/
+
     NSError *error = nil;
     NSInteger orderCount = 0;
     for( Name *oneNameToSetOrderFor in [document.managedObjectContext executeFetchRequest:request error:&error] ) {

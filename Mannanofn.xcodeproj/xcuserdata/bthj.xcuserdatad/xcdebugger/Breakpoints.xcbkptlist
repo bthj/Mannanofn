@@ -528,11 +528,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesTableViewListController.m"
-         timestampString = "383578901.51021"
+         timestampString = "384184974.88371"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "301"
-         endingLineNumber = "301"
+         startingLineNumber = "306"
+         endingLineNumber = "306"
          landmarkName = "-sectionIndexTitlesForTableView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -541,11 +541,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesTableViewListController.m"
-         timestampString = "383578901.51021"
+         timestampString = "384184974.88371"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "314"
-         endingLineNumber = "314"
+         startingLineNumber = "319"
+         endingLineNumber = "319"
          landmarkName = "-tableView:sectionForSectionIndexTitle:atIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -593,11 +593,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Seed Mannanofn Database/MannanofnAppDelegate.m"
-         timestampString = "383578184.317189"
+         timestampString = "384183836.52661"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-setOrderToNames:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -606,11 +606,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Seed Mannanofn Database/MannanofnAppDelegate.m"
-         timestampString = "383578187.558697"
+         timestampString = "384183836.52661"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
+         startingLineNumber = "78"
+         endingLineNumber = "78"
          landmarkName = "-fetchNamesIntoDocument:reset:"
          landmarkType = "5">
       </FileBreakpoint>

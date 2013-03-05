@@ -115,7 +115,8 @@
 {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:105.0f/255.0f blue:133.0f/255.0f alpha:1.0f];
+//    self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:105.0f/255.0f blue:133.0f/255.0f alpha:1.0f];
+    self.tableView.backgroundColor = [UIColor colorWithRed:38.0f/255.0f green:155.0f/255.0f blue:202.0f/255.0f alpha:1.0f];
     
     self.navigationItem.title = @"Flokkar";
 }

@@ -158,6 +158,11 @@
 }
 
 
+- (BOOL)isIndexPathWithinData:(NSIndexPath *)indexPath
+{
+    return indexPath.section != 0 && (indexPath.section+1) != [self numberOfSectionsInTableView:self.tableView];
+}
+
 - (Name *)getNameAtIndexPath:(NSIndexPath *)indexPath
 {
     Name *name;
@@ -343,6 +348,16 @@
     [sectionView addSubview:label];
     
     return sectionView;
+}
+
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender  // requires iOS 6
+{
+    BOOL shouldPerformSegue = [self isIndexPathWithinData:[self.tableView indexPathForSelectedRow]];
+    if( ! shouldPerformSegue ) {
+        [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    }
+    return shouldPerformSegue;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
