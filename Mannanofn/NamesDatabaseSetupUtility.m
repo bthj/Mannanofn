@@ -29,6 +29,10 @@
 {
     if( self.namesDatabase.documentState == UIDocumentStateClosed ) {
         // exists on disk, but we need to open it
+        
+//        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//        hud.labelText = @"Hleð inn nöfnum...";  // HUD closed in the table view controller
+        
         [self.namesDatabase openWithCompletionHandler:^(BOOL success) {
             
             [self.fetchedResultsSetupDelegate setNamesDatabase: self.namesDatabase];

@@ -10,6 +10,7 @@
 #import "Name.h"
 #import "MannanofnGlobalStringConstants.h"
 #import "NameInfoViewController.h"
+#import "MBProgressHUD.h"
 
 
 
@@ -36,7 +37,7 @@
 
 - (void)setupFetchedResultsController //attaches an NSFetchRequest to this UITableViewController
 {    
-    [NSFetchedResultsController deleteCacheWithName:@"mannanofnAlphabetCache"];
+
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Name"];
 
@@ -77,10 +78,12 @@
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                             managedObjectContext:self.namesDatabase.managedObjectContext
                                                                               sectionNameKeyPath:@"alphabeticalKeyForName"
-                                                                                       cacheName:@"mannanofnAlphabetCache"];
+                                                                                       cacheName:nil];
     }
     
     [self updateNameCardFromVisibleCells];
+    
+//    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
 - (void)setNamesDatabase:(UIManagedDocument *)namesDatabase
@@ -129,6 +132,11 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;
 
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
 }
@@ -343,7 +351,7 @@
     label.text = sectionTitle;
     
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 22)];
-    [sectionView setBackgroundColor:[UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:0.66f]];
+    [sectionView setBackgroundColor:[UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:0.8f]];
     
     [sectionView addSubview:label];
     

@@ -74,11 +74,11 @@
 
 - (void)updateFavoritesButtonImageToActive
 {
-    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"first"] forState:UIControlStateNormal];
+    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"heart_nametag"] forState:UIControlStateNormal];
 }
 - (void)updateFavoritesButtonImageToInctive
 {
-    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"second"] forState:UIControlStateNormal];
+    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"heart_nametag_disabled"] forState:UIControlStateNormal];
 }
 - (void)updateFavoriteButtonImageToState:(BOOL)active
 {

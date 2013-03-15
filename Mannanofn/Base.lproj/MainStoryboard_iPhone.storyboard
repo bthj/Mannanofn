@@ -233,7 +233,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="1" green="0.65490196078431373" blue="0.066666666666666666" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.9137254901960784" green="0.8784313725490196" blue="0.78823529411764703" alpha="0.5" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NameCell" textLabel="B2f-2j-OV6" style="IBUITableViewCellStyleDefault" id="otX-Id-Tpi">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -273,45 +273,45 @@
             <objects>
                 <viewController id="pRC-zP-j6d" customClass="NameInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F9C-ND-Pwp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" id="n2k-PC-28r">
-                                <rect key="frame" x="118" y="102" width="160" height="21"/>
+                                <rect key="frame" x="118" y="124" width="160" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Merking:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yyz-Sb-MZj">
-                                <rect key="frame" x="118" y="124" width="182" height="21"/>
+                                <rect key="frame" x="118" y="150" width="182" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Uppruni:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dzo-16-NzU">
-                                <rect key="frame" x="118" y="162" width="182" height="21"/>
+                                <rect key="frame" x="118" y="197" width="182" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- merking" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="6" id="51O-E2-1zB">
-                                <rect key="frame" x="118" y="137" width="182" height="30"/>
+                                <rect key="frame" x="118" y="167" width="182" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- merking" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" id="i98-zP-PFg">
-                                <rect key="frame" x="118" y="178" width="182" height="27"/>
+                                <rect key="frame" x="118" y="216" width="182" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="UI3-LZ-Vgd">
-                                <rect key="frame" x="0.0" y="257" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="317" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="4LR-uI-Luf">
-                                <rect key="frame" x="118" y="227" width="84" height="24"/>
+                                <rect key="frame" x="118" y="275" width="84" height="24"/>
                                 <color key="backgroundColor" red="0.70588235290000001" green="0.70196078429999997" blue="0.67450980390000004" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <state key="normal" title="Veistu betur?">
@@ -323,7 +323,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="wyD-tx-EYe">
-                                <rect key="frame" x="118" y="136" width="115" height="24"/>
+                                <rect key="frame" x="118" y="165" width="115" height="24"/>
                                 <color key="backgroundColor" red="0.70588235290000001" green="0.70196078429999997" blue="0.67450980390000004" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <state key="normal" title="Veistu merkinguna?">
@@ -335,33 +335,33 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fyrsta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VP4-vT-JZk">
-                                <rect key="frame" x="118" y="204" width="42" height="16"/>
+                                <rect key="frame" x="118" y="246" width="42" height="16"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2xo-HU-EYr">
-                                <rect key="frame" x="157" y="204" width="28" height="16"/>
+                                <rect key="frame" x="157" y="246" width="28" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Annað:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BjS-yo-Avh">
-                                <rect key="frame" x="193" y="204" width="42" height="16"/>
+                                <rect key="frame" x="193" y="246" width="42" height="16"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4321" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FZh-ID-J3X">
-                                <rect key="frame" x="234" y="204" width="28" height="16"/>
+                                <rect key="frame" x="234" y="246" width="28" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k3h-b2-cHD">
-                                <rect key="frame" x="256" y="215" width="44" height="44"/>
+                                <rect key="frame" x="271" y="270" width="29" height="26"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button" image="second@2x.png">
+                                <state key="normal" title="Button" image="heart_nametag_disabled.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -448,14 +448,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Edda Lára" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cMk-qF-M79">
-                                        <rect key="frame" x="20" y="0.0" width="251" height="40"/>
+                                        <rect key="frame" x="39" y="0.0" width="236" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gnG-uS-gig">
-                                        <rect key="frame" x="276" y="6" width="29" height="29"/>
+                                        <rect key="frame" x="282" y="7" width="29" height="26"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="first@2x.png">
+                                        <state key="normal" image="heart_nametag_disabled.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -464,6 +464,21 @@
                                         </state>
                                         <connections>
                                             <action selector="toggleFavorite:" destination="bC3-En-uAz" eventType="touchUpInside" id="H4U-Bt-6sB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ek8-Tu-qDn">
+                                        <rect key="frame" x="4" y="5" width="29" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Button" image="eraser_nametag.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearNameCardAction:" destination="bC3-En-uAz" eventType="touchUpInside" id="PMT-gN-s9g"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -643,7 +658,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="A-Ö" image="first.png" id="T2N-je-uxk"/>
+                    <tabBarItem key="tabBarItem" title="A-Ö" image="alphabetical_tabbar.png" id="T2N-je-uxk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ok-y4-qjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -667,7 +682,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Vinsældalisti" image="second.png" id="ave-Ak-tWq"/>
+                    <tabBarItem key="tabBarItem" title="Vinsældalisti" image="popularity_tabbar.png" id="ave-Ak-tWq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i31-AL-mPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -691,7 +706,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Flokkar" image="first.png" id="15Z-az-DQD"/>
+                    <tabBarItem key="tabBarItem" title="Flokkar" image="categories_tabbar.png" id="15Z-az-DQD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSC-RZ-pJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -705,7 +720,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.99215686274509807" green="0.59607843137254901" blue="0.070588235294117646" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="0.5" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteCell" id="GSK-BY-PzE">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -759,7 +774,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="347"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.99193865060806274" green="0.5950465202331543" blue="0.06960739940404892" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.9137254901960784" green="0.8784313725490196" blue="0.78823529411764703" alpha="0.5" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" id="zbs-0L-KNh">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -840,7 +855,7 @@
         <scene sceneID="UmV-y8-cA7">
             <objects>
                 <navigationController id="z6o-t1-AfQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Uppáhalds" image="second.png" id="FgW-Tq-bUD"/>
+                    <tabBarItem key="tabBarItem" title="Uppáhalds" image="heart_tabbar.png" id="FgW-Tq-bUD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zPL-4N-ipS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -858,21 +873,83 @@
         </scene>
     </scenes>
     <resources>
+        <image name="alphabetical_tabbar.png" width="30" height="30"/>
+        <image name="categories_tabbar.png" width="30" height="30"/>
+        <image name="eraser_nametag.png" width="29" height="30"/>
         <image name="first" width="16" height="16"/>
         <image name="first.png" width="30" height="30"/>
-        <image name="first@2x.png" width="60" height="60"/>
+        <image name="heart_nametag_disabled.png" width="29" height="26"/>
+        <image name="heart_tabbar.png" width="30" height="30"/>
+        <image name="popularity_tabbar.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
-        <image name="second.png" width="30" height="30"/>
-        <image name="second@2x.png" width="60" height="60"/>
     </resources>
+    <classes>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="FavoritesTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesTableViewController.h"/>
+        </class>
+        <class className="MannanofnFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MannanofnFirstViewController.h"/>
+        </class>
+        <class className="MannanofnSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MannanofnSecondViewController.h"/>
+        </class>
+        <class className="NameInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NameInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="mailDescription:"/>
+                <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="addDescriptionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="changeDescriptionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="countAsFirstNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countAsSecondNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLegendLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="originLegendLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="toggleFavoriteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NamesContainerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesContainerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearNameCardAction:"/>
+                <relationship kind="action" name="selectGender:"/>
+                <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="genderSelection" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="nameCard" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nameOnCard" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="namePosition" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="navigationView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="toggleFavoriteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NamesOrderViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesOrderViewController.h"/>
+        </class>
+        <class className="NamesTableViewCategoryController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewCategoryController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeCategoryType:"/>
+                <relationship kind="outlet" name="categoryTypeSelector" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="NamesTableViewListController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewListController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nuM-Lj-lQo"/>
-        <segue reference="UcW-rl-3MV"/>
-        <segue reference="w3j-Ol-6Sp"/>
+        <segue reference="Xjy-jI-TAD"/>
+        <segue reference="ELq-QN-jbh"/>
+        <segue reference="pBE-E2-seW"/>
     </inferredMetricsTieBreakers>
 </document>

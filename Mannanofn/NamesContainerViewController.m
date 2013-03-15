@@ -168,11 +168,11 @@
 
 - (void)updateFavoritesButtonImageToActive
 {
-    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"first"] forState:UIControlStateNormal];
+    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"heart_nametag"] forState:UIControlStateNormal];
 }
 - (void)updateFavoritesButtonImageToInctive
 {
-    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"second"] forState:UIControlStateNormal];
+    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"heart_nametag_disabled"] forState:UIControlStateNormal];
 }
 
 - (void)updateNameCard:(NSString *)name
@@ -257,6 +257,11 @@
 - (IBAction)toggleFavorite:(id)sender {
     
     [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility toggleFavoriteForName:self.nameOnCard.text]];
+}
+
+- (IBAction)clearNameCardAction:(id)sender {
+    [self clearNameCard];
+    [self updateFavoritesButtonImageToInctive];
 }
 
 @end

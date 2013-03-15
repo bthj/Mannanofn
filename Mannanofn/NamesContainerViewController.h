@@ -33,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *toggleFavoriteButton;
 - (IBAction)toggleFavorite:(id)sender;
 
+- (IBAction)clearNameCardAction:(id)sender;
+
 
 @property (weak, nonatomic) IBOutlet UIView *tableContainer;
 
