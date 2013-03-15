@@ -10,7 +10,7 @@
 
 @interface Favorite (Create)
 
-+ (Favorite *)addFavoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Favorite *)addFavoriteWithName:(NSString *)name gender:(NSString *)gender inManagedObjectContext:(NSManagedObjectContext *)context;
 
 + (void)removeFavoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
 

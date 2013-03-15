@@ -71,14 +71,14 @@
     return [existingFavoritesForName count];
 }
 
-- (BOOL)toggleFavoriteForName:(NSString *)name
+- (BOOL)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender
 {
     BOOL isInFavorites;
     if( [self isInFavorites:name] ) {
         [Favorite removeFavoriteWithName:name inManagedObjectContext:self.favoritesDatabase.managedObjectContext];
         isInFavorites = NO;
     } else {
-        [Favorite addFavoriteWithName:name inManagedObjectContext:self.favoritesDatabase.managedObjectContext];
+        [Favorite addFavoriteWithName:name gender:(NSString *)gender inManagedObjectContext:self.favoritesDatabase.managedObjectContext];
         isInFavorites = YES;
     }
     // UIManagedDocument's autosaving not always working here so...

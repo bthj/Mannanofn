@@ -191,6 +191,7 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
         Name *name2 = [Name getNameForName:[nameParts objectAtIndex:1] inContext:self.namesDatabase.managedObjectContext];
         
         nameInfo.name = favorite.name;
+        nameInfo.gender = favorite.gender;
         
         nameInfo.descriptionLegend = [name1.name stringByAppendingString:@":"];
         nameInfo.description = name1.descriptionIcelandic;
@@ -205,6 +206,7 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
         
         Name *name = [Name getNameForName:favorite.name inContext:self.namesDatabase.managedObjectContext];
         nameInfo.name = name.name;
+        nameInfo.gender = name.gender;
         nameInfo.description = name.descriptionIcelandic;
         nameInfo.origin = name.origin;
         nameInfo.countAsFirstName = name.countAsFirstName;

@@ -94,7 +94,7 @@
 }
 - (IBAction)toggleFavorite:(id)sender {
     
-    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility toggleFavoriteForName:self.name]];
+    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility toggleFavoriteForName:self.name gender:self.gender]];
 }
 
 - (IBAction)mailDescription:(id)sender {

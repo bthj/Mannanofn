@@ -12,6 +12,7 @@
 @interface NameInfoViewController : UIViewController <SetFavoritesDatabaseDelegate>
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *gender;
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSString *descriptionLegend;
 @property (nonatomic, strong) NSString *origin;

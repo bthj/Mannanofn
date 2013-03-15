@@ -12,7 +12,7 @@
 
 
 
-+ (Favorite *)addFavoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context
++ (Favorite *)addFavoriteWithName:(NSString *)name gender:(NSString *)gender inManagedObjectContext:(NSManagedObjectContext *)context
 {
     Favorite *favorite = nil;
     NSArray *existingFavoritesForName = [self getFavoritesForName:name inContext:context];
@@ -22,6 +22,7 @@
         
         favorite = [NSEntityDescription insertNewObjectForEntityForName:@"Favorite" inManagedObjectContext:context];
         favorite.name = name;
+        favorite.gender = gender;
         favorite.order = [self getNextAvailableOrderIndex:context];
         favorite.dateModified = [NSDate date];
     }

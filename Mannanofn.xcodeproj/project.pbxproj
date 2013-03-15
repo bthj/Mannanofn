@@ -20,7 +20,6 @@
 		FB313E0F1546008A0077438C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E0E1546008A0077438C /* second.png */; };
 		FB313E111546008A0077438C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB313E101546008A0077438C /* second@2x.png */; };
 		FB497F1E16C08EC200894353 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F1D16C08EC200894353 /* FavoritesTableViewController.m */; };
-		FB497F2116C09A6D00894353 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2016C09A6D00894353 /* Favorite.m */; };
 		FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2616C09B6100894353 /* Favorite+Create.m */; };
 		FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2916C0A35C00894353 /* FavoritesDatabaseUtility.m */; };
 		FB65CF6B16DCE7D300FA6246 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FB65CF6A16DCE7D300FA6246 /* Name.m */; };
@@ -51,6 +50,7 @@
 		FB8D6A1B16F29C1C00653612 /* popularity_tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A1316F29C1C00653612 /* popularity_tabbar@2x.png */; };
 		FB8D6A2116F2AB2A00653612 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A2016F2AB2A00653612 /* Icon.png */; };
 		FB8D6A2316F2AB3200653612 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A2216F2AB3100653612 /* Icon@2x.png */; };
+		FB8D6A2616F3723500653612 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8D6A2516F3723500653612 /* Favorite.m */; };
 		FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AB8163748D50039F096 /* NamesOrderViewController.m */; };
 		FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AC116374AC20039F096 /* NamesContainerViewController.m */; };
 		FBB0333216D5253D00EFE772 /* MannanofnDatabase in Resources */ = {isa = PBXBuildFile; fileRef = FBB0333116D5253D00EFE772 /* MannanofnDatabase */; };
@@ -109,8 +109,6 @@
 		FB313E101546008A0077438C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		FB497F1C16C08EC200894353 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		FB497F1D16C08EC200894353 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
-		FB497F1F16C09A6D00894353 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
-		FB497F2016C09A6D00894353 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		FB497F2516C09B6100894353 /* Favorite+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Favorite+Create.h"; sourceTree = "<group>"; };
 		FB497F2616C09B6100894353 /* Favorite+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Favorite+Create.m"; sourceTree = "<group>"; };
 		FB497F2816C0A35C00894353 /* FavoritesDatabaseUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDatabaseUtility.h; sourceTree = "<group>"; };
@@ -148,6 +146,8 @@
 		FB8D6A1316F29C1C00653612 /* popularity_tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popularity_tabbar@2x.png"; sourceTree = "<group>"; };
 		FB8D6A2016F2AB2A00653612 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FB8D6A2216F2AB3100653612 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		FB8D6A2416F3723500653612 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
+		FB8D6A2516F3723500653612 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		FB955AB7163748D40039F096 /* NamesOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesOrderViewController.h; sourceTree = "<group>"; };
 		FB955AB8163748D50039F096 /* NamesOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesOrderViewController.m; sourceTree = "<group>"; };
 		FB955AC016374AC20039F096 /* NamesContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesContainerViewController.h; sourceTree = "<group>"; };
@@ -419,10 +419,10 @@
 				FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */,
 				FB65CF6916DCE7D300FA6246 /* Name.h */,
 				FB65CF6A16DCE7D300FA6246 /* Name.m */,
+				FB8D6A2416F3723500653612 /* Favorite.h */,
+				FB8D6A2516F3723500653612 /* Favorite.m */,
 				FBE174D315E452D100EDC6A4 /* Name+Create.h */,
 				FBE174D415E452D100EDC6A4 /* Name+Create.m */,
-				FB497F1F16C09A6D00894353 /* Favorite.h */,
-				FB497F2016C09A6D00894353 /* Favorite.m */,
 				FB497F2516C09B6100894353 /* Favorite+Create.h */,
 				FB497F2616C09B6100894353 /* Favorite+Create.m */,
 				FBE174CB15E3199800EDC6A4 /* CoreDataTableViewController.h */,
@@ -572,10 +572,10 @@
 				FBE2678216B974BF00661375 /* NamesTableViewCategoryController.m in Sources */,
 				FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */,
 				FB497F1E16C08EC200894353 /* FavoritesTableViewController.m in Sources */,
-				FB497F2116C09A6D00894353 /* Favorite.m in Sources */,
 				FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */,
 				FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */,
 				FB65CF6B16DCE7D300FA6246 /* Name.m in Sources */,
+				FB8D6A2616F3723500653612 /* Favorite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

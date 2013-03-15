@@ -450,11 +450,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesContainerViewController.m"
-         timestampString = "385038334.673735"
+         timestampString = "385054716.338734"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "251"
-         endingLineNumber = "251"
+         startingLineNumber = "253"
+         endingLineNumber = "253"
          landmarkName = "-updateFavoriteButtonImageToState:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -589,7 +589,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Seed Mannanofn Database/MannanofnAppDelegate.m"
@@ -619,12 +619,64 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesContainerViewController.m"
-         timestampString = "385038334.673735"
+         timestampString = "385054716.338734"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "195"
+         endingLineNumber = "195"
          landmarkName = "-updateNameCard:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/Favorite+Create.m"
+         timestampString = "385053414.921526"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "26"
+         endingLineNumber = "26"
+         landmarkName = "+addFavoriteWithName:gender:inManagedObjectContext:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/NamesContainerViewController.m"
+         timestampString = "385054716.338734"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "-getCurrentGender"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/NamesContainerViewController.m"
+         timestampString = "385054716.338734"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "262"
+         endingLineNumber = "262"
+         landmarkName = "-lookupAndUpdateFavoriteButtonImage"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/NamesContainerViewController.m"
+         timestampString = "385054716.338734"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "268"
+         endingLineNumber = "268"
+         landmarkName = "-toggleFavorite:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

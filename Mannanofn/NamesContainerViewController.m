@@ -133,20 +133,22 @@
     }
 }
 
+
 - (NSString *)passGenderToNamesTable
+{
+    return self.namesTableView.genderSelection = [self getCurrentGender];
+}
+
+- (NSString *)getCurrentGender
 {
     NSString *selectedGender = nil;
     if( self.genderSelection ) {
         switch (self.genderSelection.selectedSegmentIndex) {
             case 0:
-                self.namesTableView.genderSelection = selectedGender = GENDER_MALE;
-                //            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
-                //            self.nameCard.backgroundColor = [UIColor colorWithRed:58.0f/255.0f green:30.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
+                selectedGender = GENDER_MALE;
                 break;
             case 1:
-                self.namesTableView.genderSelection = selectedGender = GENDER_FEMALE;
-                //            self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundPink"]];
-                //            self.nameCard.backgroundColor = [UIColor colorWithRed:126.0f/255.0f green:15.0f/255.0f blue:35.0f/255.0f alpha:1.0f];
+                selectedGender = GENDER_FEMALE;
                 break;
             default:
                 break;
@@ -156,9 +158,9 @@
         if( ! gender ) {
             gender = GENDER_MALE;
         }
-        self.namesTableView.genderSelection = selectedGender = gender;
+        selectedGender = gender;
     }
-
+    
     return selectedGender;
 }
 
@@ -195,8 +197,6 @@
                 } else if( ! [firstName isEqual:name] ) {
                     self.nameOnCard.text = [firstName stringByAppendingFormat:@" %@", name];
                 }
-
-//                self.nameOnCard.text = [[[nameParts objectAtIndex:0] stringByAppendingFormat:@" %@", name] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             } else {
                 self.nameOnCard.text = name;
             }
@@ -263,7 +263,7 @@
 
 - (IBAction)toggleFavorite:(id)sender {
     
-    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility toggleFavoriteForName:self.nameOnCard.text]];
+    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility toggleFavoriteForName:self.nameOnCard.text gender:[self getCurrentGender]]];
 }
 
 - (IBAction)clearNameCardAction:(id)sender {

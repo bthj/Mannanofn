@@ -2,6 +2,7 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Favorite" representedClassName="Favorite" syncable="YES">
         <attribute name="dateModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
@@ -20,7 +21,7 @@
         <attribute name="origin" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Favorite" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Favorite" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Name" positionX="0" positionY="0" width="128" height="225"/>
     </elements>
 </model>
