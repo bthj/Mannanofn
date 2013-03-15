@@ -189,7 +189,14 @@
             
         case 1:
             if( [nameParts count] > 0 ) {
-                self.nameOnCard.text = [[nameParts objectAtIndex:0] stringByAppendingFormat:@" %@", name];
+                NSString *firstName = [nameParts objectAtIndex:0];
+                if( [firstName isEqual:@""] ) {
+                    self.nameOnCard.text = name;
+                } else if( ! [firstName isEqual:name] ) {
+                    self.nameOnCard.text = [firstName stringByAppendingFormat:@" %@", name];
+                }
+
+//                self.nameOnCard.text = [[[nameParts objectAtIndex:0] stringByAppendingFormat:@" %@", name] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             } else {
                 self.nameOnCard.text = name;
             }

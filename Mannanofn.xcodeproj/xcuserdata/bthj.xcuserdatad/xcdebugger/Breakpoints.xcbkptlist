@@ -450,11 +450,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NamesContainerViewController.m"
-         timestampString = "382924768.106021"
+         timestampString = "385038334.673735"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "244"
-         endingLineNumber = "244"
+         startingLineNumber = "251"
+         endingLineNumber = "251"
          landmarkName = "-updateFavoriteButtonImageToState:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -612,6 +612,19 @@
          startingLineNumber = "78"
          endingLineNumber = "78"
          landmarkName = "-fetchNamesIntoDocument:reset:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/NamesContainerViewController.m"
+         timestampString = "385038334.673735"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
+         landmarkName = "-updateNameCard:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
