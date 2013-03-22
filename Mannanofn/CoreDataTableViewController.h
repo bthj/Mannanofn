@@ -18,8 +18,13 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "GAITrackedViewController.h"
 
-@interface CoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface CoreDataTableViewController : GAITrackedViewController <NSFetchedResultsControllerDelegate>
+
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 
 // The controller (this class fetches nothing if this is not set).
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

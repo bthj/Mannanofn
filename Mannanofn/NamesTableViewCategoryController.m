@@ -10,6 +10,8 @@
 #import "NamesContainerViewController.h"
 #import "MannanofnGlobalStringConstants.h"
 #import "NamesDatabaseSetupUtility.h"
+#import "GAI.h"
+
 
 @interface NamesTableViewCategoryController ()
 
@@ -83,33 +85,9 @@
     }
 
     [self.tableView reloadData];
-    
-/*
- NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MyEntity"];
- NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyEntity" inManagedObjectContext:self.managedObjectContext];
- 
- // Required! Unless you set the resultType to NSDictionaryResultType, distinct can't work.
- // All objects in the backing store are implicitly distinct, but two dictionaries can be duplicates.
- // Since you only want distinct names, only ask for the 'name' property.
- fetchRequest.resultType = NSDictionaryResultType;
- fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"name"]];
- fetchRequest.returnsDistinctResults = YES;
- 
- // Now it should yield an NSArray of distinct values in dictionaries.
- NSArray *dictionaries = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
- NSLog (@"names: %@",dictionaries);
-*/
 }
 
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -130,11 +108,22 @@
         self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
         self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
     }
+    
+    if( self.categoryTypeSelector.selectedSegmentIndex == 0 ) {
+        self.trackedViewName = @"Categories Screen, categories";
+    } else if( self.categoryTypeSelector.selectedSegmentIndex == 1 ) {
+        self.trackedViewName = @"Categories Screen, origins";
+    }
 }
 
 - (IBAction)changeCategoryType:(id)sender {
     
     [self setupFetchedResultsController];
+    
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
+                                                      withAction:@"buttonPress"
+                                                       withLabel:@"Change Category Type"
+                                                       withValue:[NSNumber numberWithInt:self.categoryTypeSelector.selectedSegmentIndex]];
 }
 
 
@@ -203,4 +192,8 @@
 }
 
 
+- (void)viewDidUnload {
+    [self setTableView:nil];
+    [super viewDidUnload];
+}
 @end

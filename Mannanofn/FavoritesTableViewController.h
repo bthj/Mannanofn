@@ -12,6 +12,6 @@
 #import "NamesDatabaseSetupUtility.h"
 
 
-@interface FavoritesTableViewController : CoreDataTableViewController <SetFavoritesDatabaseDelegate, SetNamesDatabaseDelegate, NSFetchedResultsControllerDelegate>
+@interface FavoritesTableViewController : CoreDataTableViewController <SetFavoritesDatabaseDelegate, SetNamesDatabaseDelegate, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end

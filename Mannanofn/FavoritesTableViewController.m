@@ -10,6 +10,7 @@
 #import "Favorite.h"
 #import "Name+Create.h"
 #import "NameInfoViewController.h"
+#import "GAI.h"
 
 
 @interface FavoritesTableViewController ()
@@ -66,6 +67,7 @@
     self.navigationItem.title = @"Uppáhalds";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.editButtonItem.title = @"Breyta";
+    
 //    self.tableView.backgroundColor = [UIColor colorWithRed:112.0f/255.0f green:158.0f/255.0f blue:11.0f/255.0f alpha:1.0f];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:174.0f/255.0f blue:243.0f/255.0f alpha:1.0f];
     // dökkblái
@@ -84,6 +86,8 @@
         self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView:self.view];
         self.favoritesDatabaseUtility.setFavoritesDatabaseDelegate = self;
     }
+    
+    self.trackedViewName = @"Favorites Screen";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -162,6 +166,7 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:animated];
     
     // ath. localization  http://stackoverflow.com/a/9917968/169858
     if( editing ) {
@@ -171,6 +176,11 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
         
         [self.favoritesDatabase saveToURL:self.favoritesDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
     }
+    
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
+                                                      withAction:@"buttonPress"
+                                                       withLabel:@"Edit Favorites"
+                                                       withValue:[NSNumber numberWithBool:editing]];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath

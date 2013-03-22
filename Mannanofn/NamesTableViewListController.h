@@ -16,7 +16,6 @@
 
 @interface NamesTableViewListController : CoreDataTableViewController <SetNamesDatabaseDelegate, NSFetchedResultsControllerDelegate>
 
-
 @property (nonatomic, strong) NSString *genderSelection;
 @property (nonatomic, strong) NSString *namesOrder;
 

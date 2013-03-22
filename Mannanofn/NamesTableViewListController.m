@@ -139,10 +139,13 @@
 {
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
+    
+    self.trackedViewName = [NSString stringWithFormat:@"Names Screen, in order %@ for gender %@", self.namesOrder, self.genderSelection];
 }
 
 - (void)viewDidUnload
 {
+    [self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

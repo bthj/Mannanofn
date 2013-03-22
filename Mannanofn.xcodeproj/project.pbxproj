@@ -57,6 +57,8 @@
 		FBAD53E116FBD10B00E57E07 /* storkur_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBAD53DF16FBD10B00E57E07 /* storkur_background@2x.png */; };
 		FBB0333216D5253D00EFE772 /* MannanofnDatabase in Resources */ = {isa = PBXBuildFile; fileRef = FBB0333116D5253D00EFE772 /* MannanofnDatabase */; };
 		FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB360016C0202400861504 /* NameInfoViewController.m */; };
+		FBCECD1D16FC660A00F5EBD1 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCECD1C16FC660A00F5EBD1 /* libGoogleAnalytics.a */; };
+		FBCECD1F16FC665A00F5EBD1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */; };
 		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
 		FBD34E261626231600BDC541 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEC1546008A0077438C /* UIKit.framework */; };
 		FBD34E271626231600BDC541 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEE1546008A0077438C /* Foundation.framework */; };
@@ -160,6 +162,13 @@
 		FBB0333116D5253D00EFE772 /* MannanofnDatabase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MannanofnDatabase; sourceTree = "<group>"; };
 		FBBB35FF16C0202300861504 /* NameInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameInfoViewController.h; sourceTree = "<group>"; };
 		FBBB360016C0202400861504 /* NameInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameInfoViewController.m; sourceTree = "<group>"; };
+		FBCECD1716FC660A00F5EBD1 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		FBCECD1816FC660A00F5EBD1 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		FBCECD1916FC660A00F5EBD1 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		FBCECD1A16FC660A00F5EBD1 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		FBCECD1B16FC660A00F5EBD1 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		FBCECD1C16FC660A00F5EBD1 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FBD1828315E6BC5300F22A63 /* names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names.json; sourceTree = "<group>"; };
 		FBD34E241626231600BDC541 /* Seed Mannanofn Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seed Mannanofn Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD34E2B1626231600BDC541 /* Seed Mannanofn Database-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Seed Mannanofn Database-Info.plist"; sourceTree = "<group>"; };
@@ -187,10 +196,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBCECD1F16FC665A00F5EBD1 /* SystemConfiguration.framework in Frameworks */,
 				FBE174CA15E3193E00EDC6A4 /* CoreData.framework in Frameworks */,
 				FB313DED1546008A0077438C /* UIKit.framework in Frameworks */,
 				FB313DEF1546008A0077438C /* Foundation.framework in Frameworks */,
 				FB313DF11546008A0077438C /* CoreGraphics.framework in Frameworks */,
+				FBCECD1D16FC660A00F5EBD1 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +243,7 @@
 		FB313DEB1546008A0077438C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */,
 				FBE174C915E3193E00EDC6A4 /* CoreData.framework */,
 				FB313DEC1546008A0077438C /* UIKit.framework */,
 				FB313DEE1546008A0077438C /* Foundation.framework */,
@@ -289,6 +301,7 @@
 		FB83C65F1629DE9600C92803 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FBCECD1616FC65C900F5EBD1 /* GoogleAnalytics */,
 				FB83C6601629DEEA00C92803 /* MBProgressHUD */,
 			);
 			name = Vendor;
@@ -393,6 +406,19 @@
 				FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */,
 			);
 			name = delmes;
+			sourceTree = "<group>";
+		};
+		FBCECD1616FC65C900F5EBD1 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				FBCECD1716FC660A00F5EBD1 /* GAI.h */,
+				FBCECD1816FC660A00F5EBD1 /* GAITrackedViewController.h */,
+				FBCECD1916FC660A00F5EBD1 /* GAITracker.h */,
+				FBCECD1A16FC660A00F5EBD1 /* GAITransaction.h */,
+				FBCECD1B16FC660A00F5EBD1 /* GAITransactionItem.h */,
+				FBCECD1C16FC660A00F5EBD1 /* libGoogleAnalytics.a */,
+			);
+			name = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 		FBD34E291626231600BDC541 /* Seed Mannanofn Database */ = {
@@ -684,6 +710,10 @@
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Mannanofn\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -697,6 +727,10 @@
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Mannanofn\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

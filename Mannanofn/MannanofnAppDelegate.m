@@ -7,6 +7,7 @@
 //
 
 #import "MannanofnAppDelegate.h"
+#import "GAI.h"
 
 #define NAMES_READ_FROM_SEED_AT_VERSION @"namesReadFromSeedAtVersion"
 
@@ -72,6 +73,18 @@
     
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     
+    
+    
+    // analytics
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = NO;
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-37626236-2"];
+    [tracker trackView:@"App launched"];
 
     return YES;
 }
@@ -93,6 +106,8 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    [[[GAI sharedInstance] defaultTracker] trackView:@"App enters forground"];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

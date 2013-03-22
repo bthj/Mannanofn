@@ -262,6 +262,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="nöfn" id="llg-yw-8RI"/>
+                    <connections>
+                        <outlet property="tableView" destination="I9Y-10-81U" id="Yya-NP-Z3a"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fw9-ok-VQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -529,6 +532,9 @@
                                         <segment title="Annað"/>
                                     </segments>
                                     <color key="tintColor" red="1" green="0.39215686274509803" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="selectNamePosition:" destination="bC3-En-uAz" eventType="valueChanged" id="K86-D0-Zgb"/>
+                                    </connections>
                                 </segmentedControl>
                             </subviews>
                         </view>
@@ -748,6 +754,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="kNf-bB-uXU"/>
+                    <connections>
+                        <outlet property="tableView" destination="PcG-Y3-xkN" id="Mma-VF-boe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTW-vE-UQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -818,6 +827,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="categoryTypeSelector" destination="2Vc-VW-kDw" id="hD6-7i-yLf"/>
+                        <outlet property="tableView" destination="Bo0-AQ-3k9" id="nkG-gd-RyY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tun-Pj-KX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -891,6 +901,72 @@
         <image name="second" width="16" height="16"/>
         <image name="storkur_background.png" width="202" height="241"/>
     </resources>
+    <classes>
+        <class className="CoreDataTableViewController" superclassName="GAITrackedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="FavoritesTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesTableViewController.h"/>
+        </class>
+        <class className="GAITrackedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GAITrackedViewController.h"/>
+        </class>
+        <class className="MannanofnFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MannanofnFirstViewController.h"/>
+        </class>
+        <class className="MannanofnSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MannanofnSecondViewController.h"/>
+        </class>
+        <class className="NameInfoViewController" superclassName="GAITrackedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NameInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="mailDescription:"/>
+                <relationship kind="action" name="openAdUrl:"/>
+                <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="addDescriptionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="countAsFirstNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countAsSecondNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLegendLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="originLegendLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="toggleFavoriteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NamesContainerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesContainerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearNameCardAction:"/>
+                <relationship kind="action" name="selectGender:"/>
+                <relationship kind="action" name="selectNamePosition:"/>
+                <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="genderSelection" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="nameCard" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nameOnCard" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="namePosition" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="navigationView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="toggleFavoriteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NamesOrderViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesOrderViewController.h"/>
+        </class>
+        <class className="NamesTableViewCategoryController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewCategoryController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeCategoryType:"/>
+                <relationship kind="outlet" name="categoryTypeSelector" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="NamesTableViewListController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewListController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -898,7 +974,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Xjy-jI-TAD"/>
-        <segue reference="ELq-QN-jbh"/>
         <segue reference="pBE-E2-seW"/>
+        <segue reference="ELq-QN-jbh"/>
     </inferredMetricsTieBreakers>
 </document>

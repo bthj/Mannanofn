@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "FavoritesDatabaseUtility.h"
+#import "GAITrackedViewController.h"
 
-@interface NameInfoViewController : UIViewController <SetFavoritesDatabaseDelegate>
+@interface NameInfoViewController : GAITrackedViewController <SetFavoritesDatabaseDelegate>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *gender;

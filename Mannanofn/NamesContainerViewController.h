@@ -20,11 +20,12 @@
 
 
 @property (weak, nonatomic) IBOutlet UIView *navigationView;
+
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *genderSelection;
-- (IBAction)selectGender:(id)sender;
-
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *namePosition;
+- (IBAction)selectNamePosition:(id)sender;
+- (IBAction)selectGender:(id)sender;
 
 
 @property (weak, nonatomic) IBOutlet UIView *nameCard;

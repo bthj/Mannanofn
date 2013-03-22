@@ -7,6 +7,8 @@
 //
 
 #import "NameInfoViewController.h"
+#import "GAI.h"
+
 
 @interface NameInfoViewController ()
 
@@ -61,7 +63,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    
+    self.trackedViewName = @"Name Info Screen";
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,6 +87,11 @@
     } else {
         [self updateFavoritesButtonImageToInctive];
     }
+    
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
+                                                      withAction:@"buttonPress"
+                                                       withLabel:@"Toggle favorite in Name Info Screen"
+                                                       withValue:[NSNumber numberWithBool:active]];
 }
 - (void)lookupAndUpdateFavoriteButtonImage{
     

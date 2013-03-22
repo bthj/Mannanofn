@@ -10,6 +10,7 @@
 
 #import "MannanofnGlobalStringConstants.h"
 #import "Favorite+Create.h"
+#import "GAI.h"
 
 
 
@@ -108,6 +109,14 @@
     }
 }
 
+
+- (IBAction)selectNamePosition:(id)sender {
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
+                                                      withAction:@"buttonPress"
+                                                       withLabel:@"Select Name Position"
+                                                       withValue:[NSNumber numberWithInt:self.namePosition.selectedSegmentIndex]];
+}
+
 - (IBAction)selectGender:(id)sender {
     if( self.namesTableView ) {
         
@@ -119,6 +128,12 @@
         
         [self clearNameCard];
     }
+    
+    
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
+                                                      withAction:@"buttonPress"
+                                                       withLabel:@"Select Gender"
+                                                       withValue:[NSNumber numberWithInt:self.genderSelection.selectedSegmentIndex]];
 }
 
 - (void)setGenderToLastCurrent
@@ -253,6 +268,11 @@
     } else {
         [self updateFavoritesButtonImageToInctive];
     }
+    
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
+                                                      withAction:@"buttonPress"
+                                                       withLabel:@"Toggle favorite in Name List"
+                                                       withValue:[NSNumber numberWithBool:active]];
 }
 
 - (void)lookupAndUpdateFavoriteButtonImage{
@@ -269,6 +289,11 @@
 - (IBAction)clearNameCardAction:(id)sender {
     [self clearNameCard];
     [self updateFavoritesButtonImageToInctive];
+    
+    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
+                                                      withAction:@"buttonPress"
+                                                       withLabel:@"Clear Name Card"
+                                                       withValue:nil];
 }
 
 @end
