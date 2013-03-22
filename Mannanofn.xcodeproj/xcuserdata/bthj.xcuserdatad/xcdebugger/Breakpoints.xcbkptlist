@@ -437,11 +437,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NameInfoViewController.m"
-         timestampString = "381900091.412443"
+         timestampString = "385604779.374964"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "85"
-         endingLineNumber = "85"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
          landmarkName = "-updateFavoriteButtonImageToState:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -489,11 +489,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/NameInfoViewController.m"
-         timestampString = "381900091.412443"
+         timestampString = "385604779.374964"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -628,7 +628,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mannanofn/Favorite+Create.m"
@@ -663,8 +663,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "262"
          endingLineNumber = "262"
-         landmarkName = "-lookupAndUpdateFavoriteButtonImage"
-         landmarkType = "5">
+         landmarkName = "@implementation NamesContainerViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -676,7 +676,20 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "268"
          endingLineNumber = "268"
-         landmarkName = "-toggleFavorite:"
+         landmarkName = "@implementation NamesContainerViewController"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mannanofn/NameInfoViewController.m"
+         timestampString = "385605582.517913"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
+         landmarkName = "-mailDescription:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

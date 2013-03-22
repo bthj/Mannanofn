@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
@@ -276,54 +275,63 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="storkur_background.png" id="kJ1-fk-xhE">
+                                <rect key="frame" x="4" y="17" width="202" height="241"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" id="n2k-PC-28r">
-                                <rect key="frame" x="118" y="124" width="160" height="21"/>
+                                <rect key="frame" x="135" y="124" width="160" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Merking:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yyz-Sb-MZj">
-                                <rect key="frame" x="118" y="150" width="182" height="21"/>
+                                <rect key="frame" x="135" y="150" width="182" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Uppruni:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dzo-16-NzU">
-                                <rect key="frame" x="118" y="197" width="182" height="21"/>
+                                <rect key="frame" x="135" y="197" width="182" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- merking" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="6" id="51O-E2-1zB">
-                                <rect key="frame" x="118" y="167" width="182" height="30"/>
+                                <rect key="frame" x="135" y="167" width="165" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- merking" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" id="i98-zP-PFg">
-                                <rect key="frame" x="118" y="216" width="182" height="27"/>
+                                <rect key="frame" x="135" y="216" width="165" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="UI3-LZ-Vgd">
                                 <rect key="frame" x="0.0" y="317" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="r4e-Xc-Bvy">
+                                        <rect key="frame" x="0.0" y="3" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <state key="normal" title="nemur.net">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openAdUrl:" destination="pRC-zP-j6d" eventType="touchUpInside" id="Xwv-TO-kwk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="4LR-uI-Luf">
-                                <rect key="frame" x="118" y="275" width="84" height="24"/>
-                                <color key="backgroundColor" red="0.70588235290000001" green="0.70196078429999997" blue="0.67450980390000004" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                <state key="normal" title="Veistu betur?">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="mailDescription:" destination="pRC-zP-j6d" eventType="touchUpInside" id="h17-SS-1cS"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="wyD-tx-EYe">
-                                <rect key="frame" x="118" y="165" width="115" height="24"/>
+                                <rect key="frame" x="135" y="165" width="115" height="24"/>
                                 <color key="backgroundColor" red="0.70588235290000001" green="0.70196078429999997" blue="0.67450980390000004" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <state key="normal" title="Veistu merkinguna?">
@@ -335,25 +343,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fyrsta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VP4-vT-JZk">
-                                <rect key="frame" x="118" y="246" width="42" height="16"/>
+                                <rect key="frame" x="135" y="246" width="42" height="16"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2xo-HU-EYr">
-                                <rect key="frame" x="157" y="246" width="28" height="16"/>
+                                <rect key="frame" x="174" y="246" width="28" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Annað:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BjS-yo-Avh">
-                                <rect key="frame" x="193" y="246" width="42" height="16"/>
+                                <rect key="frame" x="210" y="246" width="42" height="16"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4321" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FZh-ID-J3X">
-                                <rect key="frame" x="234" y="246" width="28" height="16"/>
+                                <rect key="frame" x="251" y="246" width="28" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -378,7 +386,6 @@
                     <navigationItem key="navigationItem" id="s3t-ga-4SF"/>
                     <connections>
                         <outlet property="addDescriptionButton" destination="wyD-tx-EYe" id="zxm-z0-lgd"/>
-                        <outlet property="changeDescriptionButton" destination="4LR-uI-Luf" id="azl-ZS-yZQ"/>
                         <outlet property="countAsFirstNameLabel" destination="2xo-HU-EYr" id="9wc-ag-cRP"/>
                         <outlet property="countAsSecondNameLabel" destination="FZh-ID-J3X" id="ftU-l7-GYU"/>
                         <outlet property="descriptionLabel" destination="51O-E2-1zB" id="SVC-dL-4Pu"/>
@@ -882,66 +889,8 @@
         <image name="heart_tabbar.png" width="30" height="30"/>
         <image name="popularity_tabbar.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
+        <image name="storkur_background.png" width="202" height="241"/>
     </resources>
-    <classes>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="FavoritesTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesTableViewController.h"/>
-        </class>
-        <class className="MannanofnFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MannanofnFirstViewController.h"/>
-        </class>
-        <class className="MannanofnSecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MannanofnSecondViewController.h"/>
-        </class>
-        <class className="NameInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NameInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="mailDescription:"/>
-                <relationship kind="action" name="toggleFavorite:"/>
-                <relationship kind="outlet" name="addDescriptionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="changeDescriptionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="countAsFirstNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="countAsSecondNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionLegendLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="originLegendLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="toggleFavoriteButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="NamesContainerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesContainerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearNameCardAction:"/>
-                <relationship kind="action" name="selectGender:"/>
-                <relationship kind="action" name="toggleFavorite:"/>
-                <relationship kind="outlet" name="genderSelection" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="nameCard" candidateClass="UIView"/>
-                <relationship kind="outlet" name="nameOnCard" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="namePosition" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="navigationView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tableContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="toggleFavoriteButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="NamesOrderViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesOrderViewController.h"/>
-        </class>
-        <class className="NamesTableViewCategoryController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewCategoryController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeCategoryType:"/>
-                <relationship kind="outlet" name="categoryTypeSelector" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="NamesTableViewListController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NamesTableViewListController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

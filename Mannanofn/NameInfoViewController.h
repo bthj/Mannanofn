@@ -32,7 +32,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *countAsSecondNameLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *addDescriptionButton;
-@property (weak, nonatomic) IBOutlet UIButton *changeDescriptionButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *toggleFavoriteButton;
 - (IBAction)toggleFavorite:(id)sender;
@@ -40,5 +39,6 @@
 
 - (IBAction)mailDescription:(id)sender;
 
+- (IBAction)openAdUrl:(id)sender;
 
 @end

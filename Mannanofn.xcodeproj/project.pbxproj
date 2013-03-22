@@ -53,6 +53,8 @@
 		FB8D6A2616F3723500653612 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8D6A2516F3723500653612 /* Favorite.m */; };
 		FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AB8163748D50039F096 /* NamesOrderViewController.m */; };
 		FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AC116374AC20039F096 /* NamesContainerViewController.m */; };
+		FBAD53E016FBD10B00E57E07 /* storkur_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FBAD53DE16FBD10B00E57E07 /* storkur_background.png */; };
+		FBAD53E116FBD10B00E57E07 /* storkur_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBAD53DF16FBD10B00E57E07 /* storkur_background@2x.png */; };
 		FBB0333216D5253D00EFE772 /* MannanofnDatabase in Resources */ = {isa = PBXBuildFile; fileRef = FBB0333116D5253D00EFE772 /* MannanofnDatabase */; };
 		FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB360016C0202400861504 /* NameInfoViewController.m */; };
 		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
@@ -153,6 +155,8 @@
 		FB955AC016374AC20039F096 /* NamesContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesContainerViewController.h; sourceTree = "<group>"; };
 		FB955AC116374AC20039F096 /* NamesContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesContainerViewController.m; sourceTree = "<group>"; };
 		FB955AD2163B2BD70039F096 /* MannanofnGlobalStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MannanofnGlobalStringConstants.h; sourceTree = "<group>"; };
+		FBAD53DE16FBD10B00E57E07 /* storkur_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storkur_background.png; sourceTree = "<group>"; };
+		FBAD53DF16FBD10B00E57E07 /* storkur_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "storkur_background@2x.png"; sourceTree = "<group>"; };
 		FBB0333116D5253D00EFE772 /* MannanofnDatabase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MannanofnDatabase; sourceTree = "<group>"; };
 		FBBB35FF16C0202300861504 /* NameInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameInfoViewController.h; sourceTree = "<group>"; };
 		FBBB360016C0202400861504 /* NameInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameInfoViewController.m; sourceTree = "<group>"; };
@@ -374,6 +378,8 @@
 				FB8D6A1116F29C1C00653612 /* heart_tabbar@2x.png */,
 				FB8D6A1216F29C1C00653612 /* popularity_tabbar.png */,
 				FB8D6A1316F29C1C00653612 /* popularity_tabbar@2x.png */,
+				FBAD53DE16FBD10B00E57E07 /* storkur_background.png */,
+				FBAD53DF16FBD10B00E57E07 /* storkur_background@2x.png */,
 			);
 			path = graphics;
 			sourceTree = "<group>";
@@ -535,6 +541,8 @@
 				FB8D6A1B16F29C1C00653612 /* popularity_tabbar@2x.png in Resources */,
 				FB8D6A2116F2AB2A00653612 /* Icon.png in Resources */,
 				FB8D6A2316F2AB3200653612 /* Icon@2x.png in Resources */,
+				FBAD53E016FBD10B00E57E07 /* storkur_background.png in Resources */,
+				FBAD53E116FBD10B00E57E07 /* storkur_background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

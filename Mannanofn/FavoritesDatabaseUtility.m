@@ -74,15 +74,20 @@
 - (BOOL)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender
 {
     BOOL isInFavorites;
-    if( [self isInFavorites:name] ) {
-        [Favorite removeFavoriteWithName:name inManagedObjectContext:self.favoritesDatabase.managedObjectContext];
+    if( [[name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqual:@""] ) {
         isInFavorites = NO;
     } else {
-        [Favorite addFavoriteWithName:name gender:(NSString *)gender inManagedObjectContext:self.favoritesDatabase.managedObjectContext];
-        isInFavorites = YES;
+        if( [self isInFavorites:name] ) {
+            [Favorite removeFavoriteWithName:name inManagedObjectContext:self.favoritesDatabase.managedObjectContext];
+            isInFavorites = NO;
+        } else {
+            [Favorite addFavoriteWithName:name gender:(NSString *)gender inManagedObjectContext:self.favoritesDatabase.managedObjectContext];
+            isInFavorites = YES;
+        }
+        // UIManagedDocument's autosaving not always working here so...
+        [self.favoritesDatabase saveToURL:self.favoritesDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
     }
-    // UIManagedDocument's autosaving not always working here so...
-    [self.favoritesDatabase saveToURL:self.favoritesDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
+
     
     return isInFavorites;
 }

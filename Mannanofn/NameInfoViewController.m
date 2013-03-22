@@ -34,11 +34,9 @@
     if( [self.description length] > 0 ) {
         self.descriptionLegendLabel.hidden = NO;
         self.addDescriptionButton.hidden = YES;
-        self.changeDescriptionButton.hidden = NO;
     } else {
         self.descriptionLegendLabel.hidden = YES;
         self.addDescriptionButton.hidden = NO;
-        self.changeDescriptionButton.hidden = YES;
     }
     
     self.originLabel.text = self.origin;
@@ -99,7 +97,11 @@
 
 - (IBAction)mailDescription:(id)sender {
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"@mailto:nemur@nemur.net?subject=Nefna:%20Athugasemd%20við%20merkingu%20nafnsins%20 " stringByAppendingString:self.name]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[@"mailto:nemur@nemur.net?subject=Nefna: Athugasemd við merkingu nafnsins " stringByAppendingString:self.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+}
+
+- (IBAction)openAdUrl:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.nemur.net"]];
 }
 
 @end
