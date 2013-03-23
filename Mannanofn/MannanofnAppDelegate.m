@@ -23,9 +23,14 @@
 
     if( bundlePath ) {
         
+//        NSString *bundlePathToPersistentStore = [[bundlePath stringByAppendingPathComponent:@"StoreContent"] stringByAppendingPathComponent:@"persistentStore"];
+//        NSString *storePathToPersistentStore = [[[storeUrl URLByAppendingPathComponent:@"StoreContent"] URLByAppendingPathComponent:@"persistentStore"] path];
+//        NSLog(@"copying db from url\n%@\nto url\n%@", bundlePathToPersistentStore, storePathToPersistentStore );
+        NSLog(@"copying db from url\n%@\nto url\n%@", bundlePath, [storeUrl path] );
+        
+        [[NSFileManager defaultManager] removeItemAtPath:[storeUrl path] error:NULL];
         [[NSFileManager defaultManager] copyItemAtPath:bundlePath toPath:[storeUrl path] error:NULL];
         
-        NSLog(@"copying db from url\n%@\nto url\n%@", bundlePath, storeUrl);
         
         // let's open the newly copied document
         UIManagedDocument *mannanofn = [[UIManagedDocument alloc] initWithFileURL:storeUrl];
@@ -58,7 +63,7 @@
     NSString *currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     
     bool databaseNotExists = ![[NSFileManager defaultManager] fileExistsAtPath:[url path]];
-    bool isDBSeedAndCurrentVersionInequal = namesReadFromSeedAtVersion && ![currentBuildVersion isEqualToString:namesReadFromSeedAtVersion];
+    bool isDBSeedAndCurrentVersionInequal = namesReadFromSeedAtVersion == nil || ![currentBuildVersion isEqualToString:namesReadFromSeedAtVersion];
     if( databaseNotExists || isDBSeedAndCurrentVersionInequal ) {
         // db doesn't exist
         // OR
