@@ -108,11 +108,14 @@
         self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
         self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
     }
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     if( self.categoryTypeSelector.selectedSegmentIndex == 0 ) {
-        self.trackedViewName = @"Categories Screen, categories";
+        [[[GAI sharedInstance] defaultTracker] sendView:@"Categories Screen, categories"];
     } else if( self.categoryTypeSelector.selectedSegmentIndex == 1 ) {
-        self.trackedViewName = @"Categories Screen, origins";
+        [[[GAI sharedInstance] defaultTracker] sendView:@"Categories Screen, origins"];
     }
 }
 

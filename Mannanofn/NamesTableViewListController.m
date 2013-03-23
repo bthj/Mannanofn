@@ -11,7 +11,7 @@
 #import "MannanofnGlobalStringConstants.h"
 #import "NameInfoViewController.h"
 #import "MBProgressHUD.h"
-
+#import "GAI.h"
 
 
 @interface NamesTableViewListController ()
@@ -140,7 +140,7 @@
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
     
-    self.trackedViewName = [NSString stringWithFormat:@"Names Screen, in order %@ for gender %@", self.namesOrder, self.genderSelection];
+    [[[GAI sharedInstance] defaultTracker] sendView:[NSString stringWithFormat:@"Names Screen, in order %@ for gender %@", self.namesOrder, self.genderSelection]];
 }
 
 - (void)viewDidUnload

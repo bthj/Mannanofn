@@ -87,7 +87,7 @@
         self.favoritesDatabaseUtility.setFavoritesDatabaseDelegate = self;
     }
     
-    self.trackedViewName = @"Favorites Screen";
+    [[[GAI sharedInstance] defaultTracker] sendView:@"Favorites Screen"];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
