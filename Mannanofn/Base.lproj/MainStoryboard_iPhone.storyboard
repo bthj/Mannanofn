@@ -663,6 +663,7 @@
                         <subviews>
                             <containerView contentMode="scaleToFill" id="7Pd-f6-peH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="tJD-nR-3DR" kind="embed" identifier="AlphabeticalEmbedSegue" id="UcW-rl-3MV"/>
@@ -687,6 +688,7 @@
                         <subviews>
                             <containerView contentMode="scaleToFill" id="wiL-ae-UfJ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="tJD-nR-3DR" kind="embed" identifier="PopularityEmbedSegue" id="ELq-QN-jbh"/>
@@ -711,6 +713,7 @@
                         <subviews>
                             <containerView contentMode="scaleToFill" id="DuV-Kw-v4m">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="I9g-iX-XTJ" kind="embed" identifier="CategoryEmbedSegue" id="2Tb-Wi-loX"/>
@@ -973,8 +976,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="UcW-rl-3MV"/>
         <segue reference="Xjy-jI-TAD"/>
         <segue reference="pBE-E2-seW"/>
-        <segue reference="ELq-QN-jbh"/>
     </inferredMetricsTieBreakers>
 </document>
