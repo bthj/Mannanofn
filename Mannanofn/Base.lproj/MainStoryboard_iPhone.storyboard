@@ -312,25 +312,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="UI3-LZ-Vgd">
+                            <view contentMode="scaleToFill" id="UI3-LZ-Vgd" userLabel="adView">
                                 <rect key="frame" x="0.0" y="317" width="320" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="r4e-Xc-Bvy">
-                                        <rect key="frame" x="0.0" y="3" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                        <state key="normal" title="nemur.net">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="openAdUrl:" destination="pRC-zP-j6d" eventType="touchUpInside" id="Xwv-TO-kwk"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="wyD-tx-EYe">
@@ -388,6 +371,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="s3t-ga-4SF"/>
                     <connections>
+                        <outlet property="adView" destination="UI3-LZ-Vgd" id="6nq-DX-fwO"/>
                         <outlet property="addDescriptionButton" destination="wyD-tx-EYe" id="zxm-z0-lgd"/>
                         <outlet property="countAsFirstNameLabel" destination="2xo-HU-EYr" id="9wc-ag-cRP"/>
                         <outlet property="countAsSecondNameLabel" destination="FZh-ID-J3X" id="ftU-l7-GYU"/>
@@ -929,6 +913,7 @@
                 <relationship kind="action" name="mailDescription:"/>
                 <relationship kind="action" name="openAdUrl:"/>
                 <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="adView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="addDescriptionButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="countAsFirstNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="countAsSecondNameLabel" candidateClass="UILabel"/>

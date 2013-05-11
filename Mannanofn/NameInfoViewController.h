@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "FavoritesDatabaseUtility.h"
 #import "GAITrackedViewController.h"
+#import "GADBannerView.h"
 
-@interface NameInfoViewController : GAITrackedViewController <SetFavoritesDatabaseDelegate>
+@interface NameInfoViewController : GAITrackedViewController <SetFavoritesDatabaseDelegate> {
+    
+    GADBannerView *bannerView_;
+}
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *gender;
@@ -35,6 +39,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *addDescriptionButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *toggleFavoriteButton;
+
+@property (weak, nonatomic) IBOutlet UIView *adView;
+
 - (IBAction)toggleFavorite:(id)sender;
 
 
