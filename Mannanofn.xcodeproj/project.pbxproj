@@ -111,6 +111,16 @@
 		FB313E0C1546008A0077438C /* MannanofnSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MannanofnSecondViewController.m; sourceTree = "<group>"; };
 		FB313E0E1546008A0077438C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		FB313E101546008A0077438C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		FB48E2F6173EDA14008D91DA /* GADAdMobExtras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		FB48E2F7173EDA14008D91DA /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		FB48E2F8173EDA14008D91DA /* GADAdSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		FB48E2F9173EDA14008D91DA /* GADBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		FB48E2FA173EDA14008D91DA /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		FB48E2FB173EDA14008D91DA /* GADInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		FB48E2FC173EDA14008D91DA /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		FB48E2FD173EDA14008D91DA /* GADRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		FB48E2FE173EDA14008D91DA /* GADRequestError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		FB48E2FF173EDA14008D91DA /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		FB497F1C16C08EC200894353 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		FB497F1D16C08EC200894353 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		FB497F2516C09B6100894353 /* Favorite+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Favorite+Create.h"; sourceTree = "<group>"; };
@@ -291,6 +301,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FB48E2F5173ED9FC008D91DA /* AdMod */ = {
+			isa = PBXGroup;
+			children = (
+				FB48E2F6173EDA14008D91DA /* GADAdMobExtras.h */,
+				FB48E2F7173EDA14008D91DA /* GADAdNetworkExtras.h */,
+				FB48E2F8173EDA14008D91DA /* GADAdSize.h */,
+				FB48E2F9173EDA14008D91DA /* GADBannerView.h */,
+				FB48E2FA173EDA14008D91DA /* GADBannerViewDelegate.h */,
+				FB48E2FB173EDA14008D91DA /* GADInterstitial.h */,
+				FB48E2FC173EDA14008D91DA /* GADInterstitialDelegate.h */,
+				FB48E2FD173EDA14008D91DA /* GADRequest.h */,
+				FB48E2FE173EDA14008D91DA /* GADRequestError.h */,
+				FB48E2FF173EDA14008D91DA /* libGoogleAdMobAds.a */,
+			);
+			name = AdMod;
+			sourceTree = "<group>";
+		};
 		FB610B2516D30EF6003116B4 /* is.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +328,7 @@
 		FB83C65F1629DE9600C92803 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FB48E2F5173ED9FC008D91DA /* AdMod */,
 				FBCECD1616FC65C900F5EBD1 /* GoogleAnalytics */,
 				FB83C6601629DEEA00C92803 /* MBProgressHUD */,
 			);
