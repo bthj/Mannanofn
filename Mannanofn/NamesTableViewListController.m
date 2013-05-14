@@ -246,8 +246,14 @@
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
 
-    if( section == 0 || (section+1) == [self numberOfSectionsInTableView:table] ) {  // first or last padding sections
+    if( section == 0 ) {  // first or last padding sections
         return 3;
+    } else if( (section+1) == [self numberOfSectionsInTableView:table] ) {
+        if( IS_WIDESCREEN ) {
+            return 5;  // iPhone 5 needs more padding at bottom
+        } else {
+            return 3;
+        }
     } else {
 
         if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {

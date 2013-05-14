@@ -68,7 +68,7 @@
     bannerView_.rootViewController = self;
     [self.adView addSubview:bannerView_];
     GADRequest *request = [GADRequest request];
-    request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
+//    request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
     [bannerView_ loadRequest:request];
 }
 - (void)viewWillAppear:(BOOL)animated
