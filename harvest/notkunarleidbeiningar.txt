@@ -12,7 +12,7 @@ Til að uppfæra lista yfir mannanöfn fyrir Nefnuna:
 
 - Exporta Google Spreadsheet vinnuskjali í CSV.
 
-- Breyta CSV export skjali í JSON skjal sem er að lokum vistað í iOS app bundle (með http://www.cparker15.com/code/utilities/csv-to-json/).
+- Breyta CSV export skjali í JSON skjal sem er að lokum vistað í iOS app bundle (með http://www.cparker15.com/code/utilities/csv-to-json/ eða http://www.convertcsv.com/csv-to-json.htm).
 
 - Target "Seed Mannanofn Database" keyrt (á núllstilltum emulator) þar sem það les inn úr JSON skrá í grunn.
 

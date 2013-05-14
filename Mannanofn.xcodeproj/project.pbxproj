@@ -33,6 +33,8 @@
 		FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */; };
 		FB6F8A2116B8C04100D8F9CE /* NamesDatabaseSetupUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6F8A2016B8C04100D8F9CE /* NamesDatabaseSetupUtility.m */; };
 		FB83C6631629E28A00C92803 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83C6621629DEFD00C92803 /* MBProgressHUD.m */; };
+		FB83FF131742E1EB0090CC6C /* first_run_guide.png in Resources */ = {isa = PBXBuildFile; fileRef = FB83FF111742E1EB0090CC6C /* first_run_guide.png */; };
+		FB83FF141742E1EB0090CC6C /* first_run_guide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB83FF121742E1EB0090CC6C /* first_run_guide@2x.png */; };
 		FB8D69FF16F282CD00653612 /* heart_nametag.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D69F616F282CD00653612 /* heart_nametag.png */; };
 		FB8D6A0016F282CD00653612 /* heart_nametag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D69F716F282CD00653612 /* heart_nametag@2x.png */; };
 		FB8D6A0116F282CD00653612 /* heart_nametag_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D69F816F282CD00653612 /* heart_nametag_disabled.png */; };
@@ -148,6 +150,8 @@
 		FB6F8A2016B8C04100D8F9CE /* NamesDatabaseSetupUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesDatabaseSetupUtility.m; sourceTree = "<group>"; };
 		FB83C6611629DEFD00C92803 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FB83C6621629DEFD00C92803 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		FB83FF111742E1EB0090CC6C /* first_run_guide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first_run_guide.png; sourceTree = "<group>"; };
+		FB83FF121742E1EB0090CC6C /* first_run_guide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first_run_guide@2x.png"; sourceTree = "<group>"; };
 		FB8D69F616F282CD00653612 /* heart_nametag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_nametag.png; sourceTree = "<group>"; };
 		FB8D69F716F282CD00653612 /* heart_nametag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart_nametag@2x.png"; sourceTree = "<group>"; };
 		FB8D69F816F282CD00653612 /* heart_nametag_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_nametag_disabled.png; sourceTree = "<group>"; };
@@ -418,6 +422,8 @@
 		FB8D69F516F282CD00653612 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				FB83FF111742E1EB0090CC6C /* first_run_guide.png */,
+				FB83FF121742E1EB0090CC6C /* first_run_guide@2x.png */,
 				FB8D6A0816F2859500653612 /* eraser_nametag.png */,
 				FB8D6A0916F2859500653612 /* eraser_nametag@2x.png */,
 				FB8D69F616F282CD00653612 /* heart_nametag.png */,
@@ -615,6 +621,8 @@
 				FB8D6A2316F2AB3200653612 /* Icon@2x.png in Resources */,
 				FBAD53E016FBD10B00E57E07 /* storkur_background.png in Resources */,
 				FBAD53E116FBD10B00E57E07 /* storkur_background@2x.png in Resources */,
+				FB83FF131742E1EB0090CC6C /* first_run_guide.png in Resources */,
+				FB83FF141742E1EB0090CC6C /* first_run_guide@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,8 +712,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -720,8 +728,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "10F910C6-E414-432E-A281-2BD5A3C919A4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "10F910C6-E414-432E-A281-2BD5A3C919A4";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -737,8 +745,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -747,8 +755,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "10F910C6-E414-432E-A281-2BD5A3C919A4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "10F910C6-E414-432E-A281-2BD5A3C919A4";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

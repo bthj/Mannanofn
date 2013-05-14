@@ -489,6 +489,10 @@
                                 <rect key="frame" x="0.0" y="193" width="320" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.59009095831430314" blue="0.030746016462908865" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="first_run_guide.png" id="t5s-Lu-DdA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="369"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -524,6 +528,7 @@
                         </view>
                     </navigationItem>
                     <connections>
+                        <outlet property="firstRunGuide" destination="t5s-Lu-DdA" id="Cuc-4y-ZrT"/>
                         <outlet property="genderSelection" destination="Jn2-1Y-4yd" id="uhc-Cn-fNg"/>
                         <outlet property="nameCard" destination="k1E-L5-3EW" id="Wf5-ow-B3N"/>
                         <outlet property="nameOnCard" destination="cMk-qF-M79" id="OZO-Sl-Cdo"/>
@@ -882,6 +887,7 @@
         <image name="eraser_nametag.png" width="29" height="30"/>
         <image name="first" width="16" height="16"/>
         <image name="first.png" width="30" height="30"/>
+        <image name="first_run_guide.png" width="320" height="369"/>
         <image name="heart_nametag_disabled.png" width="29" height="26"/>
         <image name="heart_tabbar.png" width="30" height="30"/>
         <image name="popularity_tabbar.png" width="30" height="30"/>
@@ -932,6 +938,7 @@
                 <relationship kind="action" name="selectGender:"/>
                 <relationship kind="action" name="selectNamePosition:"/>
                 <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="firstRunGuide" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="genderSelection" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="nameCard" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nameOnCard" candidateClass="UILabel"/>
@@ -961,8 +968,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UcW-rl-3MV"/>
         <segue reference="Xjy-jI-TAD"/>
         <segue reference="pBE-E2-seW"/>
+        <segue reference="UcW-rl-3MV"/>
     </inferredMetricsTieBreakers>
 </document>

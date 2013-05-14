@@ -40,5 +40,7 @@
 @property (weak, nonatomic) IBOutlet UIView *tableContainer;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *firstRunGuide;
+
 
 @end

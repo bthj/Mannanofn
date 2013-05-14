@@ -39,6 +39,11 @@
     }
 }
 
+- (void)imageTaped:(UIGestureRecognizer *)gestureRecognizer {
+    self.firstRunGuide.hidden = YES;
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:FIRST_RUN_GUIDE_BEEN_DISMISSED];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -53,6 +58,17 @@
     [self.toggleFavoriteButton setEnabled:NO];  // to be disabled until favorites db is ready
     self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView:self.view];
     self.favoritesDatabaseUtility.setFavoritesDatabaseDelegate = self;
+    
+    BOOL guideBeenDismissed = [[NSUserDefaults standardUserDefaults] boolForKey:FIRST_RUN_GUIDE_BEEN_DISMISSED];
+    if( guideBeenDismissed ) {
+        self.firstRunGuide.hidden = YES;
+    } else {
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTaped:)];
+        singleTap.numberOfTapsRequired = 1;
+        singleTap.numberOfTouchesRequired = 1;
+        [self.firstRunGuide addGestureRecognizer:singleTap];
+        [self.firstRunGuide setUserInteractionEnabled:YES];
+    }
 }
 
 - (void)addTitleToNavigationItem:(NSString *)titleText
