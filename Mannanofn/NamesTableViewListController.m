@@ -50,8 +50,8 @@
         [predicateArguments addObject:self.genderSelection];
     }
     if( self.categorySelection ) {
-        [predicateFormats addObject:@"category == %@"];
-        [predicateArguments addObject:self.categorySelection];
+        [predicateFormats addObject:@"(category1 == %@ OR category2 == %@ OR category3 == %@)"];
+        [predicateArguments addObjectsFromArray:@[self.categorySelection,self.categorySelection,self.categorySelection]];
     }
     if( self.originSelection ) {
         [predicateFormats addObject:@"origin == %@"];

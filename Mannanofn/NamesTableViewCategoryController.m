@@ -55,15 +55,15 @@
     
     if( self.categoryTypeSelector.selectedSegmentIndex == 0 ) {
 
-        request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"category"]];
-        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"category" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+        request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"category1"]];
+        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"category1" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
         
         
         self.categories = [[self.namesDatabase.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
         
         // let's remove empty category
         for( int i=0; i < [self.categories count]; i++ ) {
-            if( [[[self.categories objectAtIndex:i] valueForKey:@"category"] length] == 0 ) {
+            if( [[[self.categories objectAtIndex:i] valueForKey:@"category1"] length] == 0 ) {
                 [self.categories removeObjectAtIndex:i];
             }
         }
@@ -158,7 +158,7 @@
     // Configure the cell...
     if( self.categoryTypeSelector.selectedSegmentIndex == 0 ) {
         
-        cell.textLabel.text = [[self.categories objectAtIndex:indexPath.row] valueForKey:@"category"];
+        cell.textLabel.text = [[self.categories objectAtIndex:indexPath.row] valueForKey:@"category1"];
         
     } else if( self.categoryTypeSelector.selectedSegmentIndex == 1 ) {
         
@@ -184,7 +184,7 @@
     
     if( self.categoryTypeSelector.selectedSegmentIndex == 0 ) {
         
-        NSString *category = [[self.categories objectAtIndex:[self.tableView indexPathForSelectedRow].row] valueForKey:@"category"];;
+        NSString *category = [[self.categories objectAtIndex:[self.tableView indexPathForSelectedRow].row] valueForKey:@"category1"];;
         self.namesContainer.categorySelection = category;
         
     } else if( self.categoryTypeSelector.selectedSegmentIndex == 1 ) {

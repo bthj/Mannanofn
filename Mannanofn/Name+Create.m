@@ -34,7 +34,9 @@
     name.countAsFirstName = [NSNumber numberWithInteger:[[nameSeed objectForKey:@"countAsFirstName"] integerValue]];
     name.countAsSecondName = [NSNumber numberWithInteger:[[nameSeed objectForKey:@"countAsSecondName"] integerValue]];
     name.comment = [[nameSeed objectForKey:@"comment"] isEqual:[NSNull null]] ? nil : [nameSeed objectForKey:@"comment"];
-    name.category = [[nameSeed objectForKey:@"category1"] isEqual:[NSNull null]] ? nil : [nameSeed objectForKey:@"category1"];
+    name.category1 = [[nameSeed objectForKey:@"category1"] isEqual:[NSNull null]] ? nil : [[nameSeed objectForKey:@"category1"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    name.category2 = [[nameSeed objectForKey:@"category2"] isEqual:[NSNull null]] ? nil : [[nameSeed objectForKey:@"category2"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    name.category3 = [[nameSeed objectForKey:@"category3"] isEqual:[NSNull null]] ? nil : [[nameSeed objectForKey:@"category3"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     name.dateAdded = [self getDateFromISOString:[nameSeed objectForKey:@"dateAdded"]];
     name.dateModified = [self getDateFromISOString:[nameSeed objectForKey:@"dateModified"]];
     

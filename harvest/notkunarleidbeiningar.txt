@@ -14,7 +14,7 @@ Til að uppfæra lista yfir mannanöfn fyrir Nefnuna:
 
 - Breyta CSV export skjali í JSON skjal sem er að lokum vistað í iOS app bundle (með http://www.cparker15.com/code/utilities/csv-to-json/).
 
-- Target "Seed Mannanofn Database" keyrt þar sem það les inn úr JSON skrá í grunn.
+- Target "Seed Mannanofn Database" keyrt (á núllstilltum emulator) þar sem það les inn úr JSON skrá í grunn.
 
 - Sama target keyrt aftur þar sem það hringar yfir allar færslur í grunni í stafrófsröð og setur heiltölugildi úr teljara í reitinn order - hækja til að fá rétta röðun við fyrstu keyrslu apps (locale sett í kóða skilar sér ekki fyrr en í næstu keyrslu eftir að grunnur hefur verið afritaður úr bundle í document store).
 

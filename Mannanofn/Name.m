@@ -2,7 +2,7 @@
 //  Name.m
 //  Mannanofn
 //
-//  Created by Björn Þór Jónsson on 2/26/13.
+//  Created by Björn Þór Jónsson on 5/14/13.
 //  Copyright (c) 2013 Síminn. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 @implementation Name
 
 @dynamic alphabeticalKeyForName;
-@dynamic category;
+@dynamic category1;
 @dynamic comment;
 @dynamic countAsFirstName;
 @dynamic countAsSecondName;
@@ -21,7 +21,9 @@
 @dynamic descriptionIcelandic;
 @dynamic gender;
 @dynamic name;
-@dynamic origin;
 @dynamic order;
+@dynamic origin;
+@dynamic category2;
+@dynamic category3;
 
 @end
