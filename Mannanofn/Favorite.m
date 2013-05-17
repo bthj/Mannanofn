@@ -2,7 +2,7 @@
 //  Favorite.m
 //  Mannanofn
 //
-//  Created by Björn Þór Jónsson on 3/15/13.
+//  Created by Björn Þór Jónsson on 5/17/13.
 //  Copyright (c) 2013 Síminn. All rights reserved.
 //
 
@@ -12,8 +12,8 @@
 @implementation Favorite
 
 @dynamic dateModified;
+@dynamic gender;
 @dynamic name;
 @dynamic order;
-@dynamic gender;
 
 @end

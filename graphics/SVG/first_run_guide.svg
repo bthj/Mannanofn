@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="318.58155"
-     inkscape:cy="573.45177"
+     inkscape:zoom="0.7"
+     inkscape:cx="735.10441"
+     inkscape:cy="478.50956"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -140,20 +140,28 @@
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
     <image
+       y="0.2019688"
+       x="-0.01164899"
+       id="image3168"
+       xlink:href="file:///Users/bthj/Desktop/iOS%20Simulator%20Screen%20shot%20May%2017,%202013%206.37.28%20PM.png"
+       height="1136"
+       width="640"
+       style="display:none" />
+    <image
        width="640"
        height="960"
        xlink:href="file:///Users/bthj/Desktop/iOS%20Simulator%20Screen%20shot%20May%2014,%202013%207.07.36%20PM.png"
        id="image3047"
        x="8.8532861e-06"
        y="0.21932982"
-       style="display:block" />
+       style="display:none" />
     <rect
        y="127.06245"
        x="1.0101526"
-       height="735.39105"
+       height="909.67676"
        width="638.41638"
        id="rect3050"
-       style="opacity:0.30599999999999999;fill:#000000"
+       style="opacity:0.306;fill:#000000"
        inkscape:export-filename="/Users/bthj/Developer/Xcode/Mannanofn/Mannanofn/graphics/first_run_guide.png"
        inkscape:export-xdpi="45.110001"
        inkscape:export-ydpi="45.110001" />

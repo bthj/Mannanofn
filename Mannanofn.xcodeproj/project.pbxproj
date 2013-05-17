@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB21A4FF1741C7AE00C859F9 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FB21A4FE1741C7AE00C859F9 /* Name.m */; };
 		FB313DED1546008A0077438C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEC1546008A0077438C /* UIKit.framework */; };
 		FB313DEF1546008A0077438C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEE1546008A0077438C /* Foundation.framework */; };
 		FB313DF11546008A0077438C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DF01546008A0077438C /* CoreGraphics.framework */; };
@@ -56,14 +55,15 @@
 		FB8D6A1B16F29C1C00653612 /* popularity_tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A1316F29C1C00653612 /* popularity_tabbar@2x.png */; };
 		FB8D6A2116F2AB2A00653612 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A2016F2AB2A00653612 /* Icon.png */; };
 		FB8D6A2316F2AB3200653612 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A2216F2AB3100653612 /* Icon@2x.png */; };
-		FB8D6A2616F3723500653612 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8D6A2516F3723500653612 /* Favorite.m */; };
 		FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AB8163748D50039F096 /* NamesOrderViewController.m */; };
 		FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AC116374AC20039F096 /* NamesContainerViewController.m */; };
+		FB9DD4511746A717000BEA71 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9DD4501746A717000BEA71 /* Favorite.m */; };
+		FB9DD4601746AE3B000BEA71 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9DD45F1746AE3A000BEA71 /* Name.m */; };
+		FB9DD4611746AE59000BEA71 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9DD45F1746AE3A000BEA71 /* Name.m */; };
 		FBAD53E016FBD10B00E57E07 /* storkur_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FBAD53DE16FBD10B00E57E07 /* storkur_background.png */; };
 		FBAD53E116FBD10B00E57E07 /* storkur_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBAD53DF16FBD10B00E57E07 /* storkur_background@2x.png */; };
 		FBB0333216D5253D00EFE772 /* MannanofnDatabase in Resources */ = {isa = PBXBuildFile; fileRef = FBB0333116D5253D00EFE772 /* MannanofnDatabase */; };
 		FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB360016C0202400861504 /* NameInfoViewController.m */; };
-		FBC0E70E1741CB9A007B2567 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FB21A4FE1741C7AE00C859F9 /* Name.m */; };
 		FBCECD1D16FC660A00F5EBD1 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCECD1C16FC660A00F5EBD1 /* libGoogleAnalytics.a */; };
 		FBCECD1F16FC665A00F5EBD1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */; };
 		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
@@ -101,8 +101,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FB21A4FD1741C7AE00C859F9 /* Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Name.h; sourceTree = "<group>"; };
-		FB21A4FE1741C7AE00C859F9 /* Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Name.m; sourceTree = "<group>"; };
 		FB313DE81546008A0077438C /* Nefna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nefna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB313DEC1546008A0077438C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FB313DEE1546008A0077438C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,13 +171,15 @@
 		FB8D6A1316F29C1C00653612 /* popularity_tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popularity_tabbar@2x.png"; sourceTree = "<group>"; };
 		FB8D6A2016F2AB2A00653612 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FB8D6A2216F2AB3100653612 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		FB8D6A2416F3723500653612 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
-		FB8D6A2516F3723500653612 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		FB955AB7163748D40039F096 /* NamesOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesOrderViewController.h; sourceTree = "<group>"; };
 		FB955AB8163748D50039F096 /* NamesOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesOrderViewController.m; sourceTree = "<group>"; };
 		FB955AC016374AC20039F096 /* NamesContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesContainerViewController.h; sourceTree = "<group>"; };
 		FB955AC116374AC20039F096 /* NamesContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesContainerViewController.m; sourceTree = "<group>"; };
 		FB955AD2163B2BD70039F096 /* MannanofnGlobalStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MannanofnGlobalStringConstants.h; sourceTree = "<group>"; };
+		FB9DD44F1746A717000BEA71 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
+		FB9DD4501746A717000BEA71 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
+		FB9DD45E1746AE3A000BEA71 /* Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Name.h; sourceTree = "<group>"; };
+		FB9DD45F1746AE3A000BEA71 /* Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Name.m; sourceTree = "<group>"; };
 		FBAD53DE16FBD10B00E57E07 /* storkur_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storkur_background.png; sourceTree = "<group>"; };
 		FBAD53DF16FBD10B00E57E07 /* storkur_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "storkur_background@2x.png"; sourceTree = "<group>"; };
 		FBB0333116D5253D00EFE772 /* MannanofnDatabase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MannanofnDatabase; sourceTree = "<group>"; };
@@ -500,11 +500,11 @@
 		FBE174A315E309D400EDC6A4 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				FB21A4FD1741C7AE00C859F9 /* Name.h */,
-				FB21A4FE1741C7AE00C859F9 /* Name.m */,
 				FBE1749F15E3069500EDC6A4 /* Mannanofn.xcdatamodeld */,
-				FB8D6A2416F3723500653612 /* Favorite.h */,
-				FB8D6A2516F3723500653612 /* Favorite.m */,
+				FB9DD45E1746AE3A000BEA71 /* Name.h */,
+				FB9DD45F1746AE3A000BEA71 /* Name.m */,
+				FB9DD44F1746A717000BEA71 /* Favorite.h */,
+				FB9DD4501746A717000BEA71 /* Favorite.m */,
 				FBE174D315E452D100EDC6A4 /* Name+Create.h */,
 				FBE174D415E452D100EDC6A4 /* Name+Create.m */,
 				FB497F2516C09B6100894353 /* Favorite+Create.h */,
@@ -662,8 +662,8 @@
 				FB497F1E16C08EC200894353 /* FavoritesTableViewController.m in Sources */,
 				FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */,
 				FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */,
-				FB8D6A2616F3723500653612 /* Favorite.m in Sources */,
-				FB21A4FF1741C7AE00C859F9 /* Name.m in Sources */,
+				FB9DD4511746A717000BEA71 /* Favorite.m in Sources */,
+				FB9DD4601746AE3B000BEA71 /* Name.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,7 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBC0E70E1741CB9A007B2567 /* Name.m in Sources */,
+				FB9DD4611746AE59000BEA71 /* Name.m in Sources */,
 				FBD34E4A1626352D00BDC541 /* Mannanofn.xcdatamodeld in Sources */,
 				FBD34E471626333800BDC541 /* Name+Create.m in Sources */,
 				FBD34E301626231600BDC541 /* main.m in Sources */,
@@ -712,8 +712,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -728,8 +728,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "69072075-1B88-4E3D-B619-AEA50178A00B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69072075-1B88-4E3D-B619-AEA50178A00B";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -745,8 +745,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -755,8 +755,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "69072075-1B88-4E3D-B619-AEA50178A00B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69072075-1B88-4E3D-B619-AEA50178A00B";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -766,6 +766,8 @@
 		FB313E151546008A0077438C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
@@ -776,6 +778,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "69072075-1B88-4E3D-B619-AEA50178A00B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69072075-1B88-4E3D-B619-AEA50178A00B";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -784,6 +788,8 @@
 		FB313E161546008A0077438C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
@@ -794,6 +800,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "69072075-1B88-4E3D-B619-AEA50178A00B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69072075-1B88-4E3D-B619-AEA50178A00B";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

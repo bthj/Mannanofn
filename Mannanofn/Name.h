@@ -2,7 +2,7 @@
 //  Name.h
 //  Mannanofn
 //
-//  Created by Björn Þór Jónsson on 5/14/13.
+//  Created by Björn Þór Jónsson on 5/17/13.
 //  Copyright (c) 2013 Síminn. All rights reserved.
 //
 
@@ -14,6 +14,8 @@
 
 @property (nonatomic, retain) NSString * alphabeticalKeyForName;
 @property (nonatomic, retain) NSString * category1;
+@property (nonatomic, retain) NSString * category2;
+@property (nonatomic, retain) NSString * category3;
 @property (nonatomic, retain) NSString * comment;
 @property (nonatomic, retain) NSNumber * countAsFirstName;
 @property (nonatomic, retain) NSNumber * countAsSecondName;
@@ -24,7 +26,8 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) NSString * origin;
-@property (nonatomic, retain) NSString * category2;
-@property (nonatomic, retain) NSString * category3;
+@property (nonatomic, retain) NSNumber * countSyllables;
+@property (nonatomic, retain) NSNumber * countIcelandicLetters;
+@property (nonatomic, retain) NSString * descriptionEnglish;
 
 @end
