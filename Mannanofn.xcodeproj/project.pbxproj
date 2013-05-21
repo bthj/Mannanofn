@@ -57,6 +57,7 @@
 		FB8D6A2316F2AB3200653612 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A2216F2AB3100653612 /* Icon@2x.png */; };
 		FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AB8163748D50039F096 /* NamesOrderViewController.m */; };
 		FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AC116374AC20039F096 /* NamesContainerViewController.m */; };
+		FB9C336F174C057400CA387C /* UILabel+VAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9C336E174C057400CA387C /* UILabel+VAlign.m */; };
 		FB9DD4511746A717000BEA71 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9DD4501746A717000BEA71 /* Favorite.m */; };
 		FB9DD4601746AE3B000BEA71 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9DD45F1746AE3A000BEA71 /* Name.m */; };
 		FB9DD4611746AE59000BEA71 /* Name.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9DD45F1746AE3A000BEA71 /* Name.m */; };
@@ -176,6 +177,8 @@
 		FB955AC016374AC20039F096 /* NamesContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesContainerViewController.h; sourceTree = "<group>"; };
 		FB955AC116374AC20039F096 /* NamesContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesContainerViewController.m; sourceTree = "<group>"; };
 		FB955AD2163B2BD70039F096 /* MannanofnGlobalStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MannanofnGlobalStringConstants.h; sourceTree = "<group>"; };
+		FB9C336D174C057400CA387C /* UILabel+VAlign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+VAlign.h"; sourceTree = "<group>"; };
+		FB9C336E174C057400CA387C /* UILabel+VAlign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+VAlign.m"; sourceTree = "<group>"; };
 		FB9DD44F1746A717000BEA71 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
 		FB9DD4501746A717000BEA71 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		FB9DD45E1746AE3A000BEA71 /* Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Name.h; sourceTree = "<group>"; };
@@ -395,6 +398,8 @@
 			children = (
 				FBBB35FF16C0202300861504 /* NameInfoViewController.h */,
 				FBBB360016C0202400861504 /* NameInfoViewController.m */,
+				FB9C336D174C057400CA387C /* UILabel+VAlign.h */,
+				FB9C336E174C057400CA387C /* UILabel+VAlign.m */,
 			);
 			name = "Name info";
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */,
 				FB9DD4511746A717000BEA71 /* Favorite.m in Sources */,
 				FB9DD4601746AE3B000BEA71 /* Name.m in Sources */,
+				FB9C336F174C057400CA387C /* UILabel+VAlign.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,8 +734,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "69072075-1B88-4E3D-B619-AEA50178A00B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69072075-1B88-4E3D-B619-AEA50178A00B";
+				PROVISIONING_PROFILE = "73DCF245-D6BF-4EBB-9EC4-BF40B2CAB028";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73DCF245-D6BF-4EBB-9EC4-BF40B2CAB028";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -755,8 +761,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "69072075-1B88-4E3D-B619-AEA50178A00B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69072075-1B88-4E3D-B619-AEA50178A00B";
+				PROVISIONING_PROFILE = "73DCF245-D6BF-4EBB-9EC4-BF40B2CAB028";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73DCF245-D6BF-4EBB-9EC4-BF40B2CAB028";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -778,8 +784,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "69072075-1B88-4E3D-B619-AEA50178A00B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69072075-1B88-4E3D-B619-AEA50178A00B";
+				PROVISIONING_PROFILE = "73DCF245-D6BF-4EBB-9EC4-BF40B2CAB028";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73DCF245-D6BF-4EBB-9EC4-BF40B2CAB028";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -800,8 +806,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "69072075-1B88-4E3D-B619-AEA50178A00B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69072075-1B88-4E3D-B619-AEA50178A00B";
+				PROVISIONING_PROFILE = "73DCF245-D6BF-4EBB-9EC4-BF40B2CAB028";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73DCF245-D6BF-4EBB-9EC4-BF40B2CAB028";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

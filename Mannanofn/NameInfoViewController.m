@@ -8,6 +8,7 @@
 
 #import "NameInfoViewController.h"
 #import "GAI.h"
+#import "UILabel+VAlign.h"
 
 
 @interface NameInfoViewController ()
@@ -60,6 +61,10 @@
     
     self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView: self.view];
     self.favoritesDatabaseUtility.setFavoritesDatabaseDelegate = self;
+    
+    
+    [self.descriptionLabel setVerticalAlignmentTop];  // call a custom Category
+    [self.originLabel setVerticalAlignmentTop];
     
     
     // Ads
