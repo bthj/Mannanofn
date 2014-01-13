@@ -11,7 +11,7 @@
 #import "MannanofnGlobalStringConstants.h"
 #import "Favorite+Create.h"
 #import "GAI.h"
-
+#import "GAIDictionaryBuilder.h"
 
 
 @interface NamesContainerViewController ()
@@ -127,10 +127,12 @@
 
 
 - (IBAction)selectNamePosition:(id)sender {
-    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
-                                                      withAction:@"buttonPress"
-                                                       withLabel:@"Select Name Position"
-                                                       withValue:[NSNumber numberWithInt:self.namePosition.selectedSegmentIndex]];
+
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
+                                                  action:@"buttonPress"
+                                                   label:@"Select Name Position"
+                                                   value:[NSNumber numberWithInt:self.namePosition.selectedSegmentIndex]] build]];
 }
 
 - (IBAction)selectGender:(id)sender {
@@ -146,10 +148,11 @@
     }
     
     
-    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
-                                                      withAction:@"buttonPress"
-                                                       withLabel:@"Select Gender"
-                                                       withValue:[NSNumber numberWithInt:self.genderSelection.selectedSegmentIndex]];
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
+                                                  action:@"buttonPress"
+                                                   label:@"Select Gender"
+                                                   value:[NSNumber numberWithInt:self.genderSelection.selectedSegmentIndex]] build]];
 }
 
 - (void)setGenderToLastCurrent
@@ -285,10 +288,12 @@
         [self updateFavoritesButtonImageToInctive];
     }
     
-    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
-                                                      withAction:@"buttonPress"
-                                                       withLabel:@"Toggle favorite in Name List"
-                                                       withValue:[NSNumber numberWithBool:active]];
+
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
+                                                  action:@"buttonPress"
+                                                   label:@"Toggle favorite in Name List"
+                                                   value:[NSNumber numberWithBool:active]] build]];
 }
 
 - (void)lookupAndUpdateFavoriteButtonImage{
@@ -306,10 +311,12 @@
     [self clearNameCard];
     [self updateFavoritesButtonImageToInctive];
     
-    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
-                                                      withAction:@"buttonPress"
-                                                       withLabel:@"Clear Name Card"
-                                                       withValue:nil];
+    
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
+                                                  action:@"buttonPress"
+                                                   label:@"Clear Name Card"
+                                                   value:nil] build]];
 }
 
 @end

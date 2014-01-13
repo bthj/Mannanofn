@@ -8,6 +8,7 @@
 
 #import "MannanofnAppDelegate.h"
 #import "GAI.h"
+#import "GAIFields.h"
 
 #define NAMES_READ_FROM_SEED_AT_VERSION @"namesReadFromSeedAtVersion"
 
@@ -76,7 +77,7 @@
     
 //    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:255.0f/255.0f green:100.0f/255.0f blue:40.0f/255.0f alpha:1.0f]];
     
-    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
     
     
     
@@ -85,11 +86,10 @@
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
     [GAI sharedInstance].dispatchInterval = 20;
-    // Optional: set debug to YES for extra debugging information.
-    [GAI sharedInstance].debug = NO;
     // Create tracker instance.
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-37626236-2"];
-    [tracker trackView:@"App launched"];
+    [tracker set:kGAIScreenName value:@"Home Screen"];
+
 
     return YES;
 }
@@ -112,7 +112,7 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     
-    [[[GAI sharedInstance] defaultTracker] trackView:@"App enters forground"];
+    [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"App enters forground"];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

@@ -11,6 +11,8 @@
 #import "Name+Create.h"
 #import "NameInfoViewController.h"
 #import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 
 @interface FavoritesTableViewController ()
@@ -87,7 +89,7 @@
         self.favoritesDatabaseUtility.setFavoritesDatabaseDelegate = self;
     }
     
-    [[[GAI sharedInstance] defaultTracker] sendView:@"Favorites Screen"];
+    [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"Favorites Screen"];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -176,11 +178,14 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
         
         [self.favoritesDatabase saveToURL:self.favoritesDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
     }
+
     
-    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
-                                                      withAction:@"buttonPress"
-                                                       withLabel:@"Edit Favorites"
-                                                       withValue:[NSNumber numberWithBool:editing]];
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
+                                                  action:@"buttonPress"
+                                                   label:@"Edit Favorites"
+                                                   value:[NSNumber numberWithBool:editing]] build]];
+    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath

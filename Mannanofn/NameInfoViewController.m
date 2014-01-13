@@ -7,8 +7,10 @@
 //
 
 #import "NameInfoViewController.h"
-#import "GAI.h"
 #import "UILabel+VAlign.h"
+
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 
 @interface NameInfoViewController ()
@@ -78,7 +80,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.trackedViewName = @"Name Info Screen";
+    self.screenName = @"Name Info Screen";
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,10 +105,12 @@
         [self updateFavoritesButtonImageToInctive];
     }
     
-    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
-                                                      withAction:@"buttonPress"
-                                                       withLabel:@"Toggle favorite in Name Info Screen"
-                                                       withValue:[NSNumber numberWithBool:active]];
+    
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
+                                                  action:@"buttonPress"
+                                                   label:@"Toggle favorite in Name Info Screen"
+                                                   value:[NSNumber numberWithBool:active]] build]];
 }
 - (void)lookupAndUpdateFavoriteButtonImage{
     

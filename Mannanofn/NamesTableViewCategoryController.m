@@ -11,6 +11,8 @@
 #import "MannanofnGlobalStringConstants.h"
 #import "NamesDatabaseSetupUtility.h"
 #import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 
 @interface NamesTableViewCategoryController ()
@@ -113,9 +115,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     if( self.categoryTypeSelector.selectedSegmentIndex == 0 ) {
-        [[[GAI sharedInstance] defaultTracker] sendView:@"Categories Screen, categories"];
+        [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"Categories Screen, categories"];
     } else if( self.categoryTypeSelector.selectedSegmentIndex == 1 ) {
-        [[[GAI sharedInstance] defaultTracker] sendView:@"Categories Screen, origins"];
+        [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"Categories Screen, origins"];
     }
 }
 
@@ -123,10 +125,11 @@
     
     [self setupFetchedResultsController];
     
-    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"uiAction"
-                                                      withAction:@"buttonPress"
-                                                       withLabel:@"Change Category Type"
-                                                       withValue:[NSNumber numberWithInt:self.categoryTypeSelector.selectedSegmentIndex]];
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"     // Event category (required)
+                                                  action:@"buttonPress"  // Event action (required)
+                                                   label:@"Change Category Type"          // Event label
+                                                   value:[NSNumber numberWithInt:self.categoryTypeSelector.selectedSegmentIndex]] build]];    // Event value
 }
 
 
