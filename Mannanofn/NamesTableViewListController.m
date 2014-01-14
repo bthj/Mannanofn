@@ -224,6 +224,11 @@
             [view performSelector:@selector(setIndexColor:) withObject:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.55f]];
         }
     }
+    if ([tableView respondsToSelector:@selector(setSectionIndexBackgroundColor:)]) {
+        tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+        // ef vill annan bakgrunnslit þegar dregið eftir indexinum:
+        // tableView.sectionIndexTrackingBackgroundColor =
+    }
     
     // white text with some transparency
     cell.textLabel.textColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.87f];
