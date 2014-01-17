@@ -74,7 +74,8 @@
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:174.0f/255.0f blue:243.0f/255.0f alpha:1.0f];
     // dökkblái
 //    self.tableView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:105.0f/255.0f blue:133.0f/255.0f alpha:1.0f];
-    self.tableView.backgroundColor = [UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:1.0f];
+//    self.tableView.backgroundColor = [UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:1.0f];
+//    self.tableView.backgroundColor = [UIColor colorWithRed:242.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
     
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;

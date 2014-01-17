@@ -74,13 +74,16 @@
 - (void)addTitleToNavigationItem:(NSString *)titleText
 {
     UILabel *navTitle = [[UILabel alloc] init];
-    navTitle.backgroundColor = [UIColor clearColor];
+/*    navTitle.backgroundColor = [UIColor clearColor]; */
 //    navTitle.textColor = [UIColor colorWithRed:233.0f/255.0f green:224.0f/255.0f blue:201.0f/255.0f alpha:1.0f];
-    navTitle.textColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
+
+//    navTitle.textColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
     navTitle.textAlignment = NSTextAlignmentCenter;
-    navTitle.font = [UIFont boldSystemFontOfSize:20];
-    navTitle.shadowColor = [UIColor grayColor];
-    navTitle.shadowOffset = CGSizeMake(0, -1.0);
+    // navTitle.font = [UIFont boldSystemFontOfSize:17];
+    navTitle.font = [UIFont systemFontOfSize:17];
+//    navTitle.shadowColor = [UIColor grayColor];
+//    navTitle.shadowOffset = CGSizeMake(0, -1.0);
+
     navTitle.text = titleText;
     self.navigationItem.titleView = navTitle;
     [navTitle sizeToFit];
@@ -170,7 +173,8 @@
 
 - (NSString *)passGenderToNamesTable
 {
-    return self.namesTableView.genderSelection = [self getCurrentGender];
+    self.namesTableView.genderSelection = [self getCurrentGender];
+    return self.namesTableView.genderSelection;
 }
 
 - (NSString *)getCurrentGender
