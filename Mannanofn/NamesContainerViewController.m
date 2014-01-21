@@ -10,11 +10,13 @@
 
 #import "MannanofnGlobalStringConstants.h"
 #import "Favorite+Create.h"
+#import "FilterChoicesViewController.h"
+
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
 
 
-@interface NamesContainerViewController ()
+@interface NamesContainerViewController () <FilterChoicesTableViewControllerDelegate>
 
 @property (nonatomic, strong) NamesTableViewListController *namesTableView;
 @property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
@@ -28,6 +30,16 @@
 @implementation NamesContainerViewController
 
 @synthesize favoritesDatabase = _favoritesDatabase;
+
+
+- (void)filterChoicesTableViewControllerDidCancel:(FilterChoicesViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)filterChoicesTableViewControllerDidFinish:(FilterChoicesViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 - (void)setFavoritesDatabase:(UIManagedDocument *)favoritesDatabase
 {
@@ -125,6 +137,10 @@
         [self setGenderToLastCurrent];
         
         [self passGenderToNamesTable];
+    } else if( [[segue identifier] isEqualToString:@"ShowFilterChoices"] ) {
+        FilterChoicesViewController *filterController = (FilterChoicesViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
+        
+        filterController.delegate = self;
     }
 }
 

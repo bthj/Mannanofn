@@ -21,6 +21,8 @@
 #define GENDER_FEMALE @"X"
 #define GENDER_MALE @"Y"
 
+#define SYLLABLES_COUNT_STORAGE_KEY @"showNamesWithNumberOfSyllables"
+
 
 // from http://stackoverflow.com/a/12447113
 #define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
