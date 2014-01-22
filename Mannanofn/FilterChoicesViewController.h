@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @protocol FilterChoicesTableViewControllerDelegate;
+
 
 
 @interface FilterChoicesViewController : UITableViewController
@@ -31,6 +33,7 @@
 - (IBAction)done:(id)sender;
 
 @end
+
 
 
 @protocol FilterChoicesTableViewControllerDelegate <NSObject>

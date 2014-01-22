@@ -45,8 +45,13 @@
     NSMutableArray *predicateFormats = [NSMutableArray array];
     NSMutableArray *predicateArguments = [NSMutableArray array];
 
+    if( self.syllableCount > 0 ) {
+        [predicateFormats addObject:@"countSyllables == %d"];
+        [predicateArguments addObject:[NSNumber numberWithInt:self.syllableCount]];
+    }
+
     if( self.genderSelection ) {
-            request.predicate = [NSPredicate predicateWithFormat:@"gender == %@", self.genderSelection];
+//            request.predicate = [NSPredicate predicateWithFormat:@"gender == %@", self.genderSelection];
         [predicateFormats addObject:@"gender == %@"];
         [predicateArguments addObject:self.genderSelection];
     }
@@ -102,10 +107,21 @@
 {
     _genderSelection = genderSelection;
     
+    [self fetchResults];
+}
+
+- (void)loadFilters
+{
+    self.syllableCount = [[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY];
+}
+
+- (void)fetchResults
+{
     if( self.namesDatabase ) {
         [self setupFetchedResultsController];
     }
 }
+
 
 - (void)updateNameCardFromVisibleCells
 {
@@ -138,6 +154,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self loadFilters];
+    
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
     

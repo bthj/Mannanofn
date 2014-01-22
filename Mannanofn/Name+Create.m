@@ -33,6 +33,16 @@
     name.origin = [[nameSeed objectForKey:@"origin"] isEqual:[NSNull null]] ? nil : [nameSeed objectForKey:@"origin"];
     name.countAsFirstName = [NSNumber numberWithInteger:[[nameSeed objectForKey:@"countAsFirstName"] integerValue]];
     name.countAsSecondName = [NSNumber numberWithInteger:[[nameSeed objectForKey:@"countAsSecondName"] integerValue]];
+    if( [[nameSeed objectForKey:@"countIcelandicLetters"] isEqual:[NSNull null]] ) {
+        NSString *breakOne = @"break";
+    } else {
+        name.countIcelandicLetters = [NSNumber numberWithInteger:[[nameSeed objectForKey:@"countIcelandicLetters"] integerValue]];
+    }
+    if( [[nameSeed objectForKey:@"countSyllables"] isEqual:[NSNull null]] ) {
+        NSString *breakTwo = @"break2";
+    } else {
+        name.countSyllables = [NSNumber numberWithInteger:[[nameSeed objectForKey:@"countSyllables"] integerValue]];
+    }
     name.comment = [[nameSeed objectForKey:@"comment"] isEqual:[NSNull null]] ? nil : [nameSeed objectForKey:@"comment"];
     name.category1 = [[nameSeed objectForKey:@"category1"] isEqual:[NSNull null]] ? nil : [[nameSeed objectForKey:@"category1"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     name.category2 = [[nameSeed objectForKey:@"category2"] isEqual:[NSNull null]] ? nil : [[nameSeed objectForKey:@"category2"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

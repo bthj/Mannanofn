@@ -78,8 +78,10 @@
 {
     if( syllableCount > 0 ) {
         self.syllableCountCell.detailTextLabel.text = [NSString stringWithFormat:@"%d atkvæði", syllableCount];
+        self.syllableCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
     } else {
         self.syllableCountCell.detailTextLabel.text = @"Allt";
+        self.syllableCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
     }
 }
 

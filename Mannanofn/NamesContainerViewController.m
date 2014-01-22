@@ -38,6 +38,9 @@
 
 - (void)filterChoicesTableViewControllerDidFinish:(FilterChoicesViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    [self.namesTableView loadFilters];
+    [self.namesTableView fetchResults];
 }
 
 
@@ -101,6 +104,25 @@
     [navTitle sizeToFit];
 }
 
+
+- (BOOL)areFiltersSet {
+    BOOL filtersAreSet = NO;
+    if( self.namesTableView.syllableCount > 0 ) {
+        filtersAreSet = YES;
+    }
+    return filtersAreSet;
+}
+- (void)setFilterBarButtonItem {
+    if( [self areFiltersSet] ) {
+        
+        [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonIconSearchMinus.png"]];
+    } else {
+        
+        [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"barButtonIconSearch.png"]];
+    }
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     // TODO: Keyra aðeins ef þarf, t.d. ef kyn hefur breyst, en ekki við hverja birtingu.
@@ -123,6 +145,12 @@
     
     [self lookupAndUpdateFavoriteButtonImage];
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self setFilterBarButtonItem];
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

@@ -24,6 +24,13 @@
 
 @property (weak, nonatomic) id <NameCardUpdateDelegate> nameCardDelegate;
 
+
+@property (nonatomic, assign) NSInteger syllableCount; // 0 for any number of syllables
+
+
+- (void)loadFilters;
+- (void)fetchResults;
+
 @end
 
 
