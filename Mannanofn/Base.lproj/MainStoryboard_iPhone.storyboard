@@ -218,7 +218,7 @@
                         <sections>
                             <tableViewSection headerTitle="Síur" id="ZvM-2I-OcB">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="u9j-XI-6Nm" style="IBUITableViewCellStyleDefault" id="k4w-IF-EDI">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="u9j-XI-6Nm" imageView="rQJ-NV-NJm" style="IBUITableViewCellStyleDefault" id="k4w-IF-EDI">
                                         <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k4w-IF-EDI" id="BUc-B6-NLi">
@@ -226,12 +226,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Sjá öll nöfn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u9j-XI-6Nm">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <rect key="frame" x="38" y="0.0" width="267" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tableViewBulletGray.png" id="rQJ-NV-NJm">
+                                                    <rect key="frame" x="15" y="17" width="8" height="8"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -405,7 +409,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Kostun" id="Czi-AM-dxg">
+                            <tableViewSection headerTitle="Stuðningur (kostun)" id="Czi-AM-dxg">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BlP-Dr-AkV">
                                         <rect key="frame" x="0.0" y="459" width="320" height="44"/>
@@ -428,12 +432,29 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="uKw-UE-qoL" style="IBUITableViewCellStyleDefault" id="aLD-uZ-hbl">
+                                        <rect key="frame" x="0.0" y="503" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" tableViewCell="aLD-uZ-hbl" id="u7I-ek-hl9">
+                                            <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Sjá leiðbeiningar aftur" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uKw-UE-qoL">
+                                                    <rect key="frame" x="15" y="0.0" width="258" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="nemur.net" id="7Ks-sO-V8E">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="KUo-Cg-7uW" style="IBUITableViewCellStyleDefault" id="lts-UB-oVX">
-                                        <rect key="frame" x="0.0" y="551" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="595" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lts-UB-oVX" id="JWz-PP-SG9">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -465,6 +486,7 @@
                     <connections>
                         <outlet property="aboutUsCell" destination="lts-UB-oVX" id="67Q-xk-O5C"/>
                         <outlet property="advertisementSwitch" destination="JhT-XE-Kjn" id="bvj-SW-caP"/>
+                        <outlet property="clearFiltersCell" destination="k4w-IF-EDI" id="D7h-E6-EZ8"/>
                         <outlet property="extendedLetterCountCell" destination="Evl-SP-tNG" id="FMe-pV-gXS"/>
                         <outlet property="initialsCell" destination="XeM-mQ-Zk2" id="gdB-5P-VFI"/>
                         <outlet property="popularityFilterCell" destination="RtA-if-ujx" id="MFF-SZ-yxs"/>
@@ -752,10 +774,10 @@
             </objects>
             <point key="canvasLocation" x="4202" y="-1049"/>
         </scene>
-        <!--View Controller-->
+        <!--Min Max Popularity View Controller-->
         <scene sceneID="e56-Ab-s7Y">
             <objects>
-                <viewController id="lUu-ct-y3L" sceneMemberID="viewController">
+                <viewController id="lUu-ct-y3L" customClass="MinMaxPopularityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zae-LB-eQj"/>
                         <viewControllerLayoutGuide type="bottom" id="pLl-qP-EZk"/>
@@ -764,39 +786,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Takmarka sýn við fjölda nafnbera" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="FPc-oF-O43">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Takmarka sýn við fjölda nafnbera" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="FPc-oF-O43">
                                 <rect key="frame" x="20" y="83" width="280" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="CKZ-oo-Pkc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEh-Bq-9tP">
-                                <rect key="frame" x="0.0" y="148" width="320" height="162"/>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEh-Bq-9tP">
+                                <rect key="frame" x="0.0" y="386" width="320" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lUu-ct-y3L" id="mKt-m8-IKp"/>
+                                    <outlet property="delegate" destination="lUu-ct-y3L" id="sFD-HQ-dqm"/>
+                                </connections>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2Z-rR-Efy">
-                                <rect key="frame" x="0.0" y="318" width="320" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hámark" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOg-X2-TEX">
-                                <rect key="frame" x="25" y="148" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hámark" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOg-X2-TEX">
+                                <rect key="frame" x="195" y="365" width="60" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.39215686274509803" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lágmark" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwi-ah-Uk9">
-                                <rect key="frame" x="20" y="318" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Lágmark" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwi-ah-Uk9">
+                                <rect key="frame" x="56" y="365" width="86" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="VDl-I4-2wA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.53725490196078429" green="0.76470588235294112" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pLl-qP-EZk" firstAttribute="top" secondItem="OEh-Bq-9tP" secondAttribute="bottom" constant="20" id="67O-FH-vLX"/>
+                            <constraint firstItem="OEh-Bq-9tP" firstAttribute="top" secondItem="vOg-X2-TEX" secondAttribute="bottom" id="bI5-7K-PAi"/>
+                            <constraint firstItem="OEh-Bq-9tP" firstAttribute="top" secondItem="Gwi-ah-Uk9" secondAttribute="bottom" id="qio-X8-lvU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aVO-Lp-sZh"/>
+                    <connections>
+                        <outlet property="minMaxPicker" destination="OEh-Bq-9tP" id="wUc-GT-wKt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgu-Rl-Bh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,7 @@
 #import "MannanofnGlobalStringConstants.h"
 #import "Favorite+Create.h"
 #import "FilterChoicesViewController.h"
+#import "MinMaxPopularityViewController.h"
 
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
@@ -110,6 +111,9 @@
     if( self.namesTableView.syllableCount > 0 ) {
         filtersAreSet = YES;
     }
+    if( [MinMaxPopularityViewController getRowFromStoredValueInComponent:0] > 0 || [MinMaxPopularityViewController getRowFromStoredValueInComponent:1] > 0 ) {
+        filtersAreSet = YES;
+    }
     return filtersAreSet;
 }
 - (void)setFilterBarButtonItem {
@@ -130,6 +134,7 @@
     [self setGenderToLastCurrent];
     
     [self passGenderToNamesTable];
+    [self passNamesPositionToNamesTable];
     
     if( self.categorySelection != nil || self.originSelection != nil ) {
         self.genderSelection.hidden = YES;
@@ -165,6 +170,7 @@
         [self setGenderToLastCurrent];
         
         [self passGenderToNamesTable];
+        [self passNamesPositionToNamesTable];
     } else if( [[segue identifier] isEqualToString:@"ShowFilterChoices"] ) {
         FilterChoicesViewController *filterController = (FilterChoicesViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
         
@@ -174,6 +180,8 @@
 
 
 - (IBAction)selectNamePosition:(id)sender {
+    
+    [self passNamesPositionToNamesTable];
 
     [[[GAI sharedInstance] defaultTracker]
      send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
@@ -219,6 +227,11 @@
 {
     self.namesTableView.genderSelection = [self getCurrentGender];
     return self.namesTableView.genderSelection;
+}
+
+- (void)passNamesPositionToNamesTable
+{
+    self.namesTableView.namesPosition = self.namePosition.selectedSegmentIndex;
 }
 
 - (NSString *)getCurrentGender

@@ -17,6 +17,10 @@
 
 @property (weak, nonatomic) id <FilterChoicesTableViewControllerDelegate> delegate;
 
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *clearFiltersCell;
+    
+
 @property (weak, nonatomic) IBOutlet UITableViewCell *searchCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *syllableCountCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *extendedLetterCountCell;

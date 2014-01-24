@@ -17,6 +17,8 @@
 @interface NamesTableViewListController : CoreDataTableViewController <SetNamesDatabaseDelegate, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSString *genderSelection;
+@property (nonatomic, assign) NSInteger namesPosition;
+
 @property (nonatomic, strong) NSString *namesOrder;
 
 @property (nonatomic, strong) NSString *categorySelection;
@@ -26,6 +28,8 @@
 
 
 @property (nonatomic, assign) NSInteger syllableCount; // 0 for any number of syllables
+@property (nonatomic, assign) NSInteger minPopularity;
+@property (nonatomic, assign) NSInteger maxPopularity;
 
 
 - (void)loadFilters;

@@ -22,6 +22,10 @@
 #define GENDER_MALE @"Y"
 
 #define SYLLABLES_COUNT_STORAGE_KEY @"showNamesWithNumberOfSyllables"
+#define MIN_POPULARITY_STORAGE_KEY @"minimumPopularityFilter"
+#define MAX_POPULARITY_STORAGE_KEY @"maximumPopularityFilter"
+
+#define MAX_TOTAL_NUMBER_OF_NAMES 5500
 
 
 // from http://stackoverflow.com/a/12447113

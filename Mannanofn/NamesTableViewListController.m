@@ -29,6 +29,8 @@
 @synthesize namesDatabase = _namesDatabase;
 
 @synthesize genderSelection = _genderSelection;
+@synthesize namesPosition = _namesPosition;
+
 @synthesize namesOrder = _namesOrder;
 
 @synthesize categorySelection = _categorySelection;
@@ -44,10 +46,26 @@
 
     NSMutableArray *predicateFormats = [NSMutableArray array];
     NSMutableArray *predicateArguments = [NSMutableArray array];
+    
+    NSString *popularitySortDescriptorKey;
+    if( self.namesPosition == 0 ) {
+        popularitySortDescriptorKey = @"countAsFirstName";
+    } else {
+        popularitySortDescriptorKey = @"countAsSecondName";
+    }
 
     if( self.syllableCount > 0 ) {
         [predicateFormats addObject:@"countSyllables == %d"];
         [predicateArguments addObject:[NSNumber numberWithInt:self.syllableCount]];
+    }
+    
+    if( self.minPopularity > 0 ) {
+        [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" >= %d"]];
+        [predicateArguments addObject:[NSNumber numberWithInt:self.minPopularity]];
+    }
+    if( self.maxPopularity < MAX_TOTAL_NUMBER_OF_NAMES ) {
+        [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" <= %d"]];
+        [predicateArguments addObject:[NSNumber numberWithInt:self.maxPopularity]];
     }
 
     if( self.genderSelection ) {
@@ -68,9 +86,8 @@
     }
  
     if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
-        
         request.sortDescriptors = [NSArray arrayWithObjects:
-                                   [NSSortDescriptor sortDescriptorWithKey:@"countAsFirstName" ascending:NO],
+                                   [NSSortDescriptor sortDescriptorWithKey:popularitySortDescriptorKey ascending:NO],
                                    [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)],
                                    nil];
         
@@ -109,10 +126,19 @@
     
     [self fetchResults];
 }
+- (void)setNamesPosition:(NSInteger)namesPosition
+{
+    _namesPosition = namesPosition;
+    
+    [self fetchResults];
+}
+
 
 - (void)loadFilters
 {
     self.syllableCount = [[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY];
+    self.minPopularity = [[NSUserDefaults standardUserDefaults] integerForKey:MIN_POPULARITY_STORAGE_KEY];
+    self.maxPopularity = [[NSUserDefaults standardUserDefaults] integerForKey:MAX_POPULARITY_STORAGE_KEY];
 }
 
 - (void)fetchResults
