@@ -22,6 +22,7 @@
 #define GENDER_MALE @"Y"
 
 #define SYLLABLES_COUNT_STORAGE_KEY @"showNamesWithNumberOfSyllables"
+#define ICELANDIC_LETTER_COUNT_STORAGE_KEY @"showNamesWithNumberOfIcelandicLetters"
 #define MIN_POPULARITY_STORAGE_KEY @"minimumPopularityFilter"
 #define MAX_POPULARITY_STORAGE_KEY @"maximumPopularityFilter"
 

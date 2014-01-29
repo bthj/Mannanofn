@@ -1,21 +1,21 @@
 //
-//  SyllablesChoicesViewController.m
+//  IcelandicLettersViewController.m
 //  Mannanofn
 //
-//  Created by Björn Þór Jónsson on 20/01/14.
+//  Created by Björn Þór Jónsson on 25/01/14.
 //  Copyright (c) 2014 nemur.net. All rights reserved.
 //
 
-#import "SyllablesChoicesViewController.h"
+#import "IcelandicLettersViewController.h"
 
 #import "MannanofnGlobalStringConstants.h"
 
 
-@interface SyllablesChoicesViewController ()
+@interface IcelandicLettersViewController ()
 
 @end
 
-@implementation SyllablesChoicesViewController
+@implementation IcelandicLettersViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,8 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.syllableCount = [[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY];
+
+    self.icelandicLetterCount = [[NSUserDefaults standardUserDefaults] integerForKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,9 +44,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
-    if( self.syllableCount == indexPath.row ) {
+    if( self.icelandicLetterCount == indexPath.row ) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -56,15 +57,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{    
-    self.syllableCount = indexPath.row;
+{
+    self.icelandicLetterCount = indexPath.row;
     
-    [[NSUserDefaults standardUserDefaults] setInteger:self.syllableCount forKey:SYLLABLES_COUNT_STORAGE_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:self.icelandicLetterCount forKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
-
+    
     [tableView reloadData];
     
-    [[self delegate] syllableCountChosen:self syllableCount:self.syllableCount];
+    [[self delegate] icelandicLetterCountChosen:self icelandicLetterCount:self.icelandicLetterCount];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

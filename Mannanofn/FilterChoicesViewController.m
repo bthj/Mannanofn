@@ -9,11 +9,12 @@
 #import "FilterChoicesViewController.h"
 
 #import "SyllablesChoicesViewController.h"
+#import "IcelandicLettersViewController.h"
 #import "MinMaxPopularityViewController.h"
 #import "MannanofnGlobalStringConstants.h"
 
 
-@interface FilterChoicesViewController () <SyllablesChoicesViewControllerDelegate>
+@interface FilterChoicesViewController () <SyllablesChoicesViewControllerDelegate, IcelandicLettersViewControllerDelegate>
 
 @end
 
@@ -36,6 +37,7 @@
 
 
     [self setSyllableCountDetail:[[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY]];
+    [self setIcelandicLetterCountDetail:[[NSUserDefaults standardUserDefaults] integerForKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -60,6 +62,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if( indexPath.section == 0 && indexPath.row == 0 ) {
+        
         [self clearFilters];
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -71,9 +74,11 @@
 {
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:SYLLABLES_COUNT_STORAGE_KEY];
     [self setSyllableCountDetail:0];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY];
+    [self setIcelandicLetterCountDetail:0];
     
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:MIN_POPULARITY_STORAGE_KEY];
-    [[NSUserDefaults standardUserDefaults] setInteger:MAX_TOTAL_NUMBER_OF_NAMES forKey:MAX_POPULARITY_STORAGE_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:MAX_POPULARITY_STORAGE_KEY];
     [self setMinMaxDetail];
     
     
@@ -92,8 +97,14 @@
     // Pass the selected object to the new view controller.
     
     if( [[segue identifier] isEqualToString:@"ShowSyllablesChoices"] ) {
+        
         SyllablesChoicesViewController *syllablesChoices = (SyllablesChoicesViewController *)[segue destinationViewController];
         syllablesChoices.delegate = self;
+        
+    } else if( [[segue identifier] isEqualToString:@"ShowIcelandicLettersChoices"] ) {
+
+        IcelandicLettersViewController *icelandicLettersController = (IcelandicLettersViewController *)[segue destinationViewController];
+        icelandicLettersController.delegate = self;
     }
 }
 
@@ -103,6 +114,11 @@
 - (void)syllableCountChosen:(SyllablesChoicesViewController *)controller syllableCount:(NSInteger)syllableCount
 {
     [self setSyllableCountDetail:syllableCount];
+}
+
+- (void)icelandicLetterCountChosen:(IcelandicLettersViewController *)controller icelandicLetterCount:(NSInteger)icelandicLetterCount
+{
+    [self setIcelandicLetterCountDetail:icelandicLetterCount];
 }
 
 
@@ -119,12 +135,23 @@
     }
 }
 
+- (void)setIcelandicLetterCountDetail:(NSInteger)icelandicLetterCount
+{
+    if( icelandicLetterCount > 0 ) {
+        self.extendedLetterCountCell.detailTextLabel.text = [NSString stringWithFormat:@"%d stafir", icelandicLetterCount-1];
+        self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+    } else {
+        self.extendedLetterCountCell.detailTextLabel.text = @"Allt";
+        self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+    }
+}
+
+
 - (void)setMinMaxDetail
 {
-    NSInteger min = [[NSUserDefaults standardUserDefaults] integerForKey:MIN_POPULARITY_STORAGE_KEY];
-    NSInteger max = [[NSUserDefaults standardUserDefaults] integerForKey:MAX_POPULARITY_STORAGE_KEY];
-    
-    if( min > 0 || max < MAX_TOTAL_NUMBER_OF_NAMES ) {
+    if( [self areMinMaxFiltersSet] ) {
+        NSInteger min = [MinMaxPopularityViewController getValueFromMinComponentStoredRow];
+        NSInteger max = [MinMaxPopularityViewController getValueFromMaxComponentStoredRow];
         self.popularityFilterCell.detailTextLabel.text = [NSString stringWithFormat:@"%d - %d", min, max];
         self.popularityFilterCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
     } else {
@@ -139,7 +166,10 @@
     if( [[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY] > 0 ) {
         filtersAreSet = YES;
     }
-    if( [MinMaxPopularityViewController getRowFromStoredValueInComponent:0] > 0 || [MinMaxPopularityViewController getRowFromStoredValueInComponent:1] > 0 ) {
+    if( [[NSUserDefaults standardUserDefaults] integerForKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY] > -1 ) {
+        filtersAreSet = YES;
+    }
+    if( [self areMinMaxFiltersSet] ) {
         filtersAreSet = YES;
     }
     return filtersAreSet;
@@ -151,6 +181,17 @@
         self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
     } else {
         self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+    }
+}
+
+
+- (BOOL)areMinMaxFiltersSet
+{
+    if( [MinMaxPopularityViewController getMinComponentStoredRow] > 0 || [MinMaxPopularityViewController getMaxComponentStoredRow] > 0 ) {
+        
+        return YES;
+    } else {
+        return NO;
     }
 }
 

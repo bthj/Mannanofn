@@ -9,6 +9,7 @@
 #import "NamesTableViewListController.h"
 #import "Name.h"
 #import "MannanofnGlobalStringConstants.h"
+#import "MinMaxPopularityViewController.h"
 #import "NameInfoViewController.h"
 #import "MBProgressHUD.h"
 #import "GAI.h"
@@ -58,6 +59,10 @@
         [predicateFormats addObject:@"countSyllables == %d"];
         [predicateArguments addObject:[NSNumber numberWithInt:self.syllableCount]];
     }
+    if( self.icelandicLetterCount > -1 ) {
+        [predicateFormats addObject:@"countIcelandicLetters == %d"];
+        [predicateArguments addObject:[NSNumber numberWithInt:self.icelandicLetterCount]];
+    }
     
     if( self.minPopularity > 0 ) {
         [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" >= %d"]];
@@ -86,9 +91,11 @@
     }
  
     if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+
         request.sortDescriptors = [NSArray arrayWithObjects:
                                    [NSSortDescriptor sortDescriptorWithKey:popularitySortDescriptorKey ascending:NO],
-                                   [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)],
+//                                   [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)],
+                                   [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES],
                                    nil];
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
@@ -137,8 +144,10 @@
 - (void)loadFilters
 {
     self.syllableCount = [[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY];
-    self.minPopularity = [[NSUserDefaults standardUserDefaults] integerForKey:MIN_POPULARITY_STORAGE_KEY];
-    self.maxPopularity = [[NSUserDefaults standardUserDefaults] integerForKey:MAX_POPULARITY_STORAGE_KEY];
+    self.icelandicLetterCount = [[NSUserDefaults standardUserDefaults] integerForKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY] - 1 ;
+
+    self.minPopularity = [MinMaxPopularityViewController getValueFromMinComponentStoredRow];
+    self.maxPopularity = [MinMaxPopularityViewController getValueFromMaxComponentStoredRow];
 }
 
 - (void)fetchResults
@@ -284,8 +293,9 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     int numberOfSectionsInTableView;
     if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
-        numberOfSectionsInTableView = floor( [self.fetchedResultsController.fetchedObjects count] / NUMER_OF_ROWS_IN_POPULARITY_SECTION );
-        return numberOfSectionsInTableView;
+        numberOfSectionsInTableView = ceil( 1.0 * [self.fetchedResultsController.fetchedObjects count] / NUMER_OF_ROWS_IN_POPULARITY_SECTION );
+//        if( numberOfSectionsInTableView == 0 ) numberOfSectionsInTableView = 1;
+//        return numberOfSectionsInTableView;
     } else {
         numberOfSectionsInTableView = [[self.fetchedResultsController sections] count];
     }
@@ -307,11 +317,16 @@
     } else {
 
         if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
-            if( (section+1)  ==  [self numberOfSectionsInTableView:table] ) {
-                int numberOfRowsInLastSection = [self.fetchedResultsController.fetchedObjects count] - ((section+1) * 10);
+            if( (section+2)  ==  [self numberOfSectionsInTableView:table] ) {
+                int numberOfRowsInLastSection;
+                if( [self.fetchedResultsController.fetchedObjects count] > NUMER_OF_ROWS_IN_POPULARITY_SECTION ) {
+                    numberOfRowsInLastSection = [self.fetchedResultsController.fetchedObjects count] - ((section-1) * NUMER_OF_ROWS_IN_POPULARITY_SECTION);
+                } else {
+                    numberOfRowsInLastSection = [self.fetchedResultsController.fetchedObjects count];
+                }
                 return numberOfRowsInLastSection;
             } else {
-                return 10;
+                return NUMER_OF_ROWS_IN_POPULARITY_SECTION;
             }
         } else {
             id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:(section - 1)]; // -1 because one padding section at top
@@ -323,7 +338,11 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString *headerTitle;
     if( section == 0 || (section+1) == [self numberOfSectionsInTableView:self.tableView] ) {  // first or last padding sections
-        headerTitle = @"";
+        if( [self.fetchedResultsController.fetchedObjects count] == 0 && section == 0 ) {
+            headerTitle = @"Ekkert nafn uppfyllir leitarskilyrðin";
+        } else {
+            headerTitle = @"";
+        }
     } else {
         if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
             if( 1 == section ) {
@@ -363,7 +382,7 @@
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
         NSMutableArray *sectionIndexTitles = [[NSMutableArray alloc] init];
-        for( int i=0; i < [tableView numberOfSections]; i++ ) {
+        for( int i=0; i < [tableView numberOfSections]-2; i++ ) {
             if( i == 0 ) {
                 [sectionIndexTitles addObject:@"1"];
             } else if( i < 10 || 0 == (i % 10) ) {
@@ -392,7 +411,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if( section == 0 || (section+1) == [self numberOfSectionsInTableView:self.tableView] ) {  // first or last padding sections
-        return 0;
+        if( [self.fetchedResultsController.fetchedObjects count] == 0 && section == 0 ) {
+            return 22;
+        } else {
+            return 0;
+        }
     } else {
         return 22;
     }

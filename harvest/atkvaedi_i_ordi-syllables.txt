@@ -1,0 +1,59 @@
+# Google Docs formúla sem telur fjölda atkvæða í orði
+
+=(        
+	(len(A2)-len(substitute(upper(A2); "A"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "Á"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "E"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "É"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "I"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "Í"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "O"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "Ó"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "U"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "Ú"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "Y"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "Ý"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "Æ"; "")))
+	+
+	(len(A2)-len(substitute(upper(A2); "Ö"; "")))
+	-
+	if( (len(A2)-len(substitute(upper(A2); "AA"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "AA"; ""))); 0 )
+	-
+	if( (len(A2)-len(substitute(upper(A2); "EI"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "EI"; ""))); 0 )
+	-
+	if( (len(A2)-len(substitute(upper(A2); "EY"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "EY"; ""))); 0 )
+	-
+	if( (len(A2)-len(substitute(upper(A2); "AE"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "AE"; ""))); 0 )
+	-
+	if( (len(A2)-len(substitute(upper(A2); "AU"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "AU"; ""))); 0 )
+	-
+	if( (len(A2)-len(substitute(upper(A2); "OU"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "OU"; ""))); 0 )
+	-
+	if( (len(A2)-len(substitute(upper(A2); "EU"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "EU"; ""))); 0 )
+)
++
+if( (len(A2)-len(substitute(upper(A2); "AA"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "AA"; "")))/2; 0 )
++
+if( (len(A2)-len(substitute(upper(A2); "EI"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "EI"; "")))/2; 0 )
++
+if( (len(A2)-len(substitute(upper(A2); "EY"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "EY"; "")))/2; 0 )
++
+if( (len(A2)-len(substitute(upper(A2); "AE"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "AE"; "")))/2; 0 )
++
+if( (len(A2)-len(substitute(upper(A2); "AU"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "AU"; "")))/2; 0 )
++
+if( (len(A2)-len(substitute(upper(A2); "OU"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "OU"; "")))/2; 0 )
++
+if( (len(A2)-len(substitute(upper(A2); "EU"; ""))) > 0; (len(A2)-len(substitute(upper(A2); "EU"; "")))/2; 0 )

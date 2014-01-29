@@ -13,6 +13,13 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *minMaxPicker;
 
-+ (NSInteger)getRowFromStoredValueInComponent:(NSInteger)component;
++ (NSInteger)getValueFromMinComponentStoredRow;
++ (NSInteger)getValueFromMaxComponentStoredRow;
 
++ (NSInteger)getMinComponentStoredRow;
++ (NSInteger)getMaxComponentStoredRow;
+
+/*
++ (NSInteger)getRowFromStoredValueInComponent:(NSInteger)component;
+*/
 @end

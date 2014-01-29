@@ -111,7 +111,10 @@
     if( self.namesTableView.syllableCount > 0 ) {
         filtersAreSet = YES;
     }
-    if( [MinMaxPopularityViewController getRowFromStoredValueInComponent:0] > 0 || [MinMaxPopularityViewController getRowFromStoredValueInComponent:1] > 0 ) {
+    if( self.namesTableView.icelandicLetterCount > -1 ) {
+        filtersAreSet = YES;
+    }
+    if( [MinMaxPopularityViewController getMinComponentStoredRow] > 0 || [MinMaxPopularityViewController getMaxComponentStoredRow] > 0 ) {
         filtersAreSet = YES;
     }
     return filtersAreSet;

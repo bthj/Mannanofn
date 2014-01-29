@@ -28,6 +28,7 @@
 
 
 @property (nonatomic, assign) NSInteger syllableCount; // 0 for any number of syllables
+@property (nonatomic, assign) NSInteger icelandicLetterCount; // -1 for any number of Icelandic letters
 @property (nonatomic, assign) NSInteger minPopularity;
 @property (nonatomic, assign) NSInteger maxPopularity;
 

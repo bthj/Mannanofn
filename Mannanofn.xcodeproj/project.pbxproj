@@ -44,6 +44,9 @@
 		FB83C6631629E28A00C92803 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83C6621629DEFD00C92803 /* MBProgressHUD.m */; };
 		FB83FF131742E1EB0090CC6C /* first_run_guide.png in Resources */ = {isa = PBXBuildFile; fileRef = FB83FF111742E1EB0090CC6C /* first_run_guide.png */; };
 		FB83FF141742E1EB0090CC6C /* first_run_guide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB83FF121742E1EB0090CC6C /* first_run_guide@2x.png */; };
+		FB8662361893E9BC00E8C1FC /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8662351893E9BC00E8C1FC /* SearchViewController.m */; };
+		FB8662391893EB9200E8C1FC /* IcelandicLettersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8662381893EB9200E8C1FC /* IcelandicLettersViewController.m */; };
+		FB86623C1893EC3900E8C1FC /* InitialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB86623B1893EC3900E8C1FC /* InitialsViewController.m */; };
 		FB8D69FF16F282CD00653612 /* heart_nametag.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D69F616F282CD00653612 /* heart_nametag.png */; };
 		FB8D6A0016F282CD00653612 /* heart_nametag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D69F716F282CD00653612 /* heart_nametag@2x.png */; };
 		FB8D6A0116F282CD00653612 /* heart_nametag_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D69F816F282CD00653612 /* heart_nametag_disabled.png */; };
@@ -172,6 +175,12 @@
 		FB83C6621629DEFD00C92803 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FB83FF111742E1EB0090CC6C /* first_run_guide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first_run_guide.png; sourceTree = "<group>"; };
 		FB83FF121742E1EB0090CC6C /* first_run_guide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first_run_guide@2x.png"; sourceTree = "<group>"; };
+		FB8662341893E9BC00E8C1FC /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		FB8662351893E9BC00E8C1FC /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		FB8662371893EB9200E8C1FC /* IcelandicLettersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IcelandicLettersViewController.h; sourceTree = "<group>"; };
+		FB8662381893EB9200E8C1FC /* IcelandicLettersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IcelandicLettersViewController.m; sourceTree = "<group>"; };
+		FB86623A1893EC3900E8C1FC /* InitialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialsViewController.h; sourceTree = "<group>"; };
+		FB86623B1893EC3900E8C1FC /* InitialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialsViewController.m; sourceTree = "<group>"; };
 		FB8D69F616F282CD00653612 /* heart_nametag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_nametag.png; sourceTree = "<group>"; };
 		FB8D69F716F282CD00653612 /* heart_nametag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart_nametag@2x.png"; sourceTree = "<group>"; };
 		FB8D69F816F282CD00653612 /* heart_nametag_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_nametag_disabled.png; sourceTree = "<group>"; };
@@ -392,6 +401,12 @@
 				FB7A5AFF188D93BF0011C3BF /* SyllablesChoicesViewController.m */,
 				FB7A5B2118929E130011C3BF /* MinMaxPopularityViewController.h */,
 				FB7A5B2218929E130011C3BF /* MinMaxPopularityViewController.m */,
+				FB8662341893E9BC00E8C1FC /* SearchViewController.h */,
+				FB8662351893E9BC00E8C1FC /* SearchViewController.m */,
+				FB8662371893EB9200E8C1FC /* IcelandicLettersViewController.h */,
+				FB8662381893EB9200E8C1FC /* IcelandicLettersViewController.m */,
+				FB86623A1893EC3900E8C1FC /* InitialsViewController.h */,
+				FB86623B1893EC3900E8C1FC /* InitialsViewController.m */,
 			);
 			name = "Filter settings";
 			sourceTree = "<group>";
@@ -735,14 +750,17 @@
 				FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */,
 				FBE174C815E3121600EDC6A4 /* NamesTableViewListController.m in Sources */,
 				FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */,
+				FB86623C1893EC3900E8C1FC /* InitialsViewController.m in Sources */,
 				FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */,
 				FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */,
 				FB7A5B2318929E140011C3BF /* MinMaxPopularityViewController.m in Sources */,
 				FB6F8A2116B8C04100D8F9CE /* NamesDatabaseSetupUtility.m in Sources */,
 				FBE2678216B974BF00661375 /* NamesTableViewCategoryController.m in Sources */,
+				FB8662391893EB9200E8C1FC /* IcelandicLettersViewController.m in Sources */,
 				FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */,
 				FB497F1E16C08EC200894353 /* FavoritesTableViewController.m in Sources */,
 				FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */,
+				FB8662361893E9BC00E8C1FC /* SearchViewController.m in Sources */,
 				FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */,
 				FB9DD4511746A717000BEA71 /* Favorite.m in Sources */,
 				FB9DD4601746AE3B000BEA71 /* Name.m in Sources */,
