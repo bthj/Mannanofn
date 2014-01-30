@@ -72,6 +72,15 @@
         [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" <= %d"]];
         [predicateArguments addObject:[NSNumber numberWithInt:self.maxPopularity]];
     }
+    
+    if( self.firstInitialFilter != nil && self.namesPosition == 0 ) {
+        [predicateFormats addObject:@"name beginswith %@"];
+        [predicateArguments addObject:self.firstInitialFilter];
+    }
+    if( self.secondInitialFilter != nil && self.namesPosition == 1 ) {
+        [predicateFormats addObject:@"name beginswith %@"];
+        [predicateArguments addObject:self.secondInitialFilter];
+    }
 
     if( self.genderSelection ) {
 //            request.predicate = [NSPredicate predicateWithFormat:@"gender == %@", self.genderSelection];
@@ -148,6 +157,9 @@
 
     self.minPopularity = [MinMaxPopularityViewController getValueFromMinComponentStoredRow];
     self.maxPopularity = [MinMaxPopularityViewController getValueFromMaxComponentStoredRow];
+    
+    self.firstInitialFilter = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_FIRST_STORAGE_KEY];
+    self.secondInitialFilter = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_SECOND_STORAGE_KEY];
 }
 
 - (void)fetchResults

@@ -31,6 +31,8 @@
 @property (nonatomic, assign) NSInteger icelandicLetterCount; // -1 for any number of Icelandic letters
 @property (nonatomic, assign) NSInteger minPopularity;
 @property (nonatomic, assign) NSInteger maxPopularity;
+@property (nonatomic, strong) NSString *firstInitialFilter;
+@property (nonatomic, strong) NSString *secondInitialFilter;
 
 
 - (void)loadFilters;

@@ -32,10 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-/*
-    [self.minMaxPicker selectRow:[MinMaxPopularityViewController getRowFromStoredValueInComponent:0] inComponent:0 animated:NO];
-    [self.minMaxPicker selectRow:[MinMaxPopularityViewController getRowFromStoredValueInComponent:1] inComponent:1 animated:NO];
-*/
+
     [self.minMaxPicker selectRow:[[NSUserDefaults standardUserDefaults] integerForKey:MIN_POPULARITY_STORAGE_KEY] inComponent:0 animated:NO];
     [self.minMaxPicker selectRow:[[NSUserDefaults standardUserDefaults] integerForKey:MAX_POPULARITY_STORAGE_KEY] inComponent:1 animated:NO];
 }
@@ -67,22 +64,23 @@
 {
     NSInteger distanceFromMaxRowInMaxCol = [pickerView numberOfRowsInComponent:1] - ([pickerView selectedRowInComponent:1]+1);
     if( component == 0 ) {
+
         if( distanceFromMaxRowInMaxCol < row) {
             NSInteger rowInComponent1ToAdjustTo = [pickerView selectedRowInComponent:1]-(row-distanceFromMaxRowInMaxCol);
             [pickerView selectRow:rowInComponent1ToAdjustTo inComponent:1 animated:YES];
-//            [[NSUserDefaults standardUserDefaults] setInteger:[self getValueFromRow:rowInComponent1ToAdjustTo inComponent:1] forKey:MAX_POPULARITY_STORAGE_KEY];
+
             [[NSUserDefaults standardUserDefaults] setInteger:rowInComponent1ToAdjustTo forKey:MAX_POPULARITY_STORAGE_KEY];
         }
-//        [[NSUserDefaults standardUserDefaults] setInteger:[self getValueFromRow:row inComponent:component] forKey:MIN_POPULARITY_STORAGE_KEY];
         [[NSUserDefaults standardUserDefaults] setInteger:row forKey:MIN_POPULARITY_STORAGE_KEY];
+        
     } else {
+        
         if( distanceFromMaxRowInMaxCol < [pickerView selectedRowInComponent:0] ) {
             NSInteger rowInComponent0ToAdjustTo = [pickerView selectedRowInComponent:0]-([pickerView selectedRowInComponent:0]-distanceFromMaxRowInMaxCol);
             [pickerView selectRow:rowInComponent0ToAdjustTo inComponent:0 animated:YES];
-//            [[NSUserDefaults standardUserDefaults] setInteger:[self getValueFromRow:rowInComponent0ToAdjustTo inComponent:0] forKey:MIN_POPULARITY_STORAGE_KEY];
+
             [[NSUserDefaults standardUserDefaults] setInteger:rowInComponent0ToAdjustTo forKey:MIN_POPULARITY_STORAGE_KEY];
         }
-//        [[NSUserDefaults standardUserDefaults] setInteger:[self getValueFromRow:row inComponent:component] forKey:MAX_POPULARITY_STORAGE_KEY];
         [[NSUserDefaults standardUserDefaults] setInteger:row forKey:MAX_POPULARITY_STORAGE_KEY];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];

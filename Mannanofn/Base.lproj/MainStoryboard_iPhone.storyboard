@@ -1727,7 +1727,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7dr-h2-ksY"/>
                     <connections>
-                        <outlet property="minMaxPicker" destination="mRx-WH-RSc" id="Ei5-11-G8H"/>
+                        <outlet property="initialsPicker" destination="mRx-WH-RSc" id="LUi-iH-hKY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oII-OL-CZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>

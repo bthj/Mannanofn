@@ -25,6 +25,8 @@
 #define ICELANDIC_LETTER_COUNT_STORAGE_KEY @"showNamesWithNumberOfIcelandicLetters"
 #define MIN_POPULARITY_STORAGE_KEY @"minimumPopularityFilter"
 #define MAX_POPULARITY_STORAGE_KEY @"maximumPopularityFilter"
+#define INITIAL_FIRST_STORAGE_KEY @"firstInitialToFilterBy"
+#define INITIAL_SECOND_STORAGE_KEY @"secondInitialToFilterBy"
 
 #define MAX_TOTAL_NUMBER_OF_NAMES 5500
 

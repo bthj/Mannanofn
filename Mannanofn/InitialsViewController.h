@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InitialsViewController : UIViewController
+@interface InitialsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UIPickerView *initialsPicker;
+
+
++ (BOOL)areInitialsFiltersSet;
 
 @end

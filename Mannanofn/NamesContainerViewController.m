@@ -12,6 +12,7 @@
 #import "Favorite+Create.h"
 #import "FilterChoicesViewController.h"
 #import "MinMaxPopularityViewController.h"
+#import "InitialsViewController.h"
 
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
@@ -115,6 +116,9 @@
         filtersAreSet = YES;
     }
     if( [MinMaxPopularityViewController getMinComponentStoredRow] > 0 || [MinMaxPopularityViewController getMaxComponentStoredRow] > 0 ) {
+        filtersAreSet = YES;
+    }
+    if( [InitialsViewController areInitialsFiltersSet] ) {
         filtersAreSet = YES;
     }
     return filtersAreSet;

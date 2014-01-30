@@ -11,6 +11,7 @@
 #import "SyllablesChoicesViewController.h"
 #import "IcelandicLettersViewController.h"
 #import "MinMaxPopularityViewController.h"
+#import "InitialsViewController.h"
 #import "MannanofnGlobalStringConstants.h"
 
 
@@ -43,6 +44,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self setMinMaxDetail];
+    [self setInitialsDetail];
     
     [self setClearFiltersCellStatus];
 }
@@ -80,6 +82,10 @@
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:MIN_POPULARITY_STORAGE_KEY];
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:MAX_POPULARITY_STORAGE_KEY];
     [self setMinMaxDetail];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:INITIAL_FIRST_STORAGE_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:INITIAL_SECOND_STORAGE_KEY];
+    [self setInitialsDetail];
     
     
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -160,6 +166,21 @@
     }
 }
 
+- (void)setInitialsDetail
+{
+    NSString *storedFirstInitial = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_FIRST_STORAGE_KEY];
+    NSString *storedSecondInitial = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_SECOND_STORAGE_KEY];
+    if( nil != storedFirstInitial || nil != storedSecondInitial ) {
+        self.initialsCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        if( nil == storedFirstInitial ) storedFirstInitial = @"?";
+        if( nil == storedSecondInitial ) storedSecondInitial = @"?";
+        self.initialsCell.detailTextLabel.text = [NSString stringWithFormat:@"%@. %@.", storedFirstInitial, storedSecondInitial];
+    } else {
+        self.initialsCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        self.initialsCell.detailTextLabel.text = @"Allt";
+    }
+}
+
 
 - (BOOL)areFiltersSet {
     BOOL filtersAreSet = NO;
@@ -170,6 +191,9 @@
         filtersAreSet = YES;
     }
     if( [self areMinMaxFiltersSet] ) {
+        filtersAreSet = YES;
+    }
+    if( [InitialsViewController areInitialsFiltersSet] ) {
         filtersAreSet = YES;
     }
     return filtersAreSet;
@@ -194,6 +218,5 @@
         return NO;
     }
 }
-
 
 @end
