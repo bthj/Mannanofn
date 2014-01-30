@@ -531,7 +531,10 @@
                                 <rect key="frame" x="20" y="133" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="X8F-RJ-HgX" id="i6p-5I-X8B"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oD0-CE-AVx">
                                 <rect key="frame" x="20" y="518" width="280" height="30"/>
@@ -544,6 +547,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Kp-bv-Dsd"/>
+                    <connections>
+                        <outlet property="searchInputField" destination="gFi-OC-MGv" id="WbW-8C-dE4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVg-ip-DB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

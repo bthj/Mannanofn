@@ -81,6 +81,11 @@
         [predicateFormats addObject:@"name beginswith %@"];
         [predicateArguments addObject:self.secondInitialFilter];
     }
+    
+    if( self.searchFilter != nil && [self.searchFilter length] > 0 ) {
+        [predicateFormats addObject:@"name contains[c] %@"];
+        [predicateArguments addObject:self.searchFilter];
+    }
 
     if( self.genderSelection ) {
 //            request.predicate = [NSPredicate predicateWithFormat:@"gender == %@", self.genderSelection];
@@ -160,6 +165,8 @@
     
     self.firstInitialFilter = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_FIRST_STORAGE_KEY];
     self.secondInitialFilter = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_SECOND_STORAGE_KEY];
+    
+    self.searchFilter = [[NSUserDefaults standardUserDefaults] stringForKey:SEARCH_STRING_STORAGE_KEY];
 }
 
 - (void)fetchResults

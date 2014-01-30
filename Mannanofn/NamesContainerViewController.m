@@ -13,6 +13,7 @@
 #import "FilterChoicesViewController.h"
 #import "MinMaxPopularityViewController.h"
 #import "InitialsViewController.h"
+#import "SearchViewController.h"
 
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
@@ -119,6 +120,9 @@
         filtersAreSet = YES;
     }
     if( [InitialsViewController areInitialsFiltersSet] ) {
+        filtersAreSet = YES;
+    }
+    if( [SearchViewController isSearchFilterSet] ) {
         filtersAreSet = YES;
     }
     return filtersAreSet;

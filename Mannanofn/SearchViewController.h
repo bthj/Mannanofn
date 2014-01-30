@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController
+@interface SearchViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *searchInputField;
+
++ (BOOL)isSearchFilterSet;
 
 @end

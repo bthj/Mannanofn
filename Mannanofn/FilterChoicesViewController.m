@@ -12,6 +12,7 @@
 #import "IcelandicLettersViewController.h"
 #import "MinMaxPopularityViewController.h"
 #import "InitialsViewController.h"
+#import "SearchViewController.h"
 #import "MannanofnGlobalStringConstants.h"
 
 
@@ -43,8 +44,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self setMinMaxDetail];
     [self setInitialsDetail];
+    [self setSearchDetail];
     
     [self setClearFiltersCellStatus];
 }
@@ -86,6 +90,9 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:INITIAL_FIRST_STORAGE_KEY];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:INITIAL_SECOND_STORAGE_KEY];
     [self setInitialsDetail];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:SEARCH_STRING_STORAGE_KEY];
+    [self setSearchDetail];
     
     
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -181,19 +188,34 @@
     }
 }
 
+- (void)setSearchDetail
+{
+    NSString *searchFilter = [[NSUserDefaults standardUserDefaults] stringForKey:SEARCH_STRING_STORAGE_KEY];
+    if( searchFilter != nil & [searchFilter length] > 0 ) {
+        self.searchCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        self.searchCell.detailTextLabel.text = searchFilter;
+    } else {
+        self.searchCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        self.searchCell.detailTextLabel.text = @"Allt";
+    }
+}
+
 
 - (BOOL)areFiltersSet {
     BOOL filtersAreSet = NO;
     if( [[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY] > 0 ) {
         filtersAreSet = YES;
     }
-    if( [[NSUserDefaults standardUserDefaults] integerForKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY] > -1 ) {
+    if( [[NSUserDefaults standardUserDefaults] integerForKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY] > 0 ) {
         filtersAreSet = YES;
     }
     if( [self areMinMaxFiltersSet] ) {
         filtersAreSet = YES;
     }
     if( [InitialsViewController areInitialsFiltersSet] ) {
+        filtersAreSet = YES;
+    }
+    if( [SearchViewController isSearchFilterSet] ) {
         filtersAreSet = YES;
     }
     return filtersAreSet;

@@ -27,6 +27,7 @@
 #define MAX_POPULARITY_STORAGE_KEY @"maximumPopularityFilter"
 #define INITIAL_FIRST_STORAGE_KEY @"firstInitialToFilterBy"
 #define INITIAL_SECOND_STORAGE_KEY @"secondInitialToFilterBy"
+#define SEARCH_STRING_STORAGE_KEY @"searchStringToFilterBy"
 
 #define MAX_TOTAL_NUMBER_OF_NAMES 5500
 

@@ -33,6 +33,7 @@
 @property (nonatomic, assign) NSInteger maxPopularity;
 @property (nonatomic, strong) NSString *firstInitialFilter;
 @property (nonatomic, strong) NSString *secondInitialFilter;
+@property (nonatomic, strong) NSString *searchFilter;
 
 
 - (void)loadFilters;
