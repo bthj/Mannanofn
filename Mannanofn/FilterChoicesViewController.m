@@ -46,9 +46,14 @@
 {
 //    [[NSUserDefaults standardUserDefaults] synchronize];
     
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
+    
     [self setMinMaxDetail];
     [self setInitialsDetail];
     [self setSearchDetail];
+    
+    [self setSurnameDetail];
     
     [self setClearFiltersCellStatus];
 }
@@ -198,6 +203,11 @@
         self.searchCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
         self.searchCell.detailTextLabel.text = @"Allt";
     }
+}
+
+- (void)setSurnameDetail
+{
+    self.surnameCell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:SURNAME_STORAGE_KEY];
 }
 
 

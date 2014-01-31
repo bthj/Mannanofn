@@ -29,6 +29,8 @@
 #define INITIAL_SECOND_STORAGE_KEY @"secondInitialToFilterBy"
 #define SEARCH_STRING_STORAGE_KEY @"searchStringToFilterBy"
 
+#define SURNAME_STORAGE_KEY @"surname"
+
 #define MAX_TOTAL_NUMBER_OF_NAMES 5500
 
 

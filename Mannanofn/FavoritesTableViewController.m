@@ -10,6 +10,8 @@
 #import "Favorite.h"
 #import "Name+Create.h"
 #import "NameInfoViewController.h"
+#import "MannanofnGlobalStringConstants.h"
+
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
@@ -201,7 +203,7 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
     
     Favorite *favorite = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
     NSArray *nameParts = [favorite.name componentsSeparatedByString:@" "];
-    if( [nameParts count] == 2 ) {
+    if( [nameParts count] >= 2 ) {
         
         Name *name1 = [Name getNameForName:[nameParts objectAtIndex:0] inContext:self.namesDatabase.managedObjectContext];
         Name *name2 = [Name getNameForName:[nameParts objectAtIndex:1] inContext:self.namesDatabase.managedObjectContext];
@@ -209,15 +211,21 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
         nameInfo.name = favorite.name;
         nameInfo.gender = favorite.gender;
         
-        nameInfo.descriptionLegend = [name1.name stringByAppendingString:@":"];
         nameInfo.description = name1.descriptionIcelandic;
         
-        nameInfo.originLegend = [name2.name stringByAppendingString:@":"];
-        nameInfo.origin = name2.descriptionIcelandic;
-        
-        nameInfo.countAsFirstName = name1.countAsFirstName;
-        nameInfo.countAsSecondName = name2.countAsSecondName;
-        
+        if( name2 ) {
+            nameInfo.descriptionLegend = [name1.name stringByAppendingString:@":"];
+            
+            nameInfo.originLegend = [name2.name stringByAppendingString:@":"];
+            nameInfo.origin = name2.descriptionIcelandic;
+            
+            nameInfo.countAsFirstName = name1.countAsFirstName;
+            nameInfo.countAsSecondName = name2.countAsSecondName;
+        } else {
+            nameInfo.origin = name1.origin;
+            nameInfo.countAsFirstName = name1.countAsFirstName;
+            nameInfo.countAsSecondName = name1.countAsSecondName;
+        }
     } else if( [nameParts count] == 1 ) {
         
         Name *name = [Name getNameForName:favorite.name inContext:self.namesDatabase.managedObjectContext];

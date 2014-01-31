@@ -55,36 +55,39 @@
         popularitySortDescriptorKey = @"countAsSecondName";
     }
 
-    if( self.syllableCount > 0 ) {
-        [predicateFormats addObject:@"countSyllables == %d"];
-        [predicateArguments addObject:[NSNumber numberWithInt:self.syllableCount]];
-    }
-    if( self.icelandicLetterCount > -1 ) {
-        [predicateFormats addObject:@"countIcelandicLetters == %d"];
-        [predicateArguments addObject:[NSNumber numberWithInt:self.icelandicLetterCount]];
-    }
-    
-    if( self.minPopularity > 0 ) {
-        [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" >= %d"]];
-        [predicateArguments addObject:[NSNumber numberWithInt:self.minPopularity]];
-    }
-    if( self.maxPopularity < MAX_TOTAL_NUMBER_OF_NAMES ) {
-        [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" <= %d"]];
-        [predicateArguments addObject:[NSNumber numberWithInt:self.maxPopularity]];
-    }
-    
-    if( self.firstInitialFilter != nil && self.namesPosition == 0 ) {
-        [predicateFormats addObject:@"name beginswith %@"];
-        [predicateArguments addObject:self.firstInitialFilter];
-    }
-    if( self.secondInitialFilter != nil && self.namesPosition == 1 ) {
-        [predicateFormats addObject:@"name beginswith %@"];
-        [predicateArguments addObject:self.secondInitialFilter];
-    }
-    
-    if( self.searchFilter != nil && [self.searchFilter length] > 0 ) {
-        [predicateFormats addObject:@"name contains[c] %@"];
-        [predicateArguments addObject:self.searchFilter];
+    if( ! self.categorySelection && ! self.originSelection ) {
+        
+        if( self.syllableCount > 0 ) {
+            [predicateFormats addObject:@"countSyllables == %d"];
+            [predicateArguments addObject:[NSNumber numberWithInt:self.syllableCount]];
+        }
+        if( self.icelandicLetterCount > -1 ) {
+            [predicateFormats addObject:@"countIcelandicLetters == %d"];
+            [predicateArguments addObject:[NSNumber numberWithInt:self.icelandicLetterCount]];
+        }
+        
+        if( self.minPopularity > 0 ) {
+            [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" >= %d"]];
+            [predicateArguments addObject:[NSNumber numberWithInt:self.minPopularity]];
+        }
+        if( self.maxPopularity < MAX_TOTAL_NUMBER_OF_NAMES ) {
+            [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" <= %d"]];
+            [predicateArguments addObject:[NSNumber numberWithInt:self.maxPopularity]];
+        }
+        
+        if( self.firstInitialFilter != nil && self.namesPosition == 0 ) {
+            [predicateFormats addObject:@"name beginswith %@"];
+            [predicateArguments addObject:self.firstInitialFilter];
+        }
+        if( self.secondInitialFilter != nil && self.namesPosition == 1 ) {
+            [predicateFormats addObject:@"name beginswith %@"];
+            [predicateArguments addObject:self.secondInitialFilter];
+        }
+        
+        if( self.searchFilter != nil && [self.searchFilter length] > 0 ) {
+            [predicateFormats addObject:@"name contains[c] %@"];
+            [predicateArguments addObject:self.searchFilter];
+        }
     }
 
     if( self.genderSelection ) {

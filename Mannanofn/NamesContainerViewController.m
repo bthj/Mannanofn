@@ -283,15 +283,27 @@
     [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"heart_nametag_disabled"] forState:UIControlStateNormal];
 }
 
+
 - (void)updateNameCard:(NSString *)name
 {
-    NSArray *nameParts = [self.nameOnCard.text componentsSeparatedByString:@" "];
+    NSString *surname = [[NSUserDefaults standardUserDefaults] stringForKey:SURNAME_STORAGE_KEY];
+
+    NSMutableArray *nameParts = [[self.nameOnCard.text componentsSeparatedByString:@" "] mutableCopy];
+    NSInteger surnameIndex = [nameParts indexOfObject:surname];
+    if( surnameIndex != NSNotFound ) {
+        [nameParts removeObjectAtIndex:surnameIndex];
+    }
+    if( surname != nil ) {
+        surname = [NSString stringWithFormat:@" %@", surname];
+    } else {
+        surname = @"";
+    }
     switch (self.namePosition.selectedSegmentIndex) {
         case 0:
             if( [nameParts count] > 1 ) {
-                self.nameOnCard.text = [name stringByAppendingFormat:@" %@", [nameParts objectAtIndex:1]];
+                self.nameOnCard.text = [name stringByAppendingFormat:@" %@%@", [nameParts objectAtIndex:1], surname];
             } else {
-                self.nameOnCard.text = name;
+                self.nameOnCard.text = [name stringByAppendingString:surname];
             }
             break;
             
@@ -299,19 +311,19 @@
             if( [nameParts count] > 0 ) {
                 NSString *firstName = [nameParts objectAtIndex:0];
                 if( [firstName isEqual:@""] ) {
-                    self.nameOnCard.text = name;
+                    self.nameOnCard.text = [name stringByAppendingString:surname];
                 } else if( ! [firstName isEqual:name] ) {
-                    self.nameOnCard.text = [firstName stringByAppendingFormat:@" %@", name];
+                    self.nameOnCard.text = [firstName stringByAppendingFormat:@" %@%@", name, surname];
                 }
             } else {
-                self.nameOnCard.text = name;
+                self.nameOnCard.text = [name stringByAppendingString:surname];
             }
             break;
             
         default:
             break;
     }
-    
+
     // let's check if the name is marked as a favorite after 1 second delay
     // so we won't be doing excessive db lookups when names change rapidly (scrolling fast)
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{

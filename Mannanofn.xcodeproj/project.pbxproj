@@ -47,6 +47,7 @@
 		FB8662361893E9BC00E8C1FC /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8662351893E9BC00E8C1FC /* SearchViewController.m */; };
 		FB8662391893EB9200E8C1FC /* IcelandicLettersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8662381893EB9200E8C1FC /* IcelandicLettersViewController.m */; };
 		FB86623C1893EC3900E8C1FC /* InitialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB86623B1893EC3900E8C1FC /* InitialsViewController.m */; };
+		FB866240189A982100E8C1FC /* SurnameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB86623F189A982100E8C1FC /* SurnameViewController.m */; };
 		FB8D69FF16F282CD00653612 /* heart_nametag.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D69F616F282CD00653612 /* heart_nametag.png */; };
 		FB8D6A0016F282CD00653612 /* heart_nametag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D69F716F282CD00653612 /* heart_nametag@2x.png */; };
 		FB8D6A0116F282CD00653612 /* heart_nametag_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D69F816F282CD00653612 /* heart_nametag_disabled.png */; };
@@ -181,6 +182,8 @@
 		FB8662381893EB9200E8C1FC /* IcelandicLettersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IcelandicLettersViewController.m; sourceTree = "<group>"; };
 		FB86623A1893EC3900E8C1FC /* InitialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialsViewController.h; sourceTree = "<group>"; };
 		FB86623B1893EC3900E8C1FC /* InitialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialsViewController.m; sourceTree = "<group>"; };
+		FB86623E189A982100E8C1FC /* SurnameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurnameViewController.h; sourceTree = "<group>"; };
+		FB86623F189A982100E8C1FC /* SurnameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurnameViewController.m; sourceTree = "<group>"; };
 		FB8D69F616F282CD00653612 /* heart_nametag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_nametag.png; sourceTree = "<group>"; };
 		FB8D69F716F282CD00653612 /* heart_nametag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart_nametag@2x.png"; sourceTree = "<group>"; };
 		FB8D69F816F282CD00653612 /* heart_nametag_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_nametag_disabled.png; sourceTree = "<group>"; };
@@ -346,6 +349,7 @@
 				FB8D69F116E63B7E00653612 /* Favorites */,
 				FB8D69F016E63B7300653612 /* Name info */,
 				FB515875188C9635008B8C18 /* Filter settings */,
+				FB86623D189A97B700E8C1FC /* Miscellaneous settings */,
 				FB313E071546008A0077438C /* first.png */,
 				FB313E091546008A0077438C /* first@2x.png */,
 				FB313E101546008A0077438C /* second@2x.png */,
@@ -435,6 +439,15 @@
 				FB83C6621629DEFD00C92803 /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		FB86623D189A97B700E8C1FC /* Miscellaneous settings */ = {
+			isa = PBXGroup;
+			children = (
+				FB86623E189A982100E8C1FC /* SurnameViewController.h */,
+				FB86623F189A982100E8C1FC /* SurnameViewController.m */,
+			);
+			name = "Miscellaneous settings";
 			sourceTree = "<group>";
 		};
 		FB8D69EE16E63B2700653612 /* Name lists */ = {
@@ -749,6 +762,7 @@
 				FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */,
 				FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */,
 				FBE174C815E3121600EDC6A4 /* NamesTableViewListController.m in Sources */,
+				FB866240189A982100E8C1FC /* SurnameViewController.m in Sources */,
 				FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */,
 				FB86623C1893EC3900E8C1FC /* InitialsViewController.m in Sources */,
 				FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */,
