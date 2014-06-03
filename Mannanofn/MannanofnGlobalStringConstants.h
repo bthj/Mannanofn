@@ -31,6 +31,8 @@
 
 #define SURNAME_STORAGE_KEY @"surname"
 
+#define ADS_OFF @"adsOn"
+
 #define MAX_TOTAL_NUMBER_OF_NAMES 5500
 
 

@@ -27,6 +27,7 @@
 		FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2616C09B6100894353 /* Favorite+Create.m */; };
 		FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2916C0A35C00894353 /* FavoritesDatabaseUtility.m */; };
 		FB515878188C96A2008B8C18 /* FilterChoicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB515877188C96A1008B8C18 /* FilterChoicesViewController.m */; };
+		FB6A351C193CA21D004E61C8 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6A351B193CA21D004E61C8 /* libsqlite3.dylib */; };
 		FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1116B7413A00D8F9CE /* Default.png */; };
 		FB6F8A1516B7413A00D8F9CE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1216B7413A00D8F9CE /* Default@2x.png */; };
 		FB6F8A1616B7413A00D8F9CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */; };
@@ -151,6 +152,7 @@
 		FB610B2916D314DF003116B4 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FB65CF6716DC217A00FA6246 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		FB65CF6816DC2C3400FA6246 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard_iPhone.strings; sourceTree = "<group>"; };
+		FB6A351B193CA21D004E61C8 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FB6F8A1116B7413A00D8F9CE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FB6F8A1216B7413A00D8F9CE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FB6F8A1316B7413A00D8F9CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6A351C193CA21D004E61C8 /* libsqlite3.dylib in Frameworks */,
 				FBDB0FFE18858F94000B3148 /* libz.dylib in Frameworks */,
 				FBDB0FFC18843588000B3148 /* AVFoundation.framework in Frameworks */,
 				FBDB0FFA18843461000B3148 /* libGoogleAdMobAds.a in Frameworks */,
@@ -322,6 +325,7 @@
 		FB313DEB1546008A0077438C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB6A351B193CA21D004E61C8 /* libsqlite3.dylib */,
 				FBDB0FFD18858F94000B3148 /* libz.dylib */,
 				FBDB0FFB18843588000B3148 /* AVFoundation.framework */,
 				FB48E307173EDCD0008D91DA /* MessageUI.framework */,

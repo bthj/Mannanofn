@@ -63,6 +63,11 @@
     [[self delegate] filterChoicesTableViewControllerDidFinish:self];
 }
 
+- (IBAction)switchAds:(UISwitch *)sender {
+    
+    [[NSUserDefaults standardUserDefaults] setBool:!sender.on forKey:ADS_OFF];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

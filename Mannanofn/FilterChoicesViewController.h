@@ -36,6 +36,8 @@
 
 - (IBAction)done:(id)sender;
 
+- (IBAction)switchAds:(UISwitch *)sender;
+
 @end
 
 
