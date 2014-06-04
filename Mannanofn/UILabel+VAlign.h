@@ -12,4 +12,6 @@
 
 - (void) setVerticalAlignmentTop;
 
+- (void) alignTop;
+
 @end

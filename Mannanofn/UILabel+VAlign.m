@@ -24,4 +24,15 @@
     [self setNeedsDisplay];
 }
 
+- (void)alignTop {  // http://webcache.googleusercontent.com/a/20234746
+    CGSize fontSize = [self.text sizeWithAttributes:@{NSFontAttributeName:self.font}];
+    double finalHeight = fontSize.height * self.numberOfLines;
+    double finalWidth = self.frame.size.width;    //expected width of label
+    CGRect rect = [self.text boundingRectWithSize:CGSizeMake(finalWidth, finalHeight) options:NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName:self.font} context:nil];
+    CGSize theStringSize = rect.size;
+    int newLinesToPad = (finalHeight  - theStringSize.height) / fontSize.height;
+    for(int i=0; i< newLinesToPad; i++)
+        self.text = [self.text stringByAppendingString:@" \n"];
+}
+
 @end

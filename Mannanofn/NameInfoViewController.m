@@ -66,6 +66,9 @@
     
     
     [self.descriptionLabel setVerticalAlignmentTop];  // call a custom Category
+    // [self.descriptionLabel alignTop];
+//    [self.descriptionLabel setNumberOfLines:0];
+//    [self.descriptionLabel sizeToFit];
     [self.originLabel setVerticalAlignmentTop];
     
     

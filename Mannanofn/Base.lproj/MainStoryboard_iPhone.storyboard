@@ -1029,7 +1029,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="- merking" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="6" preferredMaxLayoutWidth="182" translatesAutoresizingMaskIntoConstraints="NO" id="51O-E2-1zB">
-                                <rect key="frame" x="135" y="216" width="182" height="42"/>
+                                <rect key="frame" x="135" y="216" width="182" height="56"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1135,6 +1135,7 @@
                             <constraint firstItem="kJ1-fk-xhE" firstAttribute="top" secondItem="Ius-4p-vRe" secondAttribute="bottom" constant="17" id="Kz4-Ob-FQK"/>
                             <constraint firstAttribute="bottom" secondItem="2xo-HU-EYr" secondAttribute="bottom" constant="86" id="L6l-es-b1f"/>
                             <constraint firstAttribute="trailing" secondItem="2xo-HU-EYr" secondAttribute="trailing" constant="118" id="LKF-SV-Fei"/>
+                            <constraint firstItem="51O-E2-1zB" firstAttribute="top" secondItem="yyz-Sb-MZj" secondAttribute="bottom" constant="4" id="OJ6-nQ-y9C"/>
                             <constraint firstAttribute="bottom" secondItem="n2k-PC-28r" secondAttribute="bottom" constant="213" id="OfQ-FW-WjL"/>
                             <constraint firstItem="UI3-LZ-Vgd" firstAttribute="top" secondItem="k3h-b2-cHD" secondAttribute="bottom" constant="4" id="Op0-Yv-zlJ"/>
                             <constraint firstAttribute="trailing" secondItem="i98-zP-PFg" secondAttribute="trailing" constant="20" symbolic="YES" id="UJx-9o-7Jd"/>
