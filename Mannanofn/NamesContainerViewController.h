@@ -10,7 +10,13 @@
 #import "NamesTableViewListController.h"
 #import "FavoritesDatabaseUtility.h"
 
-@interface NamesContainerViewController : UIViewController <NameCardUpdateDelegate, SetFavoritesDatabaseDelegate>
+#import "GAITrackedViewController.h"
+#import "GADBannerView.h"
+
+@interface NamesContainerViewController : UIViewController <NameCardUpdateDelegate, SetFavoritesDatabaseDelegate> {
+    
+    GADBannerView *bannerView_;
+}
 
 @property (assign, nonatomic) BOOL showCategories;
 @property (nonatomic, strong) NSString *namesOrder;
@@ -40,6 +46,9 @@
 @property (weak, nonatomic) IBOutlet UIView *tableContainer;
 
 @property (weak, nonatomic) IBOutlet UIImageView *firstRunGuide;
+
+
+@property (weak, nonatomic) IBOutlet UIView *adView;
 
 
 @end

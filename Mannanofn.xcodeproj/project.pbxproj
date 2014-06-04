@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB2DFDD7193F4C6A00448429 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */; };
+		FB2DFDDA193F5CF200448429 /* CategoriesContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2DFDD9193F5CF200448429 /* CategoriesContainerController.m */; };
+		FB2DFDDD193F5F5F00448429 /* FavoritesContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2DFDDC193F5F5F00448429 /* FavoritesContainerController.m */; };
 		FB313DED1546008A0077438C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEC1546008A0077438C /* UIKit.framework */; };
 		FB313DEF1546008A0077438C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEE1546008A0077438C /* Foundation.framework */; };
 		FB313DF11546008A0077438C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DF01546008A0077438C /* CoreGraphics.framework */; };
@@ -120,6 +123,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FB2DFDD8193F5CF200448429 /* CategoriesContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesContainerController.h; sourceTree = "<group>"; };
+		FB2DFDD9193F5CF200448429 /* CategoriesContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesContainerController.m; sourceTree = "<group>"; };
+		FB2DFDDB193F5F5F00448429 /* FavoritesContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesContainerController.h; sourceTree = "<group>"; };
+		FB2DFDDC193F5F5F00448429 /* FavoritesContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesContainerController.m; sourceTree = "<group>"; };
 		FB313DE81546008A0077438C /* Nefna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nefna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB313DEC1546008A0077438C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FB313DEE1546008A0077438C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -270,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB2DFDD7193F4C6A00448429 /* CoreTelephony.framework in Frameworks */,
 				FB6A351C193CA21D004E61C8 /* libsqlite3.dylib in Frameworks */,
 				FBDB0FFE18858F94000B3148 /* libz.dylib in Frameworks */,
 				FBDB0FFC18843588000B3148 /* AVFoundation.framework in Frameworks */,
@@ -325,6 +334,7 @@
 		FB313DEB1546008A0077438C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */,
 				FB6A351B193CA21D004E61C8 /* libsqlite3.dylib */,
 				FBDB0FFD18858F94000B3148 /* libz.dylib */,
 				FBDB0FFB18843588000B3148 /* AVFoundation.framework */,
@@ -496,6 +506,8 @@
 				FB497F1D16C08EC200894353 /* FavoritesTableViewController.m */,
 				FB497F2816C0A35C00894353 /* FavoritesDatabaseUtility.h */,
 				FB497F2916C0A35C00894353 /* FavoritesDatabaseUtility.m */,
+				FB2DFDDB193F5F5F00448429 /* FavoritesContainerController.h */,
+				FB2DFDDC193F5F5F00448429 /* FavoritesContainerController.m */,
 			);
 			name = Favorites;
 			sourceTree = "<group>";
@@ -505,6 +517,8 @@
 			children = (
 				FBE2678016B974BF00661375 /* NamesTableViewCategoryController.h */,
 				FBE2678116B974BF00661375 /* NamesTableViewCategoryController.m */,
+				FB2DFDD8193F5CF200448429 /* CategoriesContainerController.h */,
+				FB2DFDD9193F5CF200448429 /* CategoriesContainerController.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -771,6 +785,7 @@
 				FB86623C1893EC3900E8C1FC /* InitialsViewController.m in Sources */,
 				FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */,
 				FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */,
+				FB2DFDDA193F5CF200448429 /* CategoriesContainerController.m in Sources */,
 				FB7A5B2318929E140011C3BF /* MinMaxPopularityViewController.m in Sources */,
 				FB6F8A2116B8C04100D8F9CE /* NamesDatabaseSetupUtility.m in Sources */,
 				FBE2678216B974BF00661375 /* NamesTableViewCategoryController.m in Sources */,
@@ -783,6 +798,7 @@
 				FB9DD4511746A717000BEA71 /* Favorite.m in Sources */,
 				FB9DD4601746AE3B000BEA71 /* Name.m in Sources */,
 				FB9C336F174C057400CA387C /* UILabel+VAlign.m in Sources */,
+				FB2DFDDD193F5F5F00448429 /* FavoritesContainerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

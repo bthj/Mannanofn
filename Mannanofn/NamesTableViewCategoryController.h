@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "NamesDatabaseSetupUtility.h"
 
+
 @interface NamesTableViewCategoryController : CoreDataTableViewController <SetNamesDatabaseDelegate, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryTypeSelector;
 - (IBAction)changeCategoryType:(id)sender;
+
+
 
 
 @end

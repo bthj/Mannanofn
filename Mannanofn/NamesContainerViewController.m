@@ -87,6 +87,16 @@
         [self.firstRunGuide addGestureRecognizer:singleTap];
         [self.firstRunGuide setUserInteractionEnabled:YES];
     }
+    
+    
+    // Ads
+    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    bannerView_.adUnitID = @"a1518d2dce38034";
+    bannerView_.rootViewController = self;
+    [self.adView addSubview:bannerView_];
+    GADRequest *request = [GADRequest request];
+    //    request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
+    [bannerView_ loadRequest:request];
 }
 
 - (void)addTitleToNavigationItem:(NSString *)titleText
