@@ -50,5 +50,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *adView;
 
+- (IBAction)closeAd:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *adCloseButton;
+
+
 
 @end

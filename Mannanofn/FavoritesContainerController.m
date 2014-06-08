@@ -8,6 +8,9 @@
 
 #import "FavoritesContainerController.h"
 
+#import "MannanofnGlobalStringConstants.h"
+
+
 @interface FavoritesContainerController ()
 
 @end
@@ -29,20 +32,36 @@
 
     
     // Ads
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    bannerView_.adUnitID = @"a1518d2dce38034";
-    bannerView_.rootViewController = self;
-    [self.adView addSubview:bannerView_];
-    GADRequest *request = [GADRequest request];
-    [bannerView_ loadRequest:request];
-
+    if( [[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON] ) {
+     
+        bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        bannerView_.adUnitID = @"a1518d2dce38034";
+        bannerView_.rootViewController = self;
+        [self.adView addSubview:bannerView_];
+        GADRequest *request = [GADRequest request];
+        [bannerView_ loadRequest:request];
+        
+        [self.adView bringSubviewToFront:self.adCloseButton];
+    }
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    self.adView.hidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON];
+}
+
+- (IBAction)closeAd:(id)sender {
+    
+    // TODO
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end

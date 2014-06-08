@@ -538,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NameInfoViewController.m"
-            timestampString = "423613671.365216"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-updateFavoriteButtonImageToState:"
             landmarkType = "5">
          </BreakpointContent>
@@ -554,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "-updateFavoriteButtonImageToState:"
             landmarkType = "5">
          </BreakpointContent>
@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NameInfoViewController.m"
-            timestampString = "390858340.06839"
+            timestampString = "423955353.175194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -762,11 +762,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
             landmarkName = "-updateNameCard:"
             landmarkType = "5">
          </BreakpointContent>
@@ -794,11 +794,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "-getCurrentGender"
             landmarkType = "5">
          </BreakpointContent>
@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
             landmarkName = "@implementation NamesContainerViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
             landmarkName = "@implementation NamesContainerViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -842,11 +842,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NameInfoViewController.m"
-            timestampString = "423613671.365216"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "-toggleFavorite:"
             landmarkType = "5">
          </BreakpointContent>
@@ -938,11 +938,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
             landmarkName = "-selectGender:"
             landmarkType = "5">
          </BreakpointContent>
@@ -954,11 +954,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "-passGenderToNamesTable"
             landmarkType = "5">
          </BreakpointContent>
@@ -970,11 +970,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "-selectGender:"
             landmarkType = "5">
          </BreakpointContent>
@@ -986,11 +986,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "-getCurrentGender"
             landmarkType = "5">
          </BreakpointContent>
@@ -1002,11 +1002,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/FilterChoicesViewController.m"
-            timestampString = "412870730.179211"
+            timestampString = "423954384.785523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1050,11 +1050,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-setFilterBarButtonItem"
             landmarkType = "5">
          </BreakpointContent>
@@ -1066,11 +1066,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/FilterChoicesViewController.m"
-            timestampString = "412870730.179211"
+            timestampString = "423954384.785523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1114,11 +1114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/FilterChoicesViewController.m"
-            timestampString = "412870730.179211"
+            timestampString = "423954384.785523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "-icelandicLetterCountChosen:icelandicLetterCount:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1130,11 +1130,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/FilterChoicesViewController.m"
-            timestampString = "412870730.179211"
+            timestampString = "423954384.785523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-syllableCountChosen:syllableCount:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1146,11 +1146,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/FilterChoicesViewController.m"
-            timestampString = "412870730.179211"
+            timestampString = "423954384.785523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "-setMinMaxDetail"
             landmarkType = "5">
          </BreakpointContent>
@@ -1162,11 +1162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/FilterChoicesViewController.m"
-            timestampString = "412870730.179211"
+            timestampString = "423954384.785523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "-setIcelandicLetterCountDetail:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1178,11 +1178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/FilterChoicesViewController.m"
-            timestampString = "412870730.179211"
+            timestampString = "423954384.785523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "-areFiltersSet"
             landmarkType = "5">
          </BreakpointContent>
@@ -1370,11 +1370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mannanofn/NamesContainerViewController.m"
-            timestampString = "423579934.92163"
+            timestampString = "423957807.759973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "-updateNameCard:"
             landmarkType = "5">
          </BreakpointContent>

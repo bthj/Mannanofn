@@ -49,4 +49,11 @@
 
 - (IBAction)openAdUrl:(id)sender;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *adCloseButton;
+- (IBAction)closeAd:(id)sender;
+
+
+
+
 @end

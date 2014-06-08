@@ -12,6 +12,8 @@
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
 
+#import "MannanofnGlobalStringConstants.h"
+
 
 @interface NameInfoViewController ()
 
@@ -73,18 +75,31 @@
     
     
     // Ads
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    bannerView_.adUnitID = @"a1518d2dce38034";
-    bannerView_.rootViewController = self;
-    [self.adView addSubview:bannerView_];
-    GADRequest *request = [GADRequest request];
-//    request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
-    [bannerView_ loadRequest:request];
+    if( [[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON] ) {
+        
+        bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        bannerView_.adUnitID = @"a1518d2dce38034";
+        bannerView_.rootViewController = self;
+        [self.adView addSubview:bannerView_];
+        GADRequest *request = [GADRequest request];
+        //    request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
+        [bannerView_ loadRequest:request];
+        
+        [self.adView bringSubviewToFront:self.adCloseButton];
+    }
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     self.screenName = @"Name Info Screen";
+    
+    self.adView.hidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON];
 }
+
+- (IBAction)closeAd:(id)sender {
+    
+    // TODO
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -132,5 +147,6 @@
 - (IBAction)openAdUrl:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.nemur.net"]];
 }
+
 
 @end

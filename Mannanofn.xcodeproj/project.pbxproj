@@ -82,6 +82,7 @@
 		FBAD53E016FBD10B00E57E07 /* storkur_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FBAD53DE16FBD10B00E57E07 /* storkur_background.png */; };
 		FBAD53E116FBD10B00E57E07 /* storkur_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBAD53DF16FBD10B00E57E07 /* storkur_background@2x.png */; };
 		FBB0333216D5253D00EFE772 /* MannanofnDatabase in Resources */ = {isa = PBXBuildFile; fileRef = FBB0333116D5253D00EFE772 /* MannanofnDatabase */; };
+		FBB3286E1945102100CF34FC /* ico_close.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB3286D1945102100CF34FC /* ico_close.png */; };
 		FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB360016C0202400861504 /* NameInfoViewController.m */; };
 		FBCECD1F16FC665A00F5EBD1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */; };
 		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
@@ -229,6 +230,7 @@
 		FBAD53DE16FBD10B00E57E07 /* storkur_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storkur_background.png; sourceTree = "<group>"; };
 		FBAD53DF16FBD10B00E57E07 /* storkur_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "storkur_background@2x.png"; sourceTree = "<group>"; };
 		FBB0333116D5253D00EFE772 /* MannanofnDatabase */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MannanofnDatabase; sourceTree = "<group>"; };
+		FBB3286D1945102100CF34FC /* ico_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_close.png; sourceTree = "<group>"; };
 		FBBB35FF16C0202300861504 /* NameInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameInfoViewController.h; sourceTree = "<group>"; };
 		FBBB360016C0202400861504 /* NameInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameInfoViewController.m; sourceTree = "<group>"; };
 		FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -526,6 +528,7 @@
 		FB8D69F516F282CD00653612 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				FBB3286D1945102100CF34FC /* ico_close.png */,
 				FB7A5B19188FFBA00011C3BF /* barButtonIconSearchMinus.png */,
 				FB7A5B1A188FFBA10011C3BF /* barButtonIconSearchMinus@2x.png */,
 				FB7A5B1B188FFBA10011C3BF /* barButtonIconSearch.png */,
@@ -709,6 +712,7 @@
 				FB7A5B17188FF1620011C3BF /* barButtonIconSearchMinus.png in Resources */,
 				FB313E081546008A0077438C /* first.png in Resources */,
 				FB313E0A1546008A0077438C /* first@2x.png in Resources */,
+				FBB3286E1945102100CF34FC /* ico_close.png in Resources */,
 				FB313E0F1546008A0077438C /* second.png in Resources */,
 				FB313E111546008A0077438C /* second@2x.png in Resources */,
 				FBD1828415E6BC5300F22A63 /* names.json in Resources */,

@@ -201,7 +201,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.68235294120000001" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tvínefni" image="tableViewBulletGreen" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Tvínefni" image="Ico_close.png" id="7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
@@ -507,6 +507,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="aboutUsCell" destination="lts-UB-oVX" id="67Q-xk-O5C"/>
+                        <outlet property="adSwitch" destination="JhT-XE-Kjn" id="yws-qO-FKK"/>
                         <outlet property="advertisementSwitch" destination="JhT-XE-Kjn" id="bvj-SW-caP"/>
                         <outlet property="clearFiltersCell" destination="k4w-IF-EDI" id="D7h-E6-EZ8"/>
                         <outlet property="extendedLetterCountCell" destination="Evl-SP-tNG" id="FMe-pV-gXS"/>
@@ -1052,6 +1053,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UI3-LZ-Vgd" userLabel="adView">
                                 <rect key="frame" x="0.0" y="425" width="320" height="50"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFH-kI-4H4" userLabel="adCloseButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Ico_close.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeAd:" destination="pRC-zP-j6d" eventType="touchUpInside" id="a9Q-MC-4DX"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.70000000000000007" contentMode="left" fixedFrame="YES" text="nemur.net" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2o-jU-355">
                                         <rect key="frame" x="84" y="0.0" width="152" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1160,6 +1171,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="s3t-ga-4SF"/>
                     <connections>
+                        <outlet property="adCloseButton" destination="MFH-kI-4H4" id="6hR-Ce-xrA"/>
                         <outlet property="adView" destination="UI3-LZ-Vgd" id="6nq-DX-fwO"/>
                         <outlet property="addDescriptionButton" destination="wyD-tx-EYe" id="zxm-z0-lgd"/>
                         <outlet property="countAsFirstNameLabel" destination="2xo-HU-EYr" id="9wc-ag-cRP"/>
@@ -1304,6 +1316,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNp-c8-pvf" userLabel="adView">
                                 <rect key="frame" x="0.0" y="425" width="320" height="50"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kay-QR-iv5" userLabel="adCloseButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Ico_close.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeAd:" destination="bC3-En-uAz" eventType="touchUpInside" id="zsQ-FQ-6kH"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" fixedFrame="YES" text="nemur.net" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Aa-dc-4gY">
                                         <rect key="frame" x="84" y="4" width="152" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1380,6 +1402,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adCloseButton" destination="Kay-QR-iv5" id="sES-E3-13q"/>
                         <outlet property="adView" destination="BNp-c8-pvf" id="hJ5-qD-3Ju"/>
                         <outlet property="firstRunGuide" destination="t5s-Lu-DdA" id="Cuc-4y-ZrT"/>
                         <outlet property="genderSelection" destination="0rM-aq-gJ6" id="dTc-Lp-epr"/>
@@ -1584,6 +1607,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="za4-Do-bdy" userLabel="adView">
                                 <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIz-bQ-tuJ" userLabel="adCloseButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Ico_close.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeAd:" destination="7DB-0Z-k8g" eventType="touchUpInside" id="9Lz-iN-E77"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" fixedFrame="YES" text="nemur.net" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VU1-Ad-gYk">
                                         <rect key="frame" x="84" y="4" width="152" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1620,6 +1653,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Flokkar" image="categories_tabbar.png" id="15Z-az-DQD"/>
                     <connections>
+                        <outlet property="adCloseButton" destination="EIz-bQ-tuJ" id="bCT-Ib-RaT"/>
                         <outlet property="adView" destination="za4-Do-bdy" id="jId-nm-lFf"/>
                     </connections>
                 </viewController>
@@ -1802,6 +1836,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryQ-Oa-FxJ" userLabel="adView">
                                 <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgx-Dd-0p8" userLabel="adCloseButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Ico_close.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeAd:" destination="BSd-Sp-ukZ" eventType="touchUpInside" id="vJj-AK-ORD"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" fixedFrame="YES" text="nemur.net" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aK-lw-VKF">
                                         <rect key="frame" x="84" y="4" width="152" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1835,6 +1879,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Uppáhalds" image="heart_tabbar.png" id="cN9-82-ogW"/>
                     <connections>
+                        <outlet property="adCloseButton" destination="tgx-Dd-0p8" id="7WD-C6-FJo"/>
                         <outlet property="adView" destination="ryQ-Oa-FxJ" id="Sxg-tA-djc"/>
                     </connections>
                 </viewController>
@@ -1918,6 +1963,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Ico_close.png" width="16" height="16"/>
         <image name="alphabetical_tabbar.png" width="30" height="30"/>
         <image name="barButtonIconSearchMinus.png" width="20" height="20"/>
         <image name="categories_tabbar.png" width="30" height="30"/>
@@ -1930,7 +1976,6 @@
         <image name="second" width="16" height="16"/>
         <image name="storkur_background.png" width="202" height="241"/>
         <image name="tableViewBulletGray.png" width="8" height="8"/>
-        <image name="tableViewBulletGreen" width="16" height="16"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

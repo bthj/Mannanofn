@@ -56,6 +56,9 @@
     [self setSurnameDetail];
     
     [self setClearFiltersCellStatus];
+    
+    [self.adSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON]];
+    //[self.adSwitch setOn:NO];
 }
 
 
@@ -65,7 +68,7 @@
 
 - (IBAction)switchAds:(UISwitch *)sender {
     
-    [[NSUserDefaults standardUserDefaults] setBool:!sender.on forKey:ADS_OFF];
+    [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:ADS_ON];
 }
 
 

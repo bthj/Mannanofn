@@ -37,6 +37,7 @@
 - (IBAction)done:(id)sender;
 
 - (IBAction)switchAds:(UISwitch *)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *adSwitch;
 
 @end
 

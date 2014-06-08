@@ -90,14 +90,25 @@
     
     
     // Ads
-    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    bannerView_.adUnitID = @"a1518d2dce38034";
-    bannerView_.rootViewController = self;
-    [self.adView addSubview:bannerView_];
-    GADRequest *request = [GADRequest request];
-    //    request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
-    [bannerView_ loadRequest:request];
+    if( [[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON] ) {
+        
+        bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        bannerView_.adUnitID = @"a1518d2dce38034";
+        bannerView_.rootViewController = self;
+        [self.adView addSubview:bannerView_];
+        GADRequest *request = [GADRequest request];
+        //    request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
+        [bannerView_ loadRequest:request];
+        
+        [self.adView bringSubviewToFront:self.adCloseButton];
+    }
 }
+
+- (IBAction)closeAd:(id)sender {
+    
+    // TODO
+}
+
 
 - (void)addTitleToNavigationItem:(NSString *)titleText
 {
@@ -170,6 +181,10 @@
     self.title = self.navigationItemTitle;
     
     [self lookupAndUpdateFavoriteButtonImage];
+    
+
+    // ad visibility
+    self.adView.hidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -412,5 +427,6 @@
                                                    label:@"Clear Name Card"
                                                    value:nil] build]];
 }
+
 
 @end
