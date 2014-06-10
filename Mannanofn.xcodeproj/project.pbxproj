@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FB297E6E19473988007364C9 /* AboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB297E6D19473988007364C9 /* AboutAppViewController.m */; };
+		FB297E7219475772007364C9 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB297E7119475772007364C9 /* ShopViewController.m */; };
 		FB2DFDD7193F4C6A00448429 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */; };
 		FB2DFDDA193F5CF200448429 /* CategoriesContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2DFDD9193F5CF200448429 /* CategoriesContainerController.m */; };
 		FB2DFDDD193F5F5F00448429 /* FavoritesContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2DFDDC193F5F5F00448429 /* FavoritesContainerController.m */; };
@@ -127,6 +128,8 @@
 /* Begin PBXFileReference section */
 		FB297E6C19473988007364C9 /* AboutAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutAppViewController.h; sourceTree = "<group>"; };
 		FB297E6D19473988007364C9 /* AboutAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutAppViewController.m; sourceTree = "<group>"; };
+		FB297E7019475772007364C9 /* ShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
+		FB297E7119475772007364C9 /* ShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
 		FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FB2DFDD8193F5CF200448429 /* CategoriesContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesContainerController.h; sourceTree = "<group>"; };
 		FB2DFDD9193F5CF200448429 /* CategoriesContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesContainerController.m; sourceTree = "<group>"; };
@@ -315,6 +318,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB297E6F19475749007364C9 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				FB297E7019475772007364C9 /* ShopViewController.h */,
+				FB297E7119475772007364C9 /* ShopViewController.m */,
+			);
+			name = Shop;
+			sourceTree = "<group>";
+		};
 		FB313DDD1546008A0077438C = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +380,7 @@
 				FB8D69F116E63B7E00653612 /* Favorites */,
 				FB8D69F016E63B7300653612 /* Name info */,
 				FB515875188C9635008B8C18 /* Filter settings */,
+				FB297E6F19475749007364C9 /* Shop */,
 				FB86623D189A97B700E8C1FC /* Miscellaneous settings */,
 				FB313E071546008A0077438C /* first.png */,
 				FB313E091546008A0077438C /* first@2x.png */,
@@ -789,6 +802,7 @@
 				FB313E061546008A0077438C /* MannanofnFirstViewController.m in Sources */,
 				FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */,
 				FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */,
+				FB297E7219475772007364C9 /* ShopViewController.m in Sources */,
 				FBE174C815E3121600EDC6A4 /* NamesTableViewListController.m in Sources */,
 				FB866240189A982100E8C1FC /* SurnameViewController.m in Sources */,
 				FBE174D515E452D100EDC6A4 /* Name+Create.m in Sources */,

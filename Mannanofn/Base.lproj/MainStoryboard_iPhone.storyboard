@@ -492,8 +492,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="qDz-Jb-QwW" kind="push" trigger="accessoryAction" id="RD6-YQ-D4b"/>
-                                            <segue destination="qDz-Jb-QwW" kind="push" id="mev-vb-cxr"/>
+                                            <segue destination="qDz-Jb-QwW" kind="push" identifier="AboutAppSegue" trigger="accessoryAction" id="RD6-YQ-D4b"/>
+                                            <segue destination="qDz-Jb-QwW" kind="push" identifier="AboutAppSegueDisclosure" id="mev-vb-cxr"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -792,6 +792,180 @@
             </objects>
             <point key="canvasLocation" x="4007" y="-1229"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MX9-zC-5hb">
+            <objects>
+                <navigationController storyboardIdentifier="ShopNavigationController" definesPresentationContext="YES" id="iOf-I3-UBc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dOg-7H-omE">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DrZ-uV-U7V" kind="relationship" relationship="rootViewController" id="l19-g0-Y4X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UiI-3X-SiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4460" y="-890"/>
+        </scene>
+        <!--Shop View Controller-->
+        <scene sceneID="5vW-ub-DVl">
+            <objects>
+                <viewController storyboardIdentifier="ShopController" id="DrZ-uV-U7V" customClass="ShopViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U97-bV-eW0"/>
+                        <viewControllerLayoutGuide type="bottom" id="N08-gP-3Av"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="59I-00-wek">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Með nafnbót upp á vasann getið þér:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUJ-AI-QfB">
+                                <rect key="frame" x="20" y="130" width="280" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nafnbót fæst keypt!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sla-iz-17l">
+                                <rect key="frame" x="20" y="85" width="280" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.53725490196078429" green="0.76470588235294112" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Losnað við auglýsingar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-Ex-JjP">
+                                <rect key="frame" x="20" y="164" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Leitað að nöfnum" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCB-vl-MxN">
+                                <rect key="frame" x="20" y="193" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Séð aðeins nöfn sem innihalda   " lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpC-rJ-TB4">
+                                <rect key="frame" x="20" y="222" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Valið hve vinsæl nöfn sjást" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iux-hr-qu9">
+                                <rect key="frame" x="20" y="309" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Séð öll nöfn með skráðu eftirnafni" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXI-Up-QZP">
+                                <rect key="frame" x="20" y="338" width="270" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- Ákveðið upphafsstafi nafna" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D1-vU-ikp">
+                                <rect key="frame" x="20" y="367" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="að andvirði poka af kartöfluflögum:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3H-Bi-EFt">
+                                <rect key="frame" x="20" y="401" width="283" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="tiltekinn fjölda atkvæða eða" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emb-GW-yXy">
+                                <rect key="frame" x="35" y="251" width="265" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="takmarkaðan fjölda íslenskra stafa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKe-TA-RVh">
+                                <rect key="frame" x="35" y="280" width="265" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsB-1A-AXT">
+                                <rect key="frame" x="193" y="518" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Kaupa nafnbót">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="purchase:" destination="DrZ-uV-U7V" eventType="touchUpInside" id="ezb-IV-Fn4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="798 kr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4b-q1-d5k">
+                                <rect key="frame" x="129" y="527" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTH-sj-MJy">
+                                <rect key="frame" x="20" y="521" width="78" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Endurheimta">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restorePurchases:" destination="DrZ-uV-U7V" eventType="touchUpInside" id="uFC-Uh-B2K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="emb-GW-yXy" firstAttribute="top" secondItem="kpC-rJ-TB4" secondAttribute="bottom" constant="8" id="4ym-OD-FMZ"/>
+                            <constraint firstAttribute="trailing" secondItem="gsB-1A-AXT" secondAttribute="trailing" constant="17" id="5wk-Vq-GvW"/>
+                            <constraint firstItem="h4b-q1-d5k" firstAttribute="leading" secondItem="LTH-sj-MJy" secondAttribute="trailing" constant="31" id="7Dz-4t-eQJ"/>
+                            <constraint firstAttribute="trailing" secondItem="emb-GW-yXy" secondAttribute="trailing" constant="20" id="8lM-mw-bFd"/>
+                            <constraint firstItem="MKe-TA-RVh" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="35" id="9Kn-TQ-hCP"/>
+                            <constraint firstItem="WXI-Up-QZP" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="9b4-Uq-zxZ"/>
+                            <constraint firstItem="kpC-rJ-TB4" firstAttribute="top" secondItem="PCB-vl-MxN" secondAttribute="bottom" constant="8" id="BjZ-F1-TIj"/>
+                            <constraint firstAttribute="trailing" secondItem="PCB-vl-MxN" secondAttribute="trailing" constant="20" id="CkO-qA-7Ke"/>
+                            <constraint firstItem="lUJ-AI-QfB" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="FzQ-4W-DjF"/>
+                            <constraint firstAttribute="trailing" secondItem="WXI-Up-QZP" secondAttribute="trailing" constant="30" id="HVl-6i-YDm"/>
+                            <constraint firstItem="MKe-TA-RVh" firstAttribute="top" secondItem="emb-GW-yXy" secondAttribute="bottom" constant="8" id="IYV-bD-2Jd"/>
+                            <constraint firstAttribute="trailing" secondItem="kpC-rJ-TB4" secondAttribute="trailing" constant="20" id="LK6-AK-ZC8"/>
+                            <constraint firstItem="sla-iz-17l" firstAttribute="top" secondItem="U97-bV-eW0" secondAttribute="bottom" constant="21" id="Mcq-Ga-olv"/>
+                            <constraint firstItem="rbs-Ex-JjP" firstAttribute="top" secondItem="lUJ-AI-QfB" secondAttribute="bottom" constant="8" id="Uk4-ri-RS0"/>
+                            <constraint firstAttribute="trailing" secondItem="MKe-TA-RVh" secondAttribute="trailing" constant="20" id="Xb4-Ve-bKj"/>
+                            <constraint firstItem="sla-iz-17l" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="Y1C-Li-cdq"/>
+                            <constraint firstItem="Iux-hr-qu9" firstAttribute="top" secondItem="MKe-TA-RVh" secondAttribute="bottom" constant="8" id="ZUA-Zj-gif"/>
+                            <constraint firstAttribute="trailing" secondItem="lUJ-AI-QfB" secondAttribute="trailing" constant="20" id="b3f-j3-5Wi"/>
+                            <constraint firstItem="rbs-Ex-JjP" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="bU2-yu-rZx"/>
+                            <constraint firstItem="emb-GW-yXy" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="35" id="bVw-1B-gpU"/>
+                            <constraint firstItem="LTH-sj-MJy" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="d37-TI-EHc"/>
+                            <constraint firstItem="N08-gP-3Av" firstAttribute="top" secondItem="h4b-q1-d5k" secondAttribute="bottom" constant="20" id="d8h-Tz-NCs"/>
+                            <constraint firstItem="lUJ-AI-QfB" firstAttribute="top" secondItem="sla-iz-17l" secondAttribute="bottom" constant="8" id="iGi-ss-wvf"/>
+                            <constraint firstItem="PCB-vl-MxN" firstAttribute="top" secondItem="rbs-Ex-JjP" secondAttribute="bottom" constant="8" id="kXB-uL-NE5"/>
+                            <constraint firstItem="kpC-rJ-TB4" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="pF2-PH-VN4"/>
+                            <constraint firstAttribute="trailing" secondItem="sla-iz-17l" secondAttribute="trailing" constant="20" id="rGe-L7-ROZ"/>
+                            <constraint firstItem="WXI-Up-QZP" firstAttribute="top" secondItem="Iux-hr-qu9" secondAttribute="bottom" constant="8" id="tcy-rG-Ye6"/>
+                            <constraint firstItem="PCB-vl-MxN" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="ujJ-nD-JAR"/>
+                            <constraint firstAttribute="trailing" secondItem="Iux-hr-qu9" secondAttribute="trailing" constant="20" id="ulH-nb-dbt"/>
+                            <constraint firstItem="N08-gP-3Av" firstAttribute="top" secondItem="LTH-sj-MJy" secondAttribute="bottom" constant="20" id="xPX-jS-njx"/>
+                            <constraint firstAttribute="trailing" secondItem="rbs-Ex-JjP" secondAttribute="trailing" constant="20" id="xqb-w0-cWc"/>
+                            <constraint firstItem="Iux-hr-qu9" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="y6y-ap-0GC"/>
+                            <constraint firstItem="N08-gP-3Av" firstAttribute="top" secondItem="gsB-1A-AXT" secondAttribute="bottom" constant="20" id="yuD-rA-aSd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3kq-ge-Gwc">
+                        <barButtonItem key="leftBarButtonItem" title="Hætta við" style="plain" id="AdJ-RD-Mpf">
+                            <color key="tintColor" red="1" green="0.3921568627" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancel:" destination="DrZ-uV-U7V" id="V38-fy-REb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GgP-Xh-bgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5072" y="-890"/>
+        </scene>
         <!--Syllables Choices View Controller-->
         <scene sceneID="gnA-3Q-YOp">
             <objects>
@@ -1085,7 +1259,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Uppruni:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzo-16-NzU">
-                                <rect key="frame" x="135" y="266" width="182" height="21"/>
+                                <rect key="frame" x="135" y="265" width="182" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1142,25 +1316,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Fyrsta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VP4-vT-JZk">
-                                <rect key="frame" x="135" y="373" width="42" height="16"/>
+                                <rect key="frame" x="135" y="372" width="42" height="16"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xo-HU-EYr">
-                                <rect key="frame" x="174" y="373" width="28" height="16"/>
+                                <rect key="frame" x="174" y="372" width="28" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Annað:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjS-yo-Avh">
-                                <rect key="frame" x="210" y="373" width="42" height="16"/>
+                                <rect key="frame" x="210" y="372" width="42" height="16"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="4321" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZh-ID-J3X">
-                                <rect key="frame" x="251" y="373" width="28" height="16"/>
+                                <rect key="frame" x="251" y="372" width="28" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -2012,7 +2186,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Ico_close.png" width="16" height="16"/>
+        <image name="Ico_close.png" width="30" height="30"/>
         <image name="alphabetical_tabbar.png" width="30" height="30"/>
         <image name="barButtonIconSearchMinus.png" width="20" height="20"/>
         <image name="categories_tabbar.png" width="30" height="30"/>
@@ -2032,9 +2206,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="euc-tO-YlN"/>
         <segue reference="pBE-E2-seW"/>
         <segue reference="ELq-QN-jbh"/>
-        <segue reference="euc-tO-YlN"/>
         <segue reference="mev-vb-cxr"/>
     </inferredMetricsTieBreakers>
 </document>

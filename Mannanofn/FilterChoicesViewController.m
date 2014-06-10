@@ -15,27 +15,25 @@
 #import "SearchViewController.h"
 #import "MannanofnGlobalStringConstants.h"
 
+#import "ShopViewController.h"
 
-@interface FilterChoicesViewController () <SyllablesChoicesViewControllerDelegate, IcelandicLettersViewControllerDelegate>
+
+@interface FilterChoicesViewController () <SyllablesChoicesViewControllerDelegate, IcelandicLettersViewControllerDelegate, ShopViewControllerDelegate>
+
+
+@property (nonatomic, strong) ShopViewController *shopController;
 
 @end
 
 @implementation FilterChoicesViewController
 
-/***
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-***/
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.shopController = [self.storyboard instantiateViewControllerWithIdentifier:@"ShopController"];
+    self.shopController.delegate = self;
 
 
     [self setSyllableCountDetail:[[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY]];
@@ -151,6 +149,32 @@
         IcelandicLettersViewController *icelandicLettersController = (IcelandicLettersViewController *)[segue destinationViewController];
         icelandicLettersController.delegate = self;
     }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+    BOOL shouldPerformSegue = NO;
+    
+    BOOL hasFilterAddon = NO;  // TODO: get from store kit
+    
+    if( hasFilterAddon
+        || [identifier isEqual:@"AboutAppSegue"]
+        || [identifier isEqual:@"AboutAppSegueDisclosure"] ) {
+        
+        shouldPerformSegue = YES;
+    } else {
+        
+        // TODO: show store
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.shopController];
+        
+        [self presentViewController:navigationController animated:YES completion: nil];
+    }
+    return shouldPerformSegue;
+}
+
+- (void)shopViewControllerDidCancel:(ShopViewController *)controller {
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
