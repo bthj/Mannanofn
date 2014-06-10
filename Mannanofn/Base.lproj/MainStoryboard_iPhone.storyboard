@@ -475,15 +475,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="nemur.net" id="7Ks-sO-V8E">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="KUo-Cg-7uW" style="IBUITableViewCellStyleDefault" id="lts-UB-oVX">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="KUo-Cg-7uW" style="IBUITableViewCellStyleDefault" id="lts-UB-oVX">
                                         <rect key="frame" x="0.0" y="595" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lts-UB-oVX" id="JWz-PP-SG9">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Um appið" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KUo-Cg-7uW">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="238" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -491,6 +491,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qDz-Jb-QwW" kind="push" trigger="accessoryAction" id="RD6-YQ-D4b"/>
+                                            <segue destination="qDz-Jb-QwW" kind="push" id="mev-vb-cxr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -520,7 +524,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wl-kZ-sif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3107" y="-1229"/>
+            <point key="canvasLocation" x="3114" y="-1229"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="x4W-P3-ubR">
@@ -702,6 +706,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cpc-27-tgp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4204" y="-2122"/>
+        </scene>
+        <!--About App View Controller-->
+        <scene sceneID="Iet-fy-Lkf">
+            <objects>
+                <viewController id="qDz-Jb-QwW" customClass="AboutAppViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xxJ-bs-1ba"/>
+                        <viewControllerLayoutGuide type="bottom" id="seE-lr-JnU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1gF-th-Mvp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sæki upplýsingasíðu appsins..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gf0-5n-HH3">
+                                <rect key="frame" x="20" y="249" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ppf-U6-uSf">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gf0-5n-HH3" firstAttribute="centerY" secondItem="1gF-th-Mvp" secondAttribute="centerY" id="BPh-Yj-TZd"/>
+                            <constraint firstItem="Ppf-U6-uSf" firstAttribute="leading" secondItem="1gF-th-Mvp" secondAttribute="leading" id="b9q-VK-jFx"/>
+                            <constraint firstAttribute="bottom" secondItem="Ppf-U6-uSf" secondAttribute="bottom" id="cCg-dk-WUZ"/>
+                            <constraint firstItem="Ppf-U6-uSf" firstAttribute="centerX" secondItem="gf0-5n-HH3" secondAttribute="centerX" id="hE0-Ey-QWe"/>
+                            <constraint firstItem="gf0-5n-HH3" firstAttribute="leading" secondItem="1gF-th-Mvp" secondAttribute="leading" constant="20" symbolic="YES" id="qmX-bX-aaP"/>
+                            <constraint firstItem="Ppf-U6-uSf" firstAttribute="top" secondItem="xxJ-bs-1ba" secondAttribute="bottom" id="rsu-QY-H9B"/>
+                            <constraint firstAttribute="trailing" secondItem="Ppf-U6-uSf" secondAttribute="trailing" id="xsh-6I-NIP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="B87-f9-MTX"/>
+                    <connections>
+                        <outlet property="webView" destination="Ppf-U6-uSf" id="syJ-2Y-fb6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hm5-VN-Ay8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3601" y="-833"/>
         </scene>
         <!--Surname View Controller-->
         <scene sceneID="pBT-qR-7u0">
@@ -1983,8 +2032,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ELq-QN-jbh"/>
         <segue reference="pBE-E2-seW"/>
+        <segue reference="ELq-QN-jbh"/>
         <segue reference="euc-tO-YlN"/>
+        <segue reference="mev-vb-cxr"/>
     </inferredMetricsTieBreakers>
 </document>

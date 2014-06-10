@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB297E6E19473988007364C9 /* AboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB297E6D19473988007364C9 /* AboutAppViewController.m */; };
 		FB2DFDD7193F4C6A00448429 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */; };
 		FB2DFDDA193F5CF200448429 /* CategoriesContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2DFDD9193F5CF200448429 /* CategoriesContainerController.m */; };
 		FB2DFDDD193F5F5F00448429 /* FavoritesContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2DFDDC193F5F5F00448429 /* FavoritesContainerController.m */; };
@@ -124,6 +125,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB297E6C19473988007364C9 /* AboutAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutAppViewController.h; sourceTree = "<group>"; };
+		FB297E6D19473988007364C9 /* AboutAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutAppViewController.m; sourceTree = "<group>"; };
 		FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FB2DFDD8193F5CF200448429 /* CategoriesContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesContainerController.h; sourceTree = "<group>"; };
 		FB2DFDD9193F5CF200448429 /* CategoriesContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesContainerController.m; sourceTree = "<group>"; };
@@ -427,6 +430,8 @@
 				FB8662381893EB9200E8C1FC /* IcelandicLettersViewController.m */,
 				FB86623A1893EC3900E8C1FC /* InitialsViewController.h */,
 				FB86623B1893EC3900E8C1FC /* InitialsViewController.m */,
+				FB297E6C19473988007364C9 /* AboutAppViewController.h */,
+				FB297E6D19473988007364C9 /* AboutAppViewController.m */,
 			);
 			name = "Filter settings";
 			sourceTree = "<group>";
@@ -774,6 +779,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB297E6E19473988007364C9 /* AboutAppViewController.m in Sources */,
 				FB7A5B00188D93BF0011C3BF /* SyllablesChoicesViewController.m in Sources */,
 				FB515878188C96A2008B8C18 /* FilterChoicesViewController.m in Sources */,
 				FB83C6631629E28A00C92803 /* MBProgressHUD.m in Sources */,
