@@ -454,7 +454,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="uKw-UE-qoL" style="IBUITableViewCellStyleDefault" id="aLD-uZ-hbl">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="uKw-UE-qoL" style="IBUITableViewCellStyleDefault" id="aLD-uZ-hbl" userLabel="Sjá leiðbeiningar Table View Cell">
                                         <rect key="frame" x="0.0" y="503" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" tableViewCell="aLD-uZ-hbl" id="u7I-ek-hl9">
@@ -1309,10 +1309,6 @@
                                     <constraint firstItem="gnG-uS-gig" firstAttribute="centerY" secondItem="k1E-L5-3EW" secondAttribute="centerY" id="nEt-vI-M3d"/>
                                 </constraints>
                             </view>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="first_run_guide.png" translatesAutoresizingMaskIntoConstraints="NO" id="t5s-Lu-DdA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNp-c8-pvf" userLabel="adView">
                                 <rect key="frame" x="0.0" y="425" width="320" height="50"/>
                                 <subviews>
@@ -1346,6 +1342,10 @@
                                     <constraint firstAttribute="height" constant="50" id="bWB-FX-V2z"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="first_run_guide.png" translatesAutoresizingMaskIntoConstraints="NO" id="t5s-Lu-DdA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1357,10 +1357,10 @@
                             <constraint firstItem="BNp-c8-pvf" firstAttribute="bottom" secondItem="GtA-DZ-KFM" secondAttribute="bottom" id="Do9-FI-V7N"/>
                             <constraint firstAttribute="bottom" secondItem="fHQ-Zs-fY8" secondAttribute="bottom" id="EYN-Ze-zWM"/>
                             <constraint firstItem="BNp-c8-pvf" firstAttribute="trailing" secondItem="fHQ-Zs-fY8" secondAttribute="trailing" id="HmB-Tg-DeK"/>
-                            <constraint firstItem="vfm-OH-j4i" firstAttribute="top" secondItem="t5s-Lu-DdA" secondAttribute="bottom" id="Nhw-Se-lne"/>
                             <constraint firstItem="BNp-c8-pvf" firstAttribute="trailing" secondItem="k1E-L5-3EW" secondAttribute="trailing" id="Uyv-fQ-dm2"/>
                             <constraint firstItem="BNp-c8-pvf" firstAttribute="leading" secondItem="GtA-DZ-KFM" secondAttribute="leading" id="Vfm-5e-GXn"/>
                             <constraint firstItem="k1E-L5-3EW" firstAttribute="top" secondItem="jSz-ff-ttt" secondAttribute="bottom" id="eTi-vL-1nl"/>
+                            <constraint firstItem="t5s-Lu-DdA" firstAttribute="top" secondItem="jSz-ff-ttt" secondAttribute="bottom" id="wIh-Ea-4Xi"/>
                             <constraint firstItem="BNp-c8-pvf" firstAttribute="leading" secondItem="fHQ-Zs-fY8" secondAttribute="leading" id="wX1-T9-po2"/>
                         </constraints>
                     </view>

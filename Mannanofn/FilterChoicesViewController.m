@@ -85,7 +85,26 @@
         [self clearFilters];
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else if( indexPath.section == 2 && indexPath.row == 1 ) {
+        
+        [self showGuide];
     }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    
+    if( indexPath.section == 2 && indexPath.row == 1 ) {
+        
+        [self showGuide];
+    }
+}
+
+
+- (void)showGuide {
+
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:FIRST_RUN_GUIDE_BEEN_DISMISSED];
+    
+    [[self delegate] filterChoicesTableViewControllerDidFinish:self];
 }
 
 

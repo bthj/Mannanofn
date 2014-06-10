@@ -77,17 +77,6 @@
     self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView:self.view];
     self.favoritesDatabaseUtility.setFavoritesDatabaseDelegate = self;
     
-    BOOL guideBeenDismissed = [[NSUserDefaults standardUserDefaults] boolForKey:FIRST_RUN_GUIDE_BEEN_DISMISSED];
-    if( guideBeenDismissed ) {
-        self.firstRunGuide.hidden = YES;
-    } else {
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTaped:)];
-        singleTap.numberOfTapsRequired = 1;
-        singleTap.numberOfTouchesRequired = 1;
-        [self.firstRunGuide addGestureRecognizer:singleTap];
-        [self.firstRunGuide setUserInteractionEnabled:YES];
-    }
-    
     
     // Ads
     if( [[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON] ) {
@@ -185,6 +174,19 @@
 
     // ad visibility
     self.adView.hidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON];
+    
+    // guide
+    BOOL guideBeenDismissed = [[NSUserDefaults standardUserDefaults] boolForKey:FIRST_RUN_GUIDE_BEEN_DISMISSED];
+    if( guideBeenDismissed ) {
+        self.firstRunGuide.hidden = YES;
+    } else {
+        self.firstRunGuide.hidden = NO;
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTaped:)];
+        singleTap.numberOfTapsRequired = 1;
+        singleTap.numberOfTouchesRequired = 1;
+        [self.firstRunGuide addGestureRecognizer:singleTap];
+        [self.firstRunGuide setUserInteractionEnabled:YES];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
