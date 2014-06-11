@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FB297E6E19473988007364C9 /* AboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB297E6D19473988007364C9 /* AboutAppViewController.m */; };
 		FB297E7219475772007364C9 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB297E7119475772007364C9 /* ShopViewController.m */; };
+		FB297E741948492E007364C9 /* product_ids.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB297E731948492E007364C9 /* product_ids.plist */; };
 		FB2DFDD7193F4C6A00448429 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */; };
 		FB2DFDDA193F5CF200448429 /* CategoriesContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2DFDD9193F5CF200448429 /* CategoriesContainerController.m */; };
 		FB2DFDDD193F5F5F00448429 /* FavoritesContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2DFDDC193F5F5F00448429 /* FavoritesContainerController.m */; };
@@ -130,6 +131,7 @@
 		FB297E6D19473988007364C9 /* AboutAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutAppViewController.m; sourceTree = "<group>"; };
 		FB297E7019475772007364C9 /* ShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
 		FB297E7119475772007364C9 /* ShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
+		FB297E731948492E007364C9 /* product_ids.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = product_ids.plist; sourceTree = "<group>"; };
 		FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FB2DFDD8193F5CF200448429 /* CategoriesContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesContainerController.h; sourceTree = "<group>"; };
 		FB2DFDD9193F5CF200448429 /* CategoriesContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesContainerController.m; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB48E304173EDCA8008D91DA /* StoreKit.framework in Frameworks */,
 				FB2DFDD7193F4C6A00448429 /* CoreTelephony.framework in Frameworks */,
 				FB6A351C193CA21D004E61C8 /* libsqlite3.dylib in Frameworks */,
 				FBDB0FFE18858F94000B3148 /* libz.dylib in Frameworks */,
@@ -293,7 +296,6 @@
 				FBDB0FFA18843461000B3148 /* libGoogleAdMobAds.a in Frameworks */,
 				FB48E308173EDCD0008D91DA /* MessageUI.framework in Frameworks */,
 				FB48E306173EDCBF008D91DA /* AdSupport.framework in Frameworks */,
-				FB48E304173EDCA8008D91DA /* StoreKit.framework in Frameworks */,
 				FB48E302173EDCA3008D91DA /* AudioToolbox.framework in Frameworks */,
 				FBCECD1F16FC665A00F5EBD1 /* SystemConfiguration.framework in Frameworks */,
 				FBE174CA15E3193E00EDC6A4 /* CoreData.framework in Frameworks */,
@@ -391,6 +393,7 @@
 				FB955AB4163747200039F096 /* delmes */,
 				FB83C65F1629DE9600C92803 /* Vendor */,
 				FB955AD2163B2BD70039F096 /* MannanofnGlobalStringConstants.h */,
+				FB297E731948492E007364C9 /* product_ids.plist */,
 			);
 			path = Mannanofn;
 			sourceTree = "<group>";
@@ -700,6 +703,11 @@
 				CLASSPREFIX = Mannanofn;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = nemur.net;
+				TargetAttributes = {
+					FB313DE71546008A0077438C = {
+						DevelopmentTeam = ATA8MQ4L7K;
+					};
+				};
 			};
 			buildConfigurationList = FB313DE21546008A0077438C /* Build configuration list for PBXProject "Mannanofn" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -731,6 +739,7 @@
 				FB313E081546008A0077438C /* first.png in Resources */,
 				FB313E0A1546008A0077438C /* first@2x.png in Resources */,
 				FBB3286E1945102100CF34FC /* ico_close.png in Resources */,
+				FB297E741948492E007364C9 /* product_ids.plist in Resources */,
 				FB313E0F1546008A0077438C /* second.png in Resources */,
 				FB313E111546008A0077438C /* second@2x.png in Resources */,
 				FBD1828415E6BC5300F22A63 /* names.json in Resources */,
@@ -892,8 +901,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "A0E8F52E-0E2C-4FD3-B169-77C66CED52AF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A0E8F52E-0E2C-4FD3-B169-77C66CED52AF";
+				PROVISIONING_PROFILE = "D8623A84-8C62-43A2-BC1B-475FDA189210";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D8623A84-8C62-43A2-BC1B-475FDA189210";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -923,8 +932,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "A0E8F52E-0E2C-4FD3-B169-77C66CED52AF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A0E8F52E-0E2C-4FD3-B169-77C66CED52AF";
+				PROVISIONING_PROFILE = "D8623A84-8C62-43A2-BC1B-475FDA189210";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D8623A84-8C62-43A2-BC1B-475FDA189210";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -934,8 +943,8 @@
 		FB313E151546008A0077438C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
@@ -946,8 +955,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A0E8F52E-0E2C-4FD3-B169-77C66CED52AF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A0E8F52E-0E2C-4FD3-B169-77C66CED52AF";
+				PROVISIONING_PROFILE = "D8623A84-8C62-43A2-BC1B-475FDA189210";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D8623A84-8C62-43A2-BC1B-475FDA189210";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -956,8 +965,8 @@
 		FB313E161546008A0077438C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
@@ -968,8 +977,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A0E8F52E-0E2C-4FD3-B169-77C66CED52AF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A0E8F52E-0E2C-4FD3-B169-77C66CED52AF";
+				PROVISIONING_PROFILE = "D8623A84-8C62-43A2-BC1B-475FDA189210";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D8623A84-8C62-43A2-BC1B-475FDA189210";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

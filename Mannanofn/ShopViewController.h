@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
 
 
 @protocol ShopViewControllerDelegate;
@@ -24,6 +25,11 @@
 - (IBAction)restorePurchases:(id)sender;
 
 - (IBAction)purchase:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *btnRestorePurchases;
+@property (weak, nonatomic) IBOutlet UIButton *btnPurchase;
 
 
 @end

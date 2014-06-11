@@ -856,8 +856,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Séð öll nöfn með skráðu eftirnafni" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXI-Up-QZP">
-                                <rect key="frame" x="20" y="338" width="270" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Skráð eftirnafn með birtingu nafna" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXI-Up-QZP">
+                                <rect key="frame" x="20" y="338" width="273" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -961,6 +961,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btnPurchase" destination="gsB-1A-AXT" id="hnn-Eo-V3u"/>
+                        <outlet property="btnRestorePurchases" destination="LTH-sj-MJy" id="fEg-pt-nLP"/>
+                        <outlet property="priceLabel" destination="h4b-q1-d5k" id="tf2-Gm-U5v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GgP-Xh-bgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
