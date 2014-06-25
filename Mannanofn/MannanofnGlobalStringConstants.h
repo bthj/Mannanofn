@@ -36,6 +36,10 @@
 #define MAX_TOTAL_NUMBER_OF_NAMES 5500
 
 
+#define PRODUCT_IDENTIFIER__FILTERS @"net.nemur.nefna.filters"
+#define ENABLE_FILTERS_KEY @"enable_filters"
+
+
 // from http://stackoverflow.com/a/12447113
 #define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 #define IS_IPHONE ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPhone" ] )

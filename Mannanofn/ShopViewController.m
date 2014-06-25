@@ -9,12 +9,12 @@
 #import "ShopViewController.h"
 
 #import "MBProgressHUD.h"
-
+#import "MannanofnGlobalStringConstants.h"
 
 
 @interface ShopViewController () <SKProductsRequestDelegate>
 
-@property (nonatomic, strong) NSArray *products;
+@property (nonatomic, strong) SKProduct *filterProduct;
 
 @end
 
@@ -74,6 +74,13 @@
 }
 
 - (IBAction)purchase:(id)sender {
+    
+    SKMutablePayment *payment = [SKMutablePayment paymentWithProduct:self.filterProduct];
+    // payment.quantity = 1;
+    
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+    
+    [[self delegate] shopViewControllerDidPurchase:self];
 }
 
 
@@ -99,8 +106,6 @@
 #pragma mark - UITextFieldDelegate protocol method
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
     
-    self.products = response.products;
-    
     for( NSString *invalidIdentifier in response.invalidProductIdentifiers ) {
         
         NSLog(@"Invalid product identifier: %@", invalidIdentifier);
@@ -108,7 +113,14 @@
     
     if( [response.products count] > 0 ) {
         
-        [self displayFilterPackagePrice:[response.products objectAtIndex:0]];
+        for( SKProduct *oneProduct in response.products ) {
+            
+            if( [oneProduct.productIdentifier isEqualToString:PRODUCT_IDENTIFIER__FILTERS] ) {
+         
+                [self enableFilterPackageForPurchase:[response.products objectAtIndex:0]];
+                break;
+            }
+        }
     }
 }
 
@@ -118,7 +130,9 @@
 }
 
 
-- (void)displayFilterPackagePrice:(SKProduct *)filterProduct {
+- (void)enableFilterPackageForPurchase:(SKProduct *)filterProduct {
+    
+    self.filterProduct = filterProduct;
     
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];

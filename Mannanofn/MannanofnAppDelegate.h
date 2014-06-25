@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TransactionObserver.h"
+
+
 @interface MannanofnAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) TransactionObserver *transactionObserver;
 
 @end

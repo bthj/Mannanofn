@@ -16,12 +16,15 @@
 #import "MannanofnGlobalStringConstants.h"
 
 #import "ShopViewController.h"
+#import "MannanofnAppDelegate.h"
 
 
 @interface FilterChoicesViewController () <SyllablesChoicesViewControllerDelegate, IcelandicLettersViewControllerDelegate, ShopViewControllerDelegate>
 
 
 @property (nonatomic, strong) ShopViewController *shopController;
+
+@property (nonatomic, strong) MannanofnAppDelegate *appDelegate;
 
 @end
 
@@ -38,6 +41,9 @@
 
     [self setSyllableCountDetail:[[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY]];
     [self setIcelandicLetterCountDetail:[[NSUserDefaults standardUserDefaults] integerForKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY]];
+    
+    
+    self.appDelegate = (MannanofnAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -155,7 +161,7 @@
     
     BOOL shouldPerformSegue = NO;
     
-    BOOL hasFilterAddon = NO;  // TODO: get from store kit
+    BOOL hasFilterAddon = self.appDelegate.transactionObserver.filtersPurchased;
     
     if( hasFilterAddon
         || [identifier isEqual:@"AboutAppSegue"]
@@ -173,6 +179,10 @@
 }
 
 - (void)shopViewControllerDidCancel:(ShopViewController *)controller {
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+- (void)shopViewControllerDidPurchase:(ShopViewController *)controller {
     
     [self dismissViewControllerAnimated:YES completion:NULL];
 }

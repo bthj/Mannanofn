@@ -39,5 +39,6 @@
 @protocol ShopViewControllerDelegate <NSObject>
 
 - (void)shopViewControllerDidCancel:(ShopViewController *)controller;
+- (void)shopViewControllerDidPurchase:(ShopViewController *)controller;
 
 @end

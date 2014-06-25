@@ -10,7 +10,18 @@
 #import "GAI.h"
 #import "GAIFields.h"
 
+#import <StoreKit/StoreKit.h>
+
 #define NAMES_READ_FROM_SEED_AT_VERSION @"namesReadFromSeedAtVersion"
+
+@interface MannanofnAppDelegate ()
+
+
+
+@end
+
+
+
 
 @implementation MannanofnAppDelegate
 
@@ -89,7 +100,13 @@
     // Create tracker instance.
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-37626236-2"];
     [tracker set:kGAIScreenName value:@"Home Screen"];
-
+    
+    
+    
+    // Store Kit
+    self.transactionObserver = [[TransactionObserver alloc] init];
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self.transactionObserver];
+    
 
     return YES;
 }
