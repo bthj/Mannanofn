@@ -82,6 +82,39 @@
 }
 
 
+
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
+
+    [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
+    
+    if( [queue.transactions count] > 0 ) {
+
+        [self markFiltersAsPurchased];
+        
+        [self showSuccessInfo:@"Fyrri kaup endurheimt"];
+    } else {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Engar heimtur"
+                                                          message:@"Ekki tókst að endurheimta fyrri kaup."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"Áfram"
+                                                otherButtonTitles:nil];
+        [message show];
+    }
+}
+- (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error {
+    
+    [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Engar heimtur"
+                                                      message:@"Ekki tókst að endurheimta fyrri kaup."
+                                                     delegate:nil
+                                            cancelButtonTitle:@"Áfram"
+                                            otherButtonTitles:nil];
+    [message show];
+}
+
+
+
 - (void)showInfoAboutPuchaseInProgress:(SKPaymentTransaction *)transaction {
     
     hud = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
@@ -96,7 +129,7 @@
     
     [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
     
-    [self showSuccessInfo];
+    [self showSuccessInfo:@"Þökkum viðskiptin"];
 }
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
@@ -106,8 +139,8 @@
     [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
     
     
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Villa :("
-                                                      message:@"Kaupin gengu ekki eftir.  Vinsamlegast reyndu aftur"
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Villa"
+                                                      message:@"Kaupin gengu ekki eftir.  Vinsamlegast reyndu aftur."
                                                      delegate:nil
                                             cancelButtonTitle:@"Áfram"
                                             otherButtonTitles:nil];
@@ -115,14 +148,14 @@
 }
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
- 
     
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
 
 
 
-- (void)showSuccessInfo {
+- (void)showSuccessInfo:(NSString *)labelText {
     
 	hud = [[MBProgressHUD alloc] initWithView:[[UIApplication sharedApplication] keyWindow]];
 	[[[UIApplication sharedApplication] keyWindow] addSubview:hud];
@@ -135,7 +168,7 @@
 	hud.mode = MBProgressHUDModeCustomView;
     
 	hud.delegate = self;
-	hud.labelText = @"Þökkum viðskiptin";
+	hud.labelText = labelText;
     
 	[hud show:YES];
 	[hud hide:YES afterDelay:3];

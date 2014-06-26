@@ -10,11 +10,14 @@
 
 #import "MBProgressHUD.h"
 #import "MannanofnGlobalStringConstants.h"
+#import "MannanofnAppDelegate.h"
 
 
 @interface ShopViewController () <SKProductsRequestDelegate>
 
 @property (nonatomic, strong) SKProduct *filterProduct;
+
+@property (nonatomic, strong) MannanofnAppDelegate *appDelegate;
 
 @end
 
@@ -42,6 +45,8 @@
     self.btnPurchase.hidden = YES;
     self.btnRestorePurchases.hidden = YES;
     self.priceLabel.hidden = YES;
+    
+    self.appDelegate = (MannanofnAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Sæki prísinn...";
@@ -71,6 +76,18 @@
 }
 
 - (IBAction)restorePurchases:(id)sender {
+    
+    /*
+    SKReceiptRefreshRequest *request = [[SKReceiptRefreshRequest alloc] init];
+    request.delegate = self;
+    [request start];
+     */
+    
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    
+    [[self delegate] shopViewControllerDidPurchase:self];
+    
+    [self.appDelegate.transactionObserver showInfoAboutPuchaseInProgress:nil];
 }
 
 - (IBAction)purchase:(id)sender {

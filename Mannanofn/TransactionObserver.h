@@ -14,4 +14,6 @@
 
 @property (nonatomic, assign) BOOL filtersPurchased;
 
+- (void)showInfoAboutPuchaseInProgress:(SKPaymentTransaction *)transaction;
+
 @end
