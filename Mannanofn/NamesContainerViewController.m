@@ -18,13 +18,19 @@
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
 
+#import "ShopViewController.h"
+#import "MannanofnAppDelegate.h"
 
-@interface NamesContainerViewController () <FilterChoicesTableViewControllerDelegate>
+
+@interface NamesContainerViewController () <FilterChoicesTableViewControllerDelegate, ShopViewControllerDelegate>
 
 @property (nonatomic, strong) NamesTableViewListController *namesTableView;
 @property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
 @property (nonatomic, strong) UIManagedDocument *favoritesDatabase;
 @property (nonatomic, strong) NSString *currentNameLookedUpInFavorites;
+
+@property (nonatomic, strong) ShopViewController *shopController;
+@property (nonatomic, strong) MannanofnAppDelegate *appDelegate;
 
 @end
 
@@ -91,11 +97,43 @@
         
         [self.adView bringSubviewToFront:self.adCloseButton];
     }
+    
+    
+    // Shop
+    
+    self.shopController = [self.storyboard instantiateViewControllerWithIdentifier:@"ShopController"];
+    self.shopController.delegate = self;
+    
+    self.appDelegate = (MannanofnAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reactToFilterPurchase:) name:NOTIFICATION_PURCHASED_FILTERS object:nil];
+}
+
+- (void)reactToFilterPurchase:(NSNotification *)notifiaction {
+    
+    self.adView.hidden = YES;
 }
 
 - (IBAction)closeAd:(id)sender {
     
-    // TODO
+    BOOL hasFilterAddon = self.appDelegate.transactionObserver.filtersPurchased;
+    
+    if( hasFilterAddon ) {
+        
+        self.adView.hidden = YES;
+        
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:ADS_ON];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    } else {
+        
+        // show store
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.shopController];
+        
+        [self presentViewController:navigationController animated:YES completion: nil];
+        
+    }
 }
 
 
@@ -428,6 +466,19 @@
                                                   action:@"buttonPress"
                                                    label:@"Clear Name Card"
                                                    value:nil] build]];
+}
+
+
+
+#pragma mark - ShopViewControllerDelegate
+
+- (void)shopViewControllerDidCancel:(ShopViewController *)controller {
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+- (void)shopViewControllerDidPurchase:(ShopViewController *)controller {
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 

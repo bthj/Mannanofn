@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -868,12 +868,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="að andvirði poka af kartöfluflögum:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3H-Bi-EFt">
-                                <rect key="frame" x="20" y="401" width="283" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="tiltekinn fjölda atkvæða eða" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emb-GW-yXy">
                                 <rect key="frame" x="35" y="251" width="265" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -900,7 +894,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="798 kr." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4b-q1-d5k">
                                 <rect key="frame" x="129" y="527" width="52" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
@@ -920,7 +914,7 @@
                         <constraints>
                             <constraint firstItem="emb-GW-yXy" firstAttribute="top" secondItem="kpC-rJ-TB4" secondAttribute="bottom" constant="8" id="4ym-OD-FMZ"/>
                             <constraint firstAttribute="trailing" secondItem="gsB-1A-AXT" secondAttribute="trailing" constant="17" id="5wk-Vq-GvW"/>
-                            <constraint firstItem="h4b-q1-d5k" firstAttribute="leading" secondItem="LTH-sj-MJy" secondAttribute="trailing" constant="31" id="7Dz-4t-eQJ"/>
+                            <constraint firstItem="h4b-q1-d5k" firstAttribute="leading" secondItem="LTH-sj-MJy" secondAttribute="trailing" constant="25" id="7Dz-4t-eQJ"/>
                             <constraint firstAttribute="trailing" secondItem="emb-GW-yXy" secondAttribute="trailing" constant="20" id="8lM-mw-bFd"/>
                             <constraint firstItem="MKe-TA-RVh" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="35" id="9Kn-TQ-hCP"/>
                             <constraint firstItem="WXI-Up-QZP" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="9b4-Uq-zxZ"/>
@@ -939,7 +933,7 @@
                             <constraint firstItem="rbs-Ex-JjP" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="bU2-yu-rZx"/>
                             <constraint firstItem="emb-GW-yXy" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="35" id="bVw-1B-gpU"/>
                             <constraint firstItem="LTH-sj-MJy" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="d37-TI-EHc"/>
-                            <constraint firstItem="N08-gP-3Av" firstAttribute="top" secondItem="h4b-q1-d5k" secondAttribute="bottom" constant="20" id="d8h-Tz-NCs"/>
+                            <constraint firstItem="N08-gP-3Av" firstAttribute="top" secondItem="h4b-q1-d5k" secondAttribute="bottom" constant="26" id="d8h-Tz-NCs"/>
                             <constraint firstItem="lUJ-AI-QfB" firstAttribute="top" secondItem="sla-iz-17l" secondAttribute="bottom" constant="8" id="iGi-ss-wvf"/>
                             <constraint firstItem="PCB-vl-MxN" firstAttribute="top" secondItem="rbs-Ex-JjP" secondAttribute="bottom" constant="8" id="kXB-uL-NE5"/>
                             <constraint firstItem="kpC-rJ-TB4" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="pF2-PH-VN4"/>
@@ -1284,7 +1278,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFH-kI-4H4" userLabel="adCloseButton">
                                         <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Ico_close.png">
+                                        <state key="normal" image="ico_close.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1543,7 +1537,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kay-QR-iv5" userLabel="adCloseButton">
                                         <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Ico_close.png">
+                                        <state key="normal" image="ico_close.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1838,7 +1832,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIz-bQ-tuJ" userLabel="adCloseButton">
                                         <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Ico_close.png">
+                                        <state key="normal" image="ico_close.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2067,7 +2061,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgx-Dd-0p8" userLabel="adCloseButton">
                                         <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Ico_close.png">
+                                        <state key="normal" image="ico_close.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2200,6 +2194,7 @@
         <image name="first_run_guide.png" width="320" height="456"/>
         <image name="heart_nametag_disabled.png" width="29" height="26"/>
         <image name="heart_tabbar.png" width="30" height="30"/>
+        <image name="ico_close.png" width="45" height="45"/>
         <image name="popularity_tabbar.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
         <image name="storkur_background.png" width="202" height="241"/>

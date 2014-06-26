@@ -20,6 +20,12 @@
     if ( self = [super init] ) {
         
         self.filtersPurchased = [self areFiltersPurchased];
+        
+        if( ! self.filtersPurchased ) {
+            
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:ADS_ON];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     }
     return self;
 }
@@ -53,6 +59,13 @@
     [storage synchronize];
     
     self.filtersPurchased = YES;
+    
+    // TODO: we might want to use the storage variable here
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:ADS_ON];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PURCHASED_FILTERS object:nil];
 }
 
 
@@ -173,6 +186,7 @@
 	[hud show:YES];
 	[hud hide:YES afterDelay:3];
 }
+
 
 
 @end

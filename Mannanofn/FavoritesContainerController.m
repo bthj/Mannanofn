@@ -10,10 +10,18 @@
 
 #import "MannanofnGlobalStringConstants.h"
 
+#import "ShopViewController.h"
+#import "MannanofnAppDelegate.h"
 
-@interface FavoritesContainerController ()
+
+@interface FavoritesContainerController () <ShopViewControllerDelegate>
+
+@property (nonatomic, strong) ShopViewController *shopController;
+@property (nonatomic, strong) MannanofnAppDelegate *appDelegate;
 
 @end
+
+
 
 @implementation FavoritesContainerController
 
@@ -43,6 +51,17 @@
         
         [self.adView bringSubviewToFront:self.adCloseButton];
     }
+    
+    
+    // Shop
+    
+    self.shopController = [self.storyboard instantiateViewControllerWithIdentifier:@"ShopController"];
+    self.shopController.delegate = self;
+    
+    self.appDelegate = (MannanofnAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reactToFilterPurchase:) name:NOTIFICATION_PURCHASED_FILTERS object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -50,9 +69,42 @@
     self.adView.hidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON];
 }
 
+- (void)reactToFilterPurchase:(NSNotification *)notifiaction {
+    
+    self.adView.hidden = YES;
+}
+
 - (IBAction)closeAd:(id)sender {
     
-    // TODO
+    BOOL hasFilterAddon = self.appDelegate.transactionObserver.filtersPurchased;
+    
+    if( hasFilterAddon ) {
+        
+        self.adView.hidden = YES;
+        
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:ADS_ON];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    } else {
+        
+        // show store
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.shopController];
+        
+        [self presentViewController:navigationController animated:YES completion: nil];
+        
+    }
+}
+
+
+#pragma mark - ShopViewControllerDelegate
+
+- (void)shopViewControllerDidCancel:(ShopViewController *)controller {
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+- (void)shopViewControllerDidPurchase:(ShopViewController *)controller {
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 

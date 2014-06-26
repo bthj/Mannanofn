@@ -73,6 +73,7 @@
 - (IBAction)switchAds:(UISwitch *)sender {
     
     [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:ADS_ON];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
@@ -170,13 +171,16 @@
         shouldPerformSegue = YES;
     } else {
         
-        // TODO: show store
+        // show store
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.shopController];
         
         [self presentViewController:navigationController animated:YES completion: nil];
     }
     return shouldPerformSegue;
 }
+
+
+#pragma mark - FilterChoicesTableViewControllerDelegate
 
 - (void)shopViewControllerDidCancel:(ShopViewController *)controller {
     

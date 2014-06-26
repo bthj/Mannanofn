@@ -39,6 +39,8 @@
 #define PRODUCT_IDENTIFIER__FILTERS @"net.nemur.nefna.filters"
 #define ENABLE_FILTERS_KEY @"enable_filters"
 
+#define NOTIFICATION_PURCHASED_FILTERS @"notificationPurchasedFilters"
+
 
 // from http://stackoverflow.com/a/12447113
 #define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
