@@ -21,7 +21,7 @@ function getNameFrequencyAndUpdateDB( name, delay ) {
 				},
 				function( error, response, body){
 					if( error && response.statusCode !== 200 ) {
-						console.log( 'Villa kom upp við tengingu við rettarheimild.is' );
+						console.log( 'Villa kom upp við tengingu við hagstofa.is' );
 					}
 
 				    body = new Buffer(body, 'binary');
@@ -32,8 +32,8 @@ function getNameFrequencyAndUpdateDB( name, delay ) {
 						html: body,
 						 scripts: [
 						 	'http://code.jquery.com/jquery-1.7.2.min.js'
-						]
-					}, function( err, window ) {
+						],
+					  done: function( err, window ) {
 						var $ = window.jQuery;
 
 						var $table = $('body table:first');
@@ -46,6 +46,7 @@ function getNameFrequencyAndUpdateDB( name, delay ) {
 								"countSecondName" : countSecondName  
 							}
 						);
+					  }
 					});
 
 				}
