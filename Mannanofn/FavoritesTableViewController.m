@@ -93,6 +93,7 @@
     }
     
     [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"Favorites Screen"];
+    [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

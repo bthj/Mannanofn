@@ -80,6 +80,9 @@
     [self.originLabel setVerticalAlignmentTop];
     
     
+    self.screenName = @"Name Info Screen";
+    
+    
     // Ads
     if( [[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON] ) {
         
@@ -108,7 +111,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.screenName = @"Name Info Screen";
     
     self.adView.hidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON];
 }

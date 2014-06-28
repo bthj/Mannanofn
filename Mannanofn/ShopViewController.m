@@ -60,6 +60,7 @@
     });
     
     
+    self.screenName = @"Shop Screen";
 }
 
 - (void)didReceiveMemoryWarning

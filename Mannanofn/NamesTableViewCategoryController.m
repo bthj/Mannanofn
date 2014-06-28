@@ -110,16 +110,16 @@
         self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
         self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
+    
+    
     if( self.categoryTypeSelector.selectedSegmentIndex == 0 ) {
         [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"Categories Screen, categories"];
     } else if( self.categoryTypeSelector.selectedSegmentIndex == 1 ) {
         [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"Categories Screen, origins"];
     }
+    [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createAppView] build]];
 }
+
 
 - (IBAction)changeCategoryType:(id)sender {
     

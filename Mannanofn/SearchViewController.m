@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.screenName = @"Search Screen";
 }
 
 - (void)didReceiveMemoryWarning

@@ -35,7 +35,11 @@
 
     [self.minMaxPicker selectRow:[[NSUserDefaults standardUserDefaults] integerForKey:MIN_POPULARITY_STORAGE_KEY] inComponent:0 animated:NO];
     [self.minMaxPicker selectRow:[[NSUserDefaults standardUserDefaults] integerForKey:MAX_POPULARITY_STORAGE_KEY] inComponent:1 animated:NO];
+    
+    
+    self.screenName = @"Min Max Popularity Screen";
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -55,7 +59,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [NSString stringWithFormat:@"%d", [MinMaxPopularityViewController getValueFromRow:row inComponent:component]];
+    return [NSString stringWithFormat:@"%ld", (long)[MinMaxPopularityViewController getValueFromRow:row inComponent:component]];
 }
 
 

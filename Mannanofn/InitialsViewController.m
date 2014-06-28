@@ -50,6 +50,9 @@
     }
     [self.initialsPicker selectRow:firstInitialRow inComponent:0 animated:NO];
     [self.initialsPicker selectRow:secondInitialRow inComponent:1 animated:NO];
+    
+    
+    self.screenName = @"Initials Screen";
 }
 
 - (void)didReceiveMemoryWarning

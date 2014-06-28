@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <StoreKit/StoreKit.h>
+#import "GAITrackedViewController.h"
 
 
 @protocol ShopViewControllerDelegate;
 
 
 
-@interface ShopViewController : UIViewController
+@interface ShopViewController : GAITrackedViewController
 
 @property (weak, nonatomic) id <ShopViewControllerDelegate> delegate;
 

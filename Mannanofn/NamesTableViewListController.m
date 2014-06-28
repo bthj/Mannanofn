@@ -12,8 +12,10 @@
 #import "MinMaxPopularityViewController.h"
 #import "NameInfoViewController.h"
 #import "MBProgressHUD.h"
+
 #import "GAI.h"
 #import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 
 @interface NamesTableViewListController ()
@@ -205,8 +207,6 @@
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;
-
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -215,8 +215,12 @@
     
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     
     [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:[NSString stringWithFormat:@"Names Screen, in order %@ for gender %@", self.namesOrder, self.genderSelection]];
+    [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)viewDidUnload

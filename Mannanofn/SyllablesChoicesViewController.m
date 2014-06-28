@@ -10,6 +10,10 @@
 
 #import "MannanofnGlobalStringConstants.h"
 
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
+
 
 @interface SyllablesChoicesViewController ()
 
@@ -31,6 +35,12 @@
     [super viewDidLoad];
     
     self.syllableCount = [[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"Syllables Choices Screen"];
+    [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning

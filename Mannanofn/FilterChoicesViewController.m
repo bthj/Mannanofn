@@ -18,6 +18,10 @@
 #import "ShopViewController.h"
 #import "MannanofnAppDelegate.h"
 
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
+
 
 @interface FilterChoicesViewController () <SyllablesChoicesViewControllerDelegate, IcelandicLettersViewControllerDelegate, ShopViewControllerDelegate>
 
@@ -65,6 +69,12 @@
     //[self.adSwitch setOn:NO];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"Filter Choices Screen"];
+    [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createAppView] build]];
+}
+
 
 - (IBAction)done:(id)sender {
     [[self delegate] filterChoicesTableViewControllerDidFinish:self];
@@ -72,8 +82,24 @@
 
 - (IBAction)switchAds:(UISwitch *)sender {
     
-    [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:ADS_ON];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    BOOL hasFilterAddon = self.appDelegate.transactionObserver.filtersPurchased;
+    
+    if( hasFilterAddon ) {
+
+        [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:ADS_ON];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    } else {
+        
+        [self showStore];
+    }
+    
+    
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
+                                                  action:@"buttonPress"
+                                                   label:@"Switch Ads"
+                                                   value:[NSNumber numberWithBool:sender.on]] build]];
 }
 
 
@@ -171,10 +197,7 @@
         shouldPerformSegue = YES;
     } else {
         
-        // show store
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.shopController];
-        
-        [self presentViewController:navigationController animated:YES completion: nil];
+        [self showStore];
     }
     return shouldPerformSegue;
 }
@@ -202,6 +225,15 @@
 - (void)icelandicLetterCountChosen:(IcelandicLettersViewController *)controller icelandicLetterCount:(NSInteger)icelandicLetterCount
 {
     [self setIcelandicLetterCountDetail:icelandicLetterCount];
+}
+
+
+
+- (void)showStore {
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.shopController];
+    
+    [self presentViewController:navigationController animated:YES completion: nil];
 }
 
 

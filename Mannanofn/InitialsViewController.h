@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface InitialsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+@interface InitialsViewController : GAITrackedViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIPickerView *initialsPicker;

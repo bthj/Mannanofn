@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface MinMaxPopularityViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+@interface MinMaxPopularityViewController : GAITrackedViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIPickerView *minMaxPicker;

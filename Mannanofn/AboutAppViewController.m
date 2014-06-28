@@ -31,6 +31,9 @@
     NSURL *urlToShow = [NSURL URLWithString:@"http://www.nemur.net/nefna"];
     self.webView.delegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:urlToShow]];
+    
+    
+    self.screenName = @"About App Screen";
 }
 
 
