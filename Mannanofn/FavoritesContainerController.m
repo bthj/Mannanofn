@@ -13,6 +13,9 @@
 #import "ShopViewController.h"
 #import "MannanofnAppDelegate.h"
 
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+
 
 @interface FavoritesContainerController () <ShopViewControllerDelegate>
 
@@ -93,6 +96,13 @@
         [self presentViewController:navigationController animated:YES completion: nil];
         
     }
+    
+    
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
+                                                  action:@"buttonPress"
+                                                   label:@"Close Ad"
+                                                   value:nil] build]];
 }
 
 

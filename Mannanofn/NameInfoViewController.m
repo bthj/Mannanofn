@@ -139,6 +139,12 @@
         [self presentViewController:navigationController animated:YES completion: nil];
         
     }
+    
+    [[[GAI sharedInstance] defaultTracker]
+     send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
+                                                  action:@"buttonPress"
+                                                   label:@"Close Ad"
+                                                   value:nil] build]];
 }
 
 
