@@ -134,7 +134,8 @@
 
 - (void)showGuide {
 
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:FIRST_RUN_GUIDE_BEEN_DISMISSED];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FIRST_RUN_GUIDE_BEEN_DISMISSED_FOR_VERSION];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [[self delegate] filterChoicesTableViewControllerDidFinish:self];
 }

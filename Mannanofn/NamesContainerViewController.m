@@ -32,6 +32,8 @@
 @property (nonatomic, strong) ShopViewController *shopController;
 @property (nonatomic, strong) MannanofnAppDelegate *appDelegate;
 
+@property (nonatomic, strong) NSString *currentBuildVersion;
+
 @end
 
 
@@ -65,7 +67,9 @@
 
 - (void)imageTaped:(UIGestureRecognizer *)gestureRecognizer {
     self.firstRunGuide.hidden = YES;
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:FIRST_RUN_GUIDE_BEEN_DISMISSED];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentBuildVersion forKey:FIRST_RUN_GUIDE_BEEN_DISMISSED_FOR_VERSION];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)viewDidLoad
@@ -108,6 +112,9 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reactToFilterPurchase:) name:NOTIFICATION_PURCHASED_FILTERS object:nil];
+    
+    
+    self.currentBuildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 }
 
 - (void)reactToFilterPurchase:(NSNotification *)notifiaction {
@@ -214,7 +221,9 @@
     self.adView.hidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON];
     
     // guide
-    BOOL guideBeenDismissed = [[NSUserDefaults standardUserDefaults] boolForKey:FIRST_RUN_GUIDE_BEEN_DISMISSED];
+    NSString *guideDismissedForVersion = [[NSUserDefaults standardUserDefaults] objectForKey:FIRST_RUN_GUIDE_BEEN_DISMISSED_FOR_VERSION];
+    BOOL guideBeenDismissed = [guideDismissedForVersion isEqualToString:self.currentBuildVersion];
+    // BOOL guideBeenDismissed = [[NSUserDefaults standardUserDefaults] boolForKey:FIRST_RUN_GUIDE_BEEN_DISMISSED];
     if( guideBeenDismissed ) {
         self.firstRunGuide.hidden = YES;
     } else {

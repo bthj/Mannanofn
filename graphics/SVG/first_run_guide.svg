@@ -30,8 +30,8 @@
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1178"
-     inkscape:window-x="1920"
+     inkscape:window-height="1152"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <defs
@@ -131,7 +131,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -162,9 +162,9 @@
        width="638.41638"
        id="rect3050"
        style="opacity:0.306;fill:#000000"
-       inkscape:export-filename="/Users/bthj/Developer/Xcode/Mannanofn/Mannanofn/graphics/first_run_guide.png"
-       inkscape:export-xdpi="45.110001"
-       inkscape:export-ydpi="45.110001" />
+       inkscape:export-filename="/Users/bthj/Developer/Xcode/Mannanofn/Mannanofn/graphics/first_run_guide@2x.png"
+       inkscape:export-xdpi="90.220001"
+       inkscape:export-ydpi="90.220001" />
     <path
        sodipodi:nodetypes="csc"
        inkscape:connector-curvature="0"
@@ -273,5 +273,23 @@
          x="444.50775"
          y="566.4585"
          style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Nanum Pen Script;-inkscape-font-specification:Nanum Pen Script">merking</tspan></text>
+    <path
+       sodipodi:nodetypes="csc"
+       inkscape:connector-curvature="0"
+       id="path3098"
+       d="m 568.09143,99.788331 c 0,0 -24.27681,39.544269 -56.04861,66.687489 -37.6511,32.16601 -130.60277,63.78664 -34.76362,87.32127"
+       style="opacity:0.85900005;fill:none;stroke:#ffffff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow1Send9);filter:url(#filter7286)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3100"
+       y="269.03058"
+       x="489.39093"
+       style="font-size:36px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;opacity:0.85344825;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Nanum Pen Script;-inkscape-font-specification:Nanum Pen Script"
+         y="269.03058"
+         x="489.39093"
+         id="tspan3102"
+         sodipodi:role="line">leit</tspan></text>
   </g>
 </svg>
