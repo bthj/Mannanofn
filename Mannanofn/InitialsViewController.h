@@ -10,6 +10,10 @@
 #import "GAITrackedViewController.h"
 
 
+@protocol InitialsViewControllerDelegate;
+
+
+
 @interface InitialsViewController : GAITrackedViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 
@@ -17,5 +21,20 @@
 
 
 + (BOOL)areInitialsFiltersSet;
+
+
+- (IBAction)done:(id)sender;
+
+
+@property (weak, nonatomic) id <InitialsViewControllerDelegate> delegate;
+
+
+@end
+
+
+
+@protocol InitialsViewControllerDelegate <NSObject>
+
+- (void)initialsApplied:(InitialsViewController *)controller;
 
 @end

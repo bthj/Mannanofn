@@ -23,7 +23,7 @@
 #import "GAIDictionaryBuilder.h"
 
 
-@interface FilterChoicesViewController () <SyllablesChoicesViewControllerDelegate, IcelandicLettersViewControllerDelegate, ShopViewControllerDelegate>
+@interface FilterChoicesViewController () <SyllablesChoicesViewControllerDelegate, IcelandicLettersViewControllerDelegate, MinMaxPopularityViewControllerDelegate, InitialsViewControllerDelegate, SearchViewControllerDelegate, ShopViewControllerDelegate>
 
 
 @property (nonatomic, strong) ShopViewController *shopController;
@@ -114,6 +114,7 @@
     if( indexPath.section == 0 && indexPath.row == 0 ) {
         
         [self clearFilters];
+        [self done:nil];
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else if( indexPath.section == 2 && indexPath.row == 1 ) {
@@ -160,7 +161,8 @@
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+    // self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+    self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"ios-check.png"];
 }
 
 
@@ -181,6 +183,21 @@
 
         IcelandicLettersViewController *icelandicLettersController = (IcelandicLettersViewController *)[segue destinationViewController];
         icelandicLettersController.delegate = self;
+        
+    } else if( [[segue identifier] isEqualToString:@"ShowMinMaxPopularityChoices"] ) {
+        
+        MinMaxPopularityViewController *minMaxPopularityController = (MinMaxPopularityViewController *)[segue destinationViewController];
+        minMaxPopularityController.delegate = self;
+        
+    } else if( [[segue identifier] isEqualToString:@"ShowInitialsChoices"] ) {
+        
+        InitialsViewController *initialsController = (InitialsViewController *)[segue destinationViewController];
+        initialsController.delegate = self;
+        
+    } else if( [[segue identifier] isEqualToString:@"ShowSearchForm"] ) {
+        
+        SearchViewController *searchController = (SearchViewController *)[segue destinationViewController];
+        searchController.delegate = self;
     }
 }
 
@@ -220,11 +237,28 @@
 - (void)syllableCountChosen:(SyllablesChoicesViewController *)controller syllableCount:(NSInteger)syllableCount
 {
     [self setSyllableCountDetail:syllableCount];
+    [self done:nil];
 }
 
 - (void)icelandicLetterCountChosen:(IcelandicLettersViewController *)controller icelandicLetterCount:(NSInteger)icelandicLetterCount
 {
     [self setIcelandicLetterCountDetail:icelandicLetterCount];
+    [self done:nil];
+}
+
+- (void)minMaxApplied:(MinMaxPopularityViewController *)controller {
+    
+    [self done:nil];
+}
+
+- (void)initialsApplied:(InitialsViewController *)controller {
+    
+    [self done:nil];
+}
+
+- (void)searchCriteriaApplied:(SearchViewController *)controller {
+    
+    [self done:nil];
 }
 
 
@@ -242,11 +276,13 @@
 {
     if( syllableCount > 0 ) {
         self.syllableCountCell.detailTextLabel.text = [NSString stringWithFormat:@"%d atkvæði", syllableCount];
-        self.syllableCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        // self.syllableCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        self.syllableCountCell.imageView.image = [UIImage imageNamed:@"ios-check.png"];
 
     } else {
         self.syllableCountCell.detailTextLabel.text = @"Allt";
-        self.syllableCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        // self.syllableCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        self.syllableCountCell.imageView.image = [UIImage imageNamed:@"ios-nocheck.png"];
     }
 }
 
@@ -254,10 +290,12 @@
 {
     if( icelandicLetterCount > 0 ) {
         self.extendedLetterCountCell.detailTextLabel.text = [NSString stringWithFormat:@"%d stafir", icelandicLetterCount-1];
-        self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        // self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"ios-check.png"];
     } else {
         self.extendedLetterCountCell.detailTextLabel.text = @"Allt";
-        self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        // self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"ios-nocheck.png"];
     }
 }
 
@@ -268,10 +306,12 @@
         NSInteger min = [MinMaxPopularityViewController getValueFromMinComponentStoredRow];
         NSInteger max = [MinMaxPopularityViewController getValueFromMaxComponentStoredRow];
         self.popularityFilterCell.detailTextLabel.text = [NSString stringWithFormat:@"%d - %d", min, max];
-        self.popularityFilterCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        // self.popularityFilterCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        self.popularityFilterCell.imageView.image = [UIImage imageNamed:@"ios-check.png"];
     } else {
         self.popularityFilterCell.detailTextLabel.text = @"Allt";
-        self.popularityFilterCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        // self.popularityFilterCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        self.popularityFilterCell.imageView.image = [UIImage imageNamed:@"ios-nocheck.png"];
     }
 }
 
@@ -280,12 +320,14 @@
     NSString *storedFirstInitial = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_FIRST_STORAGE_KEY];
     NSString *storedSecondInitial = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_SECOND_STORAGE_KEY];
     if( nil != storedFirstInitial || nil != storedSecondInitial ) {
-        self.initialsCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        // self.initialsCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        self.initialsCell.imageView.image = [UIImage imageNamed:@"ios-check.png"];
         if( nil == storedFirstInitial ) storedFirstInitial = @"?";
         if( nil == storedSecondInitial ) storedSecondInitial = @"?";
         self.initialsCell.detailTextLabel.text = [NSString stringWithFormat:@"%@. %@.", storedFirstInitial, storedSecondInitial];
     } else {
-        self.initialsCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        // self.initialsCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        self.initialsCell.imageView.image = [UIImage imageNamed:@"ios-nocheck.png"];
         self.initialsCell.detailTextLabel.text = @"Allt";
     }
 }
@@ -294,10 +336,12 @@
 {
     NSString *searchFilter = [[NSUserDefaults standardUserDefaults] stringForKey:SEARCH_STRING_STORAGE_KEY];
     if( searchFilter != nil & [searchFilter length] > 0 ) {
-        self.searchCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        // self.searchCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        self.searchCell.imageView.image = [UIImage imageNamed:@"ios-check.png"];
         self.searchCell.detailTextLabel.text = searchFilter;
     } else {
-        self.searchCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        // self.searchCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        self.searchCell.imageView.image = [UIImage imageNamed:@"ios-nocheck.png"];
         self.searchCell.detailTextLabel.text = @"Allt";
     }
 }
@@ -331,9 +375,11 @@
 - (void)setClearFiltersCellStatus
 {
     if( [self areFiltersSet] ) {
-        self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        // self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGray.png"];
+        self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"ios-nocheck.png"];
     } else {
-        self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        // self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
+        self.clearFiltersCell.imageView.image = [UIImage imageNamed:@"ios-check.png"];
     }
 }
 

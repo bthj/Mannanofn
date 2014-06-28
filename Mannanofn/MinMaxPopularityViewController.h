@@ -10,6 +10,10 @@
 #import "GAITrackedViewController.h"
 
 
+@protocol MinMaxPopularityViewControllerDelegate;
+
+
+
 @interface MinMaxPopularityViewController : GAITrackedViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 
@@ -24,4 +28,20 @@
 /*
 + (NSInteger)getRowFromStoredValueInComponent:(NSInteger)component;
 */
+
+
+- (IBAction)done:(id)sender;
+
+
+@property (weak, nonatomic) id <MinMaxPopularityViewControllerDelegate> delegate;
+
+
+@end
+
+
+
+@protocol MinMaxPopularityViewControllerDelegate <NSObject>
+
+- (void)minMaxApplied:(MinMaxPopularityViewController *)controller;
+
 @end

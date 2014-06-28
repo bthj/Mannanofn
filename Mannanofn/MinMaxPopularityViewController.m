@@ -118,15 +118,12 @@
     return [[NSUserDefaults standardUserDefaults] integerForKey:MAX_POPULARITY_STORAGE_KEY];
 }
 
-/*
-+ (NSInteger)getRowFromStoredValueInComponent:(NSInteger)component
-{
-    if( component == 0 ) {
-        return [[NSUserDefaults standardUserDefaults] integerForKey:MIN_POPULARITY_STORAGE_KEY] / NAMES_COUNT_STEP;
-    } else {
-        return (MAX_TOTAL_NUMBER_OF_NAMES - [[NSUserDefaults standardUserDefaults] integerForKey:MAX_POPULARITY_STORAGE_KEY]) / NAMES_COUNT_STEP;
-    }
+
+
+- (IBAction)done:(id)sender {
+    
+    [[self delegate] minMaxApplied:self];
 }
-*/
+
 
 @end

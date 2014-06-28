@@ -111,4 +111,12 @@
     }
 }
 
+
+
+- (IBAction)done:(id)sender {
+    
+    [[self delegate] initialsApplied:self];
+}
+
+
 @end

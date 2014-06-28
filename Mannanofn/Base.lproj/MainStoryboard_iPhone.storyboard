@@ -226,14 +226,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Sjá öll nöfn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u9j-XI-6Nm">
-                                                    <rect key="frame" x="38" y="0.0" width="267" height="43"/>
+                                                    <rect key="frame" x="44" y="0.0" width="261" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tableViewBulletGray.png" id="rQJ-NV-NJm">
-                                                    <rect key="frame" x="15" y="17" width="8" height="8"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ios-check.png" id="rQJ-NV-NJm">
+                                                    <rect key="frame" x="15" y="16" width="14" height="11"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -248,14 +248,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Leit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iKp-7e-PkL">
-                                                    <rect key="frame" x="38" y="11" width="28" height="21"/>
+                                                    <rect key="frame" x="44" y="11" width="28" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tableViewBulletGray.png" id="KFD-Af-ccr">
-                                                    <rect key="frame" x="15" y="17" width="8" height="8"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ios-check.png" id="KFD-Af-ccr">
+                                                    <rect key="frame" x="15" y="16" width="14" height="11"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Allt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="40M-OZ-3ff">
@@ -268,7 +268,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="X8F-RJ-HgX" kind="push" id="i1o-Cb-x7Q"/>
+                                            <segue destination="X8F-RJ-HgX" kind="push" identifier="ShowSearchForm" id="i1o-Cb-x7Q"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="q7R-Bt-C6q" detailTextLabel="iBi-iB-V5u" imageView="KX8-UN-Jty" style="IBUITableViewCellStyleValue1" id="eNc-73-5zR">
@@ -279,14 +279,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Fjöldi atkvæða" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q7R-Bt-C6q">
-                                                    <rect key="frame" x="38" y="11" width="113" height="21"/>
+                                                    <rect key="frame" x="44" y="11" width="113" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tableViewBulletGray.png" id="KX8-UN-Jty">
-                                                    <rect key="frame" x="15" y="17" width="8" height="8"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ios-check.png" id="KX8-UN-Jty">
+                                                    <rect key="frame" x="15" y="16" width="14" height="11"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Allt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iBi-iB-V5u">
@@ -310,14 +310,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Fjöldi íslenskra stafa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MEo-E7-luV">
-                                                    <rect key="frame" x="38" y="11" width="156" height="21"/>
+                                                    <rect key="frame" x="44" y="11" width="156" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tableViewBulletGray.png" id="70N-o9-k6w">
-                                                    <rect key="frame" x="15" y="17" width="8" height="8"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ios-check.png" id="70N-o9-k6w">
+                                                    <rect key="frame" x="15" y="16" width="14" height="11"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Allt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9mS-hZ-ViO">
@@ -341,14 +341,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Fjöldi nafnbera" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rKN-2P-fVS">
-                                                    <rect key="frame" x="38" y="11" width="114" height="21"/>
+                                                    <rect key="frame" x="44" y="11" width="114" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tableViewBulletGray.png" id="wRz-Nm-Nr5">
-                                                    <rect key="frame" x="15" y="17" width="8" height="8"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ios-check.png" id="wRz-Nm-Nr5">
+                                                    <rect key="frame" x="15" y="16" width="14" height="11"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Allt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4eB-pU-g55">
@@ -361,7 +361,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="lUu-ct-y3L" kind="push" id="s67-TG-baa"/>
+                                            <segue destination="lUu-ct-y3L" kind="push" identifier="ShowMinMaxPopularityChoices" id="s67-TG-baa"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="dhX-Kw-iVz" detailTextLabel="tF9-Va-z5r" imageView="s51-uO-Zm2" style="IBUITableViewCellStyleValue1" id="XeM-mQ-Zk2">
@@ -372,14 +372,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Upphafsstafir" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dhX-Kw-iVz">
-                                                    <rect key="frame" x="38" y="11" width="103" height="21"/>
+                                                    <rect key="frame" x="44" y="11" width="103" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tableViewBulletGray.png" id="s51-uO-Zm2">
-                                                    <rect key="frame" x="15" y="17" width="8" height="8"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ios-check.png" id="s51-uO-Zm2">
+                                                    <rect key="frame" x="15" y="16" width="14" height="11"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Allt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tF9-Va-z5r">
@@ -392,7 +392,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="h7a-DX-6ls" kind="push" id="gAl-k6-BEs"/>
+                                            <segue destination="h7a-DX-6ls" kind="push" identifier="ShowInitialsChoices" id="gAl-k6-BEs"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1150,7 +1150,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aVO-Lp-sZh"/>
+                    <navigationItem key="navigationItem" id="aVO-Lp-sZh">
+                        <barButtonItem key="rightBarButtonItem" title="Virkja" style="done" id="8U8-Q0-4fI">
+                            <color key="tintColor" red="1" green="0.39215686274509803" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="done:" destination="lUu-ct-y3L" id="HXT-uy-pPF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="minMaxPicker" destination="OEh-Bq-9tP" id="wUc-GT-wKt"/>
                     </connections>
@@ -2174,7 +2181,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7dr-h2-ksY"/>
+                    <navigationItem key="navigationItem" id="7dr-h2-ksY">
+                        <barButtonItem key="rightBarButtonItem" title="Virkja" style="done" id="Dj5-I6-bq7">
+                            <color key="tintColor" red="1" green="0.39215686274509803" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="done:" destination="h7a-DX-6ls" id="qo9-e3-ZRE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="initialsPicker" destination="mRx-WH-RSc" id="LUi-iH-hKY"/>
                     </connections>
@@ -2195,10 +2209,10 @@
         <image name="heart_nametag_disabled.png" width="29" height="26"/>
         <image name="heart_tabbar.png" width="30" height="30"/>
         <image name="ico_close.png" width="45" height="45"/>
+        <image name="ios-check.png" width="14" height="11"/>
         <image name="popularity_tabbar.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
         <image name="storkur_background.png" width="202" height="241"/>
-        <image name="tableViewBulletGray.png" width="8" height="8"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

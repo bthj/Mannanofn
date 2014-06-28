@@ -76,7 +76,7 @@
     
     [[self delegate] syllableCountChosen:self syllableCount:self.syllableCount];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    // we'll call done to close in the above delegate method call - [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -74,7 +74,9 @@
         [textField resignFirstResponder];
     }
     
-    [self.navigationController popViewControllerAnimated:YES];
+    // [self.navigationController popViewControllerAnimated:YES];
+    
+    [[self delegate] searchCriteriaApplied:self];
     
     return YES;
 }
