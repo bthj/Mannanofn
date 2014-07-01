@@ -46,7 +46,7 @@
     if( [[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON] ) {
      
         bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-        bannerView_.adUnitID = @"a1518d2dce38034";
+        bannerView_.adUnitID = @"ca-app-pub-1281884862403878/1071350941";
         bannerView_.rootViewController = self;
         [self.adView addSubview:bannerView_];
         GADRequest *request = [GADRequest request];

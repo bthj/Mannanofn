@@ -46,6 +46,11 @@
     name.dateAdded = [self getDateFromISOString:[nameSeed objectForKey:@"dateAdded"]];
     name.dateModified = [self getDateFromISOString:[nameSeed objectForKey:@"dateModified"]];
     
+    // temporary debug
+    if( [name.name isEqualToString:@"Analía"] ) {
+        NSLog(@"Found Analía and its description is: %@", name.descriptionIcelandic);
+    }
+    
     return name;
 }
 

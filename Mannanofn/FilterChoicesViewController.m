@@ -82,7 +82,20 @@
 
 - (IBAction)switchAds:(UISwitch *)sender {
     
-    BOOL hasFilterAddon = self.appDelegate.transactionObserver.filtersPurchased;
+#if TARGET_IPHONE_SIMULATOR
+    
+    BOOL hasFilterAddon = YES;
+    
+#else
+    
+    BOOL hasFilterAddon = NO;
+    
+#endif
+    
+    if( hasFilterAddon == NO ) {
+        
+        hasFilterAddon = self.appDelegate.transactionObserver.filtersPurchased;
+    }
     
     if( hasFilterAddon ) {
 
@@ -204,9 +217,22 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
-    BOOL shouldPerformSegue = NO;
+#if TARGET_IPHONE_SIMULATOR
     
-    BOOL hasFilterAddon = self.appDelegate.transactionObserver.filtersPurchased;
+    BOOL hasFilterAddon = YES;
+    
+#else
+    
+    BOOL hasFilterAddon = NO;
+    
+#endif
+    
+    if( hasFilterAddon == NO ) {
+        
+        hasFilterAddon = self.appDelegate.transactionObserver.filtersPurchased;
+    }
+    
+    BOOL shouldPerformSegue = NO;
     
     if( hasFilterAddon
         || [identifier isEqual:@"AboutAppSegue"]
@@ -290,7 +316,14 @@
 - (void)setIcelandicLetterCountDetail:(NSInteger)icelandicLetterCount
 {
     if( icelandicLetterCount > 0 ) {
-        self.extendedLetterCountCell.detailTextLabel.text = [NSString stringWithFormat:@"%d stafir", icelandicLetterCount-1];
+        NSInteger displayedLetterCount = icelandicLetterCount-1;
+        NSString *letterCountSuffix;
+        if( displayedLetterCount == 1 ) {
+            letterCountSuffix = @"stafur";
+        } else {
+            letterCountSuffix = @"stafir";
+        }
+        self.extendedLetterCountCell.detailTextLabel.text = [NSString stringWithFormat:@"%d %@", displayedLetterCount, letterCountSuffix];
         // self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"tableViewBulletGreen.png"];
         self.extendedLetterCountCell.imageView.image = [UIImage imageNamed:@"ios-check.png"];
     } else {

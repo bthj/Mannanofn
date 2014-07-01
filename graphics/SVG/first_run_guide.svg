@@ -131,7 +131,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -162,9 +162,9 @@
        width="638.41638"
        id="rect3050"
        style="opacity:0.306;fill:#000000"
-       inkscape:export-filename="/Users/bthj/Developer/Xcode/Mannanofn/Mannanofn/graphics/first_run_guide@2x.png"
-       inkscape:export-xdpi="90.220001"
-       inkscape:export-ydpi="90.220001" />
+       inkscape:export-filename="/Users/bthj/Developer/Xcode/Mannanofn/Mannanofn/graphics/first_run_guide.png"
+       inkscape:export-xdpi="45.114925"
+       inkscape:export-ydpi="45.114925" />
     <path
        sodipodi:nodetypes="csc"
        inkscape:connector-curvature="0"

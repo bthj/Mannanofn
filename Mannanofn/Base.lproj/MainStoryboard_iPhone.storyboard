@@ -819,8 +819,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Með nafnbót upp á vasann getið þér:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUJ-AI-QfB">
-                                <rect key="frame" x="20" y="130" width="280" height="26"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Með nafnbót upp á vasann getið þér:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUJ-AI-QfB">
+                                <rect key="frame" x="20" y="130" width="288" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -850,7 +850,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Valið að sjá nöfn eftir vinsældum" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iux-hr-qu9">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Valið hve vinsæl nöfn sjást" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iux-hr-qu9">
                                 <rect key="frame" x="20" y="309" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -929,7 +929,7 @@
                             <constraint firstAttribute="trailing" secondItem="MKe-TA-RVh" secondAttribute="trailing" constant="20" id="Xb4-Ve-bKj"/>
                             <constraint firstItem="sla-iz-17l" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="Y1C-Li-cdq"/>
                             <constraint firstItem="Iux-hr-qu9" firstAttribute="top" secondItem="MKe-TA-RVh" secondAttribute="bottom" constant="8" id="ZUA-Zj-gif"/>
-                            <constraint firstAttribute="trailing" secondItem="lUJ-AI-QfB" secondAttribute="trailing" constant="20" id="b3f-j3-5Wi"/>
+                            <constraint firstAttribute="trailing" secondItem="lUJ-AI-QfB" secondAttribute="trailing" constant="18" id="b3f-j3-5Wi"/>
                             <constraint firstItem="rbs-Ex-JjP" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="bU2-yu-rZx"/>
                             <constraint firstItem="emb-GW-yXy" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="35" id="bVw-1B-gpU"/>
                             <constraint firstItem="LTH-sj-MJy" firstAttribute="leading" secondItem="59I-00-wek" secondAttribute="leading" constant="20" id="d37-TI-EHc"/>
