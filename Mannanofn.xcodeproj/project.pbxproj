@@ -60,6 +60,9 @@
 		FB7A5B1F188FFBA10011C3BF /* barButtonIconSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7A5B1B188FFBA10011C3BF /* barButtonIconSearch.png */; };
 		FB7A5B20188FFBA10011C3BF /* barButtonIconSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7A5B1C188FFBA10011C3BF /* barButtonIconSearch@2x.png */; };
 		FB7A5B2318929E140011C3BF /* MinMaxPopularityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7A5B2218929E130011C3BF /* MinMaxPopularityViewController.m */; };
+		FB7E2C96197956BD003A65E7 /* NamesControlSwappingController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2C95197956BD003A65E7 /* NamesControlSwappingController.m */; };
+		FB7E2C9A19796578003A65E7 /* WheelRandomController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2C9919796578003A65E7 /* WheelRandomController.m */; };
+		FB7E2C9D19798311003A65E7 /* EmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2C9C19798311003A65E7 /* EmptySegue.m */; };
 		FB83C6631629E28A00C92803 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB83C6621629DEFD00C92803 /* MBProgressHUD.m */; };
 		FB83FF131742E1EB0090CC6C /* first_run_guide.png in Resources */ = {isa = PBXBuildFile; fileRef = FB83FF111742E1EB0090CC6C /* first_run_guide.png */; };
 		FB83FF141742E1EB0090CC6C /* first_run_guide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB83FF121742E1EB0090CC6C /* first_run_guide@2x.png */; };
@@ -214,6 +217,12 @@
 		FB7A5B1C188FFBA10011C3BF /* barButtonIconSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barButtonIconSearch@2x.png"; sourceTree = "<group>"; };
 		FB7A5B2118929E130011C3BF /* MinMaxPopularityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinMaxPopularityViewController.h; sourceTree = "<group>"; };
 		FB7A5B2218929E130011C3BF /* MinMaxPopularityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinMaxPopularityViewController.m; sourceTree = "<group>"; };
+		FB7E2C94197956BD003A65E7 /* NamesControlSwappingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesControlSwappingController.h; sourceTree = "<group>"; };
+		FB7E2C95197956BD003A65E7 /* NamesControlSwappingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesControlSwappingController.m; sourceTree = "<group>"; };
+		FB7E2C9819796578003A65E7 /* WheelRandomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WheelRandomController.h; sourceTree = "<group>"; };
+		FB7E2C9919796578003A65E7 /* WheelRandomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WheelRandomController.m; sourceTree = "<group>"; };
+		FB7E2C9B19798311003A65E7 /* EmptySegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptySegue.h; sourceTree = "<group>"; };
+		FB7E2C9C19798311003A65E7 /* EmptySegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptySegue.m; sourceTree = "<group>"; };
 		FB83C6611629DEFD00C92803 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FB83C6621629DEFD00C92803 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FB83FF111742E1EB0090CC6C /* first_run_guide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first_run_guide.png; sourceTree = "<group>"; };
@@ -488,6 +497,15 @@
 			name = is.lproj;
 			sourceTree = "<group>";
 		};
+		FB7E2C9719796443003A65E7 /* Wheel of Randomness */ = {
+			isa = PBXGroup;
+			children = (
+				FB7E2C9819796578003A65E7 /* WheelRandomController.h */,
+				FB7E2C9919796578003A65E7 /* WheelRandomController.m */,
+			);
+			name = "Wheel of Randomness";
+			sourceTree = "<group>";
+		};
 		FB83C65F1629DE9600C92803 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,9 +541,14 @@
 				FB955AB8163748D50039F096 /* NamesOrderViewController.m */,
 				FB955AC016374AC20039F096 /* NamesContainerViewController.h */,
 				FB955AC116374AC20039F096 /* NamesContainerViewController.m */,
+				FB7E2C94197956BD003A65E7 /* NamesControlSwappingController.h */,
+				FB7E2C95197956BD003A65E7 /* NamesControlSwappingController.m */,
+				FB7E2C9B19798311003A65E7 /* EmptySegue.h */,
+				FB7E2C9C19798311003A65E7 /* EmptySegue.m */,
 				FB6F8A1F16B8C04000D8F9CE /* NamesDatabaseSetupUtility.h */,
 				FB6F8A2016B8C04100D8F9CE /* NamesDatabaseSetupUtility.m */,
 				FB8D69EF16E63B5300653612 /* Alphabetical and popularity */,
+				FB7E2C9719796443003A65E7 /* Wheel of Randomness */,
 				FB8D69F216E63B9E00653612 /* Categories */,
 			);
 			name = "Name lists";
@@ -848,9 +871,12 @@
 			files = (
 				FB297E6E19473988007364C9 /* AboutAppViewController.m in Sources */,
 				FB7A5B00188D93BF0011C3BF /* SyllablesChoicesViewController.m in Sources */,
+				FB7E2C9A19796578003A65E7 /* WheelRandomController.m in Sources */,
 				FB515878188C96A2008B8C18 /* FilterChoicesViewController.m in Sources */,
 				FB83C6631629E28A00C92803 /* MBProgressHUD.m in Sources */,
 				FBE174D915E59E6000EDC6A4 /* CoreDataTableViewController.m in Sources */,
+				FB7E2C9D19798311003A65E7 /* EmptySegue.m in Sources */,
+				FB7E2C96197956BD003A65E7 /* NamesControlSwappingController.m in Sources */,
 				FB313DF91546008A0077438C /* main.m in Sources */,
 				FB313DFD1546008A0077438C /* MannanofnAppDelegate.m in Sources */,
 				FB313E061546008A0077438C /* MannanofnFirstViewController.m in Sources */,
@@ -927,9 +953,9 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson (ATA8MQ4L7K)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Bjorn Thor Jonsson (ATA8MQ4L7K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson (ATA8MQ4L7K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -948,8 +974,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6EA3D7DE-DACD-4C65-A4B5-EE3FA0447F02";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6EA3D7DE-DACD-4C65-A4B5-EE3FA0447F02";
+				PROVISIONING_PROFILE = "65B51438-7919-45D9-8A96-0AB621546E3D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65B51438-7919-45D9-8A96-0AB621546E3D";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -966,8 +992,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson (ATA8MQ4L7K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson (ATA8MQ4L7K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -979,8 +1005,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "6EA3D7DE-DACD-4C65-A4B5-EE3FA0447F02";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6EA3D7DE-DACD-4C65-A4B5-EE3FA0447F02";
+				PROVISIONING_PROFILE = "65B51438-7919-45D9-8A96-0AB621546E3D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65B51438-7919-45D9-8A96-0AB621546E3D";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -990,8 +1016,8 @@
 		FB313E151546008A0077438C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson (ATA8MQ4L7K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson (ATA8MQ4L7K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
@@ -1002,8 +1028,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6EA3D7DE-DACD-4C65-A4B5-EE3FA0447F02";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6EA3D7DE-DACD-4C65-A4B5-EE3FA0447F02";
+				PROVISIONING_PROFILE = "65B51438-7919-45D9-8A96-0AB621546E3D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65B51438-7919-45D9-8A96-0AB621546E3D";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1012,8 +1038,8 @@
 		FB313E161546008A0077438C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Bjorn Thor Jonsson (ATA8MQ4L7K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bjorn Thor Jonsson (ATA8MQ4L7K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bjorn Thor Jonsson (A63TE5AF96)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mannanofn/Mannanofn-Prefix.pch";
 				INFOPLIST_FILE = "Mannanofn/Mannanofn-Info.plist";
@@ -1024,8 +1050,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6EA3D7DE-DACD-4C65-A4B5-EE3FA0447F02";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6EA3D7DE-DACD-4C65-A4B5-EE3FA0447F02";
+				PROVISIONING_PROFILE = "65B51438-7919-45D9-8A96-0AB621546E3D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65B51438-7919-45D9-8A96-0AB621546E3D";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -18,6 +18,8 @@
 
 @property (nonatomic, assign) NSInteger syllableCount; // 0 for any number of syllables
 
++ (BOOL)isSyllableCountFilterSet;
+
 @end
 
 

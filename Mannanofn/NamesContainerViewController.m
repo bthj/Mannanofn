@@ -11,6 +11,8 @@
 #import "MannanofnGlobalStringConstants.h"
 #import "Favorite+Create.h"
 #import "FilterChoicesViewController.h"
+#import "SyllablesChoicesViewController.h"
+#import "IcelandicLettersViewController.h"
 #import "MinMaxPopularityViewController.h"
 #import "InitialsViewController.h"
 #import "SearchViewController.h"
@@ -21,10 +23,13 @@
 #import "ShopViewController.h"
 #import "MannanofnAppDelegate.h"
 
+#import "NamesControlSwappingController.h"
+
 
 @interface NamesContainerViewController () <FilterChoicesTableViewControllerDelegate, ShopViewControllerDelegate>
 
-@property (nonatomic, strong) NamesTableViewListController *namesTableView;
+// @property (nonatomic, strong) NamesTableViewListController *namesTableView;
+@property (nonatomic, strong) NamesControlSwappingController *namesControlsContainer;
 @property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
 @property (nonatomic, strong) UIManagedDocument *favoritesDatabase;
 @property (nonatomic, strong) NSString *currentNameLookedUpInFavorites;
@@ -49,9 +54,13 @@
 
 - (void)filterChoicesTableViewControllerDidFinish:(FilterChoicesViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:NULL];
-    
+
+/*
     [self.namesTableView loadFilters];
     [self.namesTableView fetchResults];
+*/
+    [self.namesControlsContainer loadFilters];
+    [self.namesControlsContainer fetchResults];
 }
 
 
@@ -81,7 +90,7 @@
     
     //self.tableContainer.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableViewBackground"]];
     
-    self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
+//    self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
     
     [self.toggleFavoriteButton setEnabled:NO];  // to be disabled until favorites db is ready
     self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView:self.view];
@@ -172,10 +181,12 @@
 
 - (BOOL)areFiltersSet {
     BOOL filtersAreSet = NO;
-    if( self.namesTableView.syllableCount > 0 ) {
+//    if( self.namesTableView.syllableCount > 0 ) {
+    if( [SyllablesChoicesViewController isSyllableCountFilterSet] ) {
         filtersAreSet = YES;
     }
-    if( self.namesTableView.icelandicLetterCount > -1 ) {
+//    if( self.namesTableView.icelandicLetterCount > -1 ) {
+    if( [IcelandicLettersViewController isIcelandicLetterCountFilterSet] ) {
         filtersAreSet = YES;
     }
     if( [MinMaxPopularityViewController getMinComponentStoredRow] > 0 || [MinMaxPopularityViewController getMaxComponentStoredRow] > 0 ) {
@@ -251,13 +262,20 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if( [[segue identifier] isEqualToString:@"NamesTableEmbedSegue"] ) {
-
+//    if( [[segue identifier] isEqualToString:@"NamesTableEmbedSegue"] ) {
+    if( [[segue identifier] isEqualToString:@"NamesControlsEmbedSegue"] ) {
+/*
         self.namesTableView = (NamesTableViewListController *)[segue destinationViewController];
         self.namesTableView.namesOrder = self.namesOrder;
         self.namesTableView.categorySelection = self.categorySelection;
         self.namesTableView.originSelection = self.originSelection;
         self.namesTableView.nameCardDelegate = self;
+*/
+        self.namesControlsContainer = (NamesControlSwappingController *)[segue destinationViewController];
+        self.namesControlsContainer.namesOrder = self.namesOrder;
+        self.namesControlsContainer.categorySelection = self.categorySelection;
+        self.namesControlsContainer.originSelection = self.originSelection;
+        self.namesControlsContainer.nameCardDelegate = self;
         
         [self setGenderToLastCurrent];
         
@@ -283,7 +301,8 @@
 }
 
 - (IBAction)selectGender:(id)sender {
-    if( self.namesTableView ) {
+//    if( self.namesTableView ) {
+    if( self.namesControlsContainer ) {
         
         NSString *selectedGender = [self passGenderToNamesTable];
         
@@ -317,13 +336,20 @@
 
 - (NSString *)passGenderToNamesTable
 {
+/*
     self.namesTableView.genderSelection = [self getCurrentGender];
     return self.namesTableView.genderSelection;
+*/
+    self.namesControlsContainer.genderSelection = [self getCurrentGender];
+    return self.namesControlsContainer.genderSelection;
 }
 
 - (void)passNamesPositionToNamesTable
 {
+/*
     self.namesTableView.namesPosition = self.namePosition.selectedSegmentIndex;
+*/
+    self.namesControlsContainer.namesPosition = self.namePosition.selectedSegmentIndex;
 }
 
 - (NSString *)getCurrentGender

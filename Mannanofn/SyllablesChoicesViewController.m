@@ -79,4 +79,10 @@
     // we'll call done to close in the above delegate method call - [self.navigationController popViewControllerAnimated:YES];
 }
 
+
++ (BOOL)isSyllableCountFilterSet
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY] > 0;
+}
+
 @end

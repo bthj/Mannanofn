@@ -80,4 +80,10 @@
     // we'll call done to close in the above delegate method call - [self.navigationController popViewControllerAnimated:YES];
 }
 
+
++ (BOOL)isIcelandicLetterCountFilterSet
+{
+    return ([[NSUserDefaults standardUserDefaults] integerForKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY] - 1) > -1;
+}
+
 @end

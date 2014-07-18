@@ -18,6 +18,8 @@
 
 @property (nonatomic, assign) NSInteger icelandicLetterCount; // -1 for any number of Icelandic letters
 
++ (BOOL)isIcelandicLetterCountFilterSet;
+
 @end
 
 
