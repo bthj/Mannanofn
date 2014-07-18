@@ -1478,6 +1478,7 @@
                     <connections>
                         <segue destination="vEb-UK-YXs" kind="relationship" relationship="viewControllers" id="oNf-We-Fek"/>
                         <segue destination="SsE-e6-BC0" kind="relationship" relationship="viewControllers" id="Okn-V7-tO6"/>
+                        <segue destination="CpU-lW-bPv" kind="relationship" relationship="viewControllers" id="2Nx-Bx-c6A"/>
                         <segue destination="7DB-0Z-k8g" kind="relationship" relationship="viewControllers" id="gma-K0-Kj3"/>
                         <segue destination="BSd-Sp-ukZ" kind="relationship" relationship="viewControllers" id="IXR-zz-eJ1"/>
                     </connections>
@@ -1798,7 +1799,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ok-y4-qjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="-1196"/>
+            <point key="canvasLocation" x="154" y="-1680"/>
         </scene>
         <!--Names Order View Controller - Vinsældalisti-->
         <scene sceneID="y5W-dX-9gE">
@@ -1832,7 +1833,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i31-AL-mPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="-481"/>
+            <point key="canvasLocation" x="154" y="-1073"/>
+        </scene>
+        <!--Names Order View Controller - Hending-->
+        <scene sceneID="QCG-ZS-GX0">
+            <objects>
+                <viewController id="CpU-lW-bPv" customClass="NamesOrderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0dj-bc-WaY"/>
+                        <viewControllerLayoutGuide type="bottom" id="BZz-w6-SWn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mlM-IU-6me">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iB9-Lr-fn7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="tJD-nR-3DR" kind="embed" identifier="WheelRandomEmbedSegue" id="vth-7m-eyJ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iB9-Lr-fn7" firstAttribute="top" secondItem="mlM-IU-6me" secondAttribute="top" id="Uuk-SY-yIh"/>
+                            <constraint firstItem="BZz-w6-SWn" firstAttribute="top" secondItem="iB9-Lr-fn7" secondAttribute="bottom" id="u4z-af-sR2"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Hending" id="tZo-Vn-cJs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jgc-sA-MIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154" y="-407"/>
         </scene>
         <!--Categories Container Controller - Flokkar-->
         <scene sceneID="QQ2-27-ZA7">
@@ -2241,7 +2275,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UcW-rl-3MV"/>
+        <segue reference="vth-7m-eyJ"/>
         <segue reference="QhW-4Q-s9w"/>
         <segue reference="mev-vb-cxr"/>
         <segue reference="w3j-Ol-6Sp"/>

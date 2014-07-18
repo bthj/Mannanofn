@@ -31,6 +31,11 @@
         
         namesContainer.namesOrder = ORDER_BY_FIRST_NAME_POPULARITY;
         namesContainer.navigationItemTitle = @"Vinsældalisti";
+        
+    } else if( [[segue identifier] isEqualToString:@"WheelRandomEmbedSegue"] ) {
+        
+        namesContainer.namesOrder = ORDER_RANDOMLY;
+        namesContainer.navigationItemTitle = @"Hjólið";
     }
 }
 
