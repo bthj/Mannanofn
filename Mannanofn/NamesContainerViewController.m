@@ -55,10 +55,7 @@
 - (void)filterChoicesTableViewControllerDidFinish:(FilterChoicesViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:NULL];
 
-/*
-    [self.namesTableView loadFilters];
-    [self.namesTableView fetchResults];
-*/
+
     [self.namesControlsContainer loadFilters];
     [self.namesControlsContainer fetchResults];
 }
@@ -87,10 +84,6 @@
 	// Do any additional setup after loading the view.
     
     [self clearNameCard];
-    
-    //self.tableContainer.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableViewBackground"]];
-    
-//    self.tableContainer.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"tableViewBackgroundBlue"]];
     
     [self.toggleFavoriteButton setEnabled:NO];  // to be disabled until favorites db is ready
     self.favoritesDatabaseUtility = [[FavoritesDatabaseUtility alloc] initFavoritesDatabaseForView:self.view];
@@ -181,11 +174,9 @@
 
 - (BOOL)areFiltersSet {
     BOOL filtersAreSet = NO;
-//    if( self.namesTableView.syllableCount > 0 ) {
     if( [SyllablesChoicesViewController isSyllableCountFilterSet] ) {
         filtersAreSet = YES;
     }
-//    if( self.namesTableView.icelandicLetterCount > -1 ) {
     if( [IcelandicLettersViewController isIcelandicLetterCountFilterSet] ) {
         filtersAreSet = YES;
     }
@@ -262,15 +253,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if( [[segue identifier] isEqualToString:@"NamesTableEmbedSegue"] ) {
     if( [[segue identifier] isEqualToString:@"NamesControlsEmbedSegue"] ) {
-/*
-        self.namesTableView = (NamesTableViewListController *)[segue destinationViewController];
-        self.namesTableView.namesOrder = self.namesOrder;
-        self.namesTableView.categorySelection = self.categorySelection;
-        self.namesTableView.originSelection = self.originSelection;
-        self.namesTableView.nameCardDelegate = self;
-*/
+
         self.namesControlsContainer = (NamesControlSwappingController *)[segue destinationViewController];
         self.namesControlsContainer.namesOrder = self.namesOrder;
         self.namesControlsContainer.categorySelection = self.categorySelection;
@@ -336,19 +320,12 @@
 
 - (NSString *)passGenderToNamesTable
 {
-/*
-    self.namesTableView.genderSelection = [self getCurrentGender];
-    return self.namesTableView.genderSelection;
-*/
     self.namesControlsContainer.genderSelection = [self getCurrentGender];
     return self.namesControlsContainer.genderSelection;
 }
 
 - (void)passNamesPositionToNamesTable
 {
-/*
-    self.namesTableView.namesPosition = self.namePosition.selectedSegmentIndex;
-*/
     self.namesControlsContainer.namesPosition = self.namePosition.selectedSegmentIndex;
 }
 

@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface WheelRandomController : UIViewController
+    
+@property (weak, nonatomic) IBOutlet UILabel *labelCount;
+
+- (IBAction)pickRandom:(id)sender;
 
 @end

@@ -41,16 +41,6 @@
 @synthesize originSelection = _originSelection;
 @synthesize nameCardDelegate = _nameCardDelegate;
 
-/*
-@synthesize syllableCount = _syllableCount;
-@synthesize icelandicLetterCount = _icelandicLetterCount;
-@synthesize minPopularity = _minPopularity;
-@synthesize maxPopularity = _maxPopularity;
-@synthesize firstInitialFilter = _firstInitialFilter;
-@synthesize secondInitialFilter = _secondInitialFilter;
-@synthesize searchFilter = _searchFilter;
-*/
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -214,28 +204,9 @@
 
 
 - (void)loadFilters {
-/*
-    _syllableCount = [[NSUserDefaults standardUserDefaults] integerForKey:SYLLABLES_COUNT_STORAGE_KEY];
-    _icelandicLetterCount = [[NSUserDefaults standardUserDefaults] integerForKey:ICELANDIC_LETTER_COUNT_STORAGE_KEY] - 1 ;
-    
-    _minPopularity = [MinMaxPopularityViewController getValueFromMinComponentStoredRow];
-    _maxPopularity = [MinMaxPopularityViewController getValueFromMaxComponentStoredRow];
-    
-    _firstInitialFilter = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_FIRST_STORAGE_KEY];
-    _secondInitialFilter = [[NSUserDefaults standardUserDefaults] stringForKey:INITIAL_SECOND_STORAGE_KEY];
-    
-    _searchFilter = [[NSUserDefaults standardUserDefaults] stringForKey:SEARCH_STRING_STORAGE_KEY];
-*/
+
     if( [_currentSegueIdentifier isEqualToString:SegueIdentifierNamesTable] ) {
-/*
-        _namesTableView.syllableCount = _syllableCount;
-        _namesTableView.icelandicLetterCount = _icelandicLetterCount;
-        _namesTableView.minPopularity = _minPopularity;
-        _namesTableView.maxPopularity = _maxPopularity;
-        _namesTableView.firstInitialFilter = _firstInitialFilter;
-        _namesTableView.secondInitialFilter = _secondInitialFilter;
-        _namesTableView.searchFilter = _searchFilter;
-*/
+
         [_namesTableView loadFilters];
         
     } else if( [_currentSegueIdentifier isEqualToString:SegueIdentifierNamesWheel] ) {
