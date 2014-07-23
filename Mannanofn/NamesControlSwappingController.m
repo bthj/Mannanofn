@@ -186,9 +186,12 @@
     _genderSelection = genderSelection;
 
     if( [_currentSegueIdentifier isEqualToString:SegueIdentifierNamesTable] ) {
+        
         _namesTableView.genderSelection = _genderSelection;
+        
     } else if( [_currentSegueIdentifier isEqualToString:SegueIdentifierNamesWheel] ) {
-        // TODO: pass gender selection to wheel view
+        
+        _namesWheelView.genderSelection = _genderSelection;
     }
 }
 - (void)setNamesPosition:(NSInteger)namesPosition {
@@ -211,7 +214,7 @@
         
     } else if( [_currentSegueIdentifier isEqualToString:SegueIdentifierNamesWheel] ) {
 
-        // TODO ...pass vars to _namesWheelView ...
+        [_namesWheelView loadFilters];
     }
 }
 
@@ -223,7 +226,7 @@
      
     } else if( [_currentSegueIdentifier isEqualToString:SegueIdentifierNamesWheel] ) {
         
-        // TODO: call fetchResults on _namesWheelView
+        [_namesWheelView fetchResults];
     }
 }
 
