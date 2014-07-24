@@ -176,9 +176,12 @@
     // passed to active name-choosing control in prepareForSegue
     
     if( [_currentSegueIdentifier isEqualToString:SegueIdentifierNamesTable] ) {
+
         _namesTableView.nameCardDelegate = _nameCardDelegate;
+        
     } else if( [_currentSegueIdentifier isEqualToString:SegueIdentifierNamesWheel] ) {
-        // TODO: pass name card delegate to wheel view
+
+        _namesWheelView.nameCardDelegate = _nameCardDelegate;
     }
 }
 - (void)setGenderSelection:(NSString *)genderSelection {

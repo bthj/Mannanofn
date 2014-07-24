@@ -44,6 +44,10 @@
 		FB497F1E16C08EC200894353 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F1D16C08EC200894353 /* FavoritesTableViewController.m */; };
 		FB497F2716C09B6100894353 /* Favorite+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2616C09B6100894353 /* Favorite+Create.m */; };
 		FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FB497F2916C0A35C00894353 /* FavoritesDatabaseUtility.m */; };
+		FB4E5E6B1980E11200352929 /* SMWheelControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4E5E681980E11200352929 /* SMWheelControl.m */; };
+		FB4E5E6D1980EF0300352929 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4E5E6C1980EF0300352929 /* QuartzCore.framework */; };
+		FB4E5E71198116CE00352929 /* wheel_tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4E5E6F198116CE00352929 /* wheel_tabbar@2x.png */; };
+		FB4E5E72198116CE00352929 /* wheel_tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4E5E70198116CE00352929 /* wheel_tabbar.png */; };
 		FB515878188C96A2008B8C18 /* FilterChoicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB515877188C96A1008B8C18 /* FilterChoicesViewController.m */; };
 		FB6A351C193CA21D004E61C8 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6A351B193CA21D004E61C8 /* libsqlite3.dylib */; };
 		FB6F8A1416B7413A00D8F9CE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6F8A1116B7413A00D8F9CE /* Default.png */; };
@@ -190,6 +194,14 @@
 		FB497F2616C09B6100894353 /* Favorite+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Favorite+Create.m"; sourceTree = "<group>"; };
 		FB497F2816C0A35C00894353 /* FavoritesDatabaseUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDatabaseUtility.h; sourceTree = "<group>"; };
 		FB497F2916C0A35C00894353 /* FavoritesDatabaseUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDatabaseUtility.m; sourceTree = "<group>"; };
+		FB4E5E671980E11200352929 /* SMWheelControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMWheelControl.h; sourceTree = "<group>"; };
+		FB4E5E681980E11200352929 /* SMWheelControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMWheelControl.m; sourceTree = "<group>"; };
+		FB4E5E691980E11200352929 /* SMWheelControlDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMWheelControlDataSource.h; sourceTree = "<group>"; };
+		FB4E5E6A1980E11200352929 /* SMWheelControlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMWheelControlDelegate.h; sourceTree = "<group>"; };
+		FB4E5E6C1980EF0300352929 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FB4E5E6E198102DD00352929 /* NameCardUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NameCardUpdateDelegate.h; sourceTree = "<group>"; };
+		FB4E5E6F198116CE00352929 /* wheel_tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel_tabbar@2x.png"; sourceTree = "<group>"; };
+		FB4E5E70198116CE00352929 /* wheel_tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheel_tabbar.png; sourceTree = "<group>"; };
 		FB515876188C96A1008B8C18 /* FilterChoicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterChoicesViewController.h; sourceTree = "<group>"; };
 		FB515877188C96A1008B8C18 /* FilterChoicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterChoicesViewController.m; sourceTree = "<group>"; };
 		FB610B2916D314DF003116B4 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -320,6 +332,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB4E5E6D1980EF0300352929 /* QuartzCore.framework in Frameworks */,
 				FB48E304173EDCA8008D91DA /* StoreKit.framework in Frameworks */,
 				FB2DFDD7193F4C6A00448429 /* CoreTelephony.framework in Frameworks */,
 				FB6A351C193CA21D004E61C8 /* libsqlite3.dylib in Frameworks */,
@@ -391,6 +404,7 @@
 		FB313DEB1546008A0077438C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB4E5E6C1980EF0300352929 /* QuartzCore.framework */,
 				FB2DFDD6193F4C6A00448429 /* CoreTelephony.framework */,
 				FB6A351B193CA21D004E61C8 /* libsqlite3.dylib */,
 				FBDB0FFD18858F94000B3148 /* libz.dylib */,
@@ -452,7 +466,7 @@
 			path = Mannanofn;
 			sourceTree = "<group>";
 		};
-		FB48E2F5173ED9FC008D91DA /* AdMod */ = {
+		FB48E2F5173ED9FC008D91DA /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
 				FBDB0FEF1884260F000B3148 /* GADAdMobExtras.h */,
@@ -466,7 +480,18 @@
 				FBDB0FF71884260F000B3148 /* GADRequestError.h */,
 				FBDB0FF81884260F000B3148 /* libGoogleAdMobAds.a */,
 			);
-			name = AdMod;
+			name = AdMob;
+			sourceTree = "<group>";
+		};
+		FB4E5E661980E11200352929 /* SMWheelControl */ = {
+			isa = PBXGroup;
+			children = (
+				FB4E5E671980E11200352929 /* SMWheelControl.h */,
+				FB4E5E681980E11200352929 /* SMWheelControl.m */,
+				FB4E5E691980E11200352929 /* SMWheelControlDataSource.h */,
+				FB4E5E6A1980E11200352929 /* SMWheelControlDelegate.h */,
+			);
+			path = SMWheelControl;
 			sourceTree = "<group>";
 		};
 		FB515875188C9635008B8C18 /* Filter settings */ = {
@@ -509,7 +534,8 @@
 		FB83C65F1629DE9600C92803 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				FB48E2F5173ED9FC008D91DA /* AdMod */,
+				FB4E5E661980E11200352929 /* SMWheelControl */,
+				FB48E2F5173ED9FC008D91DA /* AdMob */,
 				FBCECD1616FC65C900F5EBD1 /* GoogleAnalytics */,
 				FB83C6601629DEEA00C92803 /* MBProgressHUD */,
 			);
@@ -550,6 +576,7 @@
 				FB8D69EF16E63B5300653612 /* Alphabetical and popularity */,
 				FB7E2C9719796443003A65E7 /* Wheel of Randomness */,
 				FB8D69F216E63B9E00653612 /* Categories */,
+				FB4E5E6E198102DD00352929 /* NameCardUpdateDelegate.h */,
 			);
 			name = "Name lists";
 			sourceTree = "<group>";
@@ -637,6 +664,8 @@
 				FB8D6A0D16F29C1B00653612 /* alphabetical_tabbar@2x.png */,
 				FB8D6A0E16F29C1B00653612 /* categories_tabbar.png */,
 				FB8D6A0F16F29C1B00653612 /* categories_tabbar@2x.png */,
+				FB4E5E6F198116CE00352929 /* wheel_tabbar@2x.png */,
+				FB4E5E70198116CE00352929 /* wheel_tabbar.png */,
 				FB8D6A1016F29C1B00653612 /* heart_tabbar.png */,
 				FB8D6A1116F29C1C00653612 /* heart_tabbar@2x.png */,
 				FB8D6A1216F29C1C00653612 /* popularity_tabbar.png */,
@@ -800,6 +829,7 @@
 				FB297E741948492E007364C9 /* product_ids.plist in Resources */,
 				FB313E0F1546008A0077438C /* second.png in Resources */,
 				FB31C143195EE147000789B9 /* Icon-Settings@2x.png in Resources */,
+				FB4E5E71198116CE00352929 /* wheel_tabbar@2x.png in Resources */,
 				FB313E111546008A0077438C /* second@2x.png in Resources */,
 				FBD1828415E6BC5300F22A63 /* names.json in Resources */,
 				FBB007D419602B8400E78CFC /* MannanofnDatabase in Resources */,
@@ -819,6 +849,7 @@
 				FB8D6A0316F282CD00653612 /* storkur_flip.png in Resources */,
 				FB7A5B20188FFBA10011C3BF /* barButtonIconSearch@2x.png in Resources */,
 				FB7A5B04188F15E90011C3BF /* tableViewBulletGreen@2x.png in Resources */,
+				FB4E5E72198116CE00352929 /* wheel_tabbar.png in Resources */,
 				FB8D6A0416F282CD00653612 /* tableViewBackgroundBlue.png in Resources */,
 				FB8D6A0516F282CD00653612 /* tableViewBackgroundBlue@2x.png in Resources */,
 				FB8D6A0616F282CD00653612 /* tableViewBackgroundPink.png in Resources */,
@@ -878,6 +909,7 @@
 				FB7E2C9D19798311003A65E7 /* EmptySegue.m in Sources */,
 				FB7E2C96197956BD003A65E7 /* NamesControlSwappingController.m in Sources */,
 				FB313DF91546008A0077438C /* main.m in Sources */,
+				FB4E5E6B1980E11200352929 /* SMWheelControl.m in Sources */,
 				FB313DFD1546008A0077438C /* MannanofnAppDelegate.m in Sources */,
 				FB313E061546008A0077438C /* MannanofnFirstViewController.m in Sources */,
 				FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */,

@@ -16,6 +16,7 @@
 
 @interface WheelRandomController () <SetNamesDatabaseDelegate>
 
+
 @property (nonatomic, strong) NamesDatabaseSetupUtility *namesDatabaseSetup;
 @property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
@@ -25,6 +26,10 @@
 
 @property (nonatomic, strong) NSMutableDictionary *alphabetCounts;
 @property (nonatomic, strong) NSPredicate *namesBeginningWithLetterPredicate;
+
+
+@property (nonatomic, weak) SMWheelControl *wheel;
+
 
 @end
 
@@ -51,6 +56,17 @@
     // DB initialization
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
+    
+    
+    // wheel
+    SMWheelControl *wheel = [[SMWheelControl alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+    [wheel addTarget:self action:@selector(wheelDidChangeValue:) forControlEvents:UIControlEventValueChanged];
+    wheel.delegate = self;
+    wheel.dataSource = self;
+    [wheel reloadData];
+    
+    [self.view addSubview:wheel];
+    self.wheel = wheel;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -111,6 +127,63 @@
     
     self.searchFilter = [[NSUserDefaults standardUserDefaults] stringForKey:SEARCH_STRING_STORAGE_KEY];
 }
+
+
+
+
+
+#pragma mark - Wheel delegate
+
+- (void)wheelDidEndDecelerating:(SMWheelControl *)wheel
+{
+    
+}
+
+- (void)wheel:(SMWheelControl *)wheel didRotateByAngle:(CGFloat)angle
+{
+    
+}
+
+#pragma mark - Wheel dataSource
+
+- (NSUInteger)numberOfSlicesInWheel:(SMWheelControl *)wheel
+{
+    return [[[self class] firstLettersInNamesIcelandic] count];
+}
+
+- (UIView *)wheel:(SMWheelControl *)wheel viewForSliceAtIndex:(NSUInteger)index
+{
+/*
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
+    label.backgroundColor = [UIColor whiteColor];
+    label.text = [NSString stringWithFormat:@" %@", [[[self class] firstLettersInNamesIcelandic] objectAtIndex:index] ];
+    [label setTransform:CGAffineTransformMakeRotation(- M_PI / 2)];
+    return label;
+*/
+    UIView *sliceContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    label.backgroundColor = [UIColor whiteColor];
+    label.text = [NSString stringWithFormat:@" %@", [[[self class] firstLettersInNamesIcelandic] objectAtIndex:index] ];
+    [label setTransform:CGAffineTransformMakeRotation( - M_PI_2 )];
+    
+    [sliceContainer addSubview:label];
+    return sliceContainer;
+}
+
+- (CGFloat)snappingAngleForWheel:(SMWheelControl *)wheel {
+    
+    return M_PI_2;
+}
+
+#pragma mark - Wheel Control
+
+- (void)wheelDidChangeValue:(id)sender
+{
+    [self.nameCardDelegate updateNameCard:[self getRandomNameFor:[[[self class] firstLettersInNamesIcelandic] objectAtIndex:self.wheel.selectedIndex]]];
+}
+
+
+
 
 
 #pragma mark - SetNamesDatabaseDelegate
@@ -212,6 +285,7 @@
 
 
 - (NSString *)getRandomNameFor:(NSString *)firstLetter {
+    NSString *randomName;
     
     NSPredicate *firstLetterPredicate = [_namesBeginningWithLetterPredicate predicateWithSubstitutionVariables:@{@"letter": firstLetter}];
     
@@ -222,54 +296,37 @@
     
     NSUInteger firstLetterNamesCount = [[_alphabetCounts objectForKey:[NSString stringWithFormat:@"%@%@", firstLetter, self.genderSelection]] unsignedIntegerValue];
     
-    NSUInteger offset = firstLetterNamesCount - (arc4random() % firstLetterNamesCount);
-    NSLog(@"offset: %d", offset);
-    
-    [_nameRequestSingleNames setFetchOffset:offset];
-    [_nameRequestSingleNames setFetchLimit:1];
     
     
-    // TODO: we might want to do a batch of db fetches (on a separate thread) and store the results in a queue
-    //      which we'd fill up again as it nears empty.  See for example:
-    //      http://stackoverflow.com/a/11223120/169858
-    //      http://www.sebastianrehnby.com/blog/2013/05/20/using-background-fetching-with-core-data/
-    // ...but for now we'll go directly to the db each time:
-    
-    NSArray *nameResult = [_namesDatabase.managedObjectContext executeFetchRequest:_nameRequestSingleNames error:&error];
-    
-    Name *nameManagedObject = nil;
-    if( [nameResult count] ) {
-        nameManagedObject = [nameResult lastObject];
-        return nameManagedObject.name;
+    if( 0 < firstLetterNamesCount ) {
+        
+        NSUInteger offset = arc4random_uniform(firstLetterNamesCount);
+        NSLog(@"offset: %d", offset);
+        
+        [_nameRequestSingleNames setFetchOffset:offset];
+        [_nameRequestSingleNames setFetchLimit:1];
+        
+        
+        // TODO: we might want to do a batch of db fetches (on a separate thread) and store the results in a queue
+        //      which we'd fill up again as it nears empty.  See for example:
+        //      http://stackoverflow.com/a/11223120/169858
+        //      http://www.sebastianrehnby.com/blog/2013/05/20/using-background-fetching-with-core-data/
+        // ...but for now we'll go directly to the db each time:
+        
+        NSArray *nameResult = [_namesDatabase.managedObjectContext executeFetchRequest:_nameRequestSingleNames error:&error];
+        
+        Name *nameManagedObject = nil;
+        if( [nameResult count] ) {
+            nameManagedObject = [nameResult lastObject];
+            randomName = nameManagedObject.name;
+        } else {
+            randomName = @"";
+        }
     } else {
-        return @"";
+        randomName = @"";
     }
-}
-
-
-- (IBAction)pickRandom:(id)sender {
     
-    NSString *firstLetter = @"B";
-    
-    NSPredicate *oneLetterPredicate = [_namesBeginningWithLetterPredicate predicateWithSubstitutionVariables:@{@"letter": firstLetter}];
-    
-    NSUInteger firstLetterNamesCount = [[_alphabetCounts objectForKey:[NSString stringWithFormat:@"%@%@", firstLetter, self.genderSelection]] unsignedIntegerValue];
-    
-    NSUInteger offset = firstLetterNamesCount - (arc4random() % firstLetterNamesCount);
-    NSLog(@"offset: %d", offset);
-    
-    _nameRequestSingleNames.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[oneLetterPredicate, _nameFilterPredicate]];
-    [_nameRequestSingleNames setFetchOffset:offset];
-    [_nameRequestSingleNames setFetchLimit:1];
-    
-    NSError *error = nil;
-    NSArray *nameResult = [_namesDatabase.managedObjectContext executeFetchRequest:_nameRequestSingleNames error:&error];
-    
-    Name *nameManagedObject = nil;
-    if( [nameResult count] ) {
-        nameManagedObject = [nameResult lastObject];
-        self.labelCount.text = nameManagedObject.name;
-    }
+    return randomName;
 }
 
 
@@ -286,7 +343,6 @@
                      @"C",
                      @"D",
                      @"E",
-                     @"É",
                      @"F",
                      @"G",
                      @"H",
@@ -300,7 +356,6 @@
                      @"O",
                      @"Ó",
                      @"P",
-                     @"Q",
                      @"R",
                      @"S",
                      @"T",

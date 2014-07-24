@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMWheelControl.h"
 
-@interface WheelRandomController : UIViewController
+#import "NameCardUpdateDelegate.h"
+
+@protocol NameCardUpdateDelegate;
+
+
+@interface WheelRandomController : UIViewController <SMWheelControlDelegate, SMWheelControlDataSource>
 
 - (void)fetchResults;
 - (void)loadFilters;
@@ -25,9 +31,7 @@
 @property (nonatomic, strong) NSString *searchFilter;
 
 
-    
-@property (weak, nonatomic) IBOutlet UILabel *labelCount;
+@property (weak, nonatomic) id <NameCardUpdateDelegate> nameCardDelegate;
 
-- (IBAction)pickRandom:(id)sender;
 
 @end

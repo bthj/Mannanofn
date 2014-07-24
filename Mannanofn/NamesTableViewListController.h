@@ -10,6 +10,8 @@
 #import "CoreDataTableViewController.h"
 #import "NamesDatabaseSetupUtility.h"
 
+#import "NameCardUpdateDelegate.h"
+
 
 @protocol NameCardUpdateDelegate;
 
@@ -42,9 +44,10 @@
 @end
 
 
-
+/*
 @protocol NameCardUpdateDelegate <NSObject>
 
 - (void)updateNameCard:(NSString *)name;
 
 @end
+*/
