@@ -14,4 +14,9 @@
 
 @interface FavoritesTableViewController : CoreDataTableViewController <SetFavoritesDatabaseDelegate, SetNamesDatabaseDelegate, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnSwitchFavPresentation;
+- (IBAction)switchFavPresentation:(id)sender;
+
+
 @end

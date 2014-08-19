@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0F237819A34B73001CE90C /* WheelOfFavorites.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0F237719A34B73001CE90C /* WheelOfFavorites.m */; };
 		FB297E6E19473988007364C9 /* AboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB297E6D19473988007364C9 /* AboutAppViewController.m */; };
 		FB297E7219475772007364C9 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB297E7119475772007364C9 /* ShopViewController.m */; };
 		FB297E741948492E007364C9 /* product_ids.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB297E731948492E007364C9 /* product_ids.plist */; };
@@ -145,6 +146,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB0F237619A34B73001CE90C /* WheelOfFavorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WheelOfFavorites.h; sourceTree = "<group>"; };
+		FB0F237719A34B73001CE90C /* WheelOfFavorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WheelOfFavorites.m; sourceTree = "<group>"; };
 		FB297E6C19473988007364C9 /* AboutAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutAppViewController.h; sourceTree = "<group>"; };
 		FB297E6D19473988007364C9 /* AboutAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutAppViewController.m; sourceTree = "<group>"; };
 		FB297E7019475772007364C9 /* ShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
@@ -610,6 +613,8 @@
 				FB497F2916C0A35C00894353 /* FavoritesDatabaseUtility.m */,
 				FB2DFDDB193F5F5F00448429 /* FavoritesContainerController.h */,
 				FB2DFDDC193F5F5F00448429 /* FavoritesContainerController.m */,
+				FB0F237619A34B73001CE90C /* WheelOfFavorites.h */,
+				FB0F237719A34B73001CE90C /* WheelOfFavorites.m */,
 			);
 			name = Favorites;
 			sourceTree = "<group>";
@@ -932,6 +937,7 @@
 				FB8662361893E9BC00E8C1FC /* SearchViewController.m in Sources */,
 				FB497F2A16C0A35C00894353 /* FavoritesDatabaseUtility.m in Sources */,
 				FB9DD4511746A717000BEA71 /* Favorite.m in Sources */,
+				FB0F237819A34B73001CE90C /* WheelOfFavorites.m in Sources */,
 				FB9DD4601746AE3B000BEA71 /* Name.m in Sources */,
 				FB9C336F174C057400CA387C /* UILabel+VAlign.m in Sources */,
 				FBFC6D7C1949B3EA007E6208 /* TransactionObserver.m in Sources */,

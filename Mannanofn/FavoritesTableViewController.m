@@ -11,6 +11,7 @@
 #import "Name+Create.h"
 #import "NameInfoViewController.h"
 #import "MannanofnGlobalStringConstants.h"
+#import "WheelOfFavorites.h"
 
 #import "GAI.h"
 #import "GAIFields.h"
@@ -24,6 +25,8 @@
 
 @property (strong, nonatomic) NamesDatabaseSetupUtility *namesDatabaseSetup;
 @property (nonatomic, strong) UIManagedDocument *namesDatabase;
+
+@property (nonatomic, strong) WheelOfFavorites *wheelOfFavorites;
 
 @end
 
@@ -81,6 +84,11 @@
     
     self.namesDatabaseSetup = [[NamesDatabaseSetupUtility alloc] initNamesDatabaseForView:self.view];
     self.namesDatabaseSetup.fetchedResultsSetupDelegate = self;
+    
+    
+    // instantiate view controller for the wheel of favorites
+    self.wheelOfFavorites = [self.storyboard instantiateViewControllerWithIdentifier:@"WheelOfFavs"];
+    self.wheelOfFavorites.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -239,4 +247,43 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
     }
 }
 
+- (IBAction)switchFavPresentation:(id)sender {
+    
+    if( self.wheelOfFavorites ) {
+     
+        if( [self.childViewControllers count] > 0 ) {
+            
+            [UIView transitionWithView:self.view duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+                [self.wheelOfFavorites willMoveToParentViewController:nil];
+                [self.wheelOfFavorites.view removeFromSuperview];
+                [self.wheelOfFavorites removeFromParentViewController];
+            } completion:^(BOOL finished) {
+                [self.btnSwitchFavPresentation setImage:[UIImage imageNamed:@"wheel_tabbar.png"]];
+            }];
+            
+            self.tableView.scrollEnabled = YES;
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+            self.navigationItem.rightBarButtonItem.title = @"Breyta";
+            
+        } else {
+            
+            self.wheelOfFavorites.randomNameLabel.text = @"";
+            
+            [self addChildViewController:self.wheelOfFavorites];
+            
+            [UIView transitionWithView:self.view
+                              duration:0.5
+                               options:UIViewAnimationOptionTransitionFlipFromRight
+                            animations:^{ [self.view addSubview:self.wheelOfFavorites.view]; }
+                            completion:^(BOOL finished) {
+                                [self.btnSwitchFavPresentation setImage:[UIImage imageNamed:@"alphabetical_tabbar.png"]];
+                            }];
+            [self.wheelOfFavorites didMoveToParentViewController:self];
+            
+            self.tableView.scrollEnabled = NO;
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+            self.navigationItem.rightBarButtonItem.title = nil;
+        }
+    }
+}
 @end

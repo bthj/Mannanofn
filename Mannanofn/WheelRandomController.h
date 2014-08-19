@@ -34,4 +34,7 @@
 @property (weak, nonatomic) id <NameCardUpdateDelegate> nameCardDelegate;
 
 
+
+
+
 @end

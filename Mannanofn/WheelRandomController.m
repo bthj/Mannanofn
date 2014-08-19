@@ -95,6 +95,13 @@
     
     _genderSelection = genderSelection;
     
+    // TODO: Delay the call to fetch results until the view has appeared...
+    // ...the call may be done multiple times (also for setNamesPosition ?)
+    // -> would be better to set a flag for fetchResults to be called and then
+    // look at that flag in viewDidAppear
+    // ...and maybe spin the wheel automatically in viewWillAppear
+    //  aaaand, something similar may need to be done in NamesTableViewListController
+    
     [self fetchResults];
 }
 
