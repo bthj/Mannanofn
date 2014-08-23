@@ -17,8 +17,10 @@
 #import "ShopViewController.h"
 #import "MannanofnAppDelegate.h"
 
+#import "NameDetailCardsViewController.h"
 
-@interface NameInfoViewController () <ShopViewControllerDelegate>
+
+@interface NameInfoViewController () <ShopViewControllerDelegate, CollectionViewDataFetchDelegate>
 
 @property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
 
@@ -115,6 +117,8 @@
     self.adView.hidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ADS_ON];
 }
 
+
+
 - (void)reactToFilterPurchase:(NSNotification *)notifiaction {
     
     self.adView.hidden = YES;
@@ -206,6 +210,42 @@
 - (void)shopViewControllerDidPurchase:(ShopViewController *)controller {
     
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+
+#pragma mark - CollectionViewDataFetchDelegate
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    NameDetailCardsViewController *cardsController = (NameDetailCardsViewController *)[segue destinationViewController];
+    
+    cardsController.delegate = self;
+}
+
+- (NSInteger)numberOfSections {
+
+    return [self.delegate numberOfSections];
+}
+
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+    
+    return [self.delegate numberOfItemsInSection:section];
+}
+
+- (Name *)dataForIndexPath:(NSIndexPath *)indexPath {
+    
+    return [self.delegate dataForIndexPath:indexPath];
+}
+
+- (NSIndexPath *)getSelectedIndexPath {
+    
+    return [self.delegate getSelectedIndexPath];
+}
+
+- (void)scrollToIndexPathFromCollectionView:(NSIndexPath *)indexPath {
+    
+    return [self.delegate scrollToIndexPathFromCollectionView:indexPath];
 }
 
 

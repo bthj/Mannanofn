@@ -94,6 +94,9 @@
 		FB8D6A1916F29C1C00653612 /* heart_tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A1116F29C1C00653612 /* heart_tabbar@2x.png */; };
 		FB8D6A1A16F29C1C00653612 /* popularity_tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A1216F29C1C00653612 /* popularity_tabbar.png */; };
 		FB8D6A1B16F29C1C00653612 /* popularity_tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8D6A1316F29C1C00653612 /* popularity_tabbar@2x.png */; };
+		FB8F5B3119A48D000071AC61 /* RVCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8F5B3019A48D000071AC61 /* RVCollectionViewLayout.m */; };
+		FB8F5B3419A4C5C60071AC61 /* NameDetailCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8F5B3319A4C5C60071AC61 /* NameDetailCardsViewController.m */; };
+		FB8F5B3719A624770071AC61 /* NameInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8F5B3619A624770071AC61 /* NameInfoCell.m */; };
 		FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AB8163748D50039F096 /* NamesOrderViewController.m */; };
 		FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB955AC116374AC20039F096 /* NamesContainerViewController.m */; };
 		FB9C336F174C057400CA387C /* UILabel+VAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9C336E174C057400CA387C /* UILabel+VAlign.m */; };
@@ -269,6 +272,13 @@
 		FB8D6A1116F29C1C00653612 /* heart_tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart_tabbar@2x.png"; sourceTree = "<group>"; };
 		FB8D6A1216F29C1C00653612 /* popularity_tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popularity_tabbar.png; sourceTree = "<group>"; };
 		FB8D6A1316F29C1C00653612 /* popularity_tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popularity_tabbar@2x.png"; sourceTree = "<group>"; };
+		FB8F5B2F19A48D000071AC61 /* RVCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVCollectionViewLayout.h; sourceTree = "<group>"; };
+		FB8F5B3019A48D000071AC61 /* RVCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVCollectionViewLayout.m; sourceTree = "<group>"; };
+		FB8F5B3219A4C5C60071AC61 /* NameDetailCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameDetailCardsViewController.h; sourceTree = "<group>"; };
+		FB8F5B3319A4C5C60071AC61 /* NameDetailCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameDetailCardsViewController.m; sourceTree = "<group>"; };
+		FB8F5B3519A624770071AC61 /* NameInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameInfoCell.h; sourceTree = "<group>"; };
+		FB8F5B3619A624770071AC61 /* NameInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameInfoCell.m; sourceTree = "<group>"; };
+		FB8F5B3819A730B70071AC61 /* CollectionViewDataFetchDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewDataFetchDelegate.h; sourceTree = "<group>"; };
 		FB955AB7163748D40039F096 /* NamesOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesOrderViewController.h; sourceTree = "<group>"; };
 		FB955AB8163748D50039F096 /* NamesOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamesOrderViewController.m; sourceTree = "<group>"; };
 		FB955AC016374AC20039F096 /* NamesContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamesContainerViewController.h; sourceTree = "<group>"; };
@@ -598,8 +608,15 @@
 			children = (
 				FBBB35FF16C0202300861504 /* NameInfoViewController.h */,
 				FBBB360016C0202400861504 /* NameInfoViewController.m */,
+				FB8F5B3219A4C5C60071AC61 /* NameDetailCardsViewController.h */,
+				FB8F5B3319A4C5C60071AC61 /* NameDetailCardsViewController.m */,
+				FB8F5B3519A624770071AC61 /* NameInfoCell.h */,
+				FB8F5B3619A624770071AC61 /* NameInfoCell.m */,
+				FB8F5B2F19A48D000071AC61 /* RVCollectionViewLayout.h */,
+				FB8F5B3019A48D000071AC61 /* RVCollectionViewLayout.m */,
 				FB9C336D174C057400CA387C /* UILabel+VAlign.h */,
 				FB9C336E174C057400CA387C /* UILabel+VAlign.m */,
+				FB8F5B3819A730B70071AC61 /* CollectionViewDataFetchDelegate.h */,
 			);
 			name = "Name info";
 			sourceTree = "<group>";
@@ -919,6 +936,7 @@
 				FB313E061546008A0077438C /* MannanofnFirstViewController.m in Sources */,
 				FB313E0D1546008A0077438C /* MannanofnSecondViewController.m in Sources */,
 				FBE174A115E3069600EDC6A4 /* Mannanofn.xcdatamodeld in Sources */,
+				FB8F5B3719A624770071AC61 /* NameInfoCell.m in Sources */,
 				FB297E7219475772007364C9 /* ShopViewController.m in Sources */,
 				FBE174C815E3121600EDC6A4 /* NamesTableViewListController.m in Sources */,
 				FB866240189A982100E8C1FC /* SurnameViewController.m in Sources */,
@@ -926,7 +944,9 @@
 				FB86623C1893EC3900E8C1FC /* InitialsViewController.m in Sources */,
 				FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */,
 				FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */,
+				FB8F5B3419A4C5C60071AC61 /* NameDetailCardsViewController.m in Sources */,
 				FB2DFDDA193F5CF200448429 /* CategoriesContainerController.m in Sources */,
+				FB8F5B3119A48D000071AC61 /* RVCollectionViewLayout.m in Sources */,
 				FB7A5B2318929E140011C3BF /* MinMaxPopularityViewController.m in Sources */,
 				FB6F8A2116B8C04100D8F9CE /* NamesDatabaseSetupUtility.m in Sources */,
 				FBE2678216B974BF00661375 /* NamesTableViewCategoryController.m in Sources */,

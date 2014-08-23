@@ -18,7 +18,7 @@
 #import "GAIDictionaryBuilder.h"
 
 
-@interface FavoritesTableViewController ()
+@interface FavoritesTableViewController () <CollectionViewDataFetchDelegate>
 
 @property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
 @property (strong, nonatomic) UIManagedDocument *favoritesDatabase;
@@ -27,6 +27,8 @@
 @property (nonatomic, strong) UIManagedDocument *namesDatabase;
 
 @property (nonatomic, strong) WheelOfFavorites *wheelOfFavorites;
+
+@property (nonatomic, strong) NSIndexPath *indexPathToScrollTo;
 
 @end
 
@@ -89,6 +91,9 @@
     // instantiate view controller for the wheel of favorites
     self.wheelOfFavorites = [self.storyboard instantiateViewControllerWithIdentifier:@"WheelOfFavs"];
     self.wheelOfFavorites.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    
+    
+    self.indexPathToScrollTo = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -102,6 +107,16 @@
     
     [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:@"Favorites Screen"];
     [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    
+    
+    // scroll to an index path from the center index path in the detail collection view
+    if( self.indexPathToScrollTo ) {
+        
+        [self.tableView scrollToRowAtIndexPath:self.indexPathToScrollTo atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        
+        self.indexPathToScrollTo = nil;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -210,6 +225,8 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
 {
     NameInfoViewController *nameInfo = (NameInfoViewController *)[segue destinationViewController];
     
+    nameInfo.delegate = self;
+    
     Favorite *favorite = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
     NSArray *nameParts = [favorite.name componentsSeparatedByString:@" "];
     if( [nameParts count] >= 2 ) {
@@ -261,6 +278,7 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
                 [self.btnSwitchFavPresentation setImage:[UIImage imageNamed:@"wheel_tabbar.png"]];
             }];
             
+            
             self.tableView.scrollEnabled = YES;
             self.navigationItem.rightBarButtonItem.enabled = YES;
             self.navigationItem.rightBarButtonItem.title = @"Breyta";
@@ -279,6 +297,7 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
                                 [self.btnSwitchFavPresentation setImage:[UIImage imageNamed:@"alphabetical_tabbar.png"]];
                             }];
             [self.wheelOfFavorites didMoveToParentViewController:self];
+
             
             self.tableView.scrollEnabled = NO;
             self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -286,4 +305,34 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
         }
     }
 }
+
+
+#pragma mark - CollectionViewDataFetchDelegate
+
+- (NSInteger)numberOfSections {
+    
+    return 1;
+}
+
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+    
+    return (NSInteger)[self.fetchedResultsController.fetchedObjects count];
+}
+
+- (Name *)dataForIndexPath:(NSIndexPath *)indexPath {
+    
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
+}
+
+- (NSIndexPath *)getSelectedIndexPath {
+    
+    return [self.tableView indexPathForSelectedRow];
+}
+
+- (void)scrollToIndexPathFromCollectionView:(NSIndexPath *)indexPath {
+    
+    self.indexPathToScrollTo = indexPath;
+}
+
+
 @end

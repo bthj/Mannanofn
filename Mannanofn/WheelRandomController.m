@@ -308,7 +308,7 @@
     if( 0 < firstLetterNamesCount ) {
         
         NSUInteger offset = arc4random_uniform(firstLetterNamesCount);
-        NSLog(@"offset: %d", offset);
+        // NSLog(@"offset: %d", offset);
         
         [_nameRequestSingleNames setFetchOffset:offset];
         [_nameRequestSingleNames setFetchLimit:1];

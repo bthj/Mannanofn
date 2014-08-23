@@ -131,7 +131,7 @@
 
 - (void)wheel:(SMWheelControl *)wheel didRotateByAngle:(CGFloat)angle
 {
-    
+    self.randomNameLabel.text = @"";
 }
 
 #pragma mark - Wheel dataSource

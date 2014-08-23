@@ -11,10 +11,21 @@
 #import "GAITrackedViewController.h"
 #import "GADBannerView.h"
 
+
+#import "CollectionViewDataFetchDelegate.h"
+
+@protocol CollectionViewDataFetchDelegate;
+
+
+
 @interface NameInfoViewController : GAITrackedViewController <SetFavoritesDatabaseDelegate> {
     
     GADBannerView *bannerView_;
 }
+
+
+@property (weak, nonatomic) id <CollectionViewDataFetchDelegate> delegate;
+
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *gender;
@@ -52,8 +63,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *adCloseButton;
 - (IBAction)closeAd:(id)sender;
-
-
 
 
 @end

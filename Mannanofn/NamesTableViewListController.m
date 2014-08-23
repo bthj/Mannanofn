@@ -18,10 +18,12 @@
 #import "GAIDictionaryBuilder.h"
 
 
-@interface NamesTableViewListController ()
+@interface NamesTableViewListController () <CollectionViewDataFetchDelegate>
 
 @property (strong, nonatomic) NamesDatabaseSetupUtility *namesDatabaseSetup;
 @property (nonatomic, strong) UIManagedDocument *namesDatabase;
+
+@property (nonatomic, strong) NSIndexPath *indexPathToScrollTo;
 
 @end
 
@@ -61,20 +63,20 @@
         
         if( self.syllableCount > 0 ) {
             [predicateFormats addObject:@"countSyllables == %d"];
-            [predicateArguments addObject:[NSNumber numberWithInt:self.syllableCount]];
+            [predicateArguments addObject:[NSNumber numberWithLong:self.syllableCount]];
         }
         if( self.icelandicLetterCount > -1 ) {
             [predicateFormats addObject:@"countIcelandicLetters == %d"];
-            [predicateArguments addObject:[NSNumber numberWithInt:self.icelandicLetterCount]];
+            [predicateArguments addObject:[NSNumber numberWithLong:self.icelandicLetterCount]];
         }
         
         if( self.minPopularity > 0 ) {
             [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" >= %d"]];
-            [predicateArguments addObject:[NSNumber numberWithInt:self.minPopularity]];
+            [predicateArguments addObject:[NSNumber numberWithLong:self.minPopularity]];
         }
         if( self.maxPopularity < MAX_TOTAL_NUMBER_OF_NAMES ) {
             [predicateFormats addObject:[popularitySortDescriptorKey stringByAppendingString:@" <= %d"]];
-            [predicateArguments addObject:[NSNumber numberWithInt:self.maxPopularity]];
+            [predicateArguments addObject:[NSNumber numberWithLong:self.maxPopularity]];
         }
         
         if( self.firstInitialFilter != nil && self.namesPosition == 0 ) {
@@ -182,8 +184,16 @@
 }
 
 
+
 - (void)updateNameCardFromVisibleCells
 {
+    UITableViewCell *cellUnderScan = [self getMiddleVisibleCell];
+    [self.nameCardDelegate updateNameCard:cellUnderScan.textLabel.text];	
+}
+
+- (UITableViewCell *)getMiddleVisibleCell {
+    UITableViewCell *middleCell;
+    
     int visibleCount = 0;
     int visibleCellReference;
     if( IS_WIDESCREEN ) { // iPhone 5 and such...
@@ -195,10 +205,12 @@
     for( UITableViewCell *oneVisibleCell in self.tableView.visibleCells ) {
         visibleCount++;
         if( visibleCount == matchIndex ) {
-            [self.nameCardDelegate updateNameCard:oneVisibleCell.textLabel.text];
+            middleCell = oneVisibleCell;
         }
     }
+    return middleCell;
 }
+
 
 
 - (void)viewDidLoad
@@ -207,6 +219,8 @@
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;
+    
+    self.indexPathToScrollTo = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -221,6 +235,15 @@
     
     [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:[NSString stringWithFormat:@"Names Screen, in order %@ for gender %@", self.namesOrder, self.genderSelection]];
     [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    
+    // scroll to an index path converted from the center index path in the detail collection view
+    if( self.indexPathToScrollTo ) {
+        
+        [self.tableView scrollToRowAtIndexPath:self.indexPathToScrollTo atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        
+        self.indexPathToScrollTo = nil;
+    }
 }
 
 - (void)viewDidUnload
@@ -318,7 +341,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    int numberOfSectionsInTableView;
+    long numberOfSectionsInTableView;
     if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
         numberOfSectionsInTableView = ceil( 1.0 * [self.fetchedResultsController.fetchedObjects count] / NUMER_OF_ROWS_IN_POPULARITY_SECTION );
 //        if( numberOfSectionsInTableView == 0 ) numberOfSectionsInTableView = 1;
@@ -345,7 +368,7 @@
 
         if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
             if( (section+2)  ==  [self numberOfSectionsInTableView:table] ) {
-                int numberOfRowsInLastSection;
+                long numberOfRowsInLastSection;
                 if( [self.fetchedResultsController.fetchedObjects count] > NUMER_OF_ROWS_IN_POPULARITY_SECTION ) {
                     numberOfRowsInLastSection = [self.fetchedResultsController.fetchedObjects count] - ((section-1) * NUMER_OF_ROWS_IN_POPULARITY_SECTION);
                 } else {
@@ -381,7 +404,7 @@
                     headerTitle = @"Vinsælustu nöfnin";
                 }
             } else {
-                headerTitle = [NSString stringWithFormat:@"%d", ((section-1) * NUMER_OF_ROWS_IN_POPULARITY_SECTION)];
+                headerTitle = [NSString stringWithFormat:@"%ld", ((section-1) * NUMER_OF_ROWS_IN_POPULARITY_SECTION)];
             }
         } else if( [self.namesOrder isEqualToString:ORDER_BY_NAME] ) {
             if( 1 == section ) {
@@ -468,6 +491,129 @@
 }
 
 
+
+#pragma mark - CollectionViewDataFetchDelegate
+
+- (NSInteger)numberOfSections {
+    
+    return 1;
+//    return [self numberOfSectionsInTableView:self.tableView];
+//    return [[self.fetchedResultsController sections] count];
+}
+
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+    
+    return (NSInteger)[self.fetchedResultsController.fetchedObjects count];
+//    return [self tableView:self.tableView numberOfRowsInSection:section];
+//    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+}
+
+- (Name *)dataForIndexPath:(NSIndexPath *)indexPath {
+
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+
+        // both the popularity and collection view index paths have a single section
+        
+        return [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+    } else {
+        
+        // the alphabetical order index path has one section for each of the letters of the alphabet
+        // and each section has a varying number of rows, so we have to translate the flat
+        // single row index path from the collection view into a index path with the correct
+        // section and row index for the alphabetical table:
+        
+        long rowIndexInCollectionView = indexPath.row;
+        
+        long rowSumInTableView = 0;
+        long previousSectionRowSum  = 0;
+        
+        int sectionIndex = 0;
+        long rowIndex = 0;
+        for( ; sectionIndex < [[self.fetchedResultsController sections] count]; sectionIndex++ ) {
+            
+            rowSumInTableView += [[[self.fetchedResultsController sections] objectAtIndex:sectionIndex] numberOfObjects];
+            
+            if( rowSumInTableView >= rowIndexInCollectionView ) {
+                
+                rowIndex = rowIndexInCollectionView - previousSectionRowSum;
+                
+                break;
+            } else {
+                previousSectionRowSum = rowSumInTableView;
+            }
+        }
+        
+        NSIndexPath *alphabeticalIndexpath = [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
+        
+        return [self.fetchedResultsController objectAtIndexPath:alphabeticalIndexpath];
+    }
+    
+
+}
+
+- (NSIndexPath *)getSelectedIndexPath {
+    
+    // UITableViewCell *middleCell = [self getMiddleVisibleCell];
+    // NSIndexPath *middleIndexPath = [self.tableView indexPathForCell:middleCell];
+    NSIndexPath *middleIndexPath = [self.tableView indexPathForSelectedRow];
+    long rowIndex = 0;
+    
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        
+        // (middleIndexPath.section-1) for the top padding section 
+        rowIndex = (middleIndexPath.section-1) * NUMER_OF_ROWS_IN_POPULARITY_SECTION + middleIndexPath.row;
+        
+    } else {
+        
+        for( int sectionIndex = 0; sectionIndex < middleIndexPath.section - 1; sectionIndex++ ) {
+            
+            rowIndex += [[[self.fetchedResultsController sections] objectAtIndex:sectionIndex] numberOfObjects];
+        }
+        rowIndex += middleIndexPath.row;
+        
+    }
+    
+    return [NSIndexPath indexPathForRow:rowIndex inSection:0];
+}
+
+- (void)scrollToIndexPathFromCollectionView:(NSIndexPath *)indexPath {
+    
+    int sectionIndex = 0;
+    long rowIndex = 0;
+    
+    if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
+        
+        //                                                         +1 for the padding section
+        sectionIndex = floor( indexPath.row / NUMER_OF_ROWS_IN_POPULARITY_SECTION ) + 1;
+        rowIndex = indexPath.row - (sectionIndex - 1) * NUMER_OF_ROWS_IN_POPULARITY_SECTION;
+        
+    } else {
+        
+        long rowSumInTableView = 0;
+        long previousSectionRowSum  = 0;
+        
+        for( ; sectionIndex < [[self.fetchedResultsController sections] count]; sectionIndex++ ) {
+            
+            rowSumInTableView += [[[self.fetchedResultsController sections] objectAtIndex:sectionIndex] numberOfObjects];
+            
+            if( rowSumInTableView >= indexPath.row ) {
+                
+                rowIndex = indexPath.row - previousSectionRowSum;
+                
+                break;
+            } else {
+                previousSectionRowSum = rowSumInTableView;
+            }
+        }
+        ++sectionIndex;  // for the top padding section
+    }
+    
+    self.indexPathToScrollTo = [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
+}
+
+
+
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender  // requires iOS 6
 {
     BOOL shouldPerformSegue = [self isIndexPathWithinData:[self.tableView indexPathForSelectedRow]];
@@ -487,6 +633,8 @@
     nameInfo.origin = name.origin;
     nameInfo.countAsFirstName = name.countAsFirstName;
     nameInfo.countAsSecondName = name.countAsSecondName;
+    
+    nameInfo.delegate = self;
 }
 
 
