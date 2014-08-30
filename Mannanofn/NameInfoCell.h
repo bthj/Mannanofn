@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *name;
 
+//@property (strong, nonatomic) UIView *contentView;
+
 @end
