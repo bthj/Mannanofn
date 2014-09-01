@@ -319,9 +319,27 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
     return (NSInteger)[self.fetchedResultsController.fetchedObjects count];
 }
 
-- (Name *)dataForIndexPath:(NSIndexPath *)indexPath {
+- (NSArray *)dataForIndexPath:(NSIndexPath *)indexPath {
     
-    return [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Favorite *favorite = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSArray *nameParts = [favorite.name componentsSeparatedByString:@" "];
+    if( [nameParts count] >= 2 ) {
+        
+        Name *name1 = [Name getNameForName:[nameParts objectAtIndex:0] inContext:self.namesDatabase.managedObjectContext];
+        Name *name2 = [Name getNameForName:[nameParts objectAtIndex:1] inContext:self.namesDatabase.managedObjectContext];
+        
+        return [NSArray arrayWithObjects:name1, name2, nil];
+        
+    } else if( [nameParts count] == 1 ) {
+        
+        Name *name = [Name getNameForName:favorite.name inContext:self.namesDatabase.managedObjectContext];
+        
+        return [NSArray arrayWithObjects:name, nil];
+        
+    } else {
+        return nil;
+    }
+
 }
 
 - (NSIndexPath *)getSelectedIndexPath {

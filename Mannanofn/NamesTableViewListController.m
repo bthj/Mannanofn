@@ -508,13 +508,13 @@
 //    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
-- (Name *)dataForIndexPath:(NSIndexPath *)indexPath {
+- (NSArray *)dataForIndexPath:(NSIndexPath *)indexPath {
 
     if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
 
         // both the popularity and collection view index paths have a single section
         
-        return [self.fetchedResultsController objectAtIndexPath:indexPath];
+        return [NSArray arrayWithObjects:[self.fetchedResultsController objectAtIndexPath:indexPath], nil];
         
     } else {
         
@@ -546,7 +546,7 @@
         
         NSIndexPath *alphabeticalIndexpath = [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
         
-        return [self.fetchedResultsController objectAtIndexPath:alphabeticalIndexpath];
+        return [NSArray arrayWithObjects:[self.fetchedResultsController objectAtIndexPath:alphabeticalIndexpath], nil];
     }
     
 

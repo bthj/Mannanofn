@@ -109,6 +109,7 @@
 		FBB3286E1945102100CF34FC /* ico_close.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB3286D1945102100CF34FC /* ico_close.png */; };
 		FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB360016C0202400861504 /* NameInfoViewController.m */; };
 		FBCAB64C19B4854300E883E9 /* ios7shareIcon_temporary.png in Resources */ = {isa = PBXBuildFile; fileRef = FBCAB64B19B4854200E883E9 /* ios7shareIcon_temporary.png */; };
+		FBCAB64F19B5021C00E883E9 /* NameInfoDoubleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCAB64E19B5021C00E883E9 /* NameInfoDoubleCell.m */; };
 		FBCECD1F16FC665A00F5EBD1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */; };
 		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
 		FBD34E261626231600BDC541 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEC1546008A0077438C /* UIKit.framework */; };
@@ -299,6 +300,8 @@
 		FBBB360016C0202400861504 /* NameInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameInfoViewController.m; sourceTree = "<group>"; };
 		FBCAB64A19B3783F00E883E9 /* FavoriteToggleDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteToggleDelegate.h; sourceTree = "<group>"; };
 		FBCAB64B19B4854200E883E9 /* ios7shareIcon_temporary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios7shareIcon_temporary.png; sourceTree = "<group>"; };
+		FBCAB64D19B5021C00E883E9 /* NameInfoDoubleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameInfoDoubleCell.h; sourceTree = "<group>"; };
+		FBCAB64E19B5021C00E883E9 /* NameInfoDoubleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameInfoDoubleCell.m; sourceTree = "<group>"; };
 		FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FBD1828315E6BC5300F22A63 /* names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names.json; sourceTree = "<group>"; };
 		FBD34E241626231600BDC541 /* Seed Mannanofn Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seed Mannanofn Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -615,6 +618,8 @@
 				FB8F5B3319A4C5C60071AC61 /* NameDetailCardsViewController.m */,
 				FB8F5B3519A624770071AC61 /* NameInfoCell.h */,
 				FB8F5B3619A624770071AC61 /* NameInfoCell.m */,
+				FBCAB64D19B5021C00E883E9 /* NameInfoDoubleCell.h */,
+				FBCAB64E19B5021C00E883E9 /* NameInfoDoubleCell.m */,
 				FB8F5B2F19A48D000071AC61 /* RVCollectionViewLayout.h */,
 				FB8F5B3019A48D000071AC61 /* RVCollectionViewLayout.m */,
 				FB9C336D174C057400CA387C /* UILabel+VAlign.h */,
@@ -950,6 +955,7 @@
 				FB86623C1893EC3900E8C1FC /* InitialsViewController.m in Sources */,
 				FB955AB9163748D50039F096 /* NamesOrderViewController.m in Sources */,
 				FB955AC216374AC20039F096 /* NamesContainerViewController.m in Sources */,
+				FBCAB64F19B5021C00E883E9 /* NameInfoDoubleCell.m in Sources */,
 				FB8F5B3419A4C5C60071AC61 /* NameDetailCardsViewController.m in Sources */,
 				FB2DFDDA193F5CF200448429 /* CategoriesContainerController.m in Sources */,
 				FB8F5B3119A48D000071AC61 /* RVCollectionViewLayout.m in Sources */,

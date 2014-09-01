@@ -16,7 +16,7 @@
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 
-- (Name *)dataForIndexPath:(NSIndexPath *)indexPath;
+- (NSArray *)dataForIndexPath:(NSIndexPath *)indexPath; // array of Name instances
 
 - (NSIndexPath *)getSelectedIndexPath;
 

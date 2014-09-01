@@ -239,7 +239,7 @@
     return [self.collectionViewDataDelegate numberOfItemsInSection:section];
 }
 
-- (Name *)dataForIndexPath:(NSIndexPath *)indexPath {
+- (NSArray *)dataForIndexPath:(NSIndexPath *)indexPath {
     
     return [self.collectionViewDataDelegate dataForIndexPath:indexPath];
 }

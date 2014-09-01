@@ -8,9 +8,11 @@
 
 #import "NameDetailCardsViewController.h"
 #import "NameInfoCell.h"
+#import "NameInfoDoubleCell.h"
 #import "MannanofnGlobalStringConstants.h"
 
 #define CELL_REUSE_IDENTIFIER @"NameInfoCell"
+#define CELL_REUSE_IDENTIFIER_DOUBLE_NAME @"NameInfoCellDoubleName"
 
 
 @interface NameDetailCardsViewController () <FavoriteToggleDelegate>
@@ -119,41 +121,74 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSArray *nameInfos = [self.collectionViewDataDelegate dataForIndexPath:indexPath];
     
-    // TODO: array?
-    Name *nameInfo = [self.collectionViewDataDelegate dataForIndexPath:indexPath];
+    // TODO: sennilega er betra að hafa alltaf sér sellu fyrir nöfn úr favorites, óháð hvort sé tví- eða ein-
+    // upp á virkni fav takkans, stöðu hans og uppfærslu collection views þegar tekið úr favorites þar.
     
-    
-    NameInfoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
-    cell.favoriteToggleDelegate = self;
-    if( [self.surname length] == 0 ) {
-        cell.name.text = nameInfo.name;
+    if( [nameInfos count] == 1 ) {
+        
+        Name *nameInfo = [nameInfos objectAtIndex:0];
+     
+        NameInfoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+        cell.favoriteToggleDelegate = self;
+        if( [self.surname length] == 0 ) {
+            cell.name.text = nameInfo.name;
+        } else {
+            cell.name.text = [NSString stringWithFormat:@"%@ %@", nameInfo.name, self.surname];
+        }
+        cell.gender = nameInfo.gender;
+        cell.meaning.text = nameInfo.descriptionIcelandic;
+        cell.origin.text = nameInfo.origin;
+        cell.countAsFirst.text = [nameInfo.countAsFirstName stringValue];
+        cell.countAsSecond.text = [nameInfo.countAsSecondName stringValue];
+        
+        UIImage *favoriteButtonImage = [self.favoriteToggleDelegate getFavoriteButtonImageForName:cell.name.text gender:nameInfo.gender];
+        [cell.btnToggleFavorite setImage:favoriteButtonImage forState:UIControlStateNormal];
+        
+        cell.backgroundColor = [UIColor whiteColor];
+        
+        cell.layer.borderWidth = 1.0f;
+        cell.layer.borderColor = [[UIColor blackColor] CGColor];
+        
+        return cell;
+        
+    } else if( [nameInfos count] == 2 ) {
+        
+        Name *name1Info = [nameInfos objectAtIndex:0];
+        Name *name2Info = [nameInfos objectAtIndex:1];
+        
+        NameInfoDoubleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_REUSE_IDENTIFIER_DOUBLE_NAME forIndexPath:indexPath];
+        cell.favoriteToggleDelegate = self;
+        if( [self.surname length] == 0 ) {
+            cell.name.text = [NSString stringWithFormat:@"%@ %@", name1Info.name, name2Info.name];
+        } else {
+            cell.name.text = [NSString stringWithFormat:@"%@ %@ %@", name1Info.name, name2Info.name, self.surname];
+        }
+        cell.gender = name1Info.gender;
+
+        cell.name1.text = name1Info.name;
+        cell.name1meaning.text = name1Info.descriptionIcelandic;
+        cell.name1origin.text = name1Info.origin;
+
+        cell.name2.text = name2Info.name;
+        cell.name2meaning.text = name2Info.descriptionIcelandic;
+        cell.name2origin.text = name2Info.origin;
+        
+        UIImage *favoriteButtonImage = [self.favoriteToggleDelegate getFavoriteButtonImageForName:cell.name.text gender:name1Info.gender];
+        [cell.btnToggleFavorite setImage:favoriteButtonImage forState:UIControlStateNormal];
+        
+        cell.backgroundColor = [UIColor whiteColor];
+        
+        cell.layer.borderWidth = 1.0f;
+        cell.layer.borderColor = [[UIColor blackColor] CGColor];
+        
+        return cell;
+        
     } else {
-        cell.name.text = [NSString stringWithFormat:@"%@ %@", nameInfo.name, self.surname];
+        return nil;
     }
-    cell.gender = nameInfo.gender;
-    cell.meaning.text = nameInfo.descriptionIcelandic;
-    cell.origin.text = nameInfo.origin;
-    cell.countAsFirst.text = [nameInfo.countAsFirstName stringValue];
-    cell.countAsSecond.text = [nameInfo.countAsSecondName stringValue];
-    
-    UIImage *favoriteButtonImage = [self.favoriteToggleDelegate getFavoriteButtonImageForName:cell.name.text gender:nameInfo.gender];
-    [cell.btnToggleFavorite setImage:favoriteButtonImage forState:UIControlStateNormal];
-    
-    
-//    cell.contentView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"storkur_flip"]];
-    
-    cell.backgroundColor = [UIColor whiteColor];
-/*
-    cell.layer.shadowColor = [[UIColor blackColor] CGColor];
-    cell.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
-    cell.layer.shadowRadius = 2.0f;
-    cell.layer.shadowOpacity = 0.1f;
-*/
-    cell.layer.borderWidth = 1.0f;
-    cell.layer.borderColor = [[UIColor blackColor] CGColor];
-    
-    return cell;
+
 }
 
 /*
