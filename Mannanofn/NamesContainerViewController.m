@@ -414,7 +414,7 @@
         
         if( ! [self.currentNameLookedUpInFavorites isEqualToString:self.nameOnCard.text] ) {
             
-            NSArray *existingFavoritesForName = [Favorite getFavoritesForName:self.nameOnCard.text inContext:self.favoritesDatabase.managedObjectContext];
+            NSArray *existingFavoritesForName = [Favorite getFavoritesForName:self.nameOnCard.text gender:[self getCurrentGender] inContext:self.favoritesDatabase.managedObjectContext];
             if( [existingFavoritesForName count] ) {
                 [self updateFavoritesButtonImageToActive];
             } else {
@@ -466,7 +466,7 @@
 
 - (void)lookupAndUpdateFavoriteButtonImage{
     
-    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility isInFavorites:self.nameOnCard.text]];
+    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility isInFavorites:self.nameOnCard.text gender:[self getCurrentGender]]];
 }
 
 

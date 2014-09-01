@@ -18,7 +18,7 @@
 #define ROTATION_TONING_FRACTION 1
 #define ROTATION_TONING_MULTIPLE 1
 
-#define CARD_Y_LIFT 120.0f
+#define CARD_Y_LIFT 80.0f
 
 #define STACK_OVERLAP 120
 
@@ -162,16 +162,16 @@ This method is called by UICollectionView for laying out cells in the visible re
             
             // let's translate the cell closer to the horizontal center by half it's current distance to the center
 //            transform = CATransform3DTranslate(transform, (horizontalCenter - pointInMainView.x) / 2, 0.0, 0.0);
-            
+
             transform = CATransform3DTranslate(transform, rotationPoint.x - centerInMainView.x, rotationPoint.y - centerInMainView.y, 0.0);
             transform = CATransform3DRotate(transform, DEGREES_TO_RADIANS(-rotateBy), 0.0, 0.0, -1.0);
             
             // -30.0f to lift the cards up a bit
             // bring the cells closer together, overlapping, by dividing the x movement back by 2
-            transform = CATransform3DTranslate(transform, (centerInMainView.x - rotationPoint.x) / 4, centerInMainView.y-rotationPoint.y - CARD_Y_LIFT, 0.0);
+            transform = CATransform3DTranslate(transform, (centerInMainView.x - rotationPoint.x) / 3, centerInMainView.y-rotationPoint.y - CARD_Y_LIFT, 0.0);
             
             layoutAttributes.transform3D = transform;
-            
+
             // right card is always on top
             layoutAttributes.zIndex = layoutAttributes.indexPath.item;
             

@@ -20,7 +20,7 @@
 #import "NameDetailCardsViewController.h"
 
 
-@interface NameInfoViewController () <ShopViewControllerDelegate, CollectionViewDataFetchDelegate>
+@interface NameInfoViewController () <ShopViewControllerDelegate, CollectionViewDataFetchDelegate, FavoriteToggleDelegate>
 
 @property (strong, nonatomic) FavoritesDatabaseUtility *favoritesDatabaseUtility;
 
@@ -35,7 +35,8 @@
 {
     // we won't be setting favoritesDatabase here locally as property as we rely solely on FavoritesDatabaseUtility,
     // look up in the db when we know via this delegate method that it's been set up
-    [self lookupAndUpdateFavoriteButtonImage];
+
+//  [self lookupAndUpdateFavoriteButtonImage];
 }
 
 - (void)viewDidLoad
@@ -158,22 +159,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)updateFavoritesButtonImageToActive
-{
-    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"heart_nametag"] forState:UIControlStateNormal];
+
+- (UIImage *)getFavoriteButtonImageForState:(BOOL)active {
+    
+    if( active ) {
+        return [UIImage imageNamed:@"heart_nametag"];
+    } else {
+        return [UIImage imageNamed:@"heart_nametag_disabled"];
+    }
 }
-- (void)updateFavoritesButtonImageToInctive
-{
-    [self.toggleFavoriteButton setImage:[UIImage imageNamed:@"heart_nametag_disabled"] forState:UIControlStateNormal];
+
+/*
+- (void)updateFavoriteButtonImageForState:(BOOL)active {
+    
+    [self.toggleFavoriteButton setImage:[self getFavoriteButtonImageForState:active] forState:UIControlStateNormal];
 }
+
 - (void)updateFavoriteButtonImageToState:(BOOL)active
 {
-    if( active ) {
-        [self updateFavoritesButtonImageToActive];
-    } else {
-        [self updateFavoritesButtonImageToInctive];
-    }
-    
+    [self updateFavoriteButtonImageToState:active];
     
     [[[GAI sharedInstance] defaultTracker]
      send:[[GAIDictionaryBuilder createEventWithCategory:@"uiAction"
@@ -183,12 +187,13 @@
 }
 - (void)lookupAndUpdateFavoriteButtonImage{
     
-    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility isInFavorites:self.name]];
+    [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility isInFavorites:self.name gender:self.gender]];
 }
 - (IBAction)toggleFavorite:(id)sender {
     
     [self updateFavoriteButtonImageToState:[self.favoritesDatabaseUtility toggleFavoriteForName:self.name gender:self.gender]];
 }
+*/
 
 - (IBAction)mailDescription:(id)sender {
     
@@ -220,32 +225,49 @@
     
     NameDetailCardsViewController *cardsController = (NameDetailCardsViewController *)[segue destinationViewController];
     
-    cardsController.delegate = self;
+    cardsController.collectionViewDataDelegate = self;
+    cardsController.favoriteToggleDelegate = self;
 }
 
 - (NSInteger)numberOfSections {
 
-    return [self.delegate numberOfSections];
+    return [self.collectionViewDataDelegate numberOfSections];
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
     
-    return [self.delegate numberOfItemsInSection:section];
+    return [self.collectionViewDataDelegate numberOfItemsInSection:section];
 }
 
 - (Name *)dataForIndexPath:(NSIndexPath *)indexPath {
     
-    return [self.delegate dataForIndexPath:indexPath];
+    return [self.collectionViewDataDelegate dataForIndexPath:indexPath];
 }
 
 - (NSIndexPath *)getSelectedIndexPath {
     
-    return [self.delegate getSelectedIndexPath];
+    return [self.collectionViewDataDelegate getSelectedIndexPath];
 }
 
 - (void)scrollToIndexPathFromCollectionView:(NSIndexPath *)indexPath {
     
-    return [self.delegate scrollToIndexPathFromCollectionView:indexPath];
+    return [self.collectionViewDataDelegate scrollToIndexPathFromCollectionView:indexPath];
+}
+
+
+
+#pragma mark - FavoriteToggleDelegate
+
+- (UIImage *)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender {
+    
+    BOOL isActiveAfterToggle = [self.favoritesDatabaseUtility toggleFavoriteForName:name gender:gender];
+    return [self getFavoriteButtonImageForState:isActiveAfterToggle];
+}
+
+- (UIImage *)getFavoriteButtonImageForName:(NSString *)name gender:(NSString *)gender {
+    
+    BOOL isNameInFavorites = [self.favoritesDatabaseUtility isInFavorites:name gender:gender];
+    return [self getFavoriteButtonImageForState:isNameInFavorites];
 }
 
 

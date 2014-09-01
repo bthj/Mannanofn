@@ -65,9 +65,9 @@
 }
 
 
-- (BOOL)isInFavorites:(NSString *)name
+- (BOOL)isInFavorites:(NSString *)name gender:(NSString *)gender
 {
-    NSArray *existingFavoritesForName = [Favorite getFavoritesForName:name inContext:self.favoritesDatabase.managedObjectContext];
+    NSArray *existingFavoritesForName = [Favorite getFavoritesForName:name gender:gender inContext:self.favoritesDatabase.managedObjectContext];
     return [existingFavoritesForName count];
 }
 
@@ -77,8 +77,8 @@
     if( [[name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqual:@""] ) {
         isInFavorites = NO;
     } else {
-        if( [self isInFavorites:name] ) {
-            [Favorite removeFavoriteWithName:name inManagedObjectContext:self.favoritesDatabase.managedObjectContext];
+        if( [self isInFavorites:name gender:gender] ) {
+            [Favorite removeFavoriteWithName:name gender:gender inManagedObjectContext:self.favoritesDatabase.managedObjectContext];
             isInFavorites = NO;
         } else {
             [Favorite addFavoriteWithName:name gender:(NSString *)gender inManagedObjectContext:self.favoritesDatabase.managedObjectContext];

@@ -12,8 +12,8 @@
 
 + (Favorite *)addFavoriteWithName:(NSString *)name gender:(NSString *)gender inManagedObjectContext:(NSManagedObjectContext *)context;
 
-+ (void)removeFavoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
++ (void)removeFavoriteWithName:(NSString *)name gender:(NSString *)gender inManagedObjectContext:(NSManagedObjectContext *)context;
 
-+ (NSArray *)getFavoritesForName:(NSString *)name inContext:(NSManagedObjectContext *)context;
++ (NSArray *)getFavoritesForName:(NSString *)name gender:(NSString *)gender inContext:(NSManagedObjectContext *)context;
 
 @end

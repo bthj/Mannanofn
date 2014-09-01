@@ -225,7 +225,7 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
 {
     NameInfoViewController *nameInfo = (NameInfoViewController *)[segue destinationViewController];
     
-    nameInfo.delegate = self;
+    nameInfo.collectionViewDataDelegate = self;
     
     Favorite *favorite = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
     NSArray *nameParts = [favorite.name componentsSeparatedByString:@" "];

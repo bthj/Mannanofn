@@ -14,6 +14,8 @@
 
 #import "CollectionViewDataFetchDelegate.h"
 
+
+
 @protocol CollectionViewDataFetchDelegate;
 
 
@@ -24,7 +26,7 @@
 }
 
 
-@property (weak, nonatomic) id <CollectionViewDataFetchDelegate> delegate;
+@property (weak, nonatomic) id <CollectionViewDataFetchDelegate> collectionViewDataDelegate;
 
 
 @property (nonatomic, strong) NSString *name;
@@ -53,8 +55,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *adView;
 
+/*
 - (IBAction)toggleFavorite:(id)sender;
-
+*/
 
 - (IBAction)mailDescription:(id)sender;
 

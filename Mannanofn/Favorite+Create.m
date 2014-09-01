@@ -15,7 +15,7 @@
 + (Favorite *)addFavoriteWithName:(NSString *)name gender:(NSString *)gender inManagedObjectContext:(NSManagedObjectContext *)context
 {
     Favorite *favorite = nil;
-    NSArray *existingFavoritesForName = [self getFavoritesForName:name inContext:context];
+    NSArray *existingFavoritesForName = [self getFavoritesForName:name gender:gender inContext:context];
     if( [existingFavoritesForName count] ) {
         favorite = [existingFavoritesForName lastObject];
     } else {
@@ -30,18 +30,18 @@
     return favorite;
 }
 
-+ (void)removeFavoriteWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context
++ (void)removeFavoriteWithName:(NSString *)name gender:(NSString *)gender inManagedObjectContext:(NSManagedObjectContext *)context
 {
-    for( Favorite *oneFavorite in [self getFavoritesForName:name inContext:context] ) {
+    for( Favorite *oneFavorite in [self getFavoritesForName:name gender:gender inContext:context] ) {
         [context deleteObject:oneFavorite];
     }
 }
 
 
-+ (NSArray *)getFavoritesForName:(NSString *)name inContext:(NSManagedObjectContext *)context
++ (NSArray *)getFavoritesForName:(NSString *)name gender:(NSString *)gender inContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Favorite"];
-    request.predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+    request.predicate = [NSPredicate predicateWithFormat:@"name = %@ AND gender = %@", name, gender];
     NSError *error = nil;
     NSArray *favorites = [context executeFetchRequest:request error:&error];
     return favorites;

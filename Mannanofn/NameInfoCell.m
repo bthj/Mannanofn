@@ -25,7 +25,8 @@
         [self.layer setShadowColor:[UIColor redColor].CGColor] ;
         [self.layer setShadowOpacity:0.5];
         [self.layer setShadowPath:[[UIBezierPath bezierPathWithRect:self.bounds] CGPath]];
-*/      
+*/
+
     }
     return self;
 }
@@ -46,5 +47,11 @@
     // Drawing code
 }
 */
+
+- (IBAction)toggleFavorite:(id)sender {
+    
+    [self.btnToggleFavorite setImage:[self.favoriteToggleDelegate toggleFavoriteForName:self.name.text gender:self.gender] forState:UIControlStateNormal];
+}
+
 
 @end

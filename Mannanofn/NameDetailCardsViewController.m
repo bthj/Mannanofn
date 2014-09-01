@@ -8,11 +8,14 @@
 
 #import "NameDetailCardsViewController.h"
 #import "NameInfoCell.h"
+#import "MannanofnGlobalStringConstants.h"
 
 #define CELL_REUSE_IDENTIFIER @"NameInfoCell"
 
 
-@interface NameDetailCardsViewController () // <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface NameDetailCardsViewController () <FavoriteToggleDelegate>
+
+@property (strong, nonatomic) NSString *surname;
 
 @end
 
@@ -52,14 +55,21 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 
+    self.surname = [[NSUserDefaults standardUserDefaults] stringForKey:SURNAME_STORAGE_KEY];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 
-    NSIndexPath *indexPathToScrollTo = [self.delegate getSelectedIndexPath];
+    NSIndexPath *indexPathToScrollTo = [self.collectionViewDataDelegate getSelectedIndexPath];
     UICollectionViewLayoutAttributes *layoutAtIndexPath = [self.collectionView layoutAttributesForItemAtIndexPath:indexPathToScrollTo];
     
     [self.collectionView setContentOffset:CGPointMake(layoutAtIndexPath.frame.origin.x-120, 0) animated:YES];
+    
+    // the status of the very first cards in the collection isn't correctly reflected initally
+    // so we'll reload here after appearing:
+    [self.collectionView reloadData];
+    
+    
     
 //    [self.collectionView scrollToItemAtIndexPath:indexPathToScrollTo atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 
@@ -88,37 +98,61 @@
     NSArray *visibleIndexPaths = [self.collectionView indexPathsForVisibleItems];
     int middleIndex = (int)[visibleIndexPaths count] / 2;
     NSIndexPath *middleIndexPath = (NSIndexPath *)[visibleIndexPaths objectAtIndex:middleIndex];
-    [self.delegate scrollToIndexPathFromCollectionView:middleIndexPath];
+    [self.collectionViewDataDelegate scrollToIndexPathFromCollectionView:middleIndexPath];
 }
 
 
 
-#pragma mark - CollectionView delegats
+#pragma mark - CollectionView delegate
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 
 //    return 1;
-    return [self.delegate numberOfSections];
+    return [self.collectionViewDataDelegate numberOfSections];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
 //    return 20;
-    return [self.delegate numberOfItemsInSection:section];
+    return [self.collectionViewDataDelegate numberOfItemsInSection:section];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    Name *nameInfo = [self.delegate dataForIndexPath:indexPath];
+    // TODO: array?
+    Name *nameInfo = [self.collectionViewDataDelegate dataForIndexPath:indexPath];
     
     
     NameInfoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
-    cell.name.text = nameInfo.name;
+    cell.favoriteToggleDelegate = self;
+    if( [self.surname length] == 0 ) {
+        cell.name.text = nameInfo.name;
+    } else {
+        cell.name.text = [NSString stringWithFormat:@"%@ %@", nameInfo.name, self.surname];
+    }
+    cell.gender = nameInfo.gender;
+    cell.meaning.text = nameInfo.descriptionIcelandic;
+    cell.origin.text = nameInfo.origin;
+    cell.countAsFirst.text = [nameInfo.countAsFirstName stringValue];
+    cell.countAsSecond.text = [nameInfo.countAsSecondName stringValue];
+    
+    UIImage *favoriteButtonImage = [self.favoriteToggleDelegate getFavoriteButtonImageForName:cell.name.text gender:nameInfo.gender];
+    [cell.btnToggleFavorite setImage:favoriteButtonImage forState:UIControlStateNormal];
+    
     
 //    cell.contentView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"storkur_flip"]];
     
     cell.backgroundColor = [UIColor whiteColor];
+/*
+    cell.layer.shadowColor = [[UIColor blackColor] CGColor];
+    cell.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    cell.layer.shadowRadius = 2.0f;
+    cell.layer.shadowOpacity = 0.1f;
+*/
+    cell.layer.borderWidth = 1.0f;
+    cell.layer.borderColor = [[UIColor blackColor] CGColor];
+    
     return cell;
 }
 
@@ -136,6 +170,19 @@
 }
  */
 
+
+
+#pragma mark - FavoriteToggleDelegate
+
+- (UIImage *)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender {
+    
+    return [self.favoriteToggleDelegate toggleFavoriteForName:name gender:gender];
+}
+
+- (UIImage *)getFavoriteButtonImageForName:(NSString *)name gender:(NSString *)gender {
+
+    return [self.favoriteToggleDelegate getFavoriteButtonImageForName:name gender:gender];
+}
 
 
 

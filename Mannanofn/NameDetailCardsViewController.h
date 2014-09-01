@@ -10,14 +10,16 @@
 #import "Name.h"
 
 #import "CollectionViewDataFetchDelegate.h"
+#import "FavoriteToggleDelegate.h"
 
 
 @protocol CollectionViewDataFetchDelegate;
-
+@protocol FavoriteToggleDelegate;
 
 
 @interface NameDetailCardsViewController : UICollectionViewController
 
-@property (weak, nonatomic) id <CollectionViewDataFetchDelegate> delegate;
+@property (weak, nonatomic) id <CollectionViewDataFetchDelegate> collectionViewDataDelegate;
+@property (weak, nonatomic) id <FavoriteToggleDelegate> favoriteToggleDelegate;
 
 @end

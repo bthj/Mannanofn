@@ -7,10 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FavoriteToggleDelegate.h"
+
+
+@protocol FavoriteToggleDelegate;
+
+
 
 @interface NameInfoCell : UICollectionViewCell
 
+@property (weak, nonatomic) id <FavoriteToggleDelegate> favoriteToggleDelegate;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) NSString *gender;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *btnToggleFavorite;
+- (IBAction)toggleFavorite:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *meaning;
+@property (weak, nonatomic) IBOutlet UILabel *origin;
+
+@property (weak, nonatomic) IBOutlet UILabel *countAsFirst;
+@property (weak, nonatomic) IBOutlet UILabel *countAsSecond;
+
 
 //@property (strong, nonatomic) UIView *contentView;
 

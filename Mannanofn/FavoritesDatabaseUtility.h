@@ -19,7 +19,7 @@
 
 - (id)initFavoritesDatabaseForView: (UIView *)view;
 
-- (BOOL)isInFavorites:(NSString *)name;
+- (BOOL)isInFavorites:(NSString *)name gender:(NSString *)gender;
 - (BOOL)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender;
 
 @end

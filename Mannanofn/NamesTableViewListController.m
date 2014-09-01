@@ -581,7 +581,7 @@
     
     int sectionIndex = 0;
     long rowIndex = 0;
-    
+
     if( [self.namesOrder isEqualToString:ORDER_BY_FIRST_NAME_POPULARITY] ) {
         
         //                                                         +1 for the padding section
@@ -589,17 +589,18 @@
         rowIndex = indexPath.row - (sectionIndex - 1) * NUMER_OF_ROWS_IN_POPULARITY_SECTION;
         
     } else {
-        
+
         long rowSumInTableView = 0;
         long previousSectionRowSum  = 0;
-        
-        for( ; sectionIndex < [[self.fetchedResultsController sections] count]; sectionIndex++ ) {
+    
+        long sectionCount = [[self.fetchedResultsController sections] count];
+        for( ; sectionIndex < sectionCount; sectionIndex++ ) {
             
             rowSumInTableView += [[[self.fetchedResultsController sections] objectAtIndex:sectionIndex] numberOfObjects];
             
             if( rowSumInTableView >= indexPath.row ) {
                 
-                rowIndex = indexPath.row - previousSectionRowSum;
+                rowIndex = indexPath.row - previousSectionRowSum - 1;
                 
                 break;
             } else {
@@ -607,8 +608,9 @@
             }
         }
         ++sectionIndex;  // for the top padding section
+
     }
-    
+ 
     self.indexPathToScrollTo = [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
 }
 
@@ -634,7 +636,7 @@
     nameInfo.countAsFirstName = name.countAsFirstName;
     nameInfo.countAsSecondName = name.countAsSecondName;
     
-    nameInfo.delegate = self;
+    nameInfo.collectionViewDataDelegate = self;
 }
 
 

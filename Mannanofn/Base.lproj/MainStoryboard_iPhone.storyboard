@@ -1443,36 +1443,127 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="Srf-Pu-S2X" customClass="NameDetailCardsViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="fFV-lg-S2v">
-                        <rect key="frame" x="0.0" y="0.0" width="720" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="720" height="675"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="8aH-WK-0YU" customClass="RVCollectionViewLayout">
-                            <size key="itemSize" width="100" height="100"/>
+                            <size key="itemSize" width="260" height="420"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NameInfoCell" id="CZg-iP-FZj" customClass="NameInfoCell">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="NameInfoCell" reuseIdentifier="NameInfoCell" id="CZg-iP-FZj" customClass="NameInfoCell">
+                                <rect key="frame" x="0.0" y="0.0" width="260" height="420"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="420"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsm-ub-rVo" userLabel="Label - Nafn">
-                                            <rect key="frame" x="20" y="20" width="60" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nafn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="gsm-ub-rVo" userLabel="Label - Nafn">
+                                            <rect key="frame" x="20" y="20" width="220" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Merking:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ4-AF-PvL" userLabel="Label - Nafn">
+                                            <rect key="frame" x="20" y="81" width="166" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- merking" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="6" preferredMaxLayoutWidth="166" translatesAutoresizingMaskIntoConstraints="NO" id="c6f-4I-8jh" userLabel="Label - Nafn">
+                                            <rect key="frame" x="20" y="110" width="166" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Uppruni:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-om-Bqc" userLabel="Label - Nafn">
+                                            <rect key="frame" x="20" y="156" width="166" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- uppruni" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="KGk-My-Ghl" userLabel="Label - Nafn">
+                                            <rect key="frame" x="20" y="185" width="166" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fyrsta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="eyi-fb-lWN" userLabel="Label - Nafn">
+                                            <rect key="frame" x="20" y="214" width="43" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Annað:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="1bm-B1-pUb" userLabel="Label - Nafn">
+                                            <rect key="frame" x="20" y="243" width="43" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4321" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Zit-LK-Bme" userLabel="Label - Nafn">
+                                            <rect key="frame" x="71" y="243" width="43" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="96C-KW-VbO" userLabel="Label - Nafn">
+                                            <rect key="frame" x="71" y="214" width="43" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rh-UR-QtK" userLabel="Button - heart">
+                                            <rect key="frame" x="20" y="49" width="29" height="24"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" image="heart_nametag_disabled.png">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="toggleFavorite:" destination="CZg-iP-FZj" eventType="touchUpInside" id="YpK-Ia-ZMg"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8V-jH-vqC">
+                                            <rect key="frame" x="20" y="297" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button" image="ios7shareIcon_temporary.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="btnToggleFavorite" destination="3rh-UR-QtK" id="Xcj-OU-WFG"/>
+                                    <outlet property="countAsFirst" destination="96C-KW-VbO" id="Ko0-sy-pnV"/>
+                                    <outlet property="countAsSecond" destination="Zit-LK-Bme" id="s19-6n-PNR"/>
+                                    <outlet property="meaning" destination="c6f-4I-8jh" id="C6h-QB-Jsv"/>
                                     <outlet property="name" destination="gsm-ub-rVo" id="Nzk-px-SFY"/>
+                                    <outlet property="origin" destination="KGk-My-Ghl" id="0bu-gc-awB"/>
                                 </connections>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1bk-7P-1Fd">
+                                <rect key="frame" x="460" y="0.0" width="260" height="420"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="420"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -2354,11 +2445,11 @@
                         <viewControllerLayoutGuide type="bottom" id="U8s-mN-Dwo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2Xf-iW-VmZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JWX-em-FRd">
-                                <rect key="frame" x="-200" y="0.0" width="720" height="768"/>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWX-em-FRd">
+                                <rect key="frame" x="-200" y="0.0" width="720" height="675"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -2366,7 +2457,7 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ltn-D7-HEm" userLabel="adView">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="475" width="320" height="0.0"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifH-YK-gbj" userLabel="adCloseButton">
                                         <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
@@ -2407,6 +2498,11 @@
                         <constraints>
                             <constraint firstItem="U8s-mN-Dwo" firstAttribute="top" secondItem="Ltn-D7-HEm" secondAttribute="bottom" id="G4Q-aN-IFd"/>
                             <constraint firstItem="Ltn-D7-HEm" firstAttribute="top" secondItem="f1C-67-SuR" secondAttribute="bottom" constant="518" id="ROf-55-W80"/>
+                            <constraint firstItem="JWX-em-FRd" firstAttribute="top" secondItem="2Xf-iW-VmZ" secondAttribute="top" id="SaI-8T-ugX"/>
+                            <constraint firstItem="JWX-em-FRd" firstAttribute="centerX" secondItem="2Xf-iW-VmZ" secondAttribute="centerX" id="ckp-Uo-MOC"/>
+                            <constraint firstAttribute="bottom" secondItem="JWX-em-FRd" secondAttribute="bottom" constant="-200" id="hfc-Xd-vLn"/>
+                            <constraint firstItem="JWX-em-FRd" firstAttribute="centerX" secondItem="Ltn-D7-HEm" secondAttribute="centerX" id="iAd-hU-BCM"/>
+                            <constraint firstItem="JWX-em-FRd" firstAttribute="leading" secondItem="2Xf-iW-VmZ" secondAttribute="leading" constant="-200" id="xvu-jQ-5YR"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -2434,6 +2530,7 @@
         <image name="heart_tabbar.png" width="30" height="30"/>
         <image name="ico_close.png" width="45" height="45"/>
         <image name="ios-check.png" width="14" height="11"/>
+        <image name="ios7shareIcon_temporary.png" width="174" height="166"/>
         <image name="popularity_tabbar.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
         <image name="storkur_background.png" width="202" height="241"/>
@@ -2447,7 +2544,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="QhW-4Q-s9w"/>
         <segue reference="ELq-QN-jbh"/>
-        <segue reference="gfT-yU-9hI"/>
+        <segue reference="gLA-Pa-XbZ"/>
         <segue reference="mev-vb-cxr"/>
     </inferredMetricsTieBreakers>
 </document>

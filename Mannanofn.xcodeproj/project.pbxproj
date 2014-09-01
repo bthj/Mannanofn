@@ -108,6 +108,7 @@
 		FBB007D419602B8400E78CFC /* MannanofnDatabase in Resources */ = {isa = PBXBuildFile; fileRef = FBB007D319602B8400E78CFC /* MannanofnDatabase */; };
 		FBB3286E1945102100CF34FC /* ico_close.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB3286D1945102100CF34FC /* ico_close.png */; };
 		FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB360016C0202400861504 /* NameInfoViewController.m */; };
+		FBCAB64C19B4854300E883E9 /* ios7shareIcon_temporary.png in Resources */ = {isa = PBXBuildFile; fileRef = FBCAB64B19B4854200E883E9 /* ios7shareIcon_temporary.png */; };
 		FBCECD1F16FC665A00F5EBD1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */; };
 		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
 		FBD34E261626231600BDC541 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEC1546008A0077438C /* UIKit.framework */; };
@@ -296,6 +297,8 @@
 		FBB3286D1945102100CF34FC /* ico_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_close.png; sourceTree = "<group>"; };
 		FBBB35FF16C0202300861504 /* NameInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameInfoViewController.h; sourceTree = "<group>"; };
 		FBBB360016C0202400861504 /* NameInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameInfoViewController.m; sourceTree = "<group>"; };
+		FBCAB64A19B3783F00E883E9 /* FavoriteToggleDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteToggleDelegate.h; sourceTree = "<group>"; };
+		FBCAB64B19B4854200E883E9 /* ios7shareIcon_temporary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios7shareIcon_temporary.png; sourceTree = "<group>"; };
 		FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FBD1828315E6BC5300F22A63 /* names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names.json; sourceTree = "<group>"; };
 		FBD34E241626231600BDC541 /* Seed Mannanofn Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seed Mannanofn Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -617,6 +620,7 @@
 				FB9C336D174C057400CA387C /* UILabel+VAlign.h */,
 				FB9C336E174C057400CA387C /* UILabel+VAlign.m */,
 				FB8F5B3819A730B70071AC61 /* CollectionViewDataFetchDelegate.h */,
+				FBCAB64A19B3783F00E883E9 /* FavoriteToggleDelegate.h */,
 			);
 			name = "Name info";
 			sourceTree = "<group>";
@@ -650,6 +654,7 @@
 		FB8D69F516F282CD00653612 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				FBCAB64B19B4854200E883E9 /* ios7shareIcon_temporary.png */,
 				FB31C154195F2E48000789B9 /* ios-nocheck.png */,
 				FB31C155195F2E48000789B9 /* ios-nocheck@2x.png */,
 				FB31C150195F2AF6000789B9 /* ios-check.png */,
@@ -873,6 +878,7 @@
 				FB7A5B04188F15E90011C3BF /* tableViewBulletGreen@2x.png in Resources */,
 				FB4E5E72198116CE00352929 /* wheel_tabbar.png in Resources */,
 				FB8D6A0416F282CD00653612 /* tableViewBackgroundBlue.png in Resources */,
+				FBCAB64C19B4854300E883E9 /* ios7shareIcon_temporary.png in Resources */,
 				FB8D6A0516F282CD00653612 /* tableViewBackgroundBlue@2x.png in Resources */,
 				FB8D6A0616F282CD00653612 /* tableViewBackgroundPink.png in Resources */,
 				FB8D6A0716F282CD00653612 /* tableViewBackgroundPink@2x.png in Resources */,
