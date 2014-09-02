@@ -38,5 +38,7 @@
 - (IBAction)toggleFavorite:(id)sender;
 
 
+@property (nonatomic, assign, getter = isFavorite) BOOL favorite;
+
 
 @end

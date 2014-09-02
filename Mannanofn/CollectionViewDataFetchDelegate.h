@@ -22,4 +22,6 @@
 
 - (void)scrollToIndexPathFromCollectionView:(NSIndexPath *)indexPath;
 
+- (void)refetchData;
+
 @end

@@ -10,7 +10,7 @@
 
 @protocol FavoriteToggleDelegate <NSObject>
 
-- (UIImage *)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender;
+- (UIImage *)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender cell:(UICollectionViewCell *)cell isFavorite:(BOOL)isFavorite;
 
 - (UIImage *)getFavoriteButtonImageForName:(NSString *)name gender:(NSString *)gender;
 

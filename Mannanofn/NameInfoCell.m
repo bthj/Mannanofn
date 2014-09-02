@@ -50,7 +50,8 @@
 
 - (IBAction)toggleFavorite:(id)sender {
     
-    [self.btnToggleFavorite setImage:[self.favoriteToggleDelegate toggleFavoriteForName:self.name.text gender:self.gender] forState:UIControlStateNormal];
+    [self.btnToggleFavorite setImage:[self.favoriteToggleDelegate toggleFavoriteForName:self.name.text gender:self.gender cell:self isFavorite:self.isFavorite] forState:UIControlStateNormal];
+
 }
 
 

@@ -9,6 +9,7 @@
 #import "FavoritesTableViewController.h"
 #import "Favorite.h"
 #import "Name+Create.h"
+#import "NameMeta.h"
 #import "NameInfoViewController.h"
 #import "MannanofnGlobalStringConstants.h"
 #import "WheelOfFavorites.h"
@@ -328,13 +329,32 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
         Name *name1 = [Name getNameForName:[nameParts objectAtIndex:0] inContext:self.namesDatabase.managedObjectContext];
         Name *name2 = [Name getNameForName:[nameParts objectAtIndex:1] inContext:self.namesDatabase.managedObjectContext];
         
-        return [NSArray arrayWithObjects:name1, name2, nil];
+        NameMeta *nameMeta1 = [[NameMeta alloc] init];
+        nameMeta1.nameEntry = name1;
+        nameMeta1.favoriteString = favorite.name;
+        nameMeta1.favorite = YES;
+        
+        if( name2 ) {
+            NameMeta *nameMeta2 = [[NameMeta alloc] init];
+            nameMeta2.nameEntry = name2;
+            nameMeta2.favoriteString = favorite.name; // basically unneccesary to set this here again!
+            nameMeta2.favorite = YES;
+            
+            return [NSArray arrayWithObjects:nameMeta1, nameMeta2, nil];
+        } else {
+            return [NSArray arrayWithObjects:nameMeta1, nil];
+        }
         
     } else if( [nameParts count] == 1 ) {
         
         Name *name = [Name getNameForName:favorite.name inContext:self.namesDatabase.managedObjectContext];
         
-        return [NSArray arrayWithObjects:name, nil];
+        NameMeta *nameMeta = [[NameMeta alloc] init];
+        nameMeta.nameEntry = name;
+        nameMeta.favoriteString = favorite.name;
+        nameMeta.favorite = YES;
+        
+        return [NSArray arrayWithObjects:nameMeta, nil];
         
     } else {
         return nil;
@@ -350,6 +370,11 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
 - (void)scrollToIndexPathFromCollectionView:(NSIndexPath *)indexPath {
     
     self.indexPathToScrollTo = indexPath;
+}
+
+- (void)refetchData {
+    
+    [self setupFetchedResultsController];
 }
 
 

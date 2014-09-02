@@ -110,6 +110,7 @@
 		FBBB360116C0202400861504 /* NameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBB360016C0202400861504 /* NameInfoViewController.m */; };
 		FBCAB64C19B4854300E883E9 /* ios7shareIcon_temporary.png in Resources */ = {isa = PBXBuildFile; fileRef = FBCAB64B19B4854200E883E9 /* ios7shareIcon_temporary.png */; };
 		FBCAB64F19B5021C00E883E9 /* NameInfoDoubleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCAB64E19B5021C00E883E9 /* NameInfoDoubleCell.m */; };
+		FBCAB65319B64CDD00E883E9 /* NameMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCAB65219B64CDD00E883E9 /* NameMeta.m */; };
 		FBCECD1F16FC665A00F5EBD1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */; };
 		FBD1828415E6BC5300F22A63 /* names.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD1828315E6BC5300F22A63 /* names.json */; };
 		FBD34E261626231600BDC541 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB313DEC1546008A0077438C /* UIKit.framework */; };
@@ -302,6 +303,8 @@
 		FBCAB64B19B4854200E883E9 /* ios7shareIcon_temporary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios7shareIcon_temporary.png; sourceTree = "<group>"; };
 		FBCAB64D19B5021C00E883E9 /* NameInfoDoubleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameInfoDoubleCell.h; sourceTree = "<group>"; };
 		FBCAB64E19B5021C00E883E9 /* NameInfoDoubleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameInfoDoubleCell.m; sourceTree = "<group>"; };
+		FBCAB65119B64CDD00E883E9 /* NameMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameMeta.h; sourceTree = "<group>"; };
+		FBCAB65219B64CDD00E883E9 /* NameMeta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameMeta.m; sourceTree = "<group>"; };
 		FBCECD1E16FC665A00F5EBD1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FBD1828315E6BC5300F22A63 /* names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names.json; sourceTree = "<group>"; };
 		FBD34E241626231600BDC541 /* Seed Mannanofn Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seed Mannanofn Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -626,6 +629,8 @@
 				FB9C336E174C057400CA387C /* UILabel+VAlign.m */,
 				FB8F5B3819A730B70071AC61 /* CollectionViewDataFetchDelegate.h */,
 				FBCAB64A19B3783F00E883E9 /* FavoriteToggleDelegate.h */,
+				FBCAB65119B64CDD00E883E9 /* NameMeta.h */,
+				FBCAB65219B64CDD00E883E9 /* NameMeta.m */,
 			);
 			name = "Name info";
 			sourceTree = "<group>";
@@ -934,6 +939,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB297E6E19473988007364C9 /* AboutAppViewController.m in Sources */,
+				FBCAB65319B64CDD00E883E9 /* NameMeta.m in Sources */,
 				FB7A5B00188D93BF0011C3BF /* SyllablesChoicesViewController.m in Sources */,
 				FB7E2C9A19796578003A65E7 /* WheelRandomController.m in Sources */,
 				FB515878188C96A2008B8C18 /* FilterChoicesViewController.m in Sources */,

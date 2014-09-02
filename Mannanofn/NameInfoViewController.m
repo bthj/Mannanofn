@@ -254,11 +254,16 @@
     return [self.collectionViewDataDelegate scrollToIndexPathFromCollectionView:indexPath];
 }
 
+- (void)refetchData {
+    
+    return [self.collectionViewDataDelegate refetchData];
+}
+
 
 
 #pragma mark - FavoriteToggleDelegate
 
-- (UIImage *)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender {
+- (UIImage *)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender cell:(UICollectionViewCell *)cell isFavorite:(BOOL)isFavorite {
     
     BOOL isActiveAfterToggle = [self.favoritesDatabaseUtility toggleFavoriteForName:name gender:gender];
     return [self getFavoriteButtonImageForState:isActiveAfterToggle];

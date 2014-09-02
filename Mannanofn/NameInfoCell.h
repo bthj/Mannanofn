@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *countAsFirst;
 @property (weak, nonatomic) IBOutlet UILabel *countAsSecond;
 
+@property (nonatomic, assign, getter = isFavorite) BOOL favorite;
 
 //@property (strong, nonatomic) UIView *contentView;
 

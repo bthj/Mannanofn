@@ -10,6 +10,7 @@
 #import "NameInfoCell.h"
 #import "NameInfoDoubleCell.h"
 #import "MannanofnGlobalStringConstants.h"
+#import "NameMeta.h"
 
 #define CELL_REUSE_IDENTIFIER @"NameInfoCell"
 #define CELL_REUSE_IDENTIFIER_DOUBLE_NAME @"NameInfoCellDoubleName"
@@ -128,22 +129,34 @@
     
     if( [nameInfos count] == 1 ) {
         
-        Name *nameInfo = [nameInfos objectAtIndex:0];
+        NameMeta *nameInfo = [nameInfos objectAtIndex:0];
      
         NameInfoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
         cell.favoriteToggleDelegate = self;
-        if( [self.surname length] == 0 ) {
-            cell.name.text = nameInfo.name;
-        } else {
-            cell.name.text = [NSString stringWithFormat:@"%@ %@", nameInfo.name, self.surname];
-        }
-        cell.gender = nameInfo.gender;
-        cell.meaning.text = nameInfo.descriptionIcelandic;
-        cell.origin.text = nameInfo.origin;
-        cell.countAsFirst.text = [nameInfo.countAsFirstName stringValue];
-        cell.countAsSecond.text = [nameInfo.countAsSecondName stringValue];
         
-        UIImage *favoriteButtonImage = [self.favoriteToggleDelegate getFavoriteButtonImageForName:cell.name.text gender:nameInfo.gender];
+        if( nameInfo.isFavorite ) {
+            
+            cell.name.text = nameInfo.favoriteString;
+            
+        } else {
+
+            if( [self.surname length] == 0 ) {
+                cell.name.text = nameInfo.nameEntry.name;
+            } else {
+                cell.name.text = [NSString stringWithFormat:@"%@ %@", nameInfo.nameEntry.name, self.surname];
+            }
+        }
+
+        cell.gender = nameInfo.nameEntry.gender;
+        cell.meaning.text = nameInfo.nameEntry.descriptionIcelandic;
+        cell.origin.text = nameInfo.nameEntry.origin;
+        cell.countAsFirst.text = [nameInfo.nameEntry.countAsFirstName stringValue];
+        cell.countAsSecond.text = [nameInfo.nameEntry.countAsSecondName stringValue];
+        
+        cell.favorite = nameInfo.isFavorite;
+        
+        UIImage *favoriteButtonImage = [self.favoriteToggleDelegate getFavoriteButtonImageForName:nameInfo.favoriteString gender:nameInfo.nameEntry.gender];
+        
         [cell.btnToggleFavorite setImage:favoriteButtonImage forState:UIControlStateNormal];
         
         cell.backgroundColor = [UIColor whiteColor];
@@ -154,28 +167,39 @@
         return cell;
         
     } else if( [nameInfos count] == 2 ) {
-        
-        Name *name1Info = [nameInfos objectAtIndex:0];
-        Name *name2Info = [nameInfos objectAtIndex:1];
+
+        NameMeta *name1Info = [nameInfos objectAtIndex:0];
+        NameMeta *name2Info = [nameInfos objectAtIndex:1];
         
         NameInfoDoubleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_REUSE_IDENTIFIER_DOUBLE_NAME forIndexPath:indexPath];
         cell.favoriteToggleDelegate = self;
-        if( [self.surname length] == 0 ) {
-            cell.name.text = [NSString stringWithFormat:@"%@ %@", name1Info.name, name2Info.name];
-        } else {
-            cell.name.text = [NSString stringWithFormat:@"%@ %@ %@", name1Info.name, name2Info.name, self.surname];
-        }
-        cell.gender = name1Info.gender;
-
-        cell.name1.text = name1Info.name;
-        cell.name1meaning.text = name1Info.descriptionIcelandic;
-        cell.name1origin.text = name1Info.origin;
-
-        cell.name2.text = name2Info.name;
-        cell.name2meaning.text = name2Info.descriptionIcelandic;
-        cell.name2origin.text = name2Info.origin;
         
-        UIImage *favoriteButtonImage = [self.favoriteToggleDelegate getFavoriteButtonImageForName:cell.name.text gender:name1Info.gender];
+        if( name1Info.isFavorite ) {
+            
+            cell.name.text = name1Info.favoriteString;
+            
+        } else {
+        
+            if( [self.surname length] == 0 ) {
+                cell.name.text = [NSString stringWithFormat:@"%@ %@", name1Info.nameEntry.name, name2Info.nameEntry.name];
+            } else {
+                cell.name.text = [NSString stringWithFormat:@"%@ %@ %@", name1Info.nameEntry.name, name2Info.nameEntry.name, self.surname];
+            }
+        }
+        
+        cell.gender = name1Info.nameEntry.gender;
+
+        cell.name1.text = name1Info.nameEntry.name;
+        cell.name1meaning.text = name1Info.nameEntry.descriptionIcelandic;
+        cell.name1origin.text = name1Info.nameEntry.origin;
+
+        cell.name2.text = name2Info.nameEntry.name;
+        cell.name2meaning.text = name2Info.nameEntry.descriptionIcelandic;
+        cell.name2origin.text = name2Info.nameEntry.origin;
+        
+        cell.favorite = name1Info.isFavorite;
+        
+        UIImage *favoriteButtonImage = [self.favoriteToggleDelegate getFavoriteButtonImageForName:name1Info.favoriteString gender:name1Info.nameEntry.gender];
         [cell.btnToggleFavorite setImage:favoriteButtonImage forState:UIControlStateNormal];
         
         cell.backgroundColor = [UIColor whiteColor];
@@ -209,9 +233,44 @@
 
 #pragma mark - FavoriteToggleDelegate
 
-- (UIImage *)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender {
+- (UIImage *)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender cell:(UICollectionViewCell *)cell isFavorite:(BOOL)isFavorite {
     
-    return [self.favoriteToggleDelegate toggleFavoriteForName:name gender:gender];
+    UIImage *favoriteButtonImage = [self.favoriteToggleDelegate toggleFavoriteForName:name gender:gender cell:cell isFavorite:isFavorite];
+  
+    
+    if( isFavorite ) {
+  
+        // TODO: do something like:
+        // [self.favoritesDatabase.managedObjectContext deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        //  ...as in FavoritesTableViewController, just via a delegate
+/*
+        [self.collectionViewDataDelegate refetchData];
+        
+        [self.collectionView performBatchUpdates:^{
+            
+            NSIndexPath *indexPathForDeletedRow = [self.collectionView indexPathForCell:cell];
+            
+//            [self.collectionView reloadData];
+            
+            [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObjects:indexPathForDeletedRow, nil]];
+            
+        } completion:^(BOOL finished) {
+           
+
+            
+        }];
+//        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+*/
+        
+    } else {
+        // TODO: do     UIImage *favoriteButtonImage = [self.favoriteToggleDelegate toggleFavoriteForName:name gender:gender cell:cell isFavorite:isFavorite];
+        // ...here
+    }
+    
+//    [self.collectionView reloadData];
+//    self.collectionView delete
+    
+    return favoriteButtonImage;
 }
 
 - (UIImage *)getFavoriteButtonImageForName:(NSString *)name gender:(NSString *)gender {

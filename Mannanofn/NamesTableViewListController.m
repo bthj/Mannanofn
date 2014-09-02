@@ -8,6 +8,7 @@
 
 #import "NamesTableViewListController.h"
 #import "Name.h"
+#import "NameMeta.h"
 #import "MannanofnGlobalStringConstants.h"
 #import "MinMaxPopularityViewController.h"
 #import "NameInfoViewController.h"
@@ -514,7 +515,11 @@
 
         // both the popularity and collection view index paths have a single section
         
-        return [NSArray arrayWithObjects:[self.fetchedResultsController objectAtIndexPath:indexPath], nil];
+        NameMeta *nameMeta = [[NameMeta alloc] init];
+        nameMeta.nameEntry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        nameMeta.favoriteString = nameMeta.nameEntry.name;
+        nameMeta.favorite = NO;
+        return [NSArray arrayWithObjects:nameMeta, nil];
         
     } else {
         
@@ -546,7 +551,11 @@
         
         NSIndexPath *alphabeticalIndexpath = [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
         
-        return [NSArray arrayWithObjects:[self.fetchedResultsController objectAtIndexPath:alphabeticalIndexpath], nil];
+        NameMeta *nameMeta = [[NameMeta alloc] init];
+        nameMeta.nameEntry = [self.fetchedResultsController objectAtIndexPath:alphabeticalIndexpath];
+        nameMeta.favoriteString = nameMeta.nameEntry.name;
+        nameMeta.favorite = NO;
+        return [NSArray arrayWithObjects:nameMeta, nil];
     }
     
 
@@ -639,7 +648,10 @@
     nameInfo.collectionViewDataDelegate = self;
 }
 
-
+- (void)refetchData {
+    
+    [self fetchResults];
+}
 
 
 
