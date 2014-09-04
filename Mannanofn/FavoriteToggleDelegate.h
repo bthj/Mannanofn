@@ -14,4 +14,8 @@
 
 - (UIImage *)getFavoriteButtonImageForName:(NSString *)name gender:(NSString *)gender;
 
+@optional
+
+- (UIImage *)getFavoriteButtonImageForState:(BOOL)active;
+
 @end

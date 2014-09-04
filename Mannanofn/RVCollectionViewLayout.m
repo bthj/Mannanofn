@@ -182,6 +182,23 @@ This method is called by UICollectionView for laying out cells in the visible re
     return modifiedLayoutAttributesArray;
 }
 
+- (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
+    
+    UICollectionViewLayoutAttributes *layoutAttributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+    
+    CGPoint centerInCollectionView = layoutAttributes.center;
+    CGPoint centerInMainView = [self.superView convertPoint:centerInCollectionView fromView:self.collectionView];
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform = CATransform3DTranslate(transform, 0, centerInMainView.y - self.collectionView.frame.size.height * 1.5, 0);
+    
+    layoutAttributes.transform3D = transform;
+    
+//    layoutAttributes.alpha = 0.0;
+    
+    return layoutAttributes;
+}
+
 
 
 -(float)calculateRotationFromViewPortDistance:(float)x center:(float)horizontalCenter{

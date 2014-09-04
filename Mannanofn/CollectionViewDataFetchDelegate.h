@@ -24,4 +24,8 @@
 
 - (void)refetchData;
 
+@optional
+
+- (void)deleteEntryAtIndexPath:(NSIndexPath *)indexPath;
+
 @end

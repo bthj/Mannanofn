@@ -59,6 +59,11 @@
 - (void)viewWillAppear:(BOOL)animated {
 
     self.surname = [[NSUserDefaults standardUserDefaults] stringForKey:SURNAME_STORAGE_KEY];
+    
+/*  TODO: this does not have the desired effect:
+    // we might be entering the view directly from another tab, where favorites were added or deleted:
+    [self.collectionViewDataDelegate refetchData];
+*/
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -67,6 +72,7 @@
     UICollectionViewLayoutAttributes *layoutAtIndexPath = [self.collectionView layoutAttributesForItemAtIndexPath:indexPathToScrollTo];
     
     [self.collectionView setContentOffset:CGPointMake(layoutAtIndexPath.frame.origin.x-120, 0) animated:YES];
+    
     
     // the status of the very first cards in the collection isn't correctly reflected initally
     // so we'll reload here after appearing:
@@ -235,14 +241,37 @@
 
 - (UIImage *)toggleFavoriteForName:(NSString *)name gender:(NSString *)gender cell:(UICollectionViewCell *)cell isFavorite:(BOOL)isFavorite {
     
-    UIImage *favoriteButtonImage = [self.favoriteToggleDelegate toggleFavoriteForName:name gender:gender cell:cell isFavorite:isFavorite];
+    UIImage *favoriteButtonImage;
   
     
     if( isFavorite ) {
+        
+        NSIndexPath *indexPathForDeletedRow = [self.collectionView indexPathForCell:cell];
+        
+        [self.collectionViewDataDelegate deleteEntryAtIndexPath:indexPathForDeletedRow];
+        
+        [self.collectionViewDataDelegate refetchData];
+        
+        double delayInSeconds = 0.3;
+        dispatch_time_t deleteTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(deleteTime, dispatch_get_main_queue(), ^{
+            
+            [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObjects:indexPathForDeletedRow, nil]];
+//            [self.collectionView reloadData];
+        });
+        
+        
+//        [self.collectionView reloadData];
+        
+        favoriteButtonImage = [self.favoriteToggleDelegate getFavoriteButtonImageForState:NO];
+        
+//        [self.collectionViewDataDelegate refetchData];
+//        [self.collectionView reloadData];
   
         // TODO: do something like:
         // [self.favoritesDatabase.managedObjectContext deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-        //  ...as in FavoritesTableViewController, just via a delegate
+        //  ...as in FavoritesTableViewController, just via a delegate (CollectionView delegate)
+        // then [self.collectionView reloadData];
 /*
         [self.collectionViewDataDelegate refetchData];
         
@@ -255,16 +284,13 @@
             [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObjects:indexPathForDeletedRow, nil]];
             
         } completion:^(BOOL finished) {
-           
-
-            
+ 
         }];
 //        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
 */
         
     } else {
-        // TODO: do     UIImage *favoriteButtonImage = [self.favoriteToggleDelegate toggleFavoriteForName:name gender:gender cell:cell isFavorite:isFavorite];
-        // ...here
+        favoriteButtonImage = [self.favoriteToggleDelegate toggleFavoriteForName:name gender:gender cell:cell isFavorite:isFavorite];
     }
     
 //    [self.collectionView reloadData];

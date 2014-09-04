@@ -377,5 +377,13 @@ moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
     [self setupFetchedResultsController];
 }
 
+- (void)deleteEntryAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.favoritesDatabase.managedObjectContext deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    
+    [self.favoritesDatabase saveToURL:self.favoritesDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];  // TODO: use the completion handler to trigger collection object deletion? ...to avoid the message:
+    //  ..."Snapshotting a view that has not been rendered results in an empty snapshot. Ensure your view has been rendered at least once before snapshotting or snapshot after screen updates."
+}
+
 
 @end

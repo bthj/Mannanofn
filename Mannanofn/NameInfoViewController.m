@@ -160,15 +160,6 @@
 }
 
 
-- (UIImage *)getFavoriteButtonImageForState:(BOOL)active {
-    
-    if( active ) {
-        return [UIImage imageNamed:@"heart_nametag"];
-    } else {
-        return [UIImage imageNamed:@"heart_nametag_disabled"];
-    }
-}
-
 /*
 - (void)updateFavoriteButtonImageForState:(BOOL)active {
     
@@ -251,12 +242,17 @@
 
 - (void)scrollToIndexPathFromCollectionView:(NSIndexPath *)indexPath {
     
-    return [self.collectionViewDataDelegate scrollToIndexPathFromCollectionView:indexPath];
+    [self.collectionViewDataDelegate scrollToIndexPathFromCollectionView:indexPath];
 }
 
 - (void)refetchData {
     
-    return [self.collectionViewDataDelegate refetchData];
+    [self.collectionViewDataDelegate refetchData];
+}
+
+- (void)deleteEntryAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.collectionViewDataDelegate deleteEntryAtIndexPath:indexPath];
 }
 
 
@@ -273,6 +269,15 @@
     
     BOOL isNameInFavorites = [self.favoritesDatabaseUtility isInFavorites:name gender:gender];
     return [self getFavoriteButtonImageForState:isNameInFavorites];
+}
+
+- (UIImage *)getFavoriteButtonImageForState:(BOOL)active {
+    
+    if( active ) {
+        return [UIImage imageNamed:@"heart_nametag"];
+    } else {
+        return [UIImage imageNamed:@"heart_nametag_disabled"];
+    }
 }
 
 
